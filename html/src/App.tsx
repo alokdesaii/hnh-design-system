@@ -34,6 +34,7 @@ import {
   Info,
   Bell,
   User,
+  Clock,
   // Plus,
   // Filter,
   ArrowUpDown,
@@ -67,6 +68,7 @@ const navigationGroups: NavigationGroup[] = [
       { id: 'foundations/typography', name: 'Typography' },
       { id: 'foundations/spacing', name: 'Spacing & Grids' },
       { id: 'foundations/borders', name: 'Borders & Shadows' },
+      { id: 'foundations/iconography', name: 'Iconography' },
     ]
   },
   {
@@ -160,6 +162,7 @@ const implementedPaths = [
   'components/card',
   'components/avatar',
   'components/table',
+  'foundations/iconography',
 ]
 
 interface Shade {
@@ -452,6 +455,34 @@ const tableData = [
   { id: 'TXN-1087', date: 'Jun 24, 2026', client: 'Farkas Corp', amount: '$6,430.20', status: 'pending', method: 'ACH Direct' },
 ]
 
+const iconLibrary = [
+  { name: 'Wallet', icon: Wallet, category: 'Financial', description: 'Represents bank accounts, wallets, and balances.' },
+  { name: 'Send', icon: Send, category: 'Financial', description: 'Used for executing transfers and initiating payments.' },
+  { name: 'ArrowUpRight', icon: ArrowUpRight, category: 'Financial', description: 'Signifies outgoing transactions or funds leaving.' },
+  { name: 'ArrowDownLeft', icon: ArrowDownLeft, category: 'Financial', description: 'Signifies incoming transactions, refunds, or deposits.' },
+  { name: 'Activity', icon: Activity, category: 'Financial', description: 'Used for transaction activity feeds and real-time logs.' },
+  { name: 'CheckCircle2', icon: CheckCircle2, category: 'Status', description: 'Represents successful, settled, or verified status.' },
+  { name: 'Clock', icon: Clock, category: 'Status', description: 'Represents pending actions, schedules, or escrow states.' },
+  { name: 'XCircle', icon: XCircle, category: 'Status', description: 'Represents failed, declined, or canceled status.' },
+  { name: 'AlertCircle', icon: AlertCircle, category: 'Status', description: 'Represents general warnings, dispute holds, or refunds.' },
+  { name: 'AlertTriangle', icon: AlertTriangle, category: 'Status', description: 'Represents high-risk actions, errors, or KYC blocks.' },
+  { name: 'Info', icon: Info, category: 'General', description: 'Provides contextual help details and table cell tooltips.' },
+  { name: 'Bell', icon: Bell, category: 'General', description: 'Indicates system alerts, transaction updates, and announcements.' },
+  { name: 'User', icon: User, category: 'General', description: 'Represents clients, customers, team members, or developers.' },
+  { name: 'Copy', icon: Copy, category: 'General', description: 'Copy-to-clipboard action for transaction hashes or API keys.' },
+  { name: 'Eye', icon: Eye, category: 'General', description: 'Toggles viewability for confidential fields like client secrets.' },
+  { name: 'EyeOff', icon: EyeOff, category: 'General', description: 'Hides confidential field values.' },
+  { name: 'Search', icon: Search, category: 'Navigation', description: 'Default trigger icon for search input fields and filters.' },
+  { name: 'ChevronRight', icon: ChevronRight, category: 'Navigation', description: 'Indicates sub-menu navigation or next step.' },
+  { name: 'ChevronDown', icon: ChevronDown, category: 'Navigation', description: 'Toggles accordions, dropdown select options, or disclosures.' },
+  { name: 'ChevronLeft', icon: ChevronLeft, category: 'Navigation', description: 'Backwards navigation or previous step.' },
+  { name: 'ArrowRight', icon: ArrowRight, category: 'Navigation', description: 'Used on main CTAs to prompt user progression.' },
+  { name: 'ArrowUpDown', icon: ArrowUpDown, category: 'Navigation', description: 'Indicates a sortable column header inside tables.' },
+  { name: 'Accessibility', icon: Accessibility, category: 'General', description: 'Indicates accessibility checklists and WCAG contracts.' },
+  { name: 'Shield', icon: Shield, category: 'General', description: 'Represents security audits, permissions, and trusted protocols.' },
+  { name: 'LayoutGrid', icon: LayoutGrid, category: 'Navigation', description: 'Used for toggling grid view dashboard widgets.' },
+]
+
 function App() {
   // Theme state
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -622,6 +653,10 @@ function App() {
   const [playTableSortField, setPlayTableSortField] = useState<'date' | 'amount'>('date')
   const [playTableSortDir, setPlayTableSortDir] = useState<'asc' | 'desc'>('desc')
 
+  // Iconography states
+  const [iconSearch, setIconSearch] = useState<string>('')
+  const [iconCategory, setIconCategory] = useState<string>('All')
+
   // Alert Dialog Playground states
   const [playAlertDialogOpen, setPlayAlertDialogOpen] = useState<boolean>(false)
   const [playAlertDialogVariant, setPlayAlertDialogVariant] = useState<'confirm' | 'destructive' | 'info'>('confirm')
@@ -771,6 +806,13 @@ function App() {
           { id: 'radius-scale', name: 'Border Radius Scale' },
           { id: 'shadows-scale', name: 'Elevation Shadows' },
           { id: 'composer', name: 'Interactive Composer' },
+        ]
+      case 'foundations/iconography':
+        return [
+          { id: 'overview', name: 'Overview' },
+          { id: 'principles', name: 'Design Principles' },
+          { id: 'library', name: 'Icon Library' },
+          { id: 'usage', name: 'Usage Examples' },
         ]
       case 'components/button':
       case 'components/button-group':
@@ -8025,6 +8067,212 @@ function App() {
                         <pre className="bg-muted/40 dark:bg-slate-950/30 border border-border/80 rounded-xl p-4 text-[10.5px] font-mono text-muted-foreground overflow-x-auto max-h-[300px] leading-relaxed select-all">
                           {getTableCode()}
                         </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {currentPath === 'foundations/iconography' && (
+            <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
+              {/* Header */}
+              <section className="space-y-3">
+                <div className="text-xs font-bold text-secondary-500 uppercase tracking-widest">Foundations</div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-slate-100" id="overview">
+                  Iconography
+                </h1>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
+                  Our system uses **Lucide Icons** to represent actions, statuses, and navigation states across B2B Payment dashboard screens. We maintain visual consistency by enforcing strict guidelines on sizing, stroke thickness, and contextual coloring.
+                </p>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Design Principles */}
+              <section id="principles" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Design Principles</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Standard configurations and alignment details to maintain uniform weighting.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Grid 1: Stroke Width */}
+                  <div className="bg-card border border-border rounded-xl p-5 space-y-3 shadow-xs">
+                    <div className="w-8 h-8 rounded-lg bg-secondary-500/10 text-secondary flex items-center justify-center">
+                      <Shield size={16} className="stroke-[2.5]" />
+                    </div>
+                    <h3 className="text-sm font-bold text-foreground">Stroke Thickness</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-light">
+                      Always use <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">stroke-[2]</code> or <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">stroke-[2.5]</code> for interface actions. Refrain from heavy styling to preserve neat legibility on high-density displays.
+                    </p>
+                  </div>
+
+                  {/* Grid 2: Sizing Scale */}
+                  <div className="bg-card border border-border rounded-xl p-5 space-y-3 shadow-xs">
+                    <div className="w-8 h-8 rounded-lg bg-secondary-500/10 text-secondary flex items-center justify-center">
+                      <LayoutGrid size={16} />
+                    </div>
+                    <h3 className="text-sm font-bold text-foreground">Consistent Sizing</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-light">
+                      Icons map to three key scale sizes: <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">12px</code> (subtle actions/badges), <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">16px</code> (standard buttons/inputs), and <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">20px</code> (major headers/cards).
+                    </p>
+                  </div>
+
+                  {/* Grid 3: Color Sync */}
+                  <div className="bg-card border border-border rounded-xl p-5 space-y-3 shadow-xs">
+                    <div className="w-8 h-8 rounded-lg bg-secondary-500/10 text-secondary flex items-center justify-center">
+                      <Bell size={16} />
+                    </div>
+                    <h3 className="text-sm font-bold text-foreground">Contextual Coloring</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-light">
+                      Ensure icons inherit their color dynamically via <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">currentColor</code> or match the system status roles (e.g. emerald success dots, red failed indicators).
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Icon Library Section */}
+              <section id="library" className="space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-bold text-primary dark:text-slate-100">Icon Library</h2>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Browse and filter our core icon library. Click any card to copy its JSX component code.
+                    </p>
+                  </div>
+
+                  {/* Search input */}
+                  <div className="relative w-full sm:w-64">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                      <Search size={14} />
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="Search icons..."
+                      value={iconSearch}
+                      onChange={(e) => setIconSearch(e.target.value)}
+                      className="w-full text-xs bg-muted/30 border border-border rounded-lg pl-9 pr-3 py-2 outline-none text-foreground focus:ring-1 focus:ring-secondary focus:border-transparent transition"
+                    />
+                  </div>
+                </div>
+
+                {/* Category filters */}
+                <div className="flex flex-wrap gap-2">
+                  {['All', 'Financial', 'Status', 'Navigation', 'General'].map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setIconCategory(cat)}
+                      className={`px-3.5 py-1.5 rounded-lg border text-[11px] font-semibold transition cursor-pointer ${
+                        iconCategory === cat
+                          ? 'bg-secondary text-white border-secondary dark:text-slate-900'
+                          : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Grid display */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  {iconLibrary
+                    .filter(item => {
+                      const matchesSearch = item.name.toLowerCase().includes(iconSearch.toLowerCase())
+                      const matchesCat = iconCategory === 'All' || item.category === iconCategory
+                      return matchesSearch && matchesCat
+                    })
+                    .map((item) => {
+                      const IconComponent = item.icon
+                      const copyText = `<${item.name} size={16} />`
+                      return (
+                        <button
+                          key={item.name}
+                          onClick={() => handleCopy(copyText, `icon-${item.name}`)}
+                          className="bg-card hover:bg-muted/15 border border-border/80 hover:border-secondary/40 rounded-xl p-4.5 text-center flex flex-col items-center justify-between gap-3 group transition cursor-pointer shadow-2xs hover:shadow-xs relative"
+                          title="Click to copy JSX tag"
+                        >
+                          <div className="text-primary dark:text-slate-200 group-hover:text-secondary transition-colors duration-150 p-2 bg-muted/40 dark:bg-slate-950/20 rounded-lg">
+                            <IconComponent size={20} className="stroke-[2]" />
+                          </div>
+                          <div className="space-y-1 w-full">
+                            <div className="text-xs font-bold text-foreground leading-none">{item.name}</div>
+                            <div className="text-[9px] text-muted-foreground truncate leading-none mt-1" title={item.description}>
+                              {item.description}
+                            </div>
+                          </div>
+                          <span className="text-[9px] text-muted-foreground font-mono opacity-0 group-hover:opacity-100 transition absolute bottom-1.5 text-center bg-muted/95 border border-border/60 px-1.5 py-0.5 rounded leading-none">
+                            Copy JSX
+                          </span>
+                        </button>
+                      )
+                    })}
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Usage Examples */}
+              <section id="usage" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Usage Examples</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Standard layouts combining icons with text labels, status pills, and list widgets.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Left: Button Action List */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-2xs">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Action Navigation</h3>
+                    <div className="space-y-2">
+                      <button className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
+                        <div className="flex items-center gap-3">
+                          <Wallet size={16} className="text-secondary-500" />
+                          <span>View Wallet Balance</span>
+                        </div>
+                        <ChevronRight size={14} className="text-muted-foreground" />
+                      </button>
+                      <button className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
+                        <div className="flex items-center gap-3">
+                          <Send size={16} className="text-secondary-500" />
+                          <span>Initiate B2B Payout</span>
+                        </div>
+                        <ChevronRight size={14} className="text-muted-foreground" />
+                      </button>
+                      <button className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
+                        <div className="flex items-center gap-3">
+                          <Activity size={16} className="text-secondary-500" />
+                          <span>Real-time Audit Logs</span>
+                        </div>
+                        <ChevronRight size={14} className="text-muted-foreground" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right: Payment Status Banner */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-2xs">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Status Notifications</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3 p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 rounded-lg text-xs">
+                        <CheckCircle2 size={16} className="shrink-0 mt-0.5" />
+                        <div className="space-y-0.5">
+                          <div className="font-bold">Payout Settled Successfully</div>
+                          <div className="text-[10px] opacity-90 leading-normal font-light">The settlement funds for invoice INV-2983 have been disbursed to the corporate vault.</div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 p-3 bg-red-500/10 border border-red-500/20 text-red-700 dark:text-red-300 rounded-lg text-xs">
+                        <XCircle size={16} className="shrink-0 mt-0.5" />
+                        <div className="space-y-0.5">
+                          <div className="font-bold">Compliance Verification Block</div>
+                          <div className="text-[10px] opacity-90 leading-normal font-light">Regulatory check failed for receiver bank entity. Action required.</div>
+                        </div>
                       </div>
                     </div>
                   </div>
