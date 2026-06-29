@@ -185,27 +185,27 @@ const ColorCard = ({ shade, prefix, onCopy }: ColorCardProps) => {
           <div className="text-[10px] font-bold text-foreground leading-none">{shade.shade}</div>
           <div className="text-[9px] text-muted-foreground font-mono mt-1 leading-none">{shade.hex.toUpperCase()}</div>
         </div>
-        <div className="flex items-center justify-between pt-1 border-t border-border/40 mt-1 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200">
+        <div className="flex items-center justify-between pt-1.5 border-t border-border/40 mt-1.5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200">
           <button 
             onClick={() => onCopy(shade.hex, `hex-${prefix}-${shade.shade}`)}
-            className="p-1 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition shrink-0 cursor-pointer"
+            className="w-5.5 h-5.5 flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground rounded transition-all duration-150 shrink-0 cursor-pointer"
             title="Copy HEX"
           >
-            <Copy size={9} />
+            <Copy size={11} />
           </button>
           <button 
             onClick={() => onCopy(`var(--color-${prefix}-${shade.shade})`, `var-${prefix}-${shade.shade}`)}
-            className="p-1 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition shrink-0 cursor-pointer"
+            className="w-5.5 h-5.5 flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground rounded transition-all duration-150 shrink-0 cursor-pointer"
             title="Copy CSS Variable"
           >
-            <span className="text-[8px] font-mono leading-none">{`{}`}</span>
+            <span className="text-[9.5px] font-bold font-mono leading-none">{`{}`}</span>
           </button>
           <button 
             onClick={() => onCopy(shade.twClass, `class-${prefix}-${shade.shade}`)}
-            className="p-1 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition shrink-0 cursor-pointer"
+            className="w-5.5 h-5.5 flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground rounded transition-all duration-150 shrink-0 cursor-pointer"
             title="Copy Tailwind Class"
           >
-            <span className="text-[8.5px] font-bold font-mono tracking-tighter leading-none">tw</span>
+            <span className="text-[9px] font-extrabold font-mono tracking-tighter leading-none">tw</span>
           </button>
         </div>
       </div>
