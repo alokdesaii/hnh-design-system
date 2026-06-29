@@ -495,7 +495,7 @@ function App() {
   const computedRatio = getContrastRatio(contrastBg, contrastText)
 
   // Typography Playground states
-  const [playgroundText, setPlaygroundText] = useState<string>('Wealth management designed for the next generation of global investors.')
+  const [playgroundText, setPlaygroundText] = useState<string>('B2B payment processing designed for the next generation of global enterprises.')
   const [playgroundSize, setPlaygroundSize] = useState<string>('text-2xl')
   const [playgroundWeight, setPlaygroundWeight] = useState<string>('font-bold')
   const [playgroundLeading, setPlaygroundLeading] = useState<string>('leading-snug')
@@ -811,7 +811,7 @@ function App() {
       `    }\n` +
       `  }\n\n` +
       `  const items = [\n` +
-      `    { id: 'item-1', title: 'Institutional Wealth Allocation', content: 'Direct access to private market funds, structured credit instruments, and liquidity pool optimization protocols.' },\n` +
+      `    { id: 'item-1', title: 'Institutional Fund Settlement', content: 'Direct access to private market funds, structured credit instruments, and liquidity pool optimization protocols.' },\n` +
       `    { id: 'item-2', title: 'Custodial Trust Protocols', content: 'Secured multi-signature cold storage vault integrations and compliant off-exchange clearing settlements.' },\n` +
       `    { id: 'item-3', title: 'Global Regulatory Compliance', content: 'Automated KYC/AML vetting pipelines, cross-border jurisdiction logic, and smart contract audit certifications.' }\n` +
       `  ]\n\n` +
@@ -1405,7 +1405,7 @@ function App() {
                 </h1>
 
                 <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-                  Beautifully designed, fully-customizable component variables built specifically for **Harbour & Hills Financial Services**. Copy, paste, and style consistent wealth-management apps.
+                  Beautifully designed, fully-customizable component variables built specifically for **Harbour & Hills Financial Services**. Copy, paste, and style consistent B2B Payment Apps.
                 </p>
 
                 {/* Hero CTAs */}
@@ -1940,7 +1940,7 @@ function App() {
                     >
                       <h4 className="text-lg font-bold tracking-tight mb-2">H&H Portfolio Dashboard</h4>
                       <p className="text-xs leading-relaxed opacity-90 font-light">
-                        Accessibility means empowering every wealth manager and private client. By maintaining strict design tokens, we ensure high visual contrast.
+                        Accessibility means empowering every finance team and business partner. By maintaining strict design tokens, we ensure high visual contrast.
                       </p>
                     </div>
 
@@ -2033,7 +2033,7 @@ function App() {
                   Typography
                 </h1>
                 <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
-                  Our typography system is anchored on **Inter**, a highly legible sans-serif typeface designed for user interfaces. We employ a responsive, structured hierarchy to present wealth analytics and data elements with maximum clarity.
+                  Our typography system is anchored on **Inter**, a highly legible sans-serif typeface designed for user interfaces. We employ a responsive, structured hierarchy to present payment analytics and data elements with maximum clarity.
                 </p>
               </section>
 
@@ -2119,7 +2119,7 @@ function App() {
                       {/* Rendering Preview */}
                       <div className="lg:col-span-6 min-h-[44px] flex items-center">
                         <span className={`${item.twClass} truncate block text-foreground`} title={item.name}>
-                          Wealth management reimagined.
+                          B2B payments reimagined.
                         </span>
                       </div>
 
@@ -3053,7 +3053,7 @@ function App() {
                         {playAccordionVariant === 'bordered' ? (
                           <div className="border-t border-border/80 w-full">
                             {[
-                              { id: 'item-1', title: 'Institutional Wealth Allocation', content: 'Direct access to private market funds, structured credit instruments, and liquidity pool optimization protocols.' },
+                              { id: 'item-1', title: 'Institutional Fund Settlement', content: 'Direct access to private market funds, structured credit instruments, and liquidity pool optimization protocols.' },
                               { id: 'item-2', title: 'Custodial Trust Protocols', content: 'Secured multi-signature cold storage vault integrations and compliant off-exchange clearing settlements.' },
                               { id: 'item-3', title: 'Global Regulatory Compliance', content: 'Automated KYC/AML vetting pipelines, cross-border jurisdiction logic, and smart contract audit certifications.' }
                             ].map((item, index) => {
@@ -3109,7 +3109,7 @@ function App() {
                         ) : (
                           <div className="space-y-3 w-full">
                             {[
-                              { id: 'item-1', title: 'Institutional Wealth Allocation', content: 'Direct access to private market funds, structured credit instruments, and liquidity pool optimization protocols.' },
+                              { id: 'item-1', title: 'Institutional Fund Settlement', content: 'Direct access to private market funds, structured credit instruments, and liquidity pool optimization protocols.' },
                               { id: 'item-2', title: 'Custodial Trust Protocols', content: 'Secured multi-signature cold storage vault integrations and compliant off-exchange clearing settlements.' },
                               { id: 'item-3', title: 'Global Regulatory Compliance', content: 'Automated KYC/AML vetting pipelines, cross-border jurisdiction logic, and smart contract audit certifications.' }
                             ].map((item, index) => {
@@ -3580,7 +3580,7 @@ function App() {
                       </div>
                     </div>
 
-                    {/* 3. Wealth Management currency input with static labels */}
+                    {/* 3. B2B Payment currency input with static labels */}
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-foreground block">
                         Liquidity Funding Value
