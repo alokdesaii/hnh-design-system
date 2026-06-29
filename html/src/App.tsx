@@ -163,6 +163,7 @@ const implementedPaths = [
   'components/avatar',
   'components/table',
   'foundations/iconography',
+  'components/dialog',
 ]
 
 interface Shade {
@@ -657,6 +658,16 @@ function App() {
   const [iconSearch, setIconSearch] = useState<string>('')
   const [iconCategory, setIconCategory] = useState<string>('All')
 
+  // Dialog Playground states
+  const [playDialogOpen, setPlayDialogOpen] = useState<boolean>(false)
+  const [playDialogSize, setPlayDialogSize] = useState<'sm' | 'md' | 'lg' | 'xl'>('md')
+  const [playDialogBackdrop, setPlayDialogBackdrop] = useState<'transparent' | 'blur' | 'opaque'>('blur')
+  const [playDialogClickOutside, setPlayDialogClickOutside] = useState<boolean>(true)
+  const [playDialogTitle, setPlayDialogTitle] = useState<string>('Authorize B2B Settlement')
+  const [playDialogDescription, setPlayDialogDescription] = useState<string>('You are authorizing a wire settlement of $42,900.00 to Cyberdyne Inc. This transaction will be routed through the primary custodial vault.')
+  const [playDialogActionText, setPlayDialogActionText] = useState<string>('Authorize Payment')
+  const [playDialogCancelText, setPlayDialogCancelText] = useState<string>('Cancel')
+
   // Alert Dialog Playground states
   const [playAlertDialogOpen, setPlayAlertDialogOpen] = useState<boolean>(false)
   const [playAlertDialogVariant, setPlayAlertDialogVariant] = useState<'confirm' | 'destructive' | 'info'>('confirm')
@@ -837,6 +848,7 @@ function App() {
       case 'components/card':
       case 'components/avatar':
       case 'components/table':
+      case 'components/dialog':
         return [
           { id: 'overview', name: 'Overview' },
           { id: 'specimen', name: 'Component Specimens' },
@@ -849,6 +861,83 @@ function App() {
         ]
     }
   }
+
+  const getDialogCode = () => {
+    const sizeWidth = {
+      sm: 'max-w-sm',
+      md: 'max-w-md',
+      lg: 'max-w-lg',
+      xl: 'max-w-xl'
+    }[playDialogSize]
+
+    const backdropStyle = {
+      transparent: 'bg-black/20',
+      blur: 'bg-black/40 backdrop-blur-xs',
+      opaque: 'bg-black/65'
+    }[playDialogBackdrop]
+
+    return `// Tailwind styling for custom focus-trapped modal / dialog\n` +
+      `import { motion, AnimatePresence } from 'framer-motion'\n` +
+      `import { X } from 'lucide-react'\n\n` +
+      `interface DialogProps {\n` +
+      `  isOpen: boolean\n` +
+      `  onClose: () => void\n` +
+      `}\n\n` +
+      `export default function SettlementDialog({ isOpen, onClose }: DialogProps) {\n` +
+      `  return (\n` +
+      `    <AnimatePresence>\n` +
+      `      {isOpen && (\n` +
+      `        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">\n` +
+      `          {/* Overlay backdrop */}\n` +
+      `          <motion.div\n` +
+      `            initial={{ opacity: 0 }}\n` +
+      `            animate={{ opacity: 1 }}\n` +
+      `            exit={{ opacity: 0 }}\n` +
+      `            onClick={${playDialogClickOutside ? 'onClose' : 'undefined'}}\n` +
+      `            className="absolute inset-0 ${backdropStyle}"\n` +
+      `          />\n\n` +
+      `          {/* Modal Container */}\n` +
+      `          <motion.div\n` +
+      `            initial={{ opacity: 0, scale: 0.95, y: 10 }}\n` +
+      `            animate={{ opacity: 1, scale: 1, y: 0 }}\n` +
+      `            exit={{ opacity: 0, scale: 0.95, y: 10 }}\n` +
+      `            transition={{ duration: 0.2, ease: 'easeOut' }}\n` +
+      `            className="relative z-10 w-full ${sizeWidth} bg-card border border-border rounded-xl shadow-xl overflow-hidden p-6 space-y-4 text-foreground animate-in fade-in zoom-in-95 duration-200"\n` +
+      `          >\n` +
+      `            {/* Close trigger button */}\n` +
+      `            <button \n` +
+      `              onClick={onClose} \n` +
+      `              className="absolute right-4 top-4 text-muted-foreground hover:text-foreground rounded p-1 hover:bg-muted/60 transition cursor-pointer"\n` +
+      `            >\n` +
+      `              <X size={16} />\n` +
+      `            </button>\n\n` +
+      `            {/* Modal Header */}\n` +
+      `            <div className="space-y-1.5 pr-8">\n` +
+      `              <h3 className="text-base font-bold leading-none tracking-tight">${playDialogTitle}</h3>\n` +
+      `              <p className="text-xs text-muted-foreground leading-relaxed">${playDialogDescription}</p>\n` +
+      `            </div>\n\n` +
+      `            {/* Modal Footer actions */}\n` +
+      `            <div className="flex items-center justify-end gap-2.5 pt-2 border-t border-border/40">\n` +
+      `              <button\n` +
+      `                onClick={onClose}\n` +
+      `                className="px-3.5 py-2 text-xs font-semibold hover:bg-muted border border-border text-foreground rounded-lg transition cursor-pointer"\n` +
+      `              >\n` +
+      `                ${playDialogCancelText}\n` +
+      `              </button>\n` +
+      `              <button\n` +
+      `                onClick={onClose}\n` +
+      `                className="px-3.5 py-2 text-xs font-semibold bg-primary hover:bg-primary-600 text-primary-foreground rounded-lg shadow-md transition cursor-pointer"\n` +
+      `              >\n` +
+      `                ${playDialogActionText}\n` +
+      `              </button>\n` +
+      `            </div>\n` +
+      `          </motion.div>\n` +
+      `        </div>\n` +
+      `      )}\n` +
+      `    </AnimatePresence>\n` +
+      `  )\n` +
+      `}`;
+  };
 
   const getTableCode = () => {
     const densityPadding = {
@@ -8277,6 +8366,298 @@ function App() {
                     </div>
                   </div>
                 </div>
+              </section>
+            </div>
+          )}
+
+          {currentPath === 'components/dialog' && (
+            <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
+              {/* Header */}
+              <section className="space-y-3">
+                <div className="text-xs font-bold text-secondary-500 uppercase tracking-widest">Components</div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-slate-100" id="overview">
+                  Dialog / Modal
+                </h1>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
+                  A dialog (or modal) is an overlay container that locks focus on a specific, high-priority workflow, blocking the background layout until resolved. Dialogs are ideal for confirming critical B2B settlements or editing sensitive API credentials.
+                </p>
+
+                {/* Accessibility Contract */}
+                <div className="bg-accent/40 border border-border/80 rounded-xl p-4.5 text-xs text-muted-foreground space-y-2 mt-4 max-w-3xl">
+                  <div className="font-bold text-foreground flex items-center gap-2">
+                    <Accessibility size={14} className="text-secondary-500" />
+                    Accessibility Contract (WCAG 2.1 AA)
+                  </div>
+                  <ul className="list-disc list-inside space-y-1.5 pl-1">
+                    <li>Must be rendered inside a semantic <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="dialog"</code> container and carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-modal="true"</code>.</li>
+                    <li>The title header should be labeled via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-labelledby</code> pointing directly to the dialog's header element.</li>
+                    <li>**Focus Trapping**: Active dialogs must lock tab focus within the modal bounds, preventing users from tabbing to background nodes.</li>
+                    <li>**Keyboard Escape**: Pressing the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Escape</code> key must invoke the close trigger handler.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Specimens */}
+              <section id="specimen" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Component Specimens</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Static visual specimens showing header styling, action states, and standard dimensions.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Payout Confirmation Specimen */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm relative overflow-hidden">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2 flex items-center gap-1.5">
+                      <Wallet size={12} className="text-secondary" />
+                      B2B Payout Confirmation
+                    </div>
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-bold text-foreground">Disburse Ledger Funds</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        You are initiating a manual routing payout of **$185,200.00 USD** to Acme Settlement Vault (Singapore routing bank). Please confirm this dispatch.
+                      </p>
+                    </div>
+                    <div className="p-3 bg-muted/40 dark:bg-slate-950/20 border border-border/80 rounded-lg space-y-2">
+                      <div className="flex justify-between text-[11px] text-muted-foreground">
+                        <span>Initiated By:</span>
+                        <span className="font-semibold text-foreground">alok.desai@harbourandhills.com</span>
+                      </div>
+                      <div className="flex justify-between text-[11px] text-muted-foreground">
+                        <span>Vault Limit Check:</span>
+                        <span className="font-bold text-emerald-600 dark:text-emerald-400">Passed</span>
+                      </div>
+                    </div>
+                    <div className="flex justify-end gap-2.5 pt-2 border-t border-border/40">
+                      <button className="px-3.5 py-1.5 text-[11px] font-semibold border border-border text-foreground hover:bg-muted rounded-lg transition cursor-pointer">
+                        Abort
+                      </button>
+                      <button className="px-3.5 py-1.5 text-[11px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-xs transition cursor-pointer">
+                        Confirm & Release
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Warning / Destructive Specimen */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm relative overflow-hidden">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2 flex items-center gap-1.5">
+                      <AlertTriangle size={12} className="text-destructive" />
+                      System Danger Alert
+                    </div>
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-bold text-foreground">Revoke Sandbox Access Credentials?</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed font-light">
+                        This action will immediately disable the sandbox testing environment credentials for Harbour & Hills developers. All current mock transfers will fail.
+                      </p>
+                    </div>
+                    <div className="flex justify-end gap-2.5 pt-2 border-t border-border/40">
+                      <button className="px-3.5 py-1.5 text-[11px] font-semibold border border-border text-foreground hover:bg-muted rounded-lg transition cursor-pointer">
+                        Keep Credentials
+                      </button>
+                      <button className="px-3.5 py-1.5 text-[11px] font-semibold bg-destructive hover:bg-destructive-600 text-destructive-foreground rounded-lg shadow-xs transition cursor-pointer">
+                        Revoke Access
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Interactive Playground */}
+              <section id="playground" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Interactive Playground</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Configure modal width parameters, backdrop overlay modes, click handlers, and preview the animations in action.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  {/* Left Controls */}
+                  <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-6 space-y-6 shadow-hnh-sm">
+                    {/* Size */}
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-foreground block">Modal Dimensions</label>
+                      <div className="grid grid-cols-2 gap-2">
+                        {['sm', 'md', 'lg', 'xl'].map((sz) => (
+                          <button
+                            key={sz}
+                            onClick={() => setPlayDialogSize(sz as any)}
+                            className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold uppercase transition cursor-pointer ${
+                              playDialogSize === sz
+                                ? 'bg-primary border-primary text-primary-foreground dark:bg-secondary-500 dark:border-secondary-500 dark:text-slate-900'
+                                : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {sz}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Backdrop style */}
+                    <div className="space-y-2 border-t border-border/50 pt-4">
+                      <label className="text-xs font-bold text-foreground block">Overlay Backdrop</label>
+                      <div className="grid grid-cols-3 gap-1.5">
+                        {['transparent', 'blur', 'opaque'].map((bd) => (
+                          <button
+                            key={bd}
+                            onClick={() => setPlayDialogBackdrop(bd as any)}
+                            className={`px-2 py-1.5 rounded-lg border text-[10.5px] font-semibold capitalize transition cursor-pointer ${
+                              playDialogBackdrop === bd
+                                ? 'bg-secondary/15 border-secondary text-secondary font-bold'
+                                : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {bd}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Click outside close */}
+                    <div className="flex items-center justify-between border-t border-border/50 pt-4">
+                      <div>
+                        <label className="text-xs font-bold text-foreground block">Close on Overlay Click</label>
+                        <span className="text-[10px] text-muted-foreground">Dismiss dialog on backdrop click</span>
+                      </div>
+                      <button
+                        onClick={() => setPlayDialogClickOutside(!playDialogClickOutside)}
+                        className={`w-10 h-5.5 rounded-full p-0.5 transition duration-250 cursor-pointer ${
+                          playDialogClickOutside ? 'bg-secondary' : 'bg-muted border border-border/80'
+                        }`}
+                      >
+                        <div className={`w-4.5 h-4.5 rounded-full bg-white shadow-xs transform transition duration-250 ${
+                          playDialogClickOutside ? 'translate-x-4.5' : 'translate-x-0'
+                        }`} />
+                      </button>
+                    </div>
+
+                    {/* Custom Title Input */}
+                    <div className="space-y-2 border-t border-border/50 pt-4">
+                      <label className="text-xs font-bold text-foreground block">Modal Title Header</label>
+                      <input
+                        type="text"
+                        value={playDialogTitle}
+                        onChange={(e) => setPlayDialogTitle(e.target.value)}
+                        className="w-full text-xs bg-muted/40 border border-border rounded-lg px-3 py-2 outline-none text-foreground focus:ring-1 focus:ring-secondary focus:border-transparent transition"
+                      />
+                    </div>
+
+                    {/* Open Trigger Button */}
+                    <div className="pt-4 border-t border-border/50">
+                      <button
+                        onClick={() => setPlayDialogOpen(true)}
+                        className="w-full px-4 py-2.5 bg-secondary text-white dark:text-slate-900 hover:opacity-95 text-xs font-bold rounded-lg shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all duration-150 cursor-pointer"
+                      >
+                        Open Dialog Preview
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right: Code Generator Output */}
+                  <div className="lg:col-span-8 space-y-6">
+                    <div className="bg-card border border-border rounded-2xl p-6 flex flex-col justify-start min-h-[350px] shadow-hnh-sm relative">
+                      <div className="text-[9px] uppercase font-bold text-muted-foreground tracking-wider mb-4">JSX Implementation Code</div>
+
+                      {/* Code Generator Display */}
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">JSX Code</span>
+                          <button
+                            onClick={() => handleCopy(getDialogCode(), 'dialog-code')}
+                            className="px-2.5 py-1 text-[10px] font-bold bg-muted/65 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition flex items-center gap-1 cursor-pointer"
+                          >
+                            <Copy size={10} />
+                            Copy Code
+                          </button>
+                        </div>
+                        <pre className="bg-muted/40 dark:bg-slate-950/30 border border-border/80 rounded-xl p-4 text-[10.5px] font-mono text-muted-foreground overflow-x-auto max-h-[400px] leading-relaxed select-all">
+                          {getDialogCode()}
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Actual Dialog Preview Render */}
+                <AnimatePresence>
+                  {playDialogOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                      {/* Backdrop */}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => {
+                          if (playDialogClickOutside) setPlayDialogOpen(false)
+                        }}
+                        className={`absolute inset-0 ${
+                          playDialogBackdrop === 'transparent'
+                            ? 'bg-black/20'
+                            : playDialogBackdrop === 'opaque'
+                            ? 'bg-black/65'
+                            : 'bg-black/45 backdrop-blur-xs'
+                        }`}
+                      />
+
+                      {/* Dialog Body Container */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                        className={`relative z-10 w-full ${
+                          playDialogSize === 'sm'
+                            ? 'max-w-sm'
+                            : playDialogSize === 'lg'
+                            ? 'max-w-lg'
+                            : playDialogSize === 'xl'
+                            ? 'max-w-xl'
+                            : 'max-w-md'
+                        } bg-card border border-border rounded-2xl shadow-xl overflow-hidden p-6 space-y-5 text-foreground`}
+                        role="dialog"
+                        aria-modal="true"
+                      >
+                        {/* Close button */}
+                        <button
+                          onClick={() => setPlayDialogOpen(false)}
+                          className="absolute right-4 top-4 text-muted-foreground hover:text-foreground rounded p-1 hover:bg-muted transition cursor-pointer"
+                        >
+                          <X size={16} />
+                        </button>
+
+                        <div className="space-y-2 pr-8">
+                          <h3 className="text-base font-bold leading-none tracking-tight text-primary dark:text-slate-100">
+                            {playDialogTitle}
+                          </h3>
+                          <p className="text-xs text-muted-foreground leading-relaxed font-light">
+                            {playDialogDescription}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center justify-end gap-2.5 pt-2 border-t border-border/40">
+                          <button
+                            onClick={() => setPlayDialogOpen(false)}
+                            className="px-4 py-2 text-xs font-semibold hover:bg-muted border border-border text-foreground rounded-lg transition cursor-pointer"
+                          >
+                            {playDialogCancelText}
+                          </button>
+                          <button
+                            onClick={() => setPlayDialogOpen(false)}
+                            className="px-4 py-2 text-xs font-semibold bg-primary text-primary-foreground hover:bg-primary-600 rounded-lg shadow-md transition cursor-pointer"
+                          >
+                            {playDialogActionText}
+                          </button>
+                        </div>
+                      </motion.div>
+                    </div>
+                  )}
+                </AnimatePresence>
               </section>
             </div>
           )}
