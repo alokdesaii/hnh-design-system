@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* H&H Brand Primary Colors - Deep Navy */
+  --color-primary-50: #e6f0fa;
+  --color-primary-100: #ccdcf2;
+  --color-primary-200: #99b9e5;
+  --color-primary-300: #6696d7;
+  --color-primary-400: #3373ca;
+  --color-primary-500: #023e63; /* Brand Primary */
+  --color-primary-600: #02324f;
+  --color-primary-700: #01253b;
+  --color-primary-800: #011927;
+  --color-primary-900: #000c14;
+
+  /* H&H Brand Secondary Colors - Turquoise/Teal */
+  --color-secondary-50: #e6fcfb;
+  --color-secondary-100: #cffaf7;
+  --color-secondary-200: #9ff5ef;
+  --color-secondary-300: #6ee0d6;
+  --color-secondary-400: #3ecabd;
+  --color-secondary-500: #00bfb3; /* Brand Secondary */
+  --color-secondary-600: #00998f;
+  --color-secondary-700: #00736b;
+  --color-secondary-800: #004d47;
+  --color-secondary-900: #002624;
+
+  /* Shadcn-compatible theme mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* H&H Custom Shadow Aliases */
+  --shadow-hnh-sm: var(--hnh-shadow-sm);
+  --shadow-hnh: var(--hnh-shadow);
+  --shadow-hnh-md: var(--hnh-shadow-md);
+  --shadow-hnh-lg: var(--hnh-shadow-lg);
+  --shadow-hnh-xl: var(--hnh-shadow-xl);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* Offsets the sticky header height */
+}
+
+:root {
+  --background: #f8fafc; /* Very light slate */
+  --foreground: #090d16;
+
+  --card: #ffffff;
+  --card-foreground: #090d16;
+
+  --popover: #ffffff;
+  --popover-foreground: #090d16;
+
+  --primary: #023e63; /* Navy */
+  --primary-foreground: #ffffff;
+
+  --secondary: #00bfb3; /* Teal */
+  --secondary-foreground: #ffffff;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --accent: #f1f5f9;
+  --accent-foreground: #023e63;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #023e63;
+
+  --radius: 0.5rem;
+
+  /* H&H custom tokens */
+  --hnh-shadow-sm: 0 1px 2px 0 rgba(2, 62, 99, 0.05);
+  --hnh-shadow: 0 1px 3px 0 rgba(2, 62, 99, 0.1), 0 1px 2px -1px rgba(2, 62, 99, 0.1);
+  --hnh-shadow-md: 0 4px 6px -1px rgba(2, 62, 99, 0.1), 0 2px 4px -2px rgba(2, 62, 99, 0.1);
+  --hnh-shadow-lg: 0 10px 15px -3px rgba(2, 62, 99, 0.1), 0 4px 6px -4px rgba(2, 62, 99, 0.1);
+  --hnh-shadow-xl: 0 20px 25px -5px rgba(2, 62, 99, 0.1), 0 8px 10px -6px rgba(2, 62, 99, 0.1);
+}
+
+.dark {
+  --background: #0a0f1d; /* Deep rich navy/black */
+  --foreground: #f8fafc;
+
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+
+  --primary: #023e63; /* Brand Primary Navy */
+  --primary-foreground: #ffffff;
+
+  --secondary: #00bfb3; /* Secondary Teal in dark mode */
+  --secondary-foreground: #0a0f1d;
+
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+
+  --accent: #1e293b;
+  --accent-foreground: #023e63;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #f8fafc;
+
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #023e63;
+
+  /* H&H custom tokens dark */
+  --hnh-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --hnh-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px -1px rgba(0, 0, 0, 0.5);
+  --hnh-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
+  --hnh-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+  --hnh-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom scrollbars for a premium docs feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Smooth layout and transitions */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom select dropdown styling with aligned chevron arrow */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+  padding-right: 36px !important;
+}
+
+.dark select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+/* Custom focus outline with secondary glow for all input, textarea, and select fields */
+input[type="text"]:not(.border-none):focus,
+input[type="password"]:not(.border-none):focus,
+input[type="email"]:not(.border-none):focus,
+input[type="search"]:not(.border-none):focus,
+textarea:not(.border-none):focus,
+select:not(.border-none):focus {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 0 2px var(--secondary), 0 0 10px color-mix(in srgb, var(--secondary) 35%, transparent) !important;
+}
+
+/* Custom focus outline with card offset and subtle gray ring for checkboxes and radio buttons */
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 0 2px var(--card), 0 0 0 4px var(--border), 0 0 8px rgba(100, 116, 139, 0.15) !important;
+}
