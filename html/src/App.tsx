@@ -36,7 +36,7 @@ import {
   User,
   // Plus,
   // Filter,
-  // ArrowUpDown,
+  ArrowUpDown,
   Minus
 } from 'lucide-react'
 
@@ -159,6 +159,7 @@ const implementedPaths = [
   'components/switch',
   'components/card',
   'components/avatar',
+  'components/table',
 ]
 
 interface Shade {
@@ -442,6 +443,15 @@ const getContrastRatio = (hex1: string, hex2: string): number => {
   return (brightest + 0.05) / (darkest + 0.05)
 }
 
+const tableData = [
+  { id: 'TXN-1082', date: 'Jun 28, 2026', client: 'Acme Corp', amount: '$12,450.00', status: 'settled', method: 'Wire Transfer' },
+  { id: 'TXN-1083', date: 'Jun 27, 2026', client: 'Binford Ltd', amount: '$3,120.50', status: 'pending', method: 'ACH Direct' },
+  { id: 'TXN-1084', date: 'Jun 26, 2026', client: 'Cyberdyne Inc', amount: '$42,900.00', status: 'settled', method: 'SEPA Realtime' },
+  { id: 'TXN-1085', date: 'Jun 25, 2026', client: 'Deltarune Co', amount: '$920.00', status: 'failed', method: 'Card Payment' },
+  { id: 'TXN-1086', date: 'Jun 25, 2026', client: 'Encom Group', amount: '$15,800.00', status: 'settled', method: 'Wire Transfer' },
+  { id: 'TXN-1087', date: 'Jun 24, 2026', client: 'Farkas Corp', amount: '$6,430.20', status: 'pending', method: 'ACH Direct' },
+]
+
 function App() {
   // Theme state
   const [darkMode, setDarkMode] = useState<boolean>(() => {
@@ -603,6 +613,14 @@ function App() {
   const [playCardSubtitle, setPlayCardSubtitle] = useState<string>('YTD growth of structured credit indices across Singapore & Hong Kong jurisdictions.')
   const [playCardShowFooter, setPlayCardShowFooter] = useState<boolean>(true)
   const [playCardInteractive, setPlayCardInteractive] = useState<boolean>(false)
+
+  // Table Playground states
+  const [playTableStriped, setPlayTableStriped] = useState<boolean>(false)
+  const [playTableDensity, setPlayTableDensity] = useState<'compact' | 'md' | 'spacious'>('md')
+  const [playTableHoverable, setPlayTableHoverable] = useState<boolean>(true)
+  const [playTableFilter, setPlayTableFilter] = useState<'all' | 'settled' | 'pending' | 'failed'>('all')
+  const [playTableSortField, setPlayTableSortField] = useState<'date' | 'amount'>('date')
+  const [playTableSortDir, setPlayTableSortDir] = useState<'asc' | 'desc'>('desc')
 
   // Alert Dialog Playground states
   const [playAlertDialogOpen, setPlayAlertDialogOpen] = useState<boolean>(false)
@@ -776,6 +794,7 @@ function App() {
       case 'components/switch':
       case 'components/card':
       case 'components/avatar':
+      case 'components/table':
         return [
           { id: 'overview', name: 'Overview' },
           { id: 'specimen', name: 'Component Specimens' },
@@ -788,6 +807,50 @@ function App() {
         ]
     }
   }
+
+  const getTableCode = () => {
+    const densityPadding = {
+      compact: 'py-2 px-3 text-[11px]',
+      md: 'py-3.5 px-4 text-xs',
+      spacious: 'py-5 px-6 text-sm'
+    }[playTableDensity]
+
+    return `// Tailwind styling for B2B Payment / Transaction Table\n` +
+      `import { ArrowUpDown, FileText, CheckCircle, Clock, AlertTriangle } from 'lucide-react'\n\n` +
+      `export default function TransactionTable() {\n` +
+      `  return (\n` +
+      `    <div className="w-full overflow-x-auto rounded-xl border border-border bg-card shadow-sm">\n` +
+      `      <table className="w-full border-collapse text-left text-foreground">\n` +
+      `        <thead>\n` +
+      `          <tr className="border-b border-border bg-muted/30 text-xs font-semibold text-muted-foreground uppercase tracking-wider">\n` +
+      `            <th className="py-3 px-4">Transaction ID</th>\n` +
+      `            <th className="py-3 px-4">Date</th>\n` +
+      `            <th className="py-3 px-4">Recipient / Client</th>\n` +
+      `            <th className="py-3 px-4 text-right">Amount</th>\n` +
+      `            <th className="py-3 px-4">Status</th>\n` +
+      `            <th className="py-3 px-4">Payment Method</th>\n` +
+      `          </tr>\n` +
+      `        </thead>\n` +
+      `        <tbody className="divide-y divide-border/60">\n` +
+      `          {/* Iterate transaction rows */}\n` +
+      `          <tr className="transition-colors ${playTableHoverable ? 'hover:bg-muted/40' : ''} ${playTableStriped ? 'even:bg-muted/15' : ''}">\n` +
+      `            <td className="${densityPadding} font-mono font-medium">TXN-1082</td>\n` +
+      `            <td className="${densityPadding}">Jun 28, 2026</td>\n` +
+      `            <td className="${densityPadding} font-semibold">Acme Corp</td>\n` +
+      `            <td className="${densityPadding} text-right font-mono font-semibold">$12,450.00</td>\n` +
+      `            <td className="${densityPadding}">\n` +
+      `              <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold border bg-emerald-500/10 border-emerald-500/20 text-emerald-700 dark:text-emerald-300">\n` +
+      `                Settled\n` +
+      `              </span>\n` +
+      `            </td>\n` +
+      `            <td className="${densityPadding}">Wire Transfer</td>\n` +
+      `          </tr>\n` +
+      `        </tbody>\n` +
+      `      </table>\n` +
+      `    </div>\n` +
+      `  )\n` +
+      `}`;
+  };
 
   const getAccordionCode = () => {
     const sizeClasses = {
@@ -7609,6 +7672,364 @@ function App() {
                 )}
               </AnimatePresence>
 
+            </div>
+          )}
+
+          {currentPath === 'components/table' && (
+            <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
+              {/* Header */}
+              <section className="space-y-3">
+                <div className="text-xs font-bold text-secondary-500 uppercase tracking-widest">Components</div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-slate-100" id="overview">
+                  Table
+                </h1>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
+                  Tables present structured information, transaction records, and invoice audits in a clean row-and-column layout. Our tables prioritize visual hierarchy, layout responsiveness, density adjustments, and clear access support.
+                </p>
+
+                {/* Accessibility Contract */}
+                <div className="bg-accent/40 border border-border/80 rounded-xl p-4.5 text-xs text-muted-foreground space-y-2 mt-4 max-w-3xl">
+                  <div className="font-bold text-foreground flex items-center gap-2">
+                    <Accessibility size={14} className="text-secondary-500" />
+                    Accessibility Contract (WCAG 2.1 AA)
+                  </div>
+                  <ul className="list-disc list-inside space-y-1.5 pl-1">
+                    <li>Use semantic table tags (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">table</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">thead</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">tbody</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">tr</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">th</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">td</code>) rather than div tables to allow screen readers to parse the cell matrix accurately.</li>
+                    <li>Always provide <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">scope="col"</code> on column headers (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">th</code>) and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">scope="row"</code> on row headers if active.</li>
+                    <li>When a header is sortable, it must carry a semantic <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-sort</code> attribute (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ascending</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">descending</code>, or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">none</code>).</li>
+                    <li>Row action triggers (e.g. download PDF, refund buttons) must carry clear text descriptors or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label</code> tags containing the transaction ID to provide unique context.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Specimens */}
+              <section id="specimen" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Component Specimens</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Visual specimens showing different density options, striping styles, and cell content types.
+                  </p>
+                </div>
+
+                <div className="space-y-10">
+                  {/* Clean Basic Table */}
+                  <div className="space-y-4">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Default Clean Layout</h3>
+                    <div className="w-full overflow-x-auto rounded-xl border border-border bg-card shadow-xs">
+                      <table className="w-full border-collapse text-left text-foreground">
+                        <thead>
+                          <tr className="border-b border-border bg-muted/15 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                            <th className="py-3 px-4 font-semibold">ID</th>
+                            <th className="py-3 px-4 font-semibold">Client</th>
+                            <th className="py-3 px-4 font-semibold">Date</th>
+                            <th className="py-3 px-4 text-right font-semibold">Amount</th>
+                            <th className="py-3 px-4 font-semibold">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-border/60 text-xs">
+                          <tr className="hover:bg-muted/30 transition-colors">
+                            <td className="py-3.5 px-4 font-mono font-medium">TXN-1082</td>
+                            <td className="py-3.5 px-4 font-semibold">Acme Corp</td>
+                            <td className="py-3.5 px-4">Jun 28, 2026</td>
+                            <td className="py-3.5 px-4 text-right font-mono font-semibold text-primary dark:text-slate-100">$12,450.00</td>
+                            <td className="py-3.5 px-4">
+                              <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Settled
+                              </span>
+                            </td>
+                          </tr>
+                          <tr className="hover:bg-muted/30 transition-colors">
+                            <td className="py-3.5 px-4 font-mono font-medium">TXN-1083</td>
+                            <td className="py-3.5 px-4 font-semibold">Binford Ltd</td>
+                            <td className="py-3.5 px-4">Jun 27, 2026</td>
+                            <td className="py-3.5 px-4 text-right font-mono font-semibold text-primary dark:text-slate-100">$3,120.50</td>
+                            <td className="py-3.5 px-4">
+                              <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-300">
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                                Pending
+                              </span>
+                            </td>
+                          </tr>
+                          <tr className="hover:bg-muted/30 transition-colors">
+                            <td className="py-3.5 px-4 font-mono font-medium">TXN-1085</td>
+                            <td className="py-3.5 px-4 font-semibold">Deltarune Co</td>
+                            <td className="py-3.5 px-4">Jun 25, 2026</td>
+                            <td className="py-3.5 px-4 text-right font-mono font-semibold text-primary dark:text-slate-100">$920.00</td>
+                            <td className="py-3.5 px-4">
+                              <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold bg-red-500/10 border border-red-500/20 text-red-700 dark:text-red-300">
+                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                Failed
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Striped Table */}
+                  <div className="space-y-4">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Striped Rows</h3>
+                    <div className="w-full overflow-x-auto rounded-xl border border-border bg-card shadow-xs">
+                      <table className="w-full border-collapse text-left text-foreground">
+                        <thead>
+                          <tr className="border-b border-border bg-muted/15 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                            <th className="py-3 px-4 font-semibold">ID</th>
+                            <th className="py-3 px-4 font-semibold">Client</th>
+                            <th className="py-3 px-4 font-semibold">Date</th>
+                            <th className="py-3 px-4 text-right font-semibold">Amount</th>
+                            <th className="py-3 px-4 font-semibold">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-border/60 text-xs">
+                          <tr className="hover:bg-muted/30 even:bg-muted/15 transition-colors">
+                            <td className="py-3.5 px-4 font-mono font-medium">TXN-1082</td>
+                            <td className="py-3.5 px-4 font-semibold">Acme Corp</td>
+                            <td className="py-3.5 px-4">Jun 28, 2026</td>
+                            <td className="py-3.5 px-4 text-right font-mono font-semibold text-primary dark:text-slate-100">$12,450.00</td>
+                            <td className="py-3.5 px-4"><span className="inline-flex items-center gap-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 px-2.5 py-0.5">Settled</span></td>
+                          </tr>
+                          <tr className="hover:bg-muted/30 even:bg-muted/15 transition-colors">
+                            <td className="py-3.5 px-4 font-mono font-medium">TXN-1083</td>
+                            <td className="py-3.5 px-4 font-semibold">Binford Ltd</td>
+                            <td className="py-3.5 px-4">Jun 27, 2026</td>
+                            <td className="py-3.5 px-4 text-right font-mono font-semibold text-primary dark:text-slate-100">$3,120.50</td>
+                            <td className="py-3.5 px-4"><span className="inline-flex items-center gap-1 rounded bg-amber-500/10 border border-amber-500/20 text-[10px] font-bold text-amber-700 dark:text-amber-300 px-2.5 py-0.5">Pending</span></td>
+                          </tr>
+                          <tr className="hover:bg-muted/30 even:bg-muted/15 transition-colors">
+                            <td className="py-3.5 px-4 font-mono font-medium">TXN-1084</td>
+                            <td className="py-3.5 px-4 font-semibold">Cyberdyne Inc</td>
+                            <td className="py-3.5 px-4">Jun 26, 2026</td>
+                            <td className="py-3.5 px-4 text-right font-mono font-semibold text-primary dark:text-slate-100">$42,900.00</td>
+                            <td className="py-3.5 px-4"><span className="inline-flex items-center gap-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 px-2.5 py-0.5">Settled</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Interactive Playground */}
+              <section id="playground" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Interactive Playground</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Control table density, striping, row hover, and dynamically query and filter transactions.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  {/* Left Controls */}
+                  <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-6 space-y-6 shadow-hnh-sm">
+                    {/* Density */}
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-foreground block">Table Density</label>
+                      <div className="grid grid-cols-3 gap-2">
+                        {['compact', 'md', 'spacious'].map((den) => (
+                          <button
+                            key={den}
+                            onClick={() => setPlayTableDensity(den as 'compact' | 'md' | 'spacious')}
+                            className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold capitalize transition cursor-pointer ${
+                              playTableDensity === den
+                                ? 'bg-primary border-primary text-primary-foreground dark:bg-secondary-500 dark:border-secondary-500 dark:text-slate-900'
+                                : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {den}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Striping */}
+                    <div className="flex items-center justify-between border-t border-border/50 pt-4">
+                      <div>
+                        <label className="text-xs font-bold text-foreground block">Striped Rows</label>
+                        <span className="text-[10px] text-muted-foreground">Alternating row background</span>
+                      </div>
+                      <button
+                        onClick={() => setPlayTableStriped(!playTableStriped)}
+                        className={`w-10 h-5.5 rounded-full p-0.5 transition duration-250 cursor-pointer ${
+                          playTableStriped ? 'bg-secondary' : 'bg-muted border border-border/80'
+                        }`}
+                      >
+                        <div className={`w-4.5 h-4.5 rounded-full bg-white shadow-xs transform transition duration-250 ${
+                          playTableStriped ? 'translate-x-4.5' : 'translate-x-0'
+                        }`} />
+                      </button>
+                    </div>
+
+                    {/* Hover highlights */}
+                    <div className="flex items-center justify-between border-t border-border/50 pt-4">
+                      <div>
+                        <label className="text-xs font-bold text-foreground block">Hover Highlights</label>
+                        <span className="text-[10px] text-muted-foreground">Apply row highlight on hover</span>
+                      </div>
+                      <button
+                        onClick={() => setPlayTableHoverable(!playTableHoverable)}
+                        className={`w-10 h-5.5 rounded-full p-0.5 transition duration-250 cursor-pointer ${
+                          playTableHoverable ? 'bg-secondary' : 'bg-muted border border-border/80'
+                        }`}
+                      >
+                        <div className={`w-4.5 h-4.5 rounded-full bg-white shadow-xs transform transition duration-250 ${
+                          playTableHoverable ? 'translate-x-4.5' : 'translate-x-0'
+                        }`} />
+                      </button>
+                    </div>
+
+                    {/* Status filter */}
+                    <div className="space-y-2 border-t border-border/50 pt-4">
+                      <label className="text-xs font-bold text-foreground block">Filter Status</label>
+                      <div className="grid grid-cols-2 gap-2">
+                        {['all', 'settled', 'pending', 'failed'].map((flt) => (
+                          <button
+                            key={flt}
+                            onClick={() => setPlayTableFilter(flt as any)}
+                            className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold capitalize transition cursor-pointer ${
+                              playTableFilter === flt
+                                ? 'bg-secondary/15 border-secondary text-secondary font-bold'
+                                : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {flt}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Preview Frame */}
+                  <div className="lg:col-span-8 space-y-6">
+                    <div className="bg-card border border-border rounded-2xl p-6 flex flex-col justify-start min-h-[350px] shadow-hnh-sm relative">
+                      <div className="text-[9px] uppercase font-bold text-muted-foreground tracking-wider mb-4">Interactive Preview</div>
+
+                      <div className="w-full overflow-x-auto rounded-xl border border-border bg-card shadow-xs">
+                        <table className="w-full border-collapse text-left text-foreground">
+                          <thead>
+                            <tr className="border-b border-border bg-muted/15 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                              <th 
+                                className="py-3 px-4 cursor-pointer select-none hover:text-foreground transition-colors font-semibold"
+                                onClick={() => {
+                                  if (playTableSortField === 'date') {
+                                    setPlayTableSortDir(playTableSortDir === 'asc' ? 'desc' : 'asc')
+                                  } else {
+                                    setPlayTableSortField('date')
+                                    setPlayTableSortDir('desc')
+                                  }
+                                }}
+                              >
+                                <div className="flex items-center gap-1.5">
+                                  Date
+                                  <ArrowUpDown size={11} className={playTableSortField === 'date' ? 'text-secondary-500' : 'text-muted-foreground/50'} />
+                                </div>
+                              </th>
+                              <th className="py-3 px-4 font-semibold">Transaction ID</th>
+                              <th className="py-3 px-4 font-semibold">Client</th>
+                              <th 
+                                className="py-3 px-4 cursor-pointer select-none hover:text-foreground transition-colors text-right font-semibold"
+                                onClick={() => {
+                                  if (playTableSortField === 'amount') {
+                                    setPlayTableSortDir(playTableSortDir === 'asc' ? 'desc' : 'asc')
+                                  } else {
+                                    setPlayTableSortField('amount')
+                                    setPlayTableSortDir('desc')
+                                  }
+                                }}
+                              >
+                                <div className="flex items-center justify-end gap-1.5">
+                                  Amount
+                                  <ArrowUpDown size={11} className={playTableSortField === 'amount' ? 'text-secondary-500' : 'text-muted-foreground/50'} />
+                                </div>
+                              </th>
+                              <th className="py-3 px-4 font-semibold">Status</th>
+                              <th className="py-3 px-4 font-semibold">Method</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-border/60">
+                            {tableData
+                              .filter(item => playTableFilter === 'all' || item.status === playTableFilter)
+                              .sort((a, b) => {
+                                if (playTableSortField === 'date') {
+                                  const da = new Date(a.date).getTime()
+                                  const db = new Date(b.date).getTime()
+                                  return playTableSortDir === 'asc' ? da - db : db - da
+                                } else {
+                                  const numA = parseFloat(a.amount.replace('$', '').replace(',', ''))
+                                  const numB = parseFloat(b.amount.replace('$', '').replace(',', ''))
+                                  return playTableSortDir === 'asc' ? numA - numB : numB - numA
+                                }
+                              })
+                              .map((item, idx) => {
+                                const paddingClass = {
+                                  compact: 'py-2 px-4 text-[11px]',
+                                  md: 'py-3.5 px-4 text-xs',
+                                  spacious: 'py-5.5 px-4 text-sm'
+                                }[playTableDensity]
+
+                                return (
+                                  <tr 
+                                    key={item.id} 
+                                    className={`transition-colors duration-150 ${
+                                      playTableHoverable ? 'hover:bg-muted/40 dark:hover:bg-slate-900/35' : ''
+                                    } ${
+                                      playTableStriped && idx % 2 === 1 ? 'bg-muted/15 dark:bg-slate-900/10' : ''
+                                    }`}
+                                  >
+                                    <td className={paddingClass}>{item.date}</td>
+                                    <td className={`${paddingClass} font-mono font-medium text-muted-foreground`}>{item.id}</td>
+                                    <td className={`${paddingClass} font-semibold`}>{item.client}</td>
+                                    <td className={`${paddingClass} text-right font-mono font-semibold text-primary dark:text-slate-100`}>
+                                      {item.amount}
+                                    </td>
+                                    <td className={paddingClass}>
+                                      {item.status === 'settled' ? (
+                                        <span className="inline-flex items-center gap-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 px-2 py-0.5">
+                                          Settled
+                                        </span>
+                                      ) : item.status === 'pending' ? (
+                                        <span className="inline-flex items-center gap-1 rounded bg-amber-500/10 border border-amber-500/20 text-[10px] font-bold text-amber-700 dark:text-amber-300 px-2 py-0.5">
+                                          Pending
+                                        </span>
+                                      ) : (
+                                        <span className="inline-flex items-center gap-1 rounded bg-red-500/10 border border-red-500/20 text-[10px] font-bold text-red-700 dark:text-red-300 px-2 py-0.5">
+                                          Failed
+                                        </span>
+                                      )}
+                                    </td>
+                                    <td className={`${paddingClass} text-muted-foreground`}>{item.method}</td>
+                                  </tr>
+                                )
+                              })}
+                          </tbody>
+                        </table>
+                      </div>
+
+                      {/* Code Generator Display */}
+                      <div className="mt-8 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">JSX Implementation Code</span>
+                          <button
+                            onClick={() => handleCopy(getTableCode(), 'table-code')}
+                            className="px-2.5 py-1 text-[10px] font-bold bg-muted/65 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition flex items-center gap-1 cursor-pointer"
+                          >
+                            <Copy size={10} />
+                            Copy Code
+                          </button>
+                        </div>
+                        <pre className="bg-muted/40 dark:bg-slate-950/30 border border-border/80 rounded-xl p-4 text-[10.5px] font-mono text-muted-foreground overflow-x-auto max-h-[300px] leading-relaxed select-all">
+                          {getTableCode()}
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           )}
 
