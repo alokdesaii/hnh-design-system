@@ -6,7 +6,7 @@
 
 ## 🎨 Brand Identity & Vision
 
-The **Harbour & Hills Design System** brings institutional-grade trust and high-end modern layout principles to digital wealth management. It is designed to look premium, minimal, and state-of-the-art.
+The **Harbour & Hills Design System** brings institutional-grade trust and high-end modern layout principles to B2B payment processing. It is designed to look premium, minimal, and state-of-the-art.
 
 *   **Primary Navy (`#023e63`)**: Represents stability, trust, and professional safety.
 *   **Secondary Teal (`#00bfb3`)**: Acts as our key interactive driver and call-to-action color.
@@ -24,16 +24,34 @@ The **Harbour & Hills Design System** brings institutional-grade trust and high-
 
 ---
 
+## 📚 What's Inside
+
+76 documented pages across four navigation groups:
+
+| Group | Count | Contents |
+| :--- | :--- | :--- |
+| **Getting Started** | 2 | Introduction, Design Principles |
+| **Foundations** | 8 | Colors, Typography, Spacing & Grids, Borders & Shadows, Iconography, Theme Builder & Tokens, Enterprise UX Patterns, Accessibility & WCAG |
+| **Components** | 58 | Accordion through Typography — each with overview, specimens, and an interactive playground |
+| **Legacy Platforms** | 8 | Platforms Directory, QoR3+, DigiQore+, H Markets, Edge+, H Business, Ficoy+, Coventrix+ |
+
+**Legacy Platforms** are the portal-brand microsites operating under Harbour & Hills, documented so each retains its own identity while sharing the core token layer.
+
+---
+
 ## 📁 Repository Structure
 
 ```text
 ├── html/                          # Vite + React application directory
 │   ├── src/
-│   │   ├── App.tsx                # Main design system interface & interactive specimens
+│   │   ├── App.tsx                # Navigation, foundations & all component pages
+│   │   ├── components/
+│   │   │   └── LegacyPlatforms.tsx # Portal-brand microsite pages
 │   │   ├── index.css              # Custom Tailwind theme tokens & utility styles
 │   │   ├── main.tsx               # App entrypoint
 │   │   └── assets/                # Graphic assets and icons
 │   ├── public/                    # Static files
+│   ├── DESIGN_SYSTEM_PROGRESS.md  # Page-by-page implementation tracker
 │   ├── package.json               # Dependencies and build scripts
 │   └── vite.config.ts             # Vite configuration
 └── README.md                      # Repository documentation
@@ -45,14 +63,16 @@ The **Harbour & Hills Design System** brings institutional-grade trust and high-
 
 ### 📋 Prerequisites
 
-Make sure you have **Node.js** (v18+) and **npm** installed on your system.
+Make sure you have **Node.js** (v20.19+ or v22.12+, required by Vite 8) and **npm** installed on your system.
+
+Built on React 19, Vite 8, Tailwind CSS v4, Framer Motion, and Lucide icons.
 
 ### 🚀 Running Locally
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/HnH-Design-System.git
-   cd HnH-Design-System/html
+   git clone https://github.com/alokdesaii/hnh-design-system.git
+   cd hnh-design-system/html
    ```
 
 2. **Install dependencies**:
