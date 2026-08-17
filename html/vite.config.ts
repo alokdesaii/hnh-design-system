@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  cacheDir: '/Users/alokdesai/.gemini/antigravity-ide/scratch/vite_cache',
   plugins: [
     react(),
     tailwindcss(),
@@ -11,8 +12,7 @@ export default defineConfig({
   server: {
     watch: {
       usePolling: true,
-      interval: 1000,
-      ignored: ['**/node_modules/**', '**/dist/**', '**/.git/**']
+      interval: 100,
     }
   }
 })
