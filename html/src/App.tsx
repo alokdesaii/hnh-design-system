@@ -651,7 +651,7 @@ const LocalSlider = ({
 
   const handleKeyDown = (index: 0 | 1) => (e: React.KeyboardEvent) => {
     if (disabled) return;
-    let currentVal = isRange ? value[index] : (value as number);
+    const currentVal = isRange ? value[index] : (value as number);
     let nextVal = currentVal;
 
     if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
@@ -777,7 +777,6 @@ function App() {
   }
 
   // Search input state and ref
-  const [searchQuery, setSearchQuery] = useState<string>('')
   const searchRef = useRef<HTMLInputElement>(null)
 
   // Global Cmd+K Command Palette state
@@ -791,8 +790,10 @@ function App() {
   const [tbSecondaryColor, setTbSecondaryColor] = useState<string>('#00a896')
   const [tbRadius, setTbRadius] = useState<'sharp' | 'subtle' | 'standard' | 'rounded' | 'pill'>('standard')
   const [tbDensity, setTbDensity] = useState<'compact' | 'standard' | 'spacious'>('standard')
-  const [tbFontFamily, setTbFontFamily] = useState<'inter' | 'roboto' | 'outfit' | 'system'>('inter')
   const [tbExportFormat, setTbExportFormat] = useState<'css' | 'json' | 'vars'>('css')
+  // AUDIT: written by the Theme Builder reset button but never read — the font
+  // family control is not wired to the preview. See AUDIT.md (Theme Builder).
+  const [, setTbFontFamily] = useState<'inter' | 'roboto' | 'outfit' | 'system'>('inter')
 
   // UX Patterns & Templates Gallery state
   const [patternTemplate, setPatternTemplate] = useState<'treasury-dashboard' | 'wire-transfer' | 'security-settings'>('treasury-dashboard')
@@ -804,7 +805,6 @@ function App() {
   // Accessibility & WCAG states
   const [a11yFgColor, setA11yFgColor] = useState<string>('#023e63')
   const [a11yBgColor, setA11yBgColor] = useState<string>('#f8fafc')
-  const [a11yTextSize, setA11yTextSize] = useState<'normal' | 'large'>('normal')
   const [a11ySimulatedFocus, setA11ySimulatedFocus] = useState<'button' | 'input' | 'combobox' | 'dialog'>('button')
   const [a11yAnnouncerMessage, setA11yAnnouncerMessage] = useState<string>('Vault balance updated: $142,850,200.00 USD')
 
@@ -982,7 +982,6 @@ function App() {
 
   // Breadcrumb Playground states
   const [playBreadcrumbSeparator, setPlayBreadcrumbSeparator] = useState<'slash' | 'chevron' | 'arrow'>('chevron')
-  const [playBreadcrumbMaxItems, setPlayBreadcrumbMaxItems] = useState<number>(4)
 
   // Dropdown Menu Playground states
   const [playDropdownAlign, setPlayDropdownAlign] = useState<'left' | 'center' | 'right'>('right')
@@ -1118,9 +1117,10 @@ function App() {
   const [playComboboxSelectedTags, setPlayComboboxSelectedTags] = useState<string[]>([])
 
   // Command Playground states
+  // AUDIT: closed by the palette's Escape handler but never read — the open
+  // state does not drive the preview. See AUDIT.md (Command).
+  const [, setPlayCommandIsOpen] = useState<boolean>(false)
   const [playCommandSearch, setPlayCommandSearch] = useState<string>('')
-  const [playCommandIsOpen, setPlayCommandIsOpen] = useState<boolean>(false)
-  const [playCommandSelected, setPlayCommandSelected] = useState<string>('')
   const [playCommandTheme, setPlayCommandTheme] = useState<'navy' | 'teal' | 'gray'>('navy')
   const [playCommandSize, setPlayCommandSize] = useState<'sm' | 'md' | 'lg'>('md')
   const [playCommandShortcutHint, setPlayCommandShortcutHint] = useState<boolean>(true)
@@ -1210,7 +1210,6 @@ function App() {
   const [specimenNavMenuTab, setSpecimenNavMenuTab] = useState<string>('Overview')
   const [specimenNavMenuOpenDropdown, setSpecimenNavMenuOpenDropdown] = useState<string | null>(null)
   const [sidebarNavMenuActiveItem, setSidebarNavMenuActiveItem] = useState<string>('Dashboard')
-  const [sidebarNavMenuExpanded, setSidebarNavMenuExpanded] = useState<boolean>(true)
 
   // Progress states
   const [playProgressValue, setPlayProgressValue] = useState<number>(65)
@@ -1219,7 +1218,6 @@ function App() {
   const [playProgressVariant, setPlayProgressVariant] = useState<'gradient' | 'solid' | 'striped' | 'glow'>('gradient')
   const [playProgressLabel, setPlayProgressLabel] = useState<'none' | 'top-right' | 'inside' | 'bottom'>('top-right')
   const [playProgressIndeterminate, setPlayProgressIndeterminate] = useState<boolean>(false)
-  const [specimenProgressStep, setSpecimenProgressStep] = useState<number>(2)
   const [playProgressIntervalActive, setPlayProgressIntervalActive] = useState<boolean>(false)
 
   // Resizable states
@@ -1227,6 +1225,14 @@ function App() {
   const [playResizableNumPanels, setPlayResizableNumPanels] = useState<2 | 3>(2)
   const [playResizableHandleStyle, setPlayResizableHandleStyle] = useState<'line' | 'dots' | 'glass'>('line')
   const [playPanelSizes, setPlayPanelSizes] = useState<number[]>([30, 70])
+  // Must stay at App top level: the Resizable page body is a conditional IIFE,
+  // so hooks declared inside it change the hook count on navigation and crash React.
+  const resizablePlayRef = useRef<HTMLDivElement>(null)
+  const resizableIdeRef = useRef<HTMLDivElement>(null)
+  const resizableDashRef = useRef<HTMLDivElement>(null)
+  const [ideSizes, setIdeSizes] = useState<number[]>([25, 75])
+  const [consoleSize, setConsoleSize] = useState<number>(70)
+  const [dashSizes, setDashSizes] = useState<number[]>([20, 55, 25])
 
   // Scroll Area states
   const [playScrollAreaOrientation, setPlayScrollAreaOrientation] = useState<'vertical' | 'horizontal' | 'both'>('vertical')
@@ -16137,7 +16143,7 @@ export function SecuritySettingsTemplate() {
 
           {/* ── RESIZABLE PAGE ─────────────────────────────────────────── */}
           {currentPath === 'components/resizable' && (() => {
-            const containerRef = useRef<HTMLDivElement>(null);
+            const containerRef = resizablePlayRef;
             const sizes = playPanelSizes;
             const setSizes = setPlayPanelSizes;
 
@@ -16218,9 +16224,7 @@ export function SecuritySettingsTemplate() {
             };
 
             // IDE workspace states
-            const ideContainerRef = useRef<HTMLDivElement>(null);
-            const [ideSizes, setIdeSizes] = useState<number[]>([25, 75]);
-            const [consoleSize, setConsoleSize] = useState<number>(70);
+            const ideContainerRef = resizableIdeRef;
 
             const handleIdeDragStart = (e: React.MouseEvent) => {
               e.preventDefault();
@@ -16257,8 +16261,7 @@ export function SecuritySettingsTemplate() {
             };
 
             // Specimen 3-column dashboard states
-            const dashContainerRef = useRef<HTMLDivElement>(null);
-            const [dashSizes, setDashSizes] = useState<number[]>([20, 55, 25]);
+            const dashContainerRef = resizableDashRef;
 
             const handleDashDragStart = (index: number, e: React.MouseEvent) => {
               e.preventDefault();

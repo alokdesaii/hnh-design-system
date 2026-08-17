@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* Inter is loaded via <link rel="preconnect"/stylesheet> in index.html so it
+   does not block first paint the way a CSS @import does. */
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -286,3 +287,33 @@ input[type="radio"]:focus {
 
 
 
+
+/* ── Reduced motion ───────────────────────────────────────────────────────
+   Honours the OS "reduce motion" setting (WCAG 2.1 SC 2.3.3). Movement is
+   removed, but opacity fades are kept short rather than killed so that
+   appearing/disappearing UI still reads as a state change. Framer Motion is
+   handled separately via <MotionConfig reducedMotion="user"> in main.tsx. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Loaders convey state, so keep them legible as a static, non-moving fill. */
+  .animate-shimmer,
+  .animate-infinite-slide {
+    animation: none !important;
+  }
+
+  /* Movement-based entrances become plain fades. */
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-slide-down,
+  .animate-slide-up {
+    animation: fade-in 0.01ms forwards !important;
+  }
+}
