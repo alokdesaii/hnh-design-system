@@ -68,6 +68,92 @@ returned an empty or near-empty tree.
 Components group holds 59, not 58. Earlier totals in this file and in the README
 were off by one.
 
+## Phase 1b — Narrow-viewport overflow scan ✅ COMPLETE
+
+All 77 pages scanned. Two metrics per page: page-level horizontal overflow, and
+elements intrinsically wider than a 375 px phone that are **not** inside a
+horizontal scroll container (wide tables and code blocks that scroll inside
+their own box are the correct pattern, not a bug, so they are excluded).
+
+**Tooling limitation, stated plainly:** the preview viewport is pinned at
+496 CSS px — `innerWidth` would not move regardless of the requested size, so a
+true 375 px test was not possible here. Media queries did report mobile (below
+Tailwind's 640 `sm`), so the mobile layout branch was exercised. The second
+metric exists to cover the gap. Anything below needing 375 px certainty should
+be confirmed in real browser devtools.
+
+**Result: 1 confirmed bug, 3 latent instances of the same root cause.**
+
+| Page | Page overflow | Verdict |
+| :-- | :-- | :-- |
+| `components/alert-dialog` | **1176 px** | 🔴 Confirmed broken |
+| `components/aspect-ratio` | 0 px (18 over-wide elements) | 🟠 Same defective grid class |
+| `components/calendar` | 0 px (13 over-wide elements) | 🟠 Same defective grid class |
+| `components/carousel` | 0 px (12 over-wide elements) | 🟠 Same defective grid class |
+| Other 73 pages | 0–1 px (rounding) | ✅ Clean |
+
+`components/navigation-menu` showed 3 elements at 384–486 px, but page overflow
+is 0 and the widest is a `max-w-sm` toast container — not a defect.
+
+### Root cause (single, shared)
+
+| | Grid class |
+| :-- | :-- |
+| Dialog and 38 other pages (correct) | `grid grid-cols-1 lg:grid-cols-12` |
+| The 4 offenders | `grid lg:grid-cols-12` ← no mobile column definition |
+
+With no `grid-cols-1`, below `lg` the grid has no explicit column track, so it
+falls back to content-driven implicit sizing. The playground code block's
+intrinsic width then blows the column out to 2172 px, dragging every sibling
+label and input to 2122 px with it. The `<pre>` already carries
+`overflow-x-auto` — it never gets the chance to work, because a grid item with
+`min-width: auto` refuses to shrink below its content.
+
+**Fix:** add `grid-cols-1` to the 4 grids (`src/App.tsx` lines 11314, 12223,
+20398, 22171). Matches the pattern the other 39 grids already use.
+
+Status: ✅ **Applied and verified.** All 4 grids now carry `grid-cols-1`
+(43 correct / 0 offenders). Build passes, 0 console errors.
+
+| Page | Page overflow before → after | Over-wide elements before → after |
+| :-- | :-- | :-- |
+| `alert-dialog` | 1176 px → **0 px** | 33 → 1 |
+| `aspect-ratio` | 0 px → 0 px | 18 → 1 |
+| `calendar` | 0 px → 0 px | 13 → 1 |
+| `carousel` | 0 px → 0 px | 12 → 1 |
+
+The `<pre>` was confirmed to *scroll* rather than clip — `scrollWidth` 2138 vs
+its client width, `overflow-x: auto` active, and all 4,455 characters of the
+snippet still present. A "fix" that hid the code would not be a fix.
+
+---
+
+## ⚠️ Two environment caveats that affect Phase 2
+
+**1. The preview pane's viewport is unstable.** Requested sizes are not
+honoured: `innerWidth` was observed at 400, 445, 480, 484, 496, 500 and 857 px
+across calls, regardless of what was asked for. Absolute pixel measurements
+from this environment are therefore only trustworthy when a changed page and an
+unchanged control page are measured back to back in the same call.
+
+**2. Narrow-width screenshots from this pane are not reliable.** At mobile
+sizes the pane renders content squeezed into a sliver with a large empty gutter
+and one-word-per-line text. This was proven to be an artifact, not a real
+defect: `components/dialog`, which was never modified, renders identically
+broken. Phase 2's mobile visual review needs real browser devtools, or its
+screenshots will show bugs that do not exist.
+
+## Open — needs confirmation in real devtools
+
+At `innerWidth` 400 px, **every** page overflows by 45–100 px, including pages
+that were clean at 496 px (`button` 96 px, `dialog` 45 px). After the grid fix,
+`alert-dialog` sits at 80 px — no longer an outlier, in line with everything
+else, which is the expected result.
+
+This looks like a separate site-wide narrow-width issue rather than anything
+introduced here, but given caveat 1 it is **not** being treated as a confirmed
+finding. To be re-tested at a genuine 375 px before any fix is attempted.
+
 ## Phase 2 — Visual audit, page by page ⬜ NOT STARTED
 
 Per page: screenshot desktop + mobile, light + dark → check spacing rhythm,

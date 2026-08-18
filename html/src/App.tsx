@@ -11311,7 +11311,7 @@ export function SecuritySettingsTemplate() {
                   </p>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   {/* Playground Preview Box */}
                   <div className="lg:col-span-7 flex flex-col justify-between space-y-6 bg-slate-50 dark:bg-slate-950 border border-border/65 rounded-2xl p-6.5">
                     
@@ -12220,7 +12220,7 @@ export function SecuritySettingsTemplate() {
                     </p>
                   </div>
 
-                  <div className="grid lg:grid-cols-12 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     {/* Playground Preview Box */}
                     <div className="lg:col-span-7 flex flex-col justify-between space-y-6 bg-slate-50 dark:bg-slate-950 border border-border/65 rounded-2xl p-6.5">
                       
@@ -20395,7 +20395,7 @@ export function ScrollArea({
                     </p>
                   </div>
 
-                  <div className="grid lg:grid-cols-12 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     {/* Playground Preview Box */}
                     <div className="lg:col-span-7 flex flex-col justify-between space-y-6 bg-slate-50 dark:bg-slate-950 border border-border/65 rounded-2xl p-6.5">
                       
@@ -22168,7 +22168,7 @@ export function ScrollArea({
                   <p className="text-xs text-muted-foreground font-light">Customize overlay transitions, header details, action styles, and generate clean JSX output.</p>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-8 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   {/* Canvas Section */}
                   <div className="lg:col-span-7 space-y-6">
                     <div className="border border-border/80 rounded-2xl bg-slate-900/5 dark:bg-slate-900/10 p-12 min-h-[250px] flex items-center justify-center shadow-inner relative overflow-hidden">
