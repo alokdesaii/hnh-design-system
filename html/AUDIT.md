@@ -44,11 +44,29 @@ comes up for review.
 
 ---
 
-## Phase 1 — Automated sweep ⬜ NOT STARTED
+## Phase 1 — Automated sweep ✅ COMPLETE
 
-Load all 76 pages; capture console errors, blank renders, failed navigations.
-Produces a triage list. Purpose: find out whether Resizable had siblings before
-investing in the visual pass.
+**Result: 154 page loads, 0 failures. Resizable had no siblings.**
+
+Method: an in-page collector hooked `console.error`, `window.onerror`, and
+`unhandledrejection`, then every page was visited by hash navigation (the same
+path a real user takes, which is what exposed the Resizable crash — direct loads
+did not). Per page: rendered text length, DOM node count, captured errors.
+
+| Pass | Pages | Errors | Blank renders |
+| :-- | :-- | :-- | :-- |
+| Ascending (nav order) | 77 | 0 | 0 |
+| Descending (reverse) | 77 | 0 | 0 |
+
+Both directions were run because hook-count crashes are order-dependent — a page
+is only proven safe if it survives being entered from more than one predecessor.
+
+Every page rendered with a plausible node count (min 200, max 1,451). No page
+returned an empty or near-empty tree.
+
+**Correction to earlier counts:** the system has **77 pages**, not 76 — the
+Components group holds 59, not 58. Earlier totals in this file and in the README
+were off by one.
 
 ## Phase 2 — Visual audit, page by page ⬜ NOT STARTED
 
@@ -57,9 +75,9 @@ alignment, hierarchy, dark-mode parity → measure rendered contrast against WCA
 AA → report → approval → fix → verify → next.
 
 Order (highest visibility first): Introduction → Design Principles →
-8 Foundations → 8 Legacy Platforms → 58 Components.
+8 Foundations → 8 Legacy Platforms → 59 Components.
 
-### Progress: 0 / 76
+### Progress: 0 / 77
 
 ## Phase 3 — Accessibility, page by page ⬜ NOT STARTED
 
