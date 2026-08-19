@@ -1578,8 +1578,8 @@ function App() {
         return [
           { id: 'brand-principles', name: 'Core Principles' },
           { id: 'trust', name: '1. Trust & Stability' },
-          { id: 'clarity', name: '2. Secondary Clarity' },
-          { id: 'spacing', name: '3. Space & Confidence' },
+          { id: 'clarity', name: '2. Turquoise/Teal Clarity' },
+          { id: 'spacing', name: '3. Generous Space & Confidence' },
           { id: 'accessibility', name: '4. Accessibility First' },
         ]
       case 'foundations/colors':
@@ -5505,7 +5505,7 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-secondary-500/10 dark:bg-secondary-500/15 text-secondary-500 flex items-center justify-center">
                     <Shield size={20} />
                   </div>
-                  <h3 className="font-bold text-base text-secondary-500">1. Trust & Stability</h3>
+                  <h2 className="font-bold text-base text-secondary-500">1. Trust & Stability</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Our users entrust us with their financial assets. We build trust by utilizing stable layouts, precise alignment, strong typographic weights, and our authoritative deep Navy blue color. Consistency is key to establishing security.
                   </p>
@@ -5516,7 +5516,7 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-secondary-500/10 dark:bg-secondary-500/15 text-secondary-500 flex items-center justify-center">
                     <Compass size={20} />
                   </div>
-                  <h3 className="font-bold text-base text-secondary-500">2. Turquoise/Teal Clarity</h3>
+                  <h2 className="font-bold text-base text-secondary-500">2. Turquoise/Teal Clarity</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     We use our secondary Teal color purposefully to signify primary action states, notifications, success indicators, and interactive points. This creates a high visual contrast against our dark blue assets, steering user attention.
                   </p>
@@ -5527,7 +5527,7 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-secondary-500/10 dark:bg-secondary-500/15 text-secondary-500 flex items-center justify-center">
                     <LayoutGrid size={20} />
                   </div>
-                  <h3 className="font-bold text-base text-secondary-500">3. Generous Space & Confidence</h3>
+                  <h2 className="font-bold text-base text-secondary-500">3. Generous Space & Confidence</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Financial dashboards can quickly become overwhelming. We solve this by employing a rigorous grid system and generous spacing tokens. Giving metrics room to breathe projects sophistication and calm control.
                   </p>
@@ -5538,9 +5538,9 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-secondary-500/10 dark:bg-secondary-500/15 text-secondary-500 flex items-center justify-center">
                     <Accessibility size={20} />
                   </div>
-                  <h3 className="font-bold text-base text-secondary-500">4. Accessibility First</h3>
+                  <h2 className="font-bold text-base text-secondary-500">4. Accessibility First</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    A financial service is for everyone. H&H mandates AA/AAA WCAG contrast levels across all text rendering, proper keyboard layouts, visible focus states, and scalable font dimensions using relative rem values.
+                    A financial service is for everyone. H&H mandates WCAG 2.1 AA contrast levels across all text rendering, proper keyboard layouts, visible focus states, and scalable font dimensions using relative rem values.
                   </p>
                 </div>
               </div>

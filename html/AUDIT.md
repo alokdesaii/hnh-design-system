@@ -163,7 +163,20 @@ AA → report → approval → fix → verify → next.
 Order (highest visibility first): Introduction → Design Principles →
 8 Foundations → 8 Legacy Platforms → 59 Components.
 
-### Progress: 1 / 77
+### Progress: 2 / 77
+
+#### ✅ 2. Design Principles — complete
+
+Contrast was already clean in both themes (0 failures each). No raw markdown,
+all images had `alt`, all buttons had accessible names.
+
+| Finding | Fix | Verified |
+| :-- | :-- | :-- |
+| Heading outline skipped h1 → h3 | The four principle cards are the page's top-level sections, so they were promoted `h3` → `h2` rather than inventing a hidden heading. Classes untouched. | No skips; headings still render 16px/700 — visually identical |
+| Right-rail labels did not match the headings they linked to: "2. Secondary Clarity" vs "2. Turquoise/Teal Clarity", "3. Space & Confidence" vs "3. Generous Space & Confidence" | Synced `navigationGroups` labels to the real headings | Rail labels now match all four headings exactly |
+| Card 4 claimed "H&H mandates **AA/AAA** WCAG contrast levels across all text" — AAA needs 7:1, which is unverified and which the brand teal (5.48:1) does not meet | Changed to "WCAG 2.1 AA" | Claim now matches what the system actually delivers, and the README |
+
+Contrast re-confirmed after the changes: 0 failures light, 0 dark.
 
 #### ✅ 1. Introduction — complete
 
