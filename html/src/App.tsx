@@ -5280,7 +5280,7 @@ export default function DrawerDemo() {
                 </h1>
 
                 <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-                  Beautifully designed, fully-customizable component variables built specifically for **Harbour & Hills Financial Services**. Copy, paste, and style consistent B2B Payment Apps.
+                  Beautifully designed, fully-customizable component variables built specifically for <strong>Harbour & Hills Financial Services</strong>. Copy, paste, and style consistent B2B Payment Apps.
                 </p>
 
                 {/* Hero CTAs */}
@@ -5304,7 +5304,7 @@ export default function DrawerDemo() {
               {/* Showcase Divider */}
               <div className="relative flex items-center justify-center">
                 <hr className="w-full border-border/60" />
-                <span className="absolute px-4 bg-background text-[10px] font-bold text-muted-foreground uppercase tracking-widest">SHOWCASE PLAYGROUND</span>
+                <h2 className="absolute px-4 bg-background text-[10px] font-bold text-muted-foreground uppercase tracking-widest">SHOWCASE PLAYGROUND</h2>
               </div>
 
               {/* Component Showcase Bento Grid */}
@@ -5908,7 +5908,7 @@ export default function DrawerDemo() {
                   Typography
                 </h1>
                 <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
-                  Our typography system is anchored on **Inter**, a highly legible sans-serif typeface designed for user interfaces. We employ a responsive, structured hierarchy to present payment analytics and data elements with maximum clarity.
+                  Our typography system is anchored on <strong>Inter</strong>, a highly legible sans-serif typeface designed for user interfaces. We employ a responsive, structured hierarchy to present payment analytics and data elements with maximum clarity.
                 </p>
               </section>
 
@@ -6231,7 +6231,7 @@ export default function DrawerDemo() {
                   Spacing & Grids
                 </h1>
                 <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
-                  We use an **8px grid system** (with a 4px sub-grid for tight layouts) to govern all spatial dimensions, heights, paddings, margins, and layout alignments. This guarantees visual balance and mathematical rigor.
+                  We use an <strong>8px grid system</strong> (with a 4px sub-grid for tight layouts) to govern all spatial dimensions, heights, paddings, margins, and layout alignments. This guarantees visual balance and mathematical rigor.
                 </p>
               </section>
 
@@ -19092,10 +19092,10 @@ export function ScrollArea({
                         Keyboard Controls
                       </div>
                       <ul className="list-disc list-inside space-y-1.5 pl-1">
-                        <li>**ArrowRight / ArrowUp**: Increase values by one step limit.</li>
-                        <li>**ArrowLeft / ArrowDown**: Decrease values by one step limit.</li>
-                        <li>**Home**: Jump slider to the minimum allowed bound.</li>
-                        <li>**End**: Jump slider to the maximum allowed bound.</li>
+                        <li><strong>ArrowRight / ArrowUp</strong>: Increase values by one step limit.</li>
+                        <li><strong>ArrowLeft / ArrowDown</strong>: Decrease values by one step limit.</li>
+                        <li><strong>Home</strong>: Jump slider to the minimum allowed bound.</li>
+                        <li><strong>End</strong>: Jump slider to the maximum allowed bound.</li>
                       </ul>
                     </div>
 
@@ -19105,9 +19105,9 @@ export function ScrollArea({
                         ARIA Roles & Layout
                       </div>
                       <ul className="list-disc list-inside space-y-1.5 pl-1">
-                        <li>**Role Slider**: Thumb handles must have <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="slider"</code>.</li>
-                        <li>**Aria Values**: Must carry <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemin</code>, <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemax</code>, and <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuenow</code>.</li>
-                        <li>**Touch Safe targets**: Slider track and thumbs utilize pointer interaction offsets for click accuracy.</li>
+                        <li><strong>Role Slider</strong>: Thumb handles must have <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="slider"</code>.</li>
+                        <li><strong>Aria Values</strong>: Must carry <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemin</code>, <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemax</code>, and <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuenow</code>.</li>
+                        <li><strong>Touch Safe targets</strong>: Slider track and thumbs utilize pointer interaction offsets for click accuracy.</li>
                       </ul>
                     </div>
                   </div>
@@ -19740,7 +19740,7 @@ export function ScrollArea({
                         <div className="space-y-2">
                           <h4 className="text-sm font-bold text-foreground">Interactive Sonner Sandbox</h4>
                           <p className="text-xs text-muted-foreground max-w-sm">
-                            Trigger toast notifications to appear in the **{playSonnerPosition.replace('-', ' ')}** corner of your viewport using the dynamic state preferences configured.
+                            Trigger toast notifications to appear in the <strong>{playSonnerPosition.replace('-', ' ')}</strong> corner of your viewport using the dynamic state preferences configured.
                           </p>
                         </div>
 
@@ -22920,7 +22920,7 @@ export function ScrollArea({
                   Iconography
                 </h1>
                 <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
-                  Our system uses **Lucide Icons** to represent actions, statuses, and navigation states across B2B Payment dashboard screens. We maintain visual consistency by enforcing strict guidelines on sizing, stroke thickness, and contextual coloring.
+                  Our system uses <strong>Lucide Icons</strong> to represent actions, statuses, and navigation states across B2B Payment dashboard screens. We maintain visual consistency by enforcing strict guidelines on sizing, stroke thickness, and contextual coloring.
                 </p>
               </section>
 
@@ -23138,8 +23138,8 @@ export function ScrollArea({
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
                     <li>Must be rendered inside a semantic <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="dialog"</code> container and carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-modal="true"</code>.</li>
                     <li>The title header should be labeled via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-labelledby</code> pointing directly to the dialog's header element.</li>
-                    <li>**Focus Trapping**: Active dialogs must lock tab focus within the modal bounds, preventing users from tabbing to background nodes.</li>
-                    <li>**Keyboard Escape**: Pressing the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Escape</code> key must invoke the close trigger handler.</li>
+                    <li><strong>Focus Trapping</strong>: Active dialogs must lock tab focus within the modal bounds, preventing users from tabbing to background nodes.</li>
+                    <li><strong>Keyboard Escape</strong>: Pressing the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Escape</code> key must invoke the close trigger handler.</li>
                   </ul>
                 </div>
               </section>
@@ -23165,7 +23165,7 @@ export function ScrollArea({
                     <div className="space-y-3">
                       <h4 className="text-sm font-bold text-foreground">Disburse Ledger Funds</h4>
                       <p className="text-xs text-muted-foreground leading-relaxed">
-                        You are initiating a manual routing payout of **$185,200.00 USD** to Acme Settlement Vault (Singapore routing bank). Please confirm this dispatch.
+                        You are initiating a manual routing payout of <strong>$185,200.00 USD</strong> to Acme Settlement Vault (Singapore routing bank). Please confirm this dispatch.
                       </p>
                     </div>
                     <div className="p-3 bg-muted/40 dark:bg-slate-950/20 border border-border/80 rounded-lg space-y-2">
@@ -23431,7 +23431,7 @@ export function ScrollArea({
                     <li>The container must have <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="tablist"</code>.</li>
                     <li>Each tab trigger must have <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="tab"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-selected="true/false"</code>.</li>
                     <li>Use <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-controls</code> pointing to the associated <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="tabpanel"</code>.</li>
-                    <li>**Keyboard Navigation**: support `ArrowRight`/`ArrowLeft` to move focus, and `Home`/`End` to go to first/last tab.</li>
+                    <li><strong>Keyboard Navigation</strong>: support <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ArrowRight</code>/<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ArrowLeft</code> to move focus, and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Home</code>/<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">End</code> to go to first/last tab.</li>
                   </ul>
                 </div>
               </section>
@@ -24109,7 +24109,7 @@ export function ScrollArea({
                     <li>The trigger button must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-haspopup="menu"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-expanded="true/false"</code>.</li>
                     <li>The floating menu panel must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menu"</code>.</li>
                     <li>Each menu item button should carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menuitem"</code>.</li>
-                    <li>**Keyboard Trapping**: pressing Up/Down arrow keys must move selection focus within the open dropdown.</li>
+                    <li><strong>Keyboard Trapping</strong>: pressing Up/Down arrow keys must move selection focus within the open dropdown.</li>
                   </ul>
                 </div>
               </section>
@@ -27163,8 +27163,8 @@ export function ScrollArea({
                       <li>The context menu must intercept the native browser right-click context menu via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">e.preventDefault()</code>.</li>
                       <li>The floating panel must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menu"</code>.</li>
                       <li>Each item button should carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menuitem"</code>.</li>
-                      <li>**Dismissal**: Clicking anywhere outside the menu or pressing <kbd className="font-mono text-[11px] bg-muted px-1 py-0.5 rounded">Esc</kbd> must close it.</li>
-                      <li>**Edge Safety**: Menu coordinates must be auto-adjusted to prevent rendering outside the viewport.</li>
+                      <li><strong>Dismissal</strong>: Clicking anywhere outside the menu or pressing <kbd className="font-mono text-[11px] bg-muted px-1 py-0.5 rounded">Esc</kbd> must close it.</li>
+                      <li><strong>Edge Safety</strong>: Menu coordinates must be auto-adjusted to prevent rendering outside the viewport.</li>
                     </ul>
                   </div>
                 </section>
@@ -27951,8 +27951,8 @@ export function ScrollArea({
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
                       <li>Use the standard HTML <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">dir</code> attribute (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">dir="ltr"</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">dir="rtl"</code>) to communicate text directionality to screen readers.</li>
-                      <li>**Logical CSS Properties**: Avoid physical placement styles like <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">margin-left</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">right: 0</code>. Instead, use logical counterparts: <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">margin-inline-start</code> (or Tailwind <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ms-*</code>) and logical coordinates (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">start-*</code> / <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">end-*</code>) for automated swapping.</li>
-                      <li>**Logical Icons**: Mirror directional navigation icons (e.g., arrows) in RTL, but preserve icons indicating status or utility configurations (e.g., settings, search, profile, lock).</li>
+                      <li><strong>Logical CSS Properties</strong>: Avoid physical placement styles like <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">margin-left</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">right: 0</code>. Instead, use logical counterparts: <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">margin-inline-start</code> (or Tailwind <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ms-*</code>) and logical coordinates (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">start-*</code> / <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">end-*</code>) for automated swapping.</li>
+                      <li><strong>Logical Icons</strong>: Mirror directional navigation icons (e.g., arrows) in RTL, but preserve icons indicating status or utility configurations (e.g., settings, search, profile, lock).</li>
                     </ul>
                   </div>
                 </section>
@@ -28440,9 +28440,9 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>**Aria Hidden**: Decorative or illustrative icons inside the empty state must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> so they are hidden from screen readers.</li>
-                      <li>**Clear Instructions**: Provide a concise action message explaining *why* the view is empty and *what* step the user can take next.</li>
-                      <li>**Logical Button Flow**: The primary action button must be in the tab outline, matching standard focus rings.</li>
+                      <li><strong>Aria Hidden</strong>: Decorative or illustrative icons inside the empty state must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> so they are hidden from screen readers.</li>
+                      <li><strong>Clear Instructions</strong>: Provide a concise action message explaining <em>why</em> the view is empty and <em>what</em> step the user can take next.</li>
+                      <li><strong>Logical Button Flow</strong>: The primary action button must be in the tab outline, matching standard focus rings.</li>
                     </ul>
                   </div>
                 </section>
@@ -29278,7 +29278,7 @@ export function ScrollArea({
                 <div className="inline-flex w-12 h-12 rounded-full bg-primary/10 text-primary items-center justify-center text-xl font-bold">!</div>
                 <h2 className="text-lg font-bold text-primary dark:text-slate-100 capitalize">{activeItem.name} Page</h2>
                 <p className="text-xs text-muted-foreground max-w-md mx-auto">
-                  The **{activeItem.name}** documentation page under the **{activeItem.id.split('/')[0]}** category is scaffolded and ready for implementation in the next step.
+                  The <strong>{activeItem.name}</strong> documentation page under the <strong>{activeItem.id.split('/')[0]}</strong> category is scaffolded and ready for implementation in the next step.
                 </p>
                 <div className="text-xs font-mono bg-muted/65 p-2 rounded inline-block text-muted-foreground">
                   Active Page ID: {activeItem.id}

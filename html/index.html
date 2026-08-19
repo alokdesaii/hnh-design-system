@@ -15,6 +15,17 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script>
+      // Apply the stored theme before first paint. Without this the app renders
+      // light and React only adds `.dark` after mount, so dark-mode users see a
+      // flash of the light theme on every load.
+      try {
+        var t = localStorage.getItem('theme')
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -163,7 +163,36 @@ AA → report → approval → fix → verify → next.
 Order (highest visibility first): Introduction → Design Principles →
 8 Foundations → 8 Legacy Platforms → 59 Components.
 
-### Progress: 0 / 77
+### Progress: 1 / 77
+
+#### ✅ 1. Introduction — complete
+
+| Finding | Fix | Verified |
+| :-- | :-- | :-- |
+| Brand teal `#00bfb3` failed WCAG AA on light backgrounds (2.20:1 — below both the 4.5:1 body and 3:1 large-text bars). 6 instances incl. the 60px hero accent. | Light mode remaps `--secondary` and `--color-secondary-500` to `#00736b` (5.48:1). Dark mode keeps the vivid brand teal. 4 lines of CSS instead of ~730 class edits. | Light 6 → **0** failures; dark **0**; screenshots both themes |
+| Literal markdown `**bold**` rendering as visible asterisks | Converted to `<strong>`. 26 spans across 11 pages. | 0 remaining site-wide; all 12 affected pages re-checked |
+| Literal backticks and `*italics*` in Tabs / Empty copy | Converted to `<code>` and `<em>` | Visually confirmed |
+| Heading outline skipped h1 → h3 | "SHOWCASE PLAYGROUND" divider promoted `span` → `h2` (classes unchanged, so rendering is identical) | Outline now h1 → h2 → h3, no skips, single h1 |
+| **Dark-mode flash on every load** — found while debugging measurement: `.dark` was applied only after React mounted, so dark-mode users saw a flash of light theme | Pre-paint script in `index.html` reads the stored theme before first paint | `bodyBg` now correct immediately on load |
+
+**Checked and clean:** dark mode had zero contrast failures both before and after;
+the Colors page palette still documents the true brand teal `#00bfb3` (swatches
+render from a literal hex via inline style, so the token remap cannot make the
+documentation contradict itself — explicitly verified).
+
+**Follow-up for the Colors page review:** the light-mode AA substitution
+(`#00736b`) is currently undocumented. That page should state both values and
+when each applies.
+
+##### Environment note discovered here
+
+`getComputedStyle` returned **stale colours** — both foreground and background —
+for any element that existed before the theme class flipped. This produced two
+rounds of entirely fake findings (13, then 4) that were pure measurement
+artifacts. Root cause was the same post-mount `.dark` application fixed above;
+with the pre-paint script in place, readings are now correct. **Any contrast
+audit must sanity-check that `body` background matches the active theme token
+before its results are trusted.**
 
 ## Phase 3 — Accessibility, page by page ⬜ NOT STARTED
 

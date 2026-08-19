@@ -91,7 +91,10 @@ html {
   --primary: #023e63; /* Navy */
   --primary-foreground: #ffffff;
 
-  --secondary: #00bfb3; /* Teal */
+  /* Light mode uses the darker teal stop so teal text clears WCAG AA (5.48:1 on
+     --background, vs 2.20:1 for #00bfb3, which failed even the 3:1 large-text
+     bar). Dark mode keeps the vivid brand teal, which passes there. */
+  --secondary: #00736b; /* Teal — AA-safe on light */
   --secondary-foreground: #ffffff;
 
   --muted: #f1f5f9;
@@ -316,4 +319,21 @@ input[type="radio"]:focus {
   .animate-slide-up {
     animation: fade-in 0.01ms forwards !important;
   }
+}
+
+/* ── Teal contrast (WCAG AA) ──────────────────────────────────────────────
+   The numbered stop `secondary-500` (#00bfb3) is used directly by ~339 text
+   utilities. On light backgrounds it measures 2.20:1 — below both the 4.5:1
+   body-text and 3:1 large-text thresholds. Remapping the stop in light mode
+   fixes every one of those call sites without touching 700+ class strings.
+   Dark mode keeps the vivid brand teal, where it already passes.
+   These blocks are deliberately unlayered so they win over Tailwind's
+   `@layer theme` output. */
+:root {
+  --color-secondary-500: #00736b; /* 5.48:1 on --background */
+}
+
+.dark {
+  --color-secondary-500: #00bfb3; /* vivid brand teal, passes on dark navy */
+  --secondary: #00bfb3;
 }
