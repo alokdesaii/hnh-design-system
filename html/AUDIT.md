@@ -261,7 +261,55 @@ text, 3 blocked by the next label, 2 with no control in range.
 Why 92 source edits fixed 143 runtime instances: see the duplicate-page finding
 below — several routes render the same source markup.
 
-Remaining after Typography: **239 across 45 pages.** Routes considered:
+#### Groups 4 + 2 ✅ APPLIED — **0 unlabeled controls remain**
+
+**Final: 297 controls, 0 without an accessible name, across all 77 pages.**
+0 console errors · 0 duplicate ids · 0 stray attribute text.
+
+| Step | Work | Result |
+| :-- | :-- | :-- |
+| Group 1 | 92 label/control pairings in `App.tsx` | 239 → 96 |
+| LegacyPlatforms.tsx | 6 pairings — **the file the Group 1 codemod never ran on** | |
+| OTP digits | `aria-label` per digit, scoped to each block's real length ("Digit 3 of 6", "of 4", dynamic) | |
+| Placeholder inputs | 19 named, filtered to those with *no* existing label so `aria-label` never overrides a visible one (WCAG 2.5.3) | |
+| Checkbox/radio specimens | 13 named from their specimen headings | 96 → 44 |
+| Range sliders | 4 named (open/close delay, container width, progress value) | |
+| Data-table | select-all + per-row `Select transaction ${item.id}` | |
+| Dynamic previews | Input and Select preview controls paired via `htmlFor`/`id` (their labels render runtime text, so `aria-label` would have been wrong) | 44 → **0** |
+
+**Group 4 was mostly a false alarm.** Of the 5–6 suspected snippet labels, four
+*wrap* their input (valid) and one already had `htmlFor` on a later line of a
+multi-line tag. Only the **Switch** snippet was genuinely broken: a `<label>`
+cannot label a `<button role="switch">`, so the copied code produced an unnamed
+switch. Fixed to `<span id="switch-label">` + `aria-labelledby`.
+
+**Two bugs I introduced and caught:**
+1. An `aria-label` inserted after a line that already closed with `>` landed
+   *inside* the `<select>` as visible text. Found by scanning for inserted
+   attributes whose preceding line ends in `>` — one occurrence, repaired into
+   the tag.
+2. Line-number drift from earlier insertions caused a wrong anchor; the guard
+   aborted instead of writing to the wrong place, and anchors were re-derived by
+   searching rather than by fixed line numbers.
+
+**Verified working, not just labelled:** OTP digits still auto-advance focus and
+accept input; every `aria-label=` string appearing in page text was confirmed to
+be inside a `<pre>`/`<code>` snippet, not loose markup.
+
+### 🆕 Still open: non-native controls have no accessible names
+
+The 297-control metric only counts `input`/`select`/`textarea`. It is blind to
+custom widgets, and two classes remain:
+
+- **18 `role="switch"` buttons** — every one unnamed. Screen readers announce
+  "switch, on" with no indication of what it toggles.
+- **104 `<label>`s on button groups** (Group 3) — a `<label>` cannot label a
+  group of `<button>`s, so those segmented controls have no group name and the
+  markup is invalid.
+
+Both would pass an automated form-control scan and fail a real audit.
+
+Remaining after Typography was: **239 across 45 pages.** Routes considered:
 **A** `htmlFor`/`id` pairs everywhere (correct, adds click-to-focus, needs 239
 unique stable ids) · **B** `aria-label` per control (scriptable from adjacent
 label text, but no click-to-focus) · **C** check whether these render through

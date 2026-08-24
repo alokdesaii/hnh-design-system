@@ -2032,15 +2032,16 @@ function App() {
       `  return (\n` +
       `    <div className="flex items-start justify-between gap-4 w-full max-w-md">\n` +
       `      <div className="space-y-1">\n` +
-      `        <label className="text-xs font-semibold ${playSwitchDisabled ? 'text-muted-foreground/60' : 'text-foreground'}">\n` +
+      `        <span id="switch-label" className="text-xs font-semibold ${playSwitchDisabled ? 'text-muted-foreground/60' : 'text-foreground'}">\n` +
       `          ${playSwitchLabel}\n` +
-      `        </label>\n` +
+      `        </span>\n` +
       (playSwitchDescription ? `        <p className="text-[11px] text-muted-foreground leading-relaxed">\n          ${playSwitchDescription}\n        </p>\n` : '') +
       `      </div>\n` +
       `      <button\n` +
       `        type="button"\n` +
       `        role="switch"\n` +
       `        aria-checked={checked}\n` +
+      `        aria-labelledby="switch-label"\n` +
       (playSwitchDisabled ? `        disabled\n` : '') +
       `        onClick={() => setChecked(!checked)}\n` +
       `        className="relative inline-flex shrink-0 cursor-pointer rounded-full p-0.5 transition-colors duration-200 ease-in-out outline-none focus-visible:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)] ${sizeClass} ${colorClass}${errorClass}${playSwitchDisabled ? ' opacity-40 cursor-not-allowed' : ''}"\n` +
@@ -4653,6 +4654,7 @@ export default function ComboboxDemo() {
       {open && (
         <div className="absolute z-50 w-full mt-2 bg-card border border-border rounded-xl shadow-lg p-2 max-h-60 overflow-y-auto">
           <input
+            aria-label="Search"
             type="text"
             placeholder="Search..."
             value={searchQuery}
@@ -4732,6 +4734,7 @@ export default function CommandDemo() {
             <div className="flex items-center border-b border-border px-3 py-2.5">
               <Search className="text-muted-foreground mr-2" size={16} />
               <input
+                aria-label="Search command palette"
                 type="text"
                 placeholder="Search command palette..."
                 value={search}
@@ -4848,6 +4851,7 @@ export default function DataTableDemo() {
         <div className="relative flex-grow max-w-sm">
           <Search size={14} className="absolute left-3 top-2.5 text-muted-foreground" />
           <input
+            aria-label="Search ledger"
             type="text"
             placeholder="Search ledger..."
             value={search}
@@ -5372,6 +5376,7 @@ export default function DrawerDemo() {
                     <div className="relative">
                       <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-muted-foreground">$</span>
                       <input 
+                        aria-label="Settlement amount"
                         type="text" 
                         value="124,500.00" 
                         disabled
@@ -6968,6 +6973,7 @@ export default function DrawerDemo() {
                             </button>
 
                             <input
+                              aria-label="Enter payout reference"
                               type="text"
                               placeholder="Enter payout reference..."
                               className="bg-card border border-border text-xs text-foreground outline-hidden transition-all px-3"
@@ -7314,6 +7320,7 @@ export default function DrawerDemo() {
                       <div className="relative flex-1 max-w-sm">
                         <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input
+                          aria-label="Search payout ID, counterparty, or routing code"
                           type="text"
                           placeholder="Search payout ID, counterparty, or routing code..."
                           className="w-full pl-9 pr-3 py-1.5 bg-muted/40 border border-border rounded-lg text-xs text-foreground placeholder:text-muted-foreground outline-hidden focus:border-secondary"
@@ -7322,7 +7329,7 @@ export default function DrawerDemo() {
 
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-muted-foreground">Status Filter:</span>
-                        <select className="px-2.5 py-1.5 bg-muted/40 border border-border rounded-lg text-xs font-semibold text-foreground outline-hidden">
+                        <select aria-label="Status filter" className="px-2.5 py-1.5 bg-muted/40 border border-border rounded-lg text-xs font-semibold text-foreground outline-hidden">
                           <option>All Statuses</option>
                           <option>Settled</option>
                           <option>Pending Review</option>
@@ -7872,6 +7879,7 @@ export function SecuritySettingsTemplate() {
                           className="w-12 h-10 rounded-lg border border-border cursor-pointer shrink-0 bg-transparent p-1"
                         />
                         <input 
+                          aria-label="Foreground colour hex value"
                           type="text" 
                           value={a11yFgColor}
                           onChange={(e) => setA11yFgColor(e.target.value)}
@@ -7907,6 +7915,7 @@ export function SecuritySettingsTemplate() {
                           className="w-12 h-10 rounded-lg border border-border cursor-pointer shrink-0 bg-transparent p-1"
                         />
                         <input 
+                          aria-label="Background colour hex value"
                           type="text" 
                           value={a11yBgColor}
                           onChange={(e) => setA11yBgColor(e.target.value)}
@@ -8170,6 +8179,7 @@ export function SecuritySettingsTemplate() {
                       <label className="text-xs font-semibold text-muted-foreground">Custom Live Announcement Payload:</label>
                       <div className="flex gap-2">
                         <input 
+                          aria-label="Type live announcement"
                           type="text" 
                           value={a11yAnnouncerMessage}
                           onChange={(e) => setA11yAnnouncerMessage(e.target.value)}
@@ -9239,7 +9249,7 @@ export function SecuritySettingsTemplate() {
                     <div className="bg-muted/10 border border-border/40 rounded-2xl p-6 flex flex-col justify-center min-h-[190px]">
                       <div className="space-y-1.5 w-full max-w-md mx-auto">
                         {playInputLabel && (
-                          <label className={`block font-semibold ${
+                          <label htmlFor="input-preview-field" className={`block font-semibold ${
                             playInputDisabled ? 'text-muted-foreground/60' :
                             playInputError ? 'text-red-500 dark:text-red-400' : 'text-foreground/80'
                           } ${
@@ -9268,6 +9278,7 @@ export function SecuritySettingsTemplate() {
 
                           {/* The Real Input */}
                           <input
+                            id="input-preview-field"
                             type="text"
                             disabled={playInputDisabled}
                             value={inputVal}
@@ -9423,6 +9434,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="checkbox"
+                          aria-label="Default Unchecked checkbox example"
                           checked={false}
                           readOnly
                           className="peer appearance-none w-4 h-4 rounded border border-border/80 bg-muted/20 hover:border-secondary/80 focus:outline-none transition duration-150 cursor-pointer"
@@ -9439,6 +9451,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5 shrink-0">
                         <input
                           type="checkbox"
+                          aria-label="Active Checked checkbox example"
                           checked={true}
                           readOnly
                           className="peer appearance-none w-4 h-4 rounded border border-transparent bg-secondary focus:outline-none transition duration-150 cursor-pointer"
@@ -9456,6 +9469,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5 shrink-0">
                         <input
                           type="checkbox"
+                          aria-label="Indeterminate checkbox example"
                           checked={false}
                           readOnly
                           className="peer appearance-none w-4 h-4 rounded border border-transparent bg-secondary focus:outline-none transition duration-150 cursor-pointer"
@@ -9473,6 +9487,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5 shrink-0">
                         <input
                           type="checkbox"
+                          aria-label="Focused (Active) checkbox example"
                           checked={true}
                           readOnly
                           className="peer appearance-none w-4 h-4 rounded border border-transparent bg-secondary focus:outline-none shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border),_0_0_8px_rgba(100,116,139,0.15)] transition duration-150 cursor-pointer"
@@ -9490,6 +9505,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5 shrink-0">
                         <input
                           type="checkbox"
+                          aria-label="Disabled Unchecked checkbox example"
                           disabled
                           className="appearance-none w-4 h-4 rounded border border-border/80 bg-muted/10 cursor-not-allowed"
                         />
@@ -9505,6 +9521,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5 shrink-0">
                         <input
                           type="checkbox"
+                          aria-label="Disabled Checked checkbox example"
                           checked={true}
                           disabled
                           readOnly
@@ -9523,6 +9540,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="checkbox"
+                          aria-label="Invalid / Error State checkbox example"
                           checked={false}
                           readOnly
                           className="appearance-none w-4 h-4 rounded border border-rose-500/80 bg-rose-500/[0.02] focus:outline-none transition duration-150 cursor-pointer"
@@ -9544,6 +9562,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="radio"
+                          aria-label="Default Unselected radio example"
                           checked={false}
                           readOnly
                           className="appearance-none w-4 h-4 rounded-full border border-border/80 bg-muted/20 hover:border-secondary/80 focus:outline-none transition duration-150 cursor-pointer"
@@ -9560,6 +9579,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="radio"
+                          aria-label="Active Selected radio example"
                           checked={true}
                           readOnly
                           className="appearance-none w-4 h-4 rounded-full border border-secondary bg-muted/20 focus:outline-none transition duration-150"
@@ -9577,6 +9597,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="radio"
+                          aria-label="Focused (Selected) radio example"
                           checked={true}
                           readOnly
                           className="appearance-none w-4 h-4 rounded-full border border-secondary bg-muted/20 focus:outline-none shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border),_0_0_8px_rgba(100,116,139,0.15)] transition duration-150"
@@ -9594,6 +9615,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="radio"
+                          aria-label="Disabled Unselected radio example"
                           disabled
                           className="appearance-none w-4 h-4 rounded-full border border-border/80 bg-muted/10 cursor-not-allowed"
                         />
@@ -9609,6 +9631,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="radio"
+                          aria-label="Disabled Selected radio example"
                           disabled
                           checked={true}
                           readOnly
@@ -9627,6 +9650,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative flex items-center justify-center mt-0.5">
                         <input
                           type="radio"
+                          aria-label="Invalid / Error State radio example"
                           checked={false}
                           readOnly
                           className="appearance-none w-4 h-4 rounded-full border border-rose-500/80 bg-rose-500/[0.02] focus:outline-none transition duration-150 cursor-pointer"
@@ -10304,7 +10328,7 @@ export function SecuritySettingsTemplate() {
                     <div className="bg-muted/10 border border-border/40 rounded-2xl p-6 flex flex-col justify-center min-h-[190px]">
                       <div className="space-y-1.5 w-full max-w-md mx-auto">
                         {playSelectLabel && (
-                          <label className={`block font-semibold ${
+                          <label htmlFor="select-preview-field" className={`block font-semibold ${
                             playSelectDisabled ? 'text-muted-foreground/60' :
                             playSelectError ? 'text-rose-500 dark:text-rose-400' : 'text-foreground/80'
                           } ${
@@ -10316,6 +10340,7 @@ export function SecuritySettingsTemplate() {
                         )}
                         <div className="relative flex items-center w-full">
                           <select
+                            id="select-preview-field"
                             disabled={playSelectDisabled}
                             value={playSelectValue}
                             onChange={(e) => setPlaySelectValue(e.target.value)}
@@ -11482,6 +11507,7 @@ export function SecuritySettingsTemplate() {
                       </div>
                       <input
                         type="range"
+                        aria-label="Simulated container width"
                         min="30"
                         max="100"
                         value={playAspectWidthPercent}
@@ -13194,6 +13220,7 @@ export function SecuritySettingsTemplate() {
                             </p>
                             <div className="space-y-2 mb-4">
                               <input
+                                aria-label="Daily transaction limit"
                                 type="text"
                                 placeholder="$250,000"
                                 className="w-full bg-muted border border-border rounded-lg px-2 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
@@ -13691,6 +13718,7 @@ export function SecuritySettingsTemplate() {
                           </div>
                           <input
                             type="range"
+                            aria-label="Open delay in milliseconds"
                             min={0}
                             max={1000}
                             step={100}
@@ -13708,6 +13736,7 @@ export function SecuritySettingsTemplate() {
                           </div>
                           <input
                             type="range"
+                            aria-label="Close delay in milliseconds"
                             min={0}
                             max={1000}
                             step={100}
@@ -13937,6 +13966,7 @@ export function SecuritySettingsTemplate() {
                               inputMode="numeric"
                               pattern="[0-9]*"
                               maxLength={1}
+                              aria-label={`Digit ${i + 1} of 6`}
                               value={specimenOtpAValue[i]}
                               onChange={(e) => handleOtpChange(e.target.value, i, specimenOtpAValue, setSpecimenOtpAValue, 6, 'specimen-otp-a')}
                               onKeyDown={(e) => handleOtpKeyDown(e, i, specimenOtpAValue, setSpecimenOtpAValue, 'specimen-otp-a')}
@@ -13959,6 +13989,7 @@ export function SecuritySettingsTemplate() {
                               inputMode="numeric"
                               pattern="[0-9]*"
                               maxLength={1}
+                              aria-label={`Digit ${i + 1} of 6`}
                               value={specimenOtpAValue[i]}
                               onChange={(e) => handleOtpChange(e.target.value, i, specimenOtpAValue, setSpecimenOtpAValue, 6, 'specimen-otp-a')}
                               onKeyDown={(e) => handleOtpKeyDown(e, i, specimenOtpAValue, setSpecimenOtpAValue, 'specimen-otp-a')}
@@ -13990,6 +14021,7 @@ export function SecuritySettingsTemplate() {
                             inputMode="numeric"
                             pattern="[0-9]*"
                             maxLength={1}
+                            aria-label={`Digit ${i + 1} of 4`}
                             value={specimenOtpBValue[i]}
                             onChange={(e) => handleOtpChange(e.target.value, i, specimenOtpBValue, setSpecimenOtpBValue, 4, 'specimen-otp-b')}
                             onKeyDown={(e) => handleOtpKeyDown(e, i, specimenOtpBValue, setSpecimenOtpBValue, 'specimen-otp-b')}
@@ -14101,6 +14133,7 @@ export function SecuritySettingsTemplate() {
                               inputMode="numeric"
                               pattern="[0-9]*"
                               maxLength={1}
+                              aria-label={`Digit ${i + 1} of ${playOtpValue.length}`}
                               value={digit}
                               disabled={playOtpDisabled}
                               onChange={(e) => handleOtpChange(e.target.value, i, playOtpValue, setPlayOtpValue, playOtpLength, 'play-otp-input')}
@@ -14223,6 +14256,7 @@ export function SecuritySettingsTemplate() {
                       {/* 2. Selectable / Checked Item */}
                       <div className="flex items-center gap-3 w-full bg-card border border-secondary rounded-xl p-4 cursor-pointer transition hover:bg-muted/30 group">
                         <input
+                          aria-label="Selected item example"
                           type="checkbox"
                           checked={true}
                           readOnly
@@ -14638,6 +14672,7 @@ export function SecuritySettingsTemplate() {
                           <span className="text-xs font-medium text-foreground">Inline Search Input</span>
                           <div className="relative w-44">
                             <input
+                              aria-label="Search pool nodes"
                               type="text"
                               placeholder="Search pool nodes..."
                               disabled
@@ -15907,6 +15942,7 @@ export function SecuritySettingsTemplate() {
                           
                           <input
                             type="range"
+                            aria-label="Progress value"
                             min="0"
                             max="100"
                             value={playProgressValue}
@@ -23004,6 +23040,7 @@ export function ScrollArea({
                       <Search size={14} />
                     </span>
                     <input
+                      aria-label="Search icons"
                       type="text"
                       placeholder="Search icons..."
                       value={iconSearch}
@@ -26501,6 +26538,7 @@ export function ScrollArea({
                         {localOpenA && (
                           <div className="absolute z-50 w-full mt-2 bg-card border border-border rounded-xl shadow-lg p-2 max-h-56 overflow-y-auto">
                             <input
+                              aria-label="Search"
                               type="text"
                               placeholder="Search..."
                               value={localSearch}
@@ -26610,6 +26648,7 @@ export function ScrollArea({
                             {playComboboxIsOpen && (
                               <div className="absolute z-50 w-full mt-2 bg-card border border-border rounded-xl shadow-lg p-2 max-h-56 overflow-y-auto">
                                 <input
+                                  aria-label="Search"
                                   type="text"
                                   placeholder="Search..."
                                   value={playComboboxSearch}
@@ -26642,6 +26681,7 @@ export function ScrollArea({
                             {playComboboxIsOpen && (
                               <div className="absolute z-50 w-full mt-2 bg-card border border-border rounded-xl shadow-lg p-2 max-h-56 overflow-y-auto">
                                 <input
+                                  aria-label="Search"
                                   type="text"
                                   placeholder="Search..."
                                   value={playComboboxSearch}
@@ -26823,6 +26863,7 @@ export function ScrollArea({
                         <div className="flex items-center border-b border-border/60 px-3 py-2 bg-card">
                           <Search size={14} className="text-muted-foreground mr-2" />
                           <input
+                            aria-label="Type a command or search"
                             type="text"
                             placeholder="Type a command or search..."
                             value={localSearch}
@@ -26885,6 +26926,7 @@ export function ScrollArea({
                             <div className="flex items-center border-b border-border px-3 py-3">
                               <Search size={16} className="text-muted-foreground mr-2 shrink-0" />
                               <input
+                                aria-label="Search all commands"
                                 type="text"
                                 placeholder="Search all commands..."
                                 value={localSearch}
@@ -26963,6 +27005,7 @@ export function ScrollArea({
                           <div className="flex items-center border-b border-border/60 px-3 py-2 bg-card">
                             <Search size={14} className="text-muted-foreground mr-2" />
                             <input
+                              aria-label="Search operations"
                               type="text"
                               placeholder="Search operations..."
                               value={playCommandSearch}
@@ -27613,6 +27656,7 @@ export function ScrollArea({
                               <th className="p-3 w-10">
                                 <input
                                   type="checkbox"
+                                  aria-label="Select all rows"
                                   checked={playDataTableLocalSelectedIds.length > 0 && playDataTableLocalSelectedIds.length === filtered.length}
                                   onChange={toggleSelectAll}
                                   className="rounded border-border text-primary focus:ring-0 cursor-pointer"
@@ -27651,6 +27695,7 @@ export function ScrollArea({
                                     <td className="p-3">
                                       <input
                                         type="checkbox"
+                                        aria-label={`Select transaction ${item.id}`}
                                         checked={isSelected}
                                         onChange={() => toggleSelectRow(item.id)}
                                         className="rounded border-border text-primary focus:ring-0 cursor-pointer"
@@ -27737,6 +27782,7 @@ export function ScrollArea({
                           <div className="p-3.5 border-b border-border/80 flex items-center bg-muted/10">
                             <Search size={13} className="text-muted-foreground mr-2 shrink-0" />
                             <input
+                              aria-label="Search operations"
                               type="text"
                               placeholder="Search operations..."
                               value={playDataTableSearch}
@@ -27754,6 +27800,7 @@ export function ScrollArea({
                                 {playDataTableShowCheckbox && (
                                   <th className="p-2 w-8">
                                     <input
+                                      aria-label="Select all rows"
                                       type="checkbox"
                                       checked={playDataTableLocalSelectedIds.length > 0 && playDataTableLocalSelectedIds.length === filtered.length}
                                       onChange={toggleSelectAll}
@@ -27785,6 +27832,7 @@ export function ScrollArea({
                                       {playDataTableShowCheckbox && (
                                         <td className={paddingClass}>
                                           <input
+                                            aria-label={`Select transaction ${item.id}`}
                                             type="checkbox"
                                             checked={isSelected}
                                             onChange={() => toggleSelectRow(item.id)}
@@ -29435,6 +29483,7 @@ export function ScrollArea({
               <div className="flex items-center px-4 py-3.5 border-b border-border/70 bg-muted/20 gap-3">
                 <Search size={18} className="text-secondary shrink-0" />
                 <input
+                  aria-label="Search components, foundations, design principles"
                   ref={globalSearchInputRef}
                   type="text"
                   placeholder="Search components, foundations, design principles..."

@@ -2011,16 +2011,16 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
               {formTab === 'spec' && (
                 <div className="space-y-4 text-xs font-mono animate-fadeIn">
                   <div>
-                    <label className="text-[10px] text-slate-400 uppercase block mb-1">Organization Name*</label>
-                    <input type="text" readOnly value="Harbour & Hills Partner" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
+                    <label htmlFor="organization-name" className="text-[10px] text-slate-400 uppercase block mb-1">Organization Name*</label>
+                    <input id="organization-name" type="text" readOnly value="Harbour & Hills Partner" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
                   </div>
                   <div>
-                    <label className="text-[10px] text-slate-400 uppercase block mb-1">Target Endpoint*</label>
-                    <input type="text" readOnly value={activePlatform.apiPayload.endpoint} className="w-full bg-transparent border-b border-slate-700 py-1.5 text-[#00bfb3] focus:outline-none" />
+                    <label htmlFor="target-endpoint" className="text-[10px] text-slate-400 uppercase block mb-1">Target Endpoint*</label>
+                    <input id="target-endpoint" type="text" readOnly value={activePlatform.apiPayload.endpoint} className="w-full bg-transparent border-b border-slate-700 py-1.5 text-[#00bfb3] focus:outline-none" />
                   </div>
                   <div>
-                    <label className="text-[10px] text-slate-400 uppercase block mb-1">Authentication Tier*</label>
-                    <input type="text" readOnly value="OAuth 2.0 / mTLS Mutual Authentication" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
+                    <label htmlFor="authentication-tier" className="text-[10px] text-slate-400 uppercase block mb-1">Authentication Tier*</label>
+                    <input id="authentication-tier" type="text" readOnly value="OAuth 2.0 / mTLS Mutual Authentication" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
                   </div>
 
                   <button
@@ -2036,16 +2036,16 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
               {formTab === 'sla' && (
                 <div className="space-y-4 text-xs font-mono animate-fadeIn">
                   <div>
-                    <label className="text-[10px] text-slate-400 uppercase block mb-1">Uptime Availability Guarantee*</label>
-                    <input type="text" readOnly value="99.99% Availability SLA (24/7 Monitoring)" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-[#00bfb3] font-bold focus:outline-none" />
+                    <label htmlFor="uptime-availability-guarantee" className="text-[10px] text-slate-400 uppercase block mb-1">Uptime Availability Guarantee*</label>
+                    <input id="uptime-availability-guarantee" type="text" readOnly value="99.99% Availability SLA (24/7 Monitoring)" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-[#00bfb3] font-bold focus:outline-none" />
                   </div>
                   <div>
-                    <label className="text-[10px] text-slate-400 uppercase block mb-1">Disaster Recovery RPO / RTO*</label>
-                    <input type="text" readOnly value="< 15 Sec RPO (Data Loss) / < 2 Min RTO (Recovery)" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
+                    <label htmlFor="disaster-recovery-rpo-rto" className="text-[10px] text-slate-400 uppercase block mb-1">Disaster Recovery RPO / RTO*</label>
+                    <input id="disaster-recovery-rpo-rto" type="text" readOnly value="< 15 Sec RPO (Data Loss) / < 2 Min RTO (Recovery)" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
                   </div>
                   <div>
-                    <label className="text-[10px] text-slate-400 uppercase block mb-1">Security & Regulatory Compliance*</label>
-                    <input type="text" readOnly value="ISO 20022 / SOC2 Type II / HKMA RegTech Compliant" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
+                    <label htmlFor="security-regulatory-compliance" className="text-[10px] text-slate-400 uppercase block mb-1">Security & Regulatory Compliance*</label>
+                    <input id="security-regulatory-compliance" type="text" readOnly value="ISO 20022 / SOC2 Type II / HKMA RegTech Compliant" className="w-full bg-transparent border-b border-slate-700 py-1.5 text-white focus:outline-none" />
                   </div>
 
                   <button
