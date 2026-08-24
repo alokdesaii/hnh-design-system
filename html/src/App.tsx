@@ -5579,7 +5579,7 @@ export default function DrawerDemo() {
                   Colors
                 </h1>
                 <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl animate-fade-in">
-                  Our color system is built to convey trust, clarity, and safety. We employ a deep Navy brand primary, a highly legible secondary Teal for actions, and a supportive slate neutral scale. All combinations are optimized for contrast and accessibility.
+                  Our color system is built to convey trust, clarity, and safety. We employ a deep Navy brand primary, a secondary Teal for actions, and a supportive slate neutral scale. Text pairings are validated against WCAG 2.1 AA — use the tester below to verify any combination before you ship it.
                 </p>
               </section>
 
@@ -5618,6 +5618,20 @@ export default function DrawerDemo() {
                       {secondaryTealShades.map((shade) => (
                         <ColorCard key={shade.shade} shade={shade} prefix="secondary" onCopy={handleCopy} />
                       ))}
+                    </div>
+
+                    {/* Documents the light-mode substitution applied in index.css */}
+                    <div className="flex gap-2.5 rounded-lg border border-secondary-500/25 bg-secondary-500/5 dark:bg-secondary-500/10 p-3 mt-1">
+                      <Info size={14} className="text-secondary-500 shrink-0 mt-0.5" aria-hidden="true" />
+                      <p className="text-[11px] text-muted-foreground leading-relaxed">
+                        <strong className="text-foreground">Teal text on light backgrounds uses <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">secondary-700</code>.</strong>{' '}
+                        The brand teal <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">#00bfb3</code> measures only
+                        2.20:1 against our light background — below both the 4.5:1 body-text and 3:1 large-text thresholds — so light mode maps{' '}
+                        <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">--secondary</code>{' '}to{' '}
+                        <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">#00736b</code>{' '}(5.48:1, AA pass).
+                        Dark mode keeps the vivid <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">#00bfb3</code>, which passes against our deep navy.
+                        Fills, borders, and non-text accents are unaffected by contrast minimums and use the brand teal in both themes.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -5813,7 +5827,7 @@ export default function DrawerDemo() {
                       className="p-5 rounded-xl border border-border/60 flex-1 flex flex-col justify-center min-h-[140px] shadow-2xs transition-all duration-300"
                       style={{ backgroundColor: contrastBg, color: contrastText }}
                     >
-                      <h4 className="text-lg font-bold tracking-tight mb-2">H&H Portfolio Dashboard</h4>
+                      <h3 className="text-lg font-bold tracking-tight mb-2">H&H Portfolio Dashboard</h3>
                       <p className="text-xs leading-relaxed opacity-90 font-light">
                         Accessibility means empowering every finance team and business partner. By maintaining strict design tokens, we ensure high visual contrast.
                       </p>

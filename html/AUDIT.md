@@ -163,7 +163,43 @@ AA → report → approval → fix → verify → next.
 Order (highest visibility first): Introduction → Design Principles →
 8 Foundations → 8 Legacy Platforms → 59 Components.
 
-### Progress: 2 / 77
+### Progress: 3 / 77
+
+#### ✅ 3. Colors — complete
+
+Contrast was already clean in both themes (0 failures each).
+
+**The built-in contrast tester was independently verified as mathematically
+correct** — five edge cases, every threshold right, including the awkward
+AAA-Large 4.5:1 boundary and exactly 21:1 for black-on-white (which confirms the
+luminance formula). It agrees with this audit's own auditor, so two independent
+implementations corroborate each other.
+
+| Input | Ratio | AA-N / AA-L / AAA-N / AAA-L | Correct |
+| :-- | :-- | :-- | :-- |
+| `#00bfb3` on white | 2.31 | FAIL / FAIL / FAIL / FAIL | ✅ |
+| `#00998f` on white | 3.53 | FAIL / PASS / FAIL / FAIL | ✅ |
+| `#00736b` on white | 5.73 | PASS / PASS / FAIL / PASS | ✅ |
+| `#767676` on white | 4.54 | PASS / PASS / FAIL / PASS | ✅ |
+| white on black | 21.00 | PASS / PASS / PASS / PASS | ✅ |
+
+| Finding | Fix | Verified |
+| :-- | :-- | :-- |
+| The light-mode teal substitution introduced on page 1 was undocumented — the palette presented `#00bfb3` as "Action Core" with no note that it fails AA for text on light | Added a callout under the Secondary Teal grid stating the rule with measured ratios: `#00bfb3` for dark mode, fills, borders and large accents; `#00736b` for text on light (5.48:1). Turns an undocumented workaround into a stated rule. | Renders in both themes; 0 contrast failures including the new callout |
+| Intro copy overclaimed: "a **highly legible** secondary Teal" and "**All combinations** are optimized for contrast and accessibility" — both disproved by the page's own tester | Reworded to "Text pairings are validated against WCAG 2.1 AA — use the tester below to verify any combination before you ship it." | Old claim gone |
+| Heading skip h2 → h4 on the tester's preview panel | `h4` → `h3` | No skips |
+
+**Self-inflicted bug caught during verification:** the new callout initially
+rendered as "maps--secondary to#00736b" — JSX strips the newline whitespace
+before a tag on the following line. Fixed with explicit `{' '}` separators and
+re-verified from the rendered text, not the source.
+
+##### Second environment caveat
+
+Screenshots from this preview pane appear pinned to the top of the document and
+do not reflect programmatic scrolling, and `computer` scroll actions time out.
+Content below the fold therefore has to be verified from the DOM (rendered text,
+computed styles) rather than visually.
 
 #### ✅ 2. Design Principles — complete
 
