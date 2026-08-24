@@ -154,6 +154,42 @@ This looks like a separate site-wide narrow-width issue rather than anything
 introduced here, but given caveat 1 it is **not** being treated as a confirmed
 finding. To be re-tested at a genuine 375 px before any fix is attempted.
 
+## 🔴 Duplicate pages — 8 nav entries render 4 pages
+
+Found while reconciling why 92 source edits fixed 143 runtime instances.
+Verified by **byte-for-byte comparison** of rendered text, not fingerprints.
+
+| Nav entries | Actually render | Page title |
+| :-- | :-- | :-- |
+| Input, Input Group, Label, Textarea | one identical page | "Input & Label" |
+| Select, Native Select | one identical page | "Select" |
+| Button, Button Group | one identical page | "Button" |
+| Checkbox, Radio Group | one identical page | "Checkbox & Radio" |
+
+The combined pages are defensible where the title says so ("Input & Label",
+"Checkbox & Radio"). What is not defensible is that **four components have a
+sidebar entry and no documentation at all**:
+
+- **Input Group** — page never mentions "input group"
+- **Textarea** — page never mentions "textarea"
+- **Native Select** — page never mentions "native"
+- **Button Group** — identical to Button
+
+Clicking "Textarea" gives an Input page. `implementedPaths` lists all four as
+implemented, and the README advertises "59 components — each with overview,
+specimens, and an interactive playground". The true figure is 55 documented
+components across 69 distinct pages.
+
+**Corrected earlier claim:** Phase 1 reported "all 77 nav entries resolve to
+implemented pages, no dead links". That was measured by checking each route
+rendered *something*, which it does. It never checked whether routes rendered
+*distinct* content. The statement was true as worded and misleading as read.
+
+**False positive caught:** two legacy-platform pairs (`edge-plus`/`ficoy`,
+`h-business`/`coventrix`) initially looked duplicated on a 200-character
+fingerprint. Full-text comparison shows they diverge after a shared 49-character
+header and are genuinely distinct. They are **not** defects.
+
 ## Phase 2 — Visual audit, page by page ⬜ NOT STARTED
 
 Per page: screenshot desktop + mobile, light + dark → check spacing rhythm,
@@ -201,6 +237,29 @@ demonstrates unlabelled controls. Its *generated code snippet is correct*
 (`<Label htmlFor="input-field">` paired with `<input id="input-field">`), so the
 code users are told to copy is right while the system's own demo markup is not.
 This sits directly under that page's "WCAG AA compliance" claim.
+
+#### Group 1 ✅ APPLIED — 92 label/control pairings
+
+**Result: 239 → 96 unlabeled controls.** Build passes, 0 console errors, 0
+duplicate ids introduced.
+
+Codemod rule: a label owns the first form control appearing before the next
+label, within 12 lines, stopping at any `<button>` (button groups are Group 3).
+Ids are slugged from the visible label text and seeded with the file's 72
+existing ids so no collision is possible.
+
+**The dry run earned its keep** — the first pass proposed three bad edits that
+were caught before anything was written:
+- garbage ids from label `className` expressions (`id=playinputdisabled-text-muted-foreg`)
+- a label that already had `htmlFor` on a *later* line of a multi-line tag, which would have been double-added
+- far-distance pairings (+23, +27, +28) that were actually button-group labels grabbing an unrelated input
+
+The tightened rule rejected 139 labels for stated reasons: 104 button groups
+(Group 3), ~22 labels that already wrap their control (valid as-is), 6 with no
+text, 3 blocked by the next label, 2 with no control in range.
+
+Why 92 source edits fixed 143 runtime instances: see the duplicate-page finding
+below — several routes render the same source markup.
 
 Remaining after Typography: **239 across 45 pages.** Routes considered:
 **A** `htmlFor`/`id` pairs everywhere (correct, adds click-to-focus, needs 239

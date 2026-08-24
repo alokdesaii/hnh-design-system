@@ -5737,13 +5737,13 @@ export default function DrawerDemo() {
                   <div className="lg:col-span-5 space-y-6">
                     {/* Background Picker */}
                     <div className="space-y-2.5">
-                      <label className="text-xs font-bold tracking-wide text-foreground block">Background Color</label>
+                      <label htmlFor="background-color" className="text-xs font-bold tracking-wide text-foreground block">Background Color</label>
                       <div className="flex items-center gap-2">
                         <div 
                           className="w-8 h-8 rounded-lg border border-border shadow-xs shrink-0" 
                           style={{ backgroundColor: contrastBg }} 
                         />
-                        <input 
+                        <input id="background-color" 
                           type="text" 
                           value={customBgInput}
                           onChange={(e) => handleBgInputChange(e.target.value)}
@@ -5779,13 +5779,13 @@ export default function DrawerDemo() {
 
                     {/* Text Picker */}
                     <div className="space-y-2.5">
-                      <label className="text-xs font-bold tracking-wide text-foreground block">Text Color</label>
+                      <label htmlFor="text-color" className="text-xs font-bold tracking-wide text-foreground block">Text Color</label>
                       <div className="flex items-center gap-2">
                         <div 
                           className="w-8 h-8 rounded-lg border border-border shadow-xs shrink-0" 
                           style={{ backgroundColor: contrastText }} 
                         />
-                        <input 
+                        <input id="text-color" 
                           type="text" 
                           value={customTextInput}
                           onChange={(e) => handleTextInputChange(e.target.value)}
@@ -6360,8 +6360,8 @@ export default function DrawerDemo() {
                   <div className="lg:col-span-4 space-y-5">
                     {/* Columns Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Columns</label>
-                      <select
+                      <label htmlFor="columns" className="text-xs font-bold text-foreground block">Columns</label>
+                      <select id="columns"
                         value={gridCols}
                         onChange={(e) => setGridCols(Number(e.target.value))}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6377,8 +6377,8 @@ export default function DrawerDemo() {
 
                     {/* Gap Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Gap Spacing</label>
-                      <select
+                      <label htmlFor="gap-spacing" className="text-xs font-bold text-foreground block">Gap Spacing</label>
+                      <select id="gap-spacing"
                         value={gridGap}
                         onChange={(e) => setGridGap(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6581,8 +6581,8 @@ export default function DrawerDemo() {
                   <div className="lg:col-span-5 space-y-4">
                     {/* Radius selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Corner Radius</label>
-                      <select
+                      <label htmlFor="corner-radius" className="text-xs font-bold text-foreground block">Corner Radius</label>
+                      <select id="corner-radius"
                         value={composerRadius}
                         onChange={(e) => setComposerRadius(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6601,8 +6601,8 @@ export default function DrawerDemo() {
 
                     {/* Shadow selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Elevation Shadow</label>
-                      <select
+                      <label htmlFor="elevation-shadow" className="text-xs font-bold text-foreground block">Elevation Shadow</label>
+                      <select id="elevation-shadow"
                         value={composerShadow}
                         onChange={(e) => setComposerShadow(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6618,8 +6618,8 @@ export default function DrawerDemo() {
 
                     {/* Border selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Borders</label>
-                      <select
+                      <label htmlFor="borders" className="text-xs font-bold text-foreground block">Borders</label>
+                      <select id="borders"
                         value={composerBorder}
                         onChange={(e) => setComposerBorder(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6633,8 +6633,8 @@ export default function DrawerDemo() {
 
                     {/* Background selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Background Fill</label>
-                      <select
+                      <label htmlFor="background-fill" className="text-xs font-bold text-foreground block">Background Fill</label>
+                      <select id="background-fill"
                         value={composerBg}
                         onChange={(e) => setComposerBg(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -7426,8 +7426,8 @@ export default function DrawerDemo() {
                     {wireStep === 1 && (
                       <div className="space-y-4 pt-4 border-t border-border/60">
                         <div className="space-y-1.5">
-                          <label className="text-xs font-bold uppercase tracking-wider text-foreground">Source Vault Account</label>
-                          <select className="w-full p-2.5 bg-muted/40 border border-border rounded-xl text-xs font-medium text-foreground outline-hidden focus:border-secondary">
+                          <label htmlFor="source-vault-account" className="text-xs font-bold uppercase tracking-wider text-foreground">Source Vault Account</label>
+                          <select id="source-vault-account" className="w-full p-2.5 bg-muted/40 border border-border rounded-xl text-xs font-medium text-foreground outline-hidden focus:border-secondary">
                             <option>H&H Primary Singapore Treasury Vault (Available: $142,850,200.00 USD)</option>
                             <option>H&H London Clearing Vault (Available: £24,100,000.00 GBP)</option>
                             <option>H&H Frankfurt Vault (Available: €38,500,000.00 EUR)</option>
@@ -7435,8 +7435,8 @@ export default function DrawerDemo() {
                         </div>
 
                         <div className="space-y-1.5">
-                          <label className="text-xs font-bold uppercase tracking-wider text-foreground">Beneficiary / Counterparty</label>
-                          <input
+                          <label htmlFor="beneficiary-counterparty" className="text-xs font-bold uppercase tracking-wider text-foreground">Beneficiary / Counterparty</label>
+                          <input id="beneficiary-counterparty"
                             type="text"
                             value={wireRecipient}
                             onChange={(e) => setWireRecipient(e.target.value)}
@@ -7468,8 +7468,8 @@ export default function DrawerDemo() {
                       <div className="space-y-4 pt-4 border-t border-border/60">
                         <div className="grid grid-cols-3 gap-3">
                           <div className="col-span-2 space-y-1.5">
-                            <label className="text-xs font-bold uppercase tracking-wider text-foreground">Transfer Amount</label>
-                            <input
+                            <label htmlFor="transfer-amount" className="text-xs font-bold uppercase tracking-wider text-foreground">Transfer Amount</label>
+                            <input id="transfer-amount"
                               type="text"
                               value={wireAmount}
                               onChange={(e) => setWireAmount(e.target.value)}
@@ -7478,8 +7478,8 @@ export default function DrawerDemo() {
                           </div>
 
                           <div className="space-y-1.5">
-                            <label className="text-xs font-bold uppercase tracking-wider text-foreground">Currency</label>
-                            <select
+                            <label htmlFor="currency" className="text-xs font-bold uppercase tracking-wider text-foreground">Currency</label>
+                            <select id="currency"
                               value={wireCurrency}
                               onChange={(e) => setWireCurrency(e.target.value)}
                               className="w-full p-2.5 bg-muted/40 border border-border rounded-xl text-xs font-bold text-foreground outline-hidden focus:border-secondary"
@@ -7712,8 +7712,8 @@ export function WireTransferWizardTemplate({ step, setStep }) {
 
       {/* Form Controls */}
       <div className="space-y-4">
-        <label className="text-xs font-bold uppercase">Transfer Amount</label>
-        <input className="w-full p-2.5 bg-muted/40 border border-border rounded-xl text-sm font-mono" />
+        <label htmlFor="transfer-amount-2" className="text-xs font-bold uppercase">Transfer Amount</label>
+        <input id="transfer-amount-2" className="w-full p-2.5 bg-muted/40 border border-border rounded-xl text-sm font-mono" />
       </div>
     </div>
   );
@@ -7860,12 +7860,12 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Foreground Picker */}
                     <div className="space-y-3">
-                      <label className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center justify-between">
+                      <label htmlFor="foreground-text-icon" className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center justify-between">
                         <span>Foreground (Text / Icon)</span>
                         <span className="font-mono text-muted-foreground lowercase">{a11yFgColor}</span>
                       </label>
                       <div className="flex items-center gap-3">
-                        <input 
+                        <input id="foreground-text-icon" 
                           type="color" 
                           value={a11yFgColor}
                           onChange={(e) => setA11yFgColor(e.target.value)}
@@ -7895,12 +7895,12 @@ export function SecuritySettingsTemplate() {
 
                     {/* Background Picker */}
                     <div className="space-y-3">
-                      <label className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center justify-between">
+                      <label htmlFor="background-container" className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center justify-between">
                         <span>Background Container</span>
                         <span className="font-mono text-muted-foreground lowercase">{a11yBgColor}</span>
                       </label>
                       <div className="flex items-center gap-3">
-                        <input 
+                        <input id="background-container" 
                           type="color" 
                           value={a11yBgColor}
                           onChange={(e) => setA11yBgColor(e.target.value)}
@@ -8788,8 +8788,8 @@ export function SecuritySettingsTemplate() {
                   <div className="lg:col-span-5 space-y-4">
                     {/* Variant selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Button Variant</label>
-                      <select
+                      <label htmlFor="button-variant" className="text-xs font-bold text-foreground block">Button Variant</label>
+                      <select id="button-variant"
                         value={btnVariant}
                         onChange={(e) => setBtnVariant(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -8804,8 +8804,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Size selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Size</label>
-                      <select
+                      <label htmlFor="size" className="text-xs font-bold text-foreground block">Size</label>
+                      <select id="size"
                         value={btnSize}
                         onChange={(e) => setBtnSize(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -8818,8 +8818,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Icon selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Icon Option</label>
-                      <select
+                      <label htmlFor="icon-option" className="text-xs font-bold text-foreground block">Icon Option</label>
+                      <select id="icon-option"
                         value={btnIcon}
                         onChange={(e) => setBtnIcon(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -8955,10 +8955,10 @@ export function SecuritySettingsTemplate() {
                     
                     {/* 1. Basic Text Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground block">
+                      <label htmlFor="account-holder-name" className="text-xs font-semibold text-foreground block">
                         Account Holder Name
                       </label>
-                      <input
+                      <input id="account-holder-name"
                         type="text"
                         placeholder="e.g. Alok Desai"
                         className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 focus:ring-2 focus:ring-secondary focus:border-transparent focus:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] rounded-md py-2.5 px-3.5 outline-none transition duration-200 text-foreground"
@@ -8970,11 +8970,11 @@ export function SecuritySettingsTemplate() {
 
                     {/* 2. Password with Eye Icon */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground block">
+                      <label htmlFor="private-api-secret-key" className="text-xs font-semibold text-foreground block">
                         Private API Secret Key
                       </label>
                       <div className="relative flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 rounded-md focus-within:ring-2 focus-within:ring-secondary focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] transition duration-200">
-                        <input
+                        <input id="private-api-secret-key"
                           type={inputPassShow ? 'text' : 'password'}
                           value="hnh_secret_alloc_9042851"
                           readOnly
@@ -8992,14 +8992,14 @@ export function SecuritySettingsTemplate() {
 
                     {/* 3. B2B Payment currency input with static labels */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground block">
+                      <label htmlFor="liquidity-funding-value" className="text-xs font-semibold text-foreground block">
                         Liquidity Funding Value
                       </label>
                       <div className="flex rounded-md bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 focus-within:ring-2 focus-within:ring-secondary focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] transition duration-200 overflow-hidden">
                         <span className="inline-flex items-center px-3 bg-muted/60 dark:bg-slate-900 border-r border-border/80 text-xs text-muted-foreground select-none font-semibold font-mono">
                           $
                         </span>
-                        <input
+                        <input id="liquidity-funding-value"
                           type="text"
                           placeholder="0.00"
                           className="flex-1 bg-transparent border-none py-2.5 px-3 outline-none text-xs text-foreground font-mono tabular-nums"
@@ -9012,14 +9012,14 @@ export function SecuritySettingsTemplate() {
 
                     {/* 4. Search input with leading search icon */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground block">
+                      <label htmlFor="search-global-equities" className="text-xs font-semibold text-foreground block">
                         Search Global Equities
                       </label>
                       <div className="relative flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 rounded-md focus-within:ring-2 focus-within:ring-secondary focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] transition duration-200">
                         <span className="absolute left-3.5 text-muted-foreground">
                           <Search size={13} />
                         </span>
-                        <input
+                        <input id="search-global-equities"
                           type="text"
                           placeholder="Search ticker, ISIN, or sector..."
                           className="w-full text-xs bg-transparent border-none py-2.5 pl-9.5 pr-12 outline-none text-foreground"
@@ -9038,10 +9038,10 @@ export function SecuritySettingsTemplate() {
                     {/* Default State */}
                     <div className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-foreground block">Default State</label>
+                        <label htmlFor="default-state" className="text-xs font-semibold text-foreground block">Default State</label>
                         <span className="text-[9px] font-mono text-muted-foreground">Inactive</span>
                       </div>
-                      <input
+                      <input id="default-state"
                         type="text"
                         placeholder="Default state style"
                         className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 rounded-md py-2.5 px-3.5 outline-none text-foreground"
@@ -9051,10 +9051,10 @@ export function SecuritySettingsTemplate() {
                     {/* Hover State Mimic */}
                     <div className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-foreground block">Hover State</label>
+                        <label htmlFor="hover-state" className="text-xs font-semibold text-foreground block">Hover State</label>
                         <span className="text-[9px] font-mono text-muted-foreground">:hover</span>
                       </div>
-                      <input
+                      <input id="hover-state"
                         type="text"
                         placeholder="Hover state style"
                         className="w-full text-xs bg-muted/45 dark:bg-slate-950/50 border border-secondary/80 rounded-md py-2.5 px-3.5 outline-none text-foreground cursor-pointer"
@@ -9064,10 +9064,10 @@ export function SecuritySettingsTemplate() {
                     {/* Focus State Mimic */}
                     <div className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-foreground block">Focused State</label>
+                        <label htmlFor="focused-state" className="text-xs font-semibold text-foreground block">Focused State</label>
                         <span className="text-[9px] font-mono text-muted-foreground">:focus-within</span>
                       </div>
-                      <input
+                      <input id="focused-state"
                         type="text"
                         placeholder="Focused state style"
                         className="w-full text-xs bg-muted/10 dark:bg-slate-950/20 border border-transparent ring-2 ring-secondary shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] rounded-md py-2.5 px-3.5 outline-none text-foreground"
@@ -9077,10 +9077,10 @@ export function SecuritySettingsTemplate() {
                     {/* Disabled State */}
                     <div className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-muted-foreground block">Disabled State</label>
+                        <label htmlFor="disabled-state" className="text-xs font-semibold text-muted-foreground block">Disabled State</label>
                         <span className="text-[9px] font-mono text-muted-foreground">disabled</span>
                       </div>
-                      <input
+                      <input id="disabled-state"
                         type="text"
                         disabled
                         placeholder="Disabled state style"
@@ -9091,11 +9091,11 @@ export function SecuritySettingsTemplate() {
                     {/* Error State */}
                     <div className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-red-500 dark:text-red-400 block">Invalid/Error State</label>
+                        <label htmlFor="invalid-error-state" className="text-xs font-semibold text-red-500 dark:text-red-400 block">Invalid/Error State</label>
                         <span className="text-[9px] font-mono text-red-500 dark:text-red-400">error</span>
                       </div>
                       <div className="relative flex items-center bg-red-500/[0.03] dark:bg-red-500/[0.01] border border-rose-500/80 rounded-md focus-within:ring-2 focus-within:ring-rose-500/30 focus-within:border-rose-500 transition duration-200">
-                        <input
+                        <input id="invalid-error-state"
                           type="text"
                           value="invalid_routing_code_value"
                           readOnly
@@ -9131,8 +9131,8 @@ export function SecuritySettingsTemplate() {
                   <div className="lg:col-span-5 space-y-4">
                     {/* Label Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Label Text</label>
-                      <input
+                      <label htmlFor="label-text" className="text-xs font-bold text-foreground block">Label Text</label>
+                      <input id="label-text"
                         type="text"
                         value={playInputLabel}
                         onChange={(e) => setPlayInputLabel(e.target.value)}
@@ -9143,8 +9143,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Placeholder Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Placeholder</label>
-                      <input
+                      <label htmlFor="placeholder" className="text-xs font-bold text-foreground block">Placeholder</label>
+                      <input id="placeholder"
                         type="text"
                         value={playInputPlaceholder}
                         onChange={(e) => setPlayInputPlaceholder(e.target.value)}
@@ -9155,8 +9155,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Helper Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Helper Text</label>
-                      <input
+                      <label htmlFor="helper-text" className="text-xs font-bold text-foreground block">Helper Text</label>
+                      <input id="helper-text"
                         type="text"
                         value={playInputHelper}
                         onChange={(e) => setPlayInputHelper(e.target.value)}
@@ -9167,8 +9167,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Size Select */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Input Size</label>
-                      <select
+                      <label htmlFor="input-size" className="text-xs font-bold text-foreground block">Input Size</label>
+                      <select id="input-size"
                         value={playInputSize}
                         onChange={(e) => setPlayInputSize(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -9181,8 +9181,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Left Icon Select */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Left Icon / Prefix</label>
-                      <select
+                      <label htmlFor="left-icon-prefix" className="text-xs font-bold text-foreground block">Left Icon / Prefix</label>
+                      <select id="left-icon-prefix"
                         value={playInputLeftIcon}
                         onChange={(e) => setPlayInputLeftIcon(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -9196,8 +9196,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Right Icon Select */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Right Icon / Action</label>
-                      <select
+                      <label htmlFor="right-icon-action" className="text-xs font-bold text-foreground block">Right Icon / Action</label>
+                      <select id="right-icon-action"
                         value={playInputRightIcon}
                         onChange={(e) => setPlayInputRightIcon(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -9315,14 +9315,14 @@ export function SecuritySettingsTemplate() {
 
                     {/* Compiled Code Output */}
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</label>
+                      <label htmlFor="generated-jsx-component" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</label>
                       <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           {`<div className="space-y-1.5 w-full max-w-md">\n` +
                            (playInputLabel ? `  <Label htmlFor="input-field">${playInputLabel}</Label>\n` : '') +
                            `  <div className="relative flex items-center bg-muted/30 border border-border/80 hover:border-secondary/80 rounded-md focus-within:ring-2 ` + (playInputError ? 'focus-within:ring-rose-500/30 focus-within:border-rose-500 focus-within:shadow-[0_0_10px_rgba(244,63,94,0.35)]' : 'focus-within:ring-secondary focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)]') + `">\n` +
                            (playInputLeftIcon !== 'none' ? `    <span className="absolute left-3 text-muted-foreground"><${playInputLeftIcon.charAt(0).toUpperCase() + playInputLeftIcon.slice(1)} size={14} /></span>\n` : '') +
-                           `    <input\n` +
+                           `    <input id="generated-jsx-component"\n` +
                            `      id="input-field"\n` +
                            `      type="text"\n` +
                            (playInputPlaceholder ? `      placeholder="${playInputPlaceholder}"\n` : '') +
@@ -9661,8 +9661,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Label Input */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-foreground block">Checkbox Label</label>
-                        <input
+                        <label htmlFor="checkbox-label" className="text-xs font-bold text-foreground block">Checkbox Label</label>
+                        <input id="checkbox-label"
                           type="text"
                           value={playCheckLabel}
                           onChange={(e) => setPlayCheckLabel(e.target.value)}
@@ -9672,8 +9672,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Subtext Input */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-foreground block">Checkbox Helper Text</label>
-                        <input
+                        <label htmlFor="checkbox-helper-text" className="text-xs font-bold text-foreground block">Checkbox Helper Text</label>
+                        <input id="checkbox-helper-text"
                           type="text"
                           value={playCheckSubtext}
                           onChange={(e) => setPlayCheckSubtext(e.target.value)}
@@ -9683,8 +9683,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Size Select */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-foreground block">Checkbox Size</label>
-                        <select
+                        <label htmlFor="checkbox-size" className="text-xs font-bold text-foreground block">Checkbox Size</label>
+                        <select id="checkbox-size"
                           value={playCheckSize}
                           onChange={(e) => setPlayCheckSize(e.target.value)}
                           className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -9697,8 +9697,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Check State Select */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-foreground block">Check State</label>
-                        <select
+                        <label htmlFor="check-state" className="text-xs font-bold text-foreground block">Check State</label>
+                        <select id="check-state"
                           value={playCheckState}
                           onChange={(e) => setPlayCheckState(e.target.value as 'checked' | 'unchecked' | 'indeterminate')}
                           className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -9864,8 +9864,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Size Select */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-foreground block">Radio Size</label>
-                        <select
+                        <label htmlFor="radio-size" className="text-xs font-bold text-foreground block">Radio Size</label>
+                        <select id="radio-size"
                           value={playRadioSize}
                           onChange={(e) => setPlayRadioSize(e.target.value)}
                           className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -10128,10 +10128,10 @@ export function SecuritySettingsTemplate() {
 
                     {/* Default Placeholder */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground block">
+                      <label htmlFor="account-billing-currency" className="text-xs font-semibold text-foreground block">
                         Account Billing Currency
                       </label>
-                      <select 
+                      <select id="account-billing-currency" 
                         defaultValue=""
                         className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 rounded-md py-2.5 px-3.5 outline-none transition duration-200 text-muted-foreground/80 cursor-pointer"
                       >
@@ -10142,10 +10142,10 @@ export function SecuritySettingsTemplate() {
 
                     {/* Value Selected */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold text-foreground block">
+                      <label htmlFor="primary-region-location" className="text-xs font-semibold text-foreground block">
                         Primary Region Location
                       </label>
-                      <select 
+                      <select id="primary-region-location" 
                         defaultValue="hk"
                         className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 rounded-md py-2.5 px-3.5 outline-none transition duration-200 text-foreground cursor-pointer"
                       >
@@ -10163,10 +10163,10 @@ export function SecuritySettingsTemplate() {
                     {/* Focused Select */}
                     <div className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-foreground block">Focused Dropdown</label>
+                        <label htmlFor="focused-dropdown" className="text-xs font-semibold text-foreground block">Focused Dropdown</label>
                         <span className="text-[9px] font-mono text-muted-foreground">:focus</span>
                       </div>
-                      <select 
+                      <select id="focused-dropdown" 
                         defaultValue="instant"
                         className="w-full text-xs bg-muted/10 dark:bg-slate-950/20 border border-transparent rounded-md py-2.5 px-3.5 outline-none shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border),_0_0_8px_rgba(100,116,139,0.15)] cursor-pointer"
                       >
@@ -10178,10 +10178,10 @@ export function SecuritySettingsTemplate() {
                     {/* Disabled Select */}
                     <div className="space-y-1.5 opacity-55">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-muted-foreground block">Disabled State</label>
+                        <label htmlFor="disabled-state-2" className="text-xs font-semibold text-muted-foreground block">Disabled State</label>
                         <span className="text-[9px] font-mono text-muted-foreground">disabled</span>
                       </div>
-                      <select 
+                      <select id="disabled-state-2" 
                         disabled
                         defaultValue="locked"
                         className="w-full text-xs bg-muted/15 dark:bg-slate-900/15 border border-border/60 rounded-md py-2.5 px-3.5 outline-none text-muted-foreground cursor-not-allowed"
@@ -10193,11 +10193,11 @@ export function SecuritySettingsTemplate() {
                     {/* Invalid / Error Select */}
                     <div className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-rose-500 dark:text-rose-400 block">Invalid / Error State</label>
+                        <label htmlFor="invalid-error-state-2" className="text-xs font-semibold text-rose-500 dark:text-rose-400 block">Invalid / Error State</label>
                         <span className="text-[9px] font-mono text-rose-500 dark:text-rose-400">error</span>
                       </div>
                       <div className="relative flex items-center">
-                        <select 
+                        <select id="invalid-error-state-2" 
                           defaultValue="none"
                           className="w-full text-xs bg-rose-500/[0.02] dark:bg-rose-500/[0.01] border border-rose-500/80 rounded-md py-2.5 pl-3.5 pr-12 outline-none text-foreground cursor-pointer focus:ring-2 focus:ring-rose-500/30"
                         >
@@ -10229,8 +10229,8 @@ export function SecuritySettingsTemplate() {
                   <div className="lg:col-span-5 space-y-4">
                     {/* Label Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Select Label</label>
-                      <input
+                      <label htmlFor="select-label" className="text-xs font-bold text-foreground block">Select Label</label>
+                      <input id="select-label"
                         type="text"
                         value={playSelectLabel}
                         onChange={(e) => setPlaySelectLabel(e.target.value)}
@@ -10240,8 +10240,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Helper Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Helper Description</label>
-                      <input
+                      <label htmlFor="helper-description" className="text-xs font-bold text-foreground block">Helper Description</label>
+                      <input id="helper-description"
                         type="text"
                         value={playSelectHelper}
                         onChange={(e) => setPlaySelectHelper(e.target.value)}
@@ -10251,8 +10251,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Placeholder Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Placeholder Item</label>
-                      <input
+                      <label htmlFor="placeholder-item" className="text-xs font-bold text-foreground block">Placeholder Item</label>
+                      <input id="placeholder-item"
                         type="text"
                         value={playSelectPlaceholder}
                         onChange={(e) => setPlaySelectPlaceholder(e.target.value)}
@@ -10262,8 +10262,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Size Select */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Select Size</label>
-                      <select
+                      <label htmlFor="select-size" className="text-xs font-bold text-foreground block">Select Size</label>
+                      <select id="select-size"
                         value={playSelectSize}
                         onChange={(e) => setPlaySelectSize(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -10369,13 +10369,13 @@ export function SecuritySettingsTemplate() {
 
                     {/* Compiled Code Output */}
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</label>
+                      <label htmlFor="generated-jsx-component-2" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</label>
                       <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           {`<div className="space-y-1.5 w-full max-w-md">\n` +
                            (playSelectLabel ? `  <Label>${playSelectLabel}</Label>\n` : '') +
                            `  <div className="relative flex items-center">\n` +
-                           `    <select\n` +
+                           `    <select id="generated-jsx-component-2"\n` +
                            (playSelectDisabled ? `      disabled\n` : '') +
                            `      className="w-full appearance-none bg-muted/30 border ${
                              playSelectError ? 'border-rose-500 bg-rose-500/[0.02]' : 'border-border/80'
@@ -10749,8 +10749,8 @@ export function SecuritySettingsTemplate() {
                     {/* Text Inputs */}
                     <div className="space-y-4">
                       <div className="space-y-1.5">
-                        <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Title Text</label>
-                        <input
+                        <label htmlFor="title-text" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Title Text</label>
+                        <input id="title-text"
                           type="text"
                           value={playAlertTitle}
                           onChange={(e) => setPlayAlertTitle(e.target.value)}
@@ -10759,8 +10759,8 @@ export function SecuritySettingsTemplate() {
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Description Text</label>
-                        <textarea
+                        <label htmlFor="description-text" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Description Text</label>
+                        <textarea id="description-text"
                           rows={3}
                           value={playAlertDescription}
                           onChange={(e) => setPlayAlertDescription(e.target.value)}
@@ -11109,8 +11109,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Label */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Label</label>
-                      <input
+                      <label htmlFor="label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Label</label>
+                      <input id="label"
                         type="text"
                         value={playBadgeLabel}
                         onChange={e => setPlayBadgeLabel(e.target.value)}
@@ -11877,8 +11877,8 @@ export function SecuritySettingsTemplate() {
                     {/* Initials Text Input (Conditional) */}
                     {playAvatarType === 'initials' && (
                       <div className="space-y-1.5 animate-fade-in">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Initials Content</label>
-                        <input
+                        <label htmlFor="initials-content" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Initials Content</label>
+                        <input id="initials-content"
                           type="text"
                           value={playAvatarInitials}
                           onChange={e => setPlayAvatarInitials(e.target.value.substring(0, 3))}
@@ -13198,8 +13198,8 @@ export function SecuritySettingsTemplate() {
                                 placeholder="$250,000"
                                 className="w-full bg-muted border border-border rounded-lg px-2 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
                               />
-                              <label className="flex items-center gap-2 cursor-pointer">
-                                <input type="checkbox" className="rounded border-border text-secondary focus:ring-0 cursor-pointer" defaultChecked />
+                              <label htmlFor="notify-security-committee" className="flex items-center gap-2 cursor-pointer">
+                                <input id="notify-security-committee" type="checkbox" className="rounded border-border text-secondary focus:ring-0 cursor-pointer" defaultChecked />
                                 <span className="text-[10px] text-muted-foreground">Notify security committee</span>
                               </label>
                             </div>
@@ -14287,8 +14287,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Title Text Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Item Title</label>
-                        <input
+                        <label htmlFor="item-title" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Item Title</label>
+                        <input id="item-title"
                           type="text"
                           value={playItemTitle}
                           onChange={(e) => setPlayItemTitle(e.target.value)}
@@ -14298,8 +14298,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Description Text Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Description Sub-Label</label>
-                        <input
+                        <label htmlFor="description-sub-label" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Description Sub-Label</label>
+                        <input id="description-sub-label"
                           type="text"
                           value={playItemDescription}
                           onChange={(e) => setPlayItemDescription(e.target.value)}
@@ -14309,8 +14309,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Prefix Left Slot */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Left Prefix Slot</label>
-                        <select
+                        <label htmlFor="left-prefix-slot" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Left Prefix Slot</label>
+                        <select id="left-prefix-slot"
                           value={playItemLeftSlot}
                           onChange={(e) => setPlayItemLeftSlot(e.target.value as 'none' | 'icon' | 'avatar' | 'checkbox')}
                           className="w-full text-xs bg-muted/40 dark:bg-slate-950/40 border border-border/80 rounded-lg p-2 focus:ring-1 focus:ring-secondary text-foreground"
@@ -14324,8 +14324,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Suffix Right Slot */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Right Suffix Slot</label>
-                        <select
+                        <label htmlFor="right-suffix-slot" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Right Suffix Slot</label>
+                        <select id="right-suffix-slot"
                           value={playItemRightSlot}
                           onChange={(e) => setPlayItemRightSlot(e.target.value as 'none' | 'chevron' | 'shortcut' | 'badge')}
                           className="w-full text-xs bg-muted/40 dark:bg-slate-950/40 border border-border/80 rounded-lg p-2 focus:ring-1 focus:ring-secondary text-foreground"
@@ -14339,8 +14339,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Padding Density */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Density Layout</label>
-                        <select
+                        <label htmlFor="density-layout" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Density Layout</label>
+                        <select id="density-layout"
                           value={playItemDense}
                           onChange={(e) => setPlayItemDense(e.target.value as 'normal' | 'dense')}
                           className="w-full text-xs bg-muted/40 dark:bg-slate-950/40 border border-border/80 rounded-lg p-2 focus:ring-1 focus:ring-secondary text-foreground"
@@ -14671,8 +14671,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Key Label Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Key Label</label>
-                        <input
+                        <label htmlFor="key-label" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Key Label</label>
+                        <input id="key-label"
                           type="text"
                           value={playKbdLabel}
                           onChange={(e) => setPlayKbdLabel(e.target.value)}
@@ -14682,8 +14682,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Key Size Select */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Size scaling</label>
-                        <select
+                        <label htmlFor="size-scaling" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Size scaling</label>
+                        <select id="size-scaling"
                           value={playKbdSize}
                           onChange={(e) => setPlayKbdSize(e.target.value as 'sm' | 'md' | 'lg')}
                           className="w-full text-xs bg-muted/40 dark:bg-slate-950/40 border border-border/80 rounded-lg p-2 focus:ring-1 focus:ring-secondary text-foreground"
@@ -14696,8 +14696,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Key Variant Select */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Visual style</label>
-                        <select
+                        <label htmlFor="visual-style" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Visual style</label>
+                        <select id="visual-style"
                           value={playKbdVariant}
                           onChange={(e) => setPlayKbdVariant(e.target.value as 'raised' | 'flat' | 'outline')}
                           className="w-full text-xs bg-muted/40 dark:bg-slate-950/40 border border-border/80 rounded-lg p-2 focus:ring-1 focus:ring-secondary text-foreground"
@@ -17361,8 +17361,8 @@ export function ScrollArea({
 
                       <div className="border border-border/65 rounded-xl p-6 bg-muted/10 space-y-4">
                         <div className="space-y-1.5">
-                          <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Access Key ID</label>
-                          <input type="text" disabled placeholder="node-admin-auth-449" className="w-full px-3 py-2 bg-card border border-border rounded-lg text-xs font-mono text-muted-foreground" />
+                          <label htmlFor="access-key-id" className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Access Key ID</label>
+                          <input id="access-key-id" type="text" disabled placeholder="node-admin-auth-449" className="w-full px-3 py-2 bg-card border border-border rounded-lg text-xs font-mono text-muted-foreground" />
                         </div>
 
                         {/* Separator inside Form */}
@@ -17847,12 +17847,12 @@ export function ScrollArea({
 
                           <div className="space-y-3 text-xs">
                             <div className="space-y-1">
-                              <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Professional Title</label>
-                              <input type="text" defaultValue="Principal Arch Architect" className="w-full px-3 py-2 bg-card border border-border rounded-lg" />
+                              <label htmlFor="professional-title" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Professional Title</label>
+                              <input id="professional-title" type="text" defaultValue="Principal Arch Architect" className="w-full px-3 py-2 bg-card border border-border rounded-lg" />
                             </div>
                             <div className="space-y-1">
-                              <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Department</label>
-                              <select className="w-full px-3 py-2 bg-card border border-border rounded-lg text-xs">
+                              <label htmlFor="department" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Department</label>
+                              <select id="department" className="w-full px-3 py-2 bg-card border border-border rounded-lg text-xs">
                                 <option>Core Swaps Operations</option>
                                 <option>Asset Custody Devs</option>
                                 <option>Branding Design Group</option>
@@ -19324,8 +19324,8 @@ export function ScrollArea({
                       {/* Range Parameters */}
                       <div className="grid grid-cols-2 gap-3.5">
                         <div className="space-y-1">
-                          <label className="font-bold text-foreground">Min Limit</label>
-                          <input
+                          <label htmlFor="min-limit" className="font-bold text-foreground">Min Limit</label>
+                          <input id="min-limit"
                             type="number"
                             value={playSliderMin}
                             onChange={(e) => setPlaySliderMin(Number(e.target.value))}
@@ -19333,8 +19333,8 @@ export function ScrollArea({
                           />
                         </div>
                         <div className="space-y-1">
-                          <label className="font-bold text-foreground">Max Limit</label>
-                          <input
+                          <label htmlFor="max-limit" className="font-bold text-foreground">Max Limit</label>
+                          <input id="max-limit"
                             type="number"
                             value={playSliderMax}
                             onChange={(e) => setPlaySliderMax(Number(e.target.value))}
@@ -19643,8 +19643,8 @@ export function ScrollArea({
 
                       {/* Position selection */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Positioning</label>
-                        <select
+                        <label htmlFor="positioning" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Positioning</label>
+                        <select id="positioning"
                           value={playSonnerPosition}
                           onChange={(e: any) => setPlaySonnerPosition(e.target.value)}
                           className="w-full bg-muted/65 border border-border/80 text-xs px-3 py-2 rounded-xl text-foreground font-semibold outline-none focus:border-slate-400 dark:focus:border-slate-700 transition cursor-pointer"
@@ -19660,8 +19660,8 @@ export function ScrollArea({
 
                       {/* Title Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Toast Title</label>
-                        <input
+                        <label htmlFor="toast-title" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Toast Title</label>
+                        <input id="toast-title"
                           type="text"
                           value={playSonnerTitle}
                           onChange={(e) => setPlaySonnerTitle(e.target.value)}
@@ -19671,8 +19671,8 @@ export function ScrollArea({
 
                       {/* Description Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Toast Description</label>
-                        <input
+                        <label htmlFor="toast-description" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Toast Description</label>
+                        <input id="toast-description"
                           type="text"
                           value={playSonnerDescription}
                           onChange={(e) => setPlaySonnerDescription(e.target.value)}
@@ -19682,8 +19682,8 @@ export function ScrollArea({
 
                       {/* Autoclose duration selection */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Autoclose Duration</label>
-                        <select
+                        <label htmlFor="autoclose-duration" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Autoclose Duration</label>
+                        <select id="autoclose-duration"
                           value={playSonnerDuration}
                           onChange={(e: any) => setPlaySonnerDuration(Number(e.target.value))}
                           className="w-full bg-muted/65 border border-border/80 text-xs px-3 py-2 rounded-xl text-foreground font-semibold outline-none focus:border-slate-400 dark:focus:border-slate-700 transition cursor-pointer"
@@ -19738,8 +19738,8 @@ export function ScrollArea({
                       {/* Action Label Input */}
                       {playSonnerHasAction && (
                         <div className="space-y-2 animate-slide-up">
-                          <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Action Label</label>
-                          <input
+                          <label htmlFor="action-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Action Label</label>
+                          <input id="action-label"
                             type="text"
                             value={playSonnerActionLabel}
                             onChange={(e) => setPlaySonnerActionLabel(e.target.value)}
@@ -20115,8 +20115,8 @@ export function ScrollArea({
 
                       {/* Variant selection */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Animation Style</label>
-                        <select
+                        <label htmlFor="animation-style" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Animation Style</label>
+                        <select id="animation-style"
                           value={playSpinnerVariant}
                           onChange={(e: any) => setPlaySpinnerVariant(e.target.value)}
                           className="w-full bg-muted/65 border border-border/80 text-xs px-3 py-2 rounded-xl text-foreground font-semibold outline-none focus:border-slate-400 dark:focus:border-slate-700 transition cursor-pointer"
@@ -20191,8 +20191,8 @@ export function ScrollArea({
 
                       {/* Screen reader text input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">ARIA Screen Reader Label</label>
-                        <input
+                        <label htmlFor="aria-screen-reader-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">ARIA Screen Reader Label</label>
+                        <input id="aria-screen-reader-label"
                           type="text"
                           value={playSpinnerLabel}
                           onChange={(e) => setPlaySpinnerLabel(e.target.value)}
@@ -21493,8 +21493,8 @@ export function ScrollArea({
 
                     {/* Label input */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Label</label>
-                      <input
+                      <label htmlFor="label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Label</label>
+                      <input id="label-2"
                         type="text"
                         value={playSwitchLabel}
                         onChange={e => setPlaySwitchLabel(e.target.value)}
@@ -21505,8 +21505,8 @@ export function ScrollArea({
 
                     {/* Description input */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Description</label>
-                      <textarea
+                      <label htmlFor="description" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Description</label>
+                      <textarea id="description"
                         value={playSwitchDescription}
                         onChange={e => setPlaySwitchDescription(e.target.value)}
                         rows={2}
@@ -21891,8 +21891,8 @@ export function ScrollArea({
 
                     {/* Title input */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Title</label>
-                      <input
+                      <label htmlFor="title" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Title</label>
+                      <input id="title"
                         type="text"
                         value={playCardTitle}
                         onChange={e => setPlayCardTitle(e.target.value)}
@@ -21903,8 +21903,8 @@ export function ScrollArea({
 
                     {/* Subtitle input */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Subtitle</label>
-                      <textarea
+                      <label htmlFor="subtitle" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Subtitle</label>
+                      <textarea id="subtitle"
                         value={playCardSubtitle}
                         onChange={e => setPlayCardSubtitle(e.target.value)}
                         rows={2}
@@ -22226,8 +22226,8 @@ export function ScrollArea({
                     {/* Header Input Group */}
                     <div className="space-y-4">
                       <div className="space-y-1.5">
-                        <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Dialog Title</label>
-                        <input
+                        <label htmlFor="dialog-title-2" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Dialog Title</label>
+                        <input id="dialog-title-2"
                           type="text"
                           value={playAlertDialogTitle}
                           onChange={(e) => setPlayAlertDialogTitle(e.target.value)}
@@ -22236,8 +22236,8 @@ export function ScrollArea({
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Description</label>
-                        <textarea
+                        <label htmlFor="description-2" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Description</label>
+                        <textarea id="description-2"
                           rows={3}
                           value={playAlertDialogDescription}
                           onChange={(e) => setPlayAlertDialogDescription(e.target.value)}
@@ -22289,8 +22289,8 @@ export function ScrollArea({
                     {/* Custom Button Labels */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Cancel Label</label>
-                        <input
+                        <label htmlFor="cancel-label" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Cancel Label</label>
+                        <input id="cancel-label"
                           type="text"
                           value={playAlertDialogCancelText}
                           onChange={(e) => setPlayAlertDialogCancelText(e.target.value)}
@@ -22298,8 +22298,8 @@ export function ScrollArea({
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Action Label</label>
-                        <input
+                        <label htmlFor="action-label-2" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Action Label</label>
+                        <input id="action-label-2"
                           type="text"
                           value={playAlertDialogActionText}
                           onChange={(e) => setPlayAlertDialogActionText(e.target.value)}
@@ -23301,8 +23301,8 @@ export function ScrollArea({
 
                     {/* Custom Title Input */}
                     <div className="space-y-2 border-t border-border/50 pt-4">
-                      <label className="text-xs font-bold text-foreground block">Modal Title Header</label>
-                      <input
+                      <label htmlFor="modal-title-header" className="text-xs font-bold text-foreground block">Modal Title Header</label>
+                      <input id="modal-title-header"
                         type="text"
                         value={playDialogTitle}
                         onChange={(e) => setPlayDialogTitle(e.target.value)}
@@ -25980,8 +25980,8 @@ export function ScrollArea({
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 rounded-xl border border-border/60 bg-muted/20">
                       {/* Variant */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Typography Variant</label>
-                        <select
+                        <label htmlFor="typography-variant" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Typography Variant</label>
+                        <select id="typography-variant"
                           value={compVariant}
                           onChange={(e) => setCompVariant(e.target.value as any)}
                           className="w-full text-xs font-medium bg-card border border-border/80 rounded-lg px-2.5 py-1.5 text-foreground focus:outline-hidden focus:ring-1 focus:ring-secondary"
@@ -26000,8 +26000,8 @@ export function ScrollArea({
 
                       {/* Weight */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Font Weight</label>
-                        <select
+                        <label htmlFor="font-weight" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Font Weight</label>
+                        <select id="font-weight"
                           value={compWeight}
                           onChange={(e) => setCompWeight(e.target.value)}
                           className="w-full text-xs font-medium bg-card border border-border/80 rounded-lg px-2.5 py-1.5 text-foreground focus:outline-hidden focus:ring-1 focus:ring-secondary"
@@ -26016,8 +26016,8 @@ export function ScrollArea({
 
                       {/* Color */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Text Color</label>
-                        <select
+                        <label htmlFor="text-color-2" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Text Color</label>
+                        <select id="text-color-2"
                           value={compColor}
                           onChange={(e) => setCompColor(e.target.value)}
                           className="w-full text-xs font-medium bg-card border border-border/80 rounded-lg px-2.5 py-1.5 text-foreground focus:outline-hidden focus:ring-1 focus:ring-secondary"
@@ -26033,8 +26033,8 @@ export function ScrollArea({
 
                       {/* Text Input */}
                       <div className="md:col-span-3 space-y-1.5">
-                        <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Sample Text Content</label>
-                        <input
+                        <label htmlFor="sample-text-content" className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Sample Text Content</label>
+                        <input id="sample-text-content"
                           type="text"
                           value={compText}
                           onChange={(e) => setCompText(e.target.value)}
@@ -28951,8 +28951,8 @@ export function ScrollArea({
 
                       {/* Label Text Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Label Text</label>
-                        <input
+                        <label htmlFor="label-text-2" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Label Text</label>
+                        <input id="label-text-2"
                           type="text"
                           value={playFieldLabel}
                           onChange={(e) => setPlayFieldLabel(e.target.value)}
@@ -28962,8 +28962,8 @@ export function ScrollArea({
 
                       {/* Helper/Description Text Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Helper Description</label>
-                        <input
+                        <label htmlFor="helper-description-2" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Helper Description</label>
+                        <input id="helper-description-2"
                           type="text"
                           value={playFieldDescription}
                           onChange={(e) => setPlayFieldDescription(e.target.value)}
@@ -28973,8 +28973,8 @@ export function ScrollArea({
 
                       {/* Error Text Input */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Error Message</label>
-                        <input
+                        <label htmlFor="error-message" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Error Message</label>
+                        <input id="error-message"
                           type="text"
                           value={playFieldError}
                           onChange={(e) => setPlayFieldError(e.target.value)}
@@ -28984,8 +28984,8 @@ export function ScrollArea({
 
                       {/* Validation state */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Validation State</label>
-                        <select
+                        <label htmlFor="validation-state" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Validation State</label>
+                        <select id="validation-state"
                           value={playFieldValidation}
                           onChange={(e) => setPlayFieldValidation(e.target.value as 'none' | 'success' | 'error')}
                           className="w-full text-xs bg-muted/40 dark:bg-slate-950/40 border border-border/80 rounded-lg p-2 focus:ring-1 focus:ring-secondary text-foreground"
@@ -28998,8 +28998,8 @@ export function ScrollArea({
 
                       {/* Control Type */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Form Control Type</label>
-                        <select
+                        <label htmlFor="form-control-type" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Form Control Type</label>
+                        <select id="form-control-type"
                           value={playFieldControlType}
                           onChange={(e) => setPlayFieldControlType(e.target.value as 'input' | 'select' | 'textarea')}
                           className="w-full text-xs bg-muted/40 dark:bg-slate-950/40 border border-border/80 rounded-lg p-2 focus:ring-1 focus:ring-secondary text-foreground"
