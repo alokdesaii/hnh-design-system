@@ -6085,8 +6085,8 @@ export default function DrawerDemo() {
                   <div className="lg:col-span-5 space-y-5">
                     {/* Preview Text Input */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Preview Text</label>
-                      <textarea
+                      <label htmlFor="typo-preview-text" className="text-xs font-bold text-foreground block">Preview Text</label>
+                      <textarea id="typo-preview-text"
                         value={playgroundText}
                         onChange={(e) => setPlaygroundText(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary h-20 resize-none font-light leading-relaxed text-foreground"
@@ -6096,8 +6096,8 @@ export default function DrawerDemo() {
 
                     {/* Font Size Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Size</label>
-                      <select
+                      <label htmlFor="typo-size" className="text-xs font-bold text-foreground block">Size</label>
+                      <select id="typo-size"
                         value={playgroundSize}
                         onChange={(e) => setPlaygroundSize(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6117,8 +6117,8 @@ export default function DrawerDemo() {
 
                     {/* Weight Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Weight</label>
-                      <select
+                      <label htmlFor="typo-weight" className="text-xs font-bold text-foreground block">Weight</label>
+                      <select id="typo-weight"
                         value={playgroundWeight}
                         onChange={(e) => setPlaygroundWeight(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6134,8 +6134,8 @@ export default function DrawerDemo() {
 
                     {/* Line Height Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Line Height</label>
-                      <select
+                      <label htmlFor="typo-line-height" className="text-xs font-bold text-foreground block">Line Height</label>
+                      <select id="typo-line-height"
                         value={playgroundLeading}
                         onChange={(e) => setPlaygroundLeading(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6151,8 +6151,8 @@ export default function DrawerDemo() {
 
                     {/* Letter Spacing Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Letter Spacing</label>
-                      <select
+                      <label htmlFor="typo-letter-spacing" className="text-xs font-bold text-foreground block">Letter Spacing</label>
+                      <select id="typo-letter-spacing"
                         value={playgroundTracking}
                         onChange={(e) => setPlaygroundTracking(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6168,8 +6168,8 @@ export default function DrawerDemo() {
 
                     {/* Color Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-foreground block">Color</label>
-                      <select
+                      <label htmlFor="typo-color" className="text-xs font-bold text-foreground block">Color</label>
+                      <select id="typo-color"
                         value={playgroundColor}
                         onChange={(e) => setPlaygroundColor(e.target.value)}
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-secondary font-medium text-foreground cursor-pointer"
@@ -6193,7 +6193,8 @@ export default function DrawerDemo() {
 
                     {/* Compiled Class output */}
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated Class List</label>
+                      {/* Not a form control, so this is a span rather than a <label> pointing at nothing */}
+                      <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated Class List</span>
                       <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           className="{`${playgroundSize} ${playgroundWeight} ${playgroundLeading} ${playgroundTracking} ${playgroundColor}`}"

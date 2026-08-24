@@ -163,7 +163,51 @@ AA → report → approval → fix → verify → next.
 Order (highest visibility first): Introduction → Design Principles →
 8 Foundations → 8 Legacy Platforms → 59 Components.
 
-### Progress: 3 / 77
+### Progress: 4 / 77
+
+#### ✅ 4. Typography — complete
+
+Contrast 0 failures both themes, heading outline clean, no raw markdown, all
+images and buttons named. Type scale, weights and playground all render
+correctly.
+
+| Finding | Fix | Verified |
+| :-- | :-- | :-- |
+| All 6 playground controls had no accessible name — `<label>` present but no `htmlFor`, and the control was a sibling rather than a child, so screen readers announced "combo box" with no name | Paired each label with its control via `htmlFor`/`id` | 6/6 named, 0 unlabeled; **click-to-focus confirmed working** (clicking "Size" focuses `#typo-size`); playground still updates the generated class list |
+| A 7th `<label>` ("Generated Class List") labelled a code block, not a form control — a label pointing at nothing | Changed to `<span>`, classes unchanged | 0 orphan labels |
+
+---
+
+### 🔴 Systemic finding: 245 of 297 form controls have no accessible name
+
+Discovered on this page, measured across all 77. This is a **batch job for
+Phase 3**, not page-by-page work.
+
+| | |
+| :-- | :-- |
+| Form controls site-wide | 297 |
+| Without accessible names | **245 (82%)** |
+| Pages affected | **46 of 77** |
+| `<label>` elements | 258 |
+| ...using `htmlFor` | **8** |
+| Controls with `aria-label` | **0** |
+
+Worst offenders: `checkbox` 18/27, `radio-group` 18/27, `input` 16/18,
+`input-group` 16/18, `input-otp` 16/16, `data-table` 11/11.
+
+**The Label component page is the sharpest case:** 19 labels, none with
+`htmlFor`, 16 of 18 controls unnamed — the page documenting labelling
+demonstrates unlabelled controls. Its *generated code snippet is correct*
+(`<Label htmlFor="input-field">` paired with `<input id="input-field">`), so the
+code users are told to copy is right while the system's own demo markup is not.
+This sits directly under that page's "WCAG AA compliance" claim.
+
+Remaining after Typography: **239 across 45 pages.** Routes considered:
+**A** `htmlFor`/`id` pairs everywhere (correct, adds click-to-focus, needs 239
+unique stable ids) · **B** `aria-label` per control (scriptable from adjacent
+label text, but no click-to-focus) · **C** check whether these render through
+shared playground wrappers first, which could collapse many sites into a few
+edits. Recommendation: investigate C, fall back to A.
 
 #### ✅ 3. Colors — complete
 
