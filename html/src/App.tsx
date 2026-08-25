@@ -4404,7 +4404,7 @@ function App() {
       `          className="absolute z-50 bg-card border border-border rounded-xl shadow-lg p-4 w-72 ${positionClasses}"\n` +
       `        >\n` +
       `          <div className="flex gap-3">\n` +
-      `            <div className="h-10 w-10 rounded-full bg-secondary text-white font-bold flex items-center justify-center">AD</div>\n` +
+      `            <div className="h-10 w-10 rounded-full bg-secondary text-white dark:text-slate-950 font-bold flex items-center justify-center">AD</div>\n` +
       `            <div>\n` +
       `              <h4 className="text-xs font-bold text-foreground font-semibold">Alok Desai</h4>\n` +
       `              <p className="text-[10px] text-muted-foreground">@alokdesai</p>\n` +
@@ -7564,7 +7564,7 @@ export default function DrawerDemo() {
                               alert(`Wire Transfer of $${wireAmount} ${wireCurrency} successfully dispatched!`);
                               setWireStep(1);
                             }}
-                            className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-xs transition flex items-center gap-2 cursor-pointer"
+                            className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white dark:text-slate-950 font-bold text-xs rounded-xl shadow-xs transition flex items-center gap-2 cursor-pointer"
                           >
                             <CheckCircle2 size={15} /> Confirm & Dispatch Funds
                           </button>
@@ -8191,7 +8191,7 @@ export function SecuritySettingsTemplate() {
                             const original = a11yAnnouncerMessage;
                             setA11yAnnouncerMessage('📢 ' + original);
                           }}
-                          className="px-3 py-2 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center gap-1 shrink-0"
+                          className="px-3 py-2 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white dark:text-slate-950 transition flex items-center gap-1 shrink-0"
                         >
                           <Volume2 size={13} /> Broadcast
                         </button>
@@ -8875,7 +8875,7 @@ export function SecuritySettingsTemplate() {
                           ${btnSize === 'sm' ? 'px-3.5 py-2.5 text-[11px] rounded-md' : btnSize === 'lg' ? 'px-5.5 py-3.5 text-sm font-semibold rounded-xl' : 'px-4.5 py-3 text-xs font-semibold rounded-lg'}
                           ${btnVariant === 'secondary' ? 'bg-secondary text-secondary-foreground hover:bg-secondary/95 shadow-sm focus-visible:ring-secondary' : 
                             btnVariant === 'outline' ? 'border border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary dark:focus-visible:ring-primary-200/40' :
-                            btnVariant === 'destructive' ? 'bg-rose-500 text-white hover:bg-rose-600 shadow-sm focus-visible:ring-rose-500' :
+                            btnVariant === 'destructive' ? 'bg-rose-500 text-white dark:text-slate-950 hover:bg-rose-600 shadow-sm focus-visible:ring-rose-500' :
                             btnVariant === 'ghost' ? 'text-muted-foreground hover:text-foreground hover:bg-muted/65 focus-visible:ring-primary dark:focus-visible:ring-primary-200/40' :
                             'bg-primary text-primary-foreground hover:opacity-95 shadow-md focus-visible:ring-primary dark:focus-visible:ring-primary-200/40'
                           }
@@ -10893,8 +10893,8 @@ export function SecuritySettingsTemplate() {
                     <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Solid (Filled)</h3>
                     <div className="flex flex-wrap gap-3 items-center">
                       <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-primary text-primary-foreground">Primary</span>
-                      <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-secondary-500 text-white">Secondary</span>
-                      <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-emerald-600 text-white">Success</span>
+                      <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-secondary-500 text-white dark:text-slate-950">Secondary</span>
+                      <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-emerald-600 text-white dark:text-slate-950">Success</span>
                       <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-amber-500 text-white">Warning</span>
                       <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-red-600 text-white">Destructive</span>
                       <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-slate-500 text-white">Neutral</span>
@@ -10931,9 +10931,9 @@ export function SecuritySettingsTemplate() {
                   <div className="space-y-4">
                     <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Sizes</h3>
                     <div className="flex flex-wrap gap-3 items-center">
-                      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-semibold leading-none bg-secondary-500 text-white">sm · Compact</span>
-                      <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-secondary-500 text-white">md · Default</span>
-                      <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold leading-none bg-secondary-500 text-white">lg · Prominent</span>
+                      <span className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-semibold leading-none bg-secondary-500 text-white dark:text-slate-950">sm · Compact</span>
+                      <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold leading-none bg-secondary-500 text-white dark:text-slate-950">md · Default</span>
+                      <span className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold leading-none bg-secondary-500 text-white dark:text-slate-950">lg · Prominent</span>
                     </div>
                   </div>
 
@@ -12189,7 +12189,7 @@ export function SecuritySettingsTemplate() {
                               <button
                                 key={`day-${d}`}
                                 className={`w-8 h-8 rounded-lg flex items-center justify-center font-semibold transition ${
-                                  isSel ? 'bg-secondary-500 text-white' : 'hover:bg-muted text-foreground'
+                                  isSel ? 'bg-secondary-500 text-white dark:text-slate-950' : 'hover:bg-muted text-foreground'
                                 } ${isTod && !isSel ? 'ring-1 ring-secondary-500 text-secondary-500' : ''}`}
                               >
                                 {d}
@@ -12233,7 +12233,7 @@ export function SecuritySettingsTemplate() {
                                 <button
                                   key={`day-preset-${d}`}
                                   className={`w-8 h-8 flex items-center justify-center font-semibold transition rounded-lg ${
-                                    isStart ? 'bg-secondary-500 text-white' :
+                                    isStart ? 'bg-secondary-500 text-white dark:text-slate-950' :
                                     isEnd ? 'bg-secondary-500 text-white' :
                                     isRange ? 'bg-secondary-500/10 text-secondary-500' : 'hover:bg-muted text-foreground'
                                   }`}
@@ -13257,7 +13257,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative inline-block">
                         <button
                           onClick={() => setSpecimenPopoverCOpen(!specimenPopoverCOpen)}
-                          className="h-10 w-10 rounded-full bg-secondary-500 text-white font-bold flex items-center justify-center cursor-pointer shadow hover:scale-105 transition"
+                          className="h-10 w-10 rounded-full bg-secondary-500 text-white dark:text-slate-950 font-bold flex items-center justify-center cursor-pointer shadow hover:scale-105 transition"
                         >
                           AD
                         </button>
@@ -13265,7 +13265,7 @@ export function SecuritySettingsTemplate() {
                         {specimenPopoverCOpen && (
                           <div className="absolute z-50 bg-card border border-border rounded-xl shadow-lg p-4 w-72 top-full mt-3 right-0 animate-in fade-in slide-in-from-top-1 duration-150 text-left">
                             <div className="flex items-start gap-3">
-                              <div className="h-10 w-10 rounded-full bg-secondary-500 text-white font-bold flex items-center justify-center text-xs">
+                              <div className="h-10 w-10 rounded-full bg-secondary-500 text-white dark:text-slate-950 font-bold flex items-center justify-center text-xs">
                                 AD
                               </div>
                               <div className="space-y-0.5">
@@ -13607,7 +13607,7 @@ export function SecuritySettingsTemplate() {
                             className="absolute z-50 bg-card border border-border rounded-xl shadow-lg p-4 w-72 bottom-full mb-3 left-1/2 -translate-x-1/2 animate-in fade-in slide-in-from-bottom-1 duration-150 text-left"
                           >
                             <div className="flex items-start gap-3">
-                              <div className="h-10 w-10 rounded-full bg-secondary-500 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                              <div className="h-10 w-10 rounded-full bg-secondary-500 text-white dark:text-slate-950 font-bold flex items-center justify-center text-xs shrink-0">
                                 AD
                               </div>
                               <div className="space-y-1">
@@ -13787,7 +13787,7 @@ export function SecuritySettingsTemplate() {
                               className={`absolute z-50 bg-card border border-border rounded-xl shadow-xl p-4 w-72 animate-in fade-in zoom-in-95 duration-150 text-left ${getPlacementClasses(playHoverCardSide)}`}
                             >
                               <div className="flex gap-3">
-                                <div className="h-10 w-10 rounded-full bg-secondary-500 text-white font-bold flex items-center justify-center shrink-0 text-xs">
+                                <div className="h-10 w-10 rounded-full bg-secondary-500 text-white dark:text-slate-950 font-bold flex items-center justify-center shrink-0 text-xs">
                                   AD
                                 </div>
                                 <div className="space-y-1">
@@ -14465,7 +14465,7 @@ export function SecuritySettingsTemplate() {
                               </div>
                             )}
                             {playItemLeftSlot === 'avatar' && (
-                              <div className="flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-secondary-500 text-white font-bold text-xs font-sans">
+                              <div className="flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-secondary-500 text-white dark:text-slate-950 font-bold text-xs font-sans">
                                 CP
                               </div>
                             )}
@@ -19598,7 +19598,7 @@ export function ScrollArea({
                       <div className="grid grid-cols-2 gap-2">
                         <button
                           onClick={() => addSonnerToast("Transaction Saved", "Settlement record #3491 uploaded.", "success")}
-                          className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-[10px] transition cursor-pointer"
+                          className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white dark:text-slate-950 font-bold rounded-lg text-[10px] transition cursor-pointer"
                         >
                           Success (Green)
                         </button>
@@ -20507,7 +20507,7 @@ export function ScrollArea({
                                 key={idx}
                                 onClick={() => setPlayCarouselActiveIndex(idx)}
                                 className={`w-5 h-5 rounded-md flex items-center justify-center text-[10px] font-bold cursor-pointer transition ${
-                                  idx === playCarouselActiveIndex ? 'bg-secondary-500 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
+                                  idx === playCarouselActiveIndex ? 'bg-secondary-500 text-white dark:text-slate-950' : 'bg-white/10 text-white/70 hover:bg-white/20'
                                 }`}
                               >
                                 {idx + 1}
@@ -22178,7 +22178,7 @@ export function ScrollArea({
                     </div>
                     <div className="flex justify-end gap-2 mt-5 pt-3 border-t border-border/40">
                       <button className="px-2.5 py-1 text-[10px] border border-border text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition font-semibold">Dismiss</button>
-                      <button className="px-2.5 py-1 text-[10px] bg-secondary-500 text-white rounded-md hover:opacity-90 transition font-semibold">Acknowledge</button>
+                      <button className="px-2.5 py-1 text-[10px] bg-secondary-500 text-white dark:text-slate-950 rounded-md hover:opacity-90 transition font-semibold">Acknowledge</button>
                     </div>
                   </div>
                 </div>
@@ -22204,7 +22204,7 @@ export function ScrollArea({
                     </button>
                     <button
                       onClick={() => setSpecimenInfoOpen(true)}
-                      className="px-3 py-1.5 text-[10.5px] font-semibold bg-secondary-500 text-white hover:opacity-95 rounded-lg transition shadow-xs cursor-pointer"
+                      className="px-3 py-1.5 text-[10.5px] font-semibold bg-secondary-500 text-white dark:text-slate-950 hover:opacity-95 rounded-lg transition shadow-xs cursor-pointer"
                     >
                       Trigger Info Modal
                     </button>
@@ -22292,7 +22292,7 @@ export function ScrollArea({
                             onClick={() => setPlayAlertDialogVariant(v as 'confirm' | 'destructive' | 'info')}
                             className={`py-1.5 text-[10px] font-bold border rounded-lg transition capitalize focus:outline-none cursor-pointer ${
                               playAlertDialogVariant === v
-                                ? 'bg-secondary-500 text-white border-secondary-500'
+                                ? 'bg-secondary-500 text-white dark:text-slate-950 border-secondary-500'
                                 : 'border-border bg-muted/30 text-muted-foreground hover:border-slate-400'
                             }`}
                           >
@@ -22312,7 +22312,7 @@ export function ScrollArea({
                             onClick={() => setPlayAlertDialogBlur(b)}
                             className={`py-1.5 text-[10px] font-bold border rounded-lg transition uppercase focus:outline-none cursor-pointer ${
                               playAlertDialogBlur === b
-                                ? 'bg-secondary-500 text-white border-secondary-500'
+                                ? 'bg-secondary-500 text-white dark:text-slate-950 border-secondary-500'
                                 : 'border-border bg-muted/30 text-muted-foreground hover:border-slate-400'
                             }`}
                           >
@@ -22516,7 +22516,7 @@ export function ScrollArea({
                         </button>
                         <button
                           onClick={() => setSpecimenInfoOpen(false)}
-                          className="px-3.5 py-2 bg-secondary-500 text-white text-[11px] font-semibold rounded-lg hover:opacity-95 transition cursor-pointer"
+                          className="px-3.5 py-2 bg-secondary-500 text-white dark:text-slate-950 text-[11px] font-semibold rounded-lg hover:opacity-95 transition cursor-pointer"
                         >
                           Acknowledge
                         </button>
@@ -22589,7 +22589,7 @@ export function ScrollArea({
                             playAlertDialogVariant === 'destructive'
                               ? 'bg-destructive text-destructive-foreground hover:bg-destructive-600 focus-visible:ring-destructive'
                               : playAlertDialogVariant === 'info'
-                              ? 'bg-secondary-500 text-white hover:opacity-95 focus-visible:ring-secondary-500'
+                              ? 'bg-secondary-500 text-white dark:text-slate-950 hover:opacity-95 focus-visible:ring-secondary-500'
                               : 'bg-primary text-primary-foreground hover:opacity-95 focus-visible:ring-primary'
                           }`}
                         >
@@ -23234,7 +23234,7 @@ export function ScrollArea({
                       <button className="px-3.5 py-1.5 text-[11px] font-semibold border border-border text-foreground hover:bg-muted rounded-lg transition cursor-pointer">
                         Abort
                       </button>
-                      <button className="px-3.5 py-1.5 text-[11px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg shadow-xs transition cursor-pointer">
+                      <button className="px-3.5 py-1.5 text-[11px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white dark:text-slate-950 rounded-lg shadow-xs transition cursor-pointer">
                         Confirm & Release
                       </button>
                     </div>

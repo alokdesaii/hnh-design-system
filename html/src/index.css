@@ -337,3 +337,49 @@ input[type="radio"]:focus {
   --color-secondary-500: #00bfb3; /* vivid brand teal, passes on dark navy */
   --secondary: #00bfb3;
 }
+
+/* ── Status colour contrast (WCAG AA, light mode only) ────────────────────
+   Tailwind's 500/600 status stops fail AA on our light surfaces in BOTH
+   directions — as text on white/muted, and as a fill behind white text:
+
+     emerald-500  2.47:1   emerald-600  3.65:1
+     red-500      3.81:1   rose-500     3.75:1
+     amber-500    2.13:1   amber-600    3.20:1
+
+   Remapping the stop to its 700 weight in light mode fixes text and fill
+   together (5.0–6.4:1). Dark mode keeps the vivid weights, where they already
+   pass against the navy surfaces (7.2:1 for emerald-500), so these overrides
+   are deliberately scoped to :root only.
+   Unlayered so they win over Tailwind's `@layer theme`. */
+:root {
+  --color-emerald-500: #007a55; /* 5.36:1 on white, 4.90:1 on --muted */
+  --color-emerald-600: #007a55;
+  --color-red-500: #c10007;     /* 6.42:1 on white */
+  --color-rose-500: #c70036;    /* 6.03:1 on white */
+  --color-amber-500: #bb4d00;   /* 5.03:1 on white */
+  --color-amber-600: #bb4d00;
+
+  /* #64748b measured 4.34:1 on --muted (#f1f5f9) — just under AA. This is the
+     nearest tone that clears 4.5 on muted, card and page backgrounds alike. */
+  --muted-foreground: #5a6b83;  /* 4.96 muted / 5.43 white / 5.19 background */
+
+  /* White on #ef4444 was 3.76:1 */
+  --destructive: #c10007;       /* white on it: 6.42:1 */
+}
+
+/* Restore the vivid weights for dark mode. This block MUST come after the
+   :root overrides above: `:root` and `.dark` have equal specificity, so source
+   order decides, and without this the light-mode values leak into dark mode
+   (measured: dark failures went 45 -> 395 when this was missing). */
+.dark {
+  --color-emerald-500: #00bc7d; /* 7.22:1 on the dark card */
+  --color-emerald-600: #009966;
+  --color-red-500: #fb2c36;
+  --color-rose-500: #ff2056;
+  --color-amber-500: #fe9a00;
+  --color-amber-600: #e17100;
+  --muted-foreground: #94a3b8;
+
+  /* #7f1d1d measured 1.78:1 as text on the dark card — unreadable */
+  --destructive: #fb2c36; /* 4.69:1 on the dark card */
+}

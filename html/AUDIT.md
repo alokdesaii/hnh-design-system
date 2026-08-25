@@ -269,6 +269,53 @@ problem, not 173 individual bugs.
   the same verification discipline before it is reported as a defect count.
 - All images have `alt` on every page.
 
+### ✅ Token fixes applied
+
+| | Before | After |
+| :-- | :-- | :-- |
+| Light failures | 128 | **45** |
+| Light pages clean | 22 / 77 | **42 / 77** |
+| Dark failures | 45 | **37** |
+| Dark pages clean | 44 / 77 | **47 / 77** |
+
+Every replacement value was **measured before being applied**, not guessed —
+candidate stops were scored against white, `--muted`, `--background` and the
+dark card, and the first one clearing 4.5:1 in all light contexts was chosen.
+
+**Light mode only** (`:root`): emerald-500/600 → `#007a55` (5.36 on white,
+4.90 on muted) · red-500 → `#c10007` · rose-500 → `#c70036` · amber-500/600 →
+`#bb4d00` · `--destructive` → `#c10007` (white on it 6.42, was 3.76) ·
+`--muted-foreground` → `#5a6b83` (4.96 on muted, was 4.34 — the single
+largest class at 19 instances).
+
+**Dark mode** (`.dark`): vivid weights restored; `--destructive` → `#fb2c36`
+(was `#7f1d1d`, which measured **1.78:1** as text on the dark card).
+
+**25 class strings** got `dark:text-slate-950` where white text sits on a vivid
+teal or emerald fill — this keeps the brand fill vivid in dark mode while making
+its label readable, instead of dulling the brand colour.
+
+`slate-400` was deliberately **not** remapped: it has 184 border usages, and
+darkening it would change borders sitewide to fix 7 text instances.
+
+#### Bug caught during verification: the override leaked into dark mode
+
+Adding the `:root` overrides sent dark failures from 45 to **395** — `:root` and
+`.dark` have equal specificity, so the later block wins, and my light-mode
+values were overriding `.dark` even when dark was active. Fixed by appending a
+`.dark` block *after* the overrides to restore the vivid values. The teal fix on
+page 1 already had this structure; the new tokens did not.
+
+Without the before/after measurement this would have shipped as a large
+regression while looking like a fix.
+
+### Still open (contrast)
+
+Remaining failures are mostly **opacity-reduced text** (`text-muted-foreground/60`
+and similar, which composite to ~3.3:1) and the `slate-400` captions. Also
+still open: navy `#023e63` as text on dark surfaces (1.59:1, 5 instances) —
+needs per-usage `dark:` variants, since `--primary` drives both text and fills.
+
 ## Phase 2 — Visual audit, page by page ⬜ SUPERSEDED by the sweep above
 
 Per page: screenshot desktop + mobile, light + dark → check spacing rhythm,
