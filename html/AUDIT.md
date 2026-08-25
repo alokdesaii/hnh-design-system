@@ -190,7 +190,86 @@ rendered *something*, which it does. It never checked whether routes rendered
 fingerprint. Full-text comparison shows they diverge after a shared 49-character
 header and are genuinely distinct. They are **not** defects.
 
-## Phase 2 — Visual audit, page by page ⬜ NOT STARTED
+## Phase 2b — Full-site sweep ✅ COMPLETE (contrast + structure)
+
+### ⚠️ CORRECTION: earlier contrast results were unreliable
+
+The auditor used through pages 1–4 parsed only `rgb()`/`rgba()`. Tailwind v4
+emits **`oklch()`** and **`oklab()`** for much of its palette. Those values
+returned `null` and the element was **silently skipped** — so any text or
+background in a modern colour space was never evaluated at all.
+
+Consequences, stated plainly:
+- "0 contrast failures" reported for **Introduction** and **Colors** was wrong.
+  Introduction has 1 failure (emerald `+$189,400.00`, 2.47:1); Colors has 2
+  (the contrast tester's own "AA Normal / PASS" badge at 3.65:1).
+- Design Principles and Typography re-verified as genuinely clean.
+- A first corrected pass then produced *false* failures — `oklch` unparsed →
+  fell through to the white card behind → "white on white, 1.00:1". Those were
+  not real either.
+
+Fixed by implementing OKLCH/OKLab → sRGB conversion (validated: black→black,
+white→white) **and** adding an unparsed-colour counter so a blind spot can never
+again pass as a clean result. Both final sweeps report **0 unparsed formats**.
+
+### Results (all 77 pages, both themes)
+
+| | Light | Dark |
+| :-- | :-- | :-- |
+| Contrast failures | **128** | **45** |
+| Pages clean | 22 / 77 | 44 / 77 |
+
+Failures cluster into a small number of colour pairs, so this is a token
+problem, not 173 individual bugs.
+
+**Light mode — top classes**
+
+| Pair | Count | Worst | Meaning |
+| :-- | :-- | :-- | :-- |
+| emerald `rgb(0,188,125)` on white | 19 | 2.47 | positive amounts, e.g. `+$189,400.00` |
+| `--muted-foreground` on `--muted` | 19 | 4.34 | just under 4.5 — kbd keys, meta labels |
+| rose `rgb(255,32,86)` on white | 10 | 3.75 | destructive text |
+| red `rgb(251,44,54)` on white | 10 | 3.81 | negative amounts |
+| slate-400 on `--muted` | 7 | 2.40 | specimen captions |
+| emerald-600 both directions | 9 | 3.65 | success badges |
+| amber `rgb(225,113,0)` on white | 3 | 3.20 | "Pending Review" |
+
+**Dark mode — top classes**
+
+| Pair | Count | Worst | Meaning |
+| :-- | :-- | :-- | :-- |
+| white on brand teal `#00bfb3` | 7 | 2.31 | teal fills with white text |
+| slate-400 on light muted | 7 | 2.40 | light-mode panels shown inside dark pages |
+| navy `#023e63` on dark surfaces | 5 | **1.59** | `text-primary` unreadable in dark mode |
+| white on emerald-600 | 4 | 3.65 | success buttons |
+| destructive `#7f1d1d`/red on dark | 3 | 3.74 | dark-mode destructive |
+
+### The two systemic token defects
+
+1. **`--primary` (`#023e63`) is identical in both themes.** Navy on the dark
+   navy background measures 1.59:1 — effectively invisible. This is the exact
+   mirror of the teal problem fixed on page 1, and it was missed then because
+   those colours were unparseable.
+2. **Semantic status colours are raw Tailwind palette values**, not tokens.
+   Emerald/red/amber are used directly at 500-level weights that fail AA on
+   white. There is no `--success` / `--warning` token to fix centrally, so each
+   usage is its own edit unless tokens are introduced.
+
+### Structure findings (light pass, all 77 pages)
+
+- **26 pages with heading-level skips** — mostly `h2 → h4`, plus
+  `h1 → h3` on 4 pages. Same class as pages 1–4.
+- **7 Legacy Platform pages have no `h1` at all**; `components/typography` has
+  **3** `h1`s (should be exactly one).
+- **1 content leak**: `components/resizable` renders a raw attribute string in
+  prose.
+- **2 unnamed links** on `components/breadcrumb`.
+- ~110 buttons flagged as unnamed — **not yet verified**, and likely to include
+  false positives (icon buttons whose name comes from a child element). Needs
+  the same verification discipline before it is reported as a defect count.
+- All images have `alt` on every page.
+
+## Phase 2 — Visual audit, page by page ⬜ SUPERSEDED by the sweep above
 
 Per page: screenshot desktop + mobile, light + dark → check spacing rhythm,
 alignment, hierarchy, dark-mode parity → measure rendered contrast against WCAG
