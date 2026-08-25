@@ -296,18 +296,50 @@ switch. Fixed to `<span id="switch-label">` + `aria-labelledby`.
 accept input; every `aria-label=` string appearing in page text was confirmed to
 be inside a `<pre>`/`<code>` snippet, not loose markup.
 
+#### Group 3a ✅ APPLIED — 17 switches named
+
+**All 17 `role="switch"` buttons now have accessible names** (0 unnamed), 0
+console errors, no stray attribute text.
+
+Names were derived by scanning **forward** past `</button>` for the label span —
+an initial backward scan produced wrong names (it picked up section headings
+like "Color Role Variations" instead of "Primary (Navy)"), because in this
+markup the label sits *after* the switch.
+
+The playground's preview switch has a runtime label, so it uses
+`aria-labelledby` pointing at the label element (converted from an invalid
+`<label>` to `<span id="switch-preview-label">`). Verified live: the name
+resolves to "Automatic Auto-Rebalance" and the switch still toggles
+`aria-checked` correctly.
+
+Inline attribute insertion was used rather than adding a line, because these
+opening tags are single-line — the exact shape that caused the stray-text bug
+earlier.
+
+One of the 18 was **not** a defect: line 8091 is prose documentation mentioning
+`role="switch"`, not an element.
+
 ### 🆕 Still open: non-native controls have no accessible names
 
 The 297-control metric only counts `input`/`select`/`textarea`. It is blind to
 custom widgets, and two classes remain:
 
-- **18 `role="switch"` buttons** — every one unnamed. Screen readers announce
-  "switch, on" with no indication of what it toggles.
-- **104 `<label>`s on button groups** (Group 3) — a `<label>` cannot label a
+- ~~18 `role="switch"` buttons~~ — ✅ fixed above (17 real, 1 was prose).
+- **104 `<label>`s on button groups** (Group 3b) — a `<label>` cannot label a
   group of `<button>`s, so those segmented controls have no group name and the
-  markup is invalid.
+  markup is invalid. **Deferred to Phase 3**, and it needs a decision first:
+  these are segmented controls where exactly one option is selected, so the
+  correct semantics may be `role="radiogroup"` + `aria-checked` (arrow-key
+  navigation) rather than a plain `role="group"` + `aria-labelledby`. That
+  choice changes all 104 edits and the expected keyboard behaviour, so it is an
+  owner decision, not a mechanical fix.
 
-Both would pass an automated form-control scan and fail a real audit.
+  Severity note: each button in these groups carries its own visible text, so it
+  *does* have an accessible name and the control is operable. What is missing is
+  the group name and valid markup — a degradation, not a blocker. That is why it
+  was ranked below the switches despite being 6× the count.
+
+Both classes pass an automated form-control scan and fail a real audit.
 
 Remaining after Typography was: **239 across 45 pages.** Routes considered:
 **A** `htmlFor`/`id` pairs everywhere (correct, adds click-to-focus, needs 239

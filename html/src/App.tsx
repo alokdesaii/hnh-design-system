@@ -21304,28 +21304,28 @@ export function ScrollArea({
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                       <div className="flex flex-col items-center gap-2 p-4 bg-muted/20 rounded-xl border border-border/40">
                         <span className="text-[10px] text-muted-foreground uppercase font-bold">Unchecked</span>
-                        <button type="button" role="switch" aria-checked="false" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-slate-300 dark:bg-slate-700 transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Unchecked switch example" aria-checked="false" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-slate-300 dark:bg-slate-700 transition-colors duration-200">
                           <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-0" />
                         </button>
                       </div>
                       
                       <div className="flex flex-col items-center gap-2 p-4 bg-muted/20 rounded-xl border border-border/40">
                         <span className="text-[10px] text-muted-foreground uppercase font-bold">Checked</span>
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Checked switch example" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
                           <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                         </button>
                       </div>
 
                       <div className="flex flex-col items-center gap-2 p-4 bg-muted/20 rounded-xl border border-border/40">
                         <span className="text-[10px] text-muted-foreground uppercase font-bold">Disabled Unchecked</span>
-                        <button type="button" role="switch" aria-checked="false" disabled className="relative inline-flex w-10 h-6 shrink-0 cursor-not-allowed rounded-full p-0.5 bg-slate-300/40 dark:bg-slate-700/40 opacity-40">
+                        <button type="button" role="switch" aria-label="Disabled unchecked switch example" aria-checked="false" disabled className="relative inline-flex w-10 h-6 shrink-0 cursor-not-allowed rounded-full p-0.5 bg-slate-300/40 dark:bg-slate-700/40 opacity-40">
                           <span className="w-5 h-5 rounded-full bg-white/80 shadow-md" />
                         </button>
                       </div>
 
                       <div className="flex flex-col items-center gap-2 p-4 bg-muted/20 rounded-xl border border-border/40">
                         <span className="text-[10px] text-muted-foreground uppercase font-bold">Disabled Checked</span>
-                        <button type="button" role="switch" aria-checked="true" disabled className="relative inline-flex w-10 h-6 shrink-0 cursor-not-allowed rounded-full p-0.5 bg-primary/45 opacity-40">
+                        <button type="button" role="switch" aria-label="Disabled checked switch example" aria-checked="true" disabled className="relative inline-flex w-10 h-6 shrink-0 cursor-not-allowed rounded-full p-0.5 bg-primary/45 opacity-40">
                           <span className="w-5 h-5 rounded-full bg-white/80 shadow-md transform translate-x-4" />
                         </button>
                       </div>
@@ -21337,28 +21337,28 @@ export function ScrollArea({
                     <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Color Role Variations</h3>
                     <div className="flex flex-wrap gap-6 items-center">
                       <div className="flex items-center gap-2.5">
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Primary (Navy) switch example" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
                           <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                         </button>
                         <span className="text-xs font-medium text-foreground">Primary (Navy)</span>
                       </div>
 
                       <div className="flex items-center gap-2.5">
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-secondary transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Secondary (Teal) switch example" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-secondary transition-colors duration-200">
                           <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                         </button>
                         <span className="text-xs font-medium text-foreground">Secondary (Teal)</span>
                       </div>
 
                       <div className="flex items-center gap-2.5">
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-emerald-500 transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Success (Green) switch example" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-emerald-500 transition-colors duration-200">
                           <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                         </button>
                         <span className="text-xs font-medium text-foreground">Success (Green)</span>
                       </div>
 
                       <div className="flex items-center gap-2.5">
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-rose-500 transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Destructive (Red) switch example" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-rose-500 transition-colors duration-200">
                           <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                         </button>
                         <span className="text-xs font-medium text-foreground">Destructive (Red)</span>
@@ -21371,21 +21371,21 @@ export function ScrollArea({
                     <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Size Variations</h3>
                     <div className="flex flex-wrap gap-8 items-center">
                       <div className="flex items-center gap-2.5">
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-8 h-5 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Small (sm) switch example" aria-checked="true" className="relative inline-flex w-8 h-5 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
                           <span className="w-4 h-4 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-3" />
                         </button>
                         <span className="text-xs text-foreground">Small (sm)</span>
                       </div>
 
                       <div className="flex items-center gap-2.5">
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Medium (md) switch example" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
                           <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                         </button>
                         <span className="text-xs text-foreground font-medium">Medium (md)</span>
                       </div>
 
                       <div className="flex items-center gap-2.5">
-                        <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-12 h-7 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
+                        <button type="button" role="switch" aria-label="Large (lg) switch example" aria-checked="true" className="relative inline-flex w-12 h-7 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
                           <span className="w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-5" />
                         </button>
                         <span className="text-xs text-foreground font-semibold">Large (lg)</span>
@@ -21402,7 +21402,7 @@ export function ScrollArea({
                         <div className="text-[10px] text-muted-foreground uppercase font-bold">Left Aligned Label</div>
                         <div className="flex items-center justify-between p-3 bg-muted/20 border border-border/50 rounded-lg">
                           <span className="text-xs font-semibold text-foreground">Toggle Platform Emails</span>
-                          <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
+                          <button type="button" role="switch" aria-label="Toggle Platform Emails" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200">
                             <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                           </button>
                         </div>
@@ -21412,7 +21412,7 @@ export function ScrollArea({
                       <div className="bg-card border border-border rounded-xl p-5 shadow-xs space-y-4">
                         <div className="text-[10px] text-muted-foreground uppercase font-bold">Right Aligned Label</div>
                         <div className="flex items-center gap-3 p-3 bg-muted/20 border border-border/50 rounded-lg">
-                          <button type="button" role="switch" aria-checked="false" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-slate-300 dark:bg-slate-700 transition-colors duration-200">
+                          <button type="button" role="switch" aria-label="Require Multi-Signature Verification" aria-checked="false" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-slate-300 dark:bg-slate-700 transition-colors duration-200">
                             <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-0" />
                           </button>
                           <span className="text-xs font-semibold text-foreground">Require Multi-Signature Verification</span>
@@ -21429,7 +21429,7 @@ export function ScrollArea({
                               Allow settlement accounts to temporarily exceed overnight deposit allocations. Standard institutional lending interest rates apply.
                             </p>
                           </div>
-                          <button type="button" role="switch" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200 mt-0.5">
+                          <button type="button" role="switch" aria-label="Liquidity Settlement Overdraft" aria-checked="true" className="relative inline-flex w-10 h-6 shrink-0 cursor-pointer rounded-full p-0.5 bg-primary transition-colors duration-200 mt-0.5">
                             <span className="w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-200 translate-x-4" />
                           </button>
                         </div>
@@ -21459,9 +21459,9 @@ export function ScrollArea({
                     <div className="bg-slate-50 dark:bg-slate-900/35 border border-border rounded-2xl p-8 flex items-center justify-center min-h-[160px] shadow-inner">
                       <div className="flex items-start justify-between gap-6 w-full max-w-md bg-card border border-border rounded-xl p-5 shadow-sm">
                         <div className="space-y-1">
-                          <label className={`text-xs font-semibold block leading-tight ${playSwitchDisabled ? 'text-muted-foreground/60' : 'text-foreground'}`}>
+                          <span id="switch-preview-label" className={`text-xs font-semibold block leading-tight ${playSwitchDisabled ? 'text-muted-foreground/60' : 'text-foreground'}`}>
                             {playSwitchLabel}
-                          </label>
+                          </span>
                           {playSwitchDescription && (
                             <p className={`text-[11px] leading-relaxed block ${playSwitchDisabled ? 'text-muted-foreground/40' : 'text-muted-foreground'}`}>
                               {playSwitchDescription}
@@ -21475,7 +21475,7 @@ export function ScrollArea({
                         </div>
                         <button
                           type="button"
-                          role="switch"
+                          role="switch" aria-labelledby="switch-preview-label"
                           aria-checked={playSwitchChecked}
                           disabled={playSwitchDisabled}
                           onClick={() => !playSwitchDisabled && setPlaySwitchChecked(!playSwitchChecked)}
@@ -24949,7 +24949,7 @@ export function ScrollArea({
                             <span className="text-xs text-muted-foreground font-medium">Pressed State</span>
                             <button
                               type="button"
-                              role="switch"
+                              role="switch" aria-label="Pressed State"
                               aria-checked={playTogglePressed}
                               onClick={() => setPlayTogglePressed(!playTogglePressed)}
                               className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden ${
@@ -24966,7 +24966,7 @@ export function ScrollArea({
                             <span className="text-xs text-muted-foreground font-medium">Disabled Status</span>
                             <button
                               type="button"
-                              role="switch"
+                              role="switch" aria-label="Disabled Status"
                               aria-checked={playToggleDisabled}
                               onClick={() => setPlayToggleDisabled(!playToggleDisabled)}
                               className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden ${
