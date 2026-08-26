@@ -309,6 +309,40 @@ page 1 already had this structure; the new tokens did not.
 Without the before/after measurement this would have shipped as a large
 regression while looking like a fix.
 
+### ✅ Heading structure fixed — all 77 pages
+
+| | Before | After |
+| :-- | :-- | :-- |
+| Pages with level skips | 26 | **0** |
+| Pages without exactly one `h1` | 8 | **0** |
+
+Build passes, 0 console errors, no blank pages, no visual change.
+
+**The mechanical fix would have been wrong.** A dry run proposed 40 promotions,
+but inspecting the actual heading *text* showed roughly half were **demo content
+inside live component previews**, not page structure — alert titles, popover
+titles, dialog titles, a monetary value, and a fake user's name ("Alok Desai")
+in a hover-card. Promoting those to `h3` would have satisfied the checker while
+injecting demo content into the document outline.
+
+So the fix was split by cause:
+
+| Cause | Fix | Count |
+| :-- | :-- | :-- |
+| Demo content marked up as headings | → `<div>`, classes unchanged | 18 |
+| Typography page's heading **specimens** (why it had 3 `h1`s) | → `<div>`, classes unchanged | 8 |
+| Genuine section headings at the wrong level | level normalised | 31 |
+| Legacy Platform pages had **no `h1`** — the visible title is a logo inside a `<p>` | added `<h1 className="sr-only">{platform.name}</h1>` | 8 pages |
+| Legacy capability/pillar cards sat at `h3` directly under `h1` | promoted to `h2` | 8 |
+
+After converting demo content, the remaining skip list dropped from 40 to 31
+before a single level was changed — the demo markup *was* most of the problem.
+
+Note for the component pages: the visible specimens are now non-semantic, while
+the generated code snippets still show the semantic markup a consumer should
+copy. That is the usual design-system convention, but worth a look when the
+component pages get their own review.
+
 ### Still open (contrast)
 
 Remaining failures are mostly **opacity-reduced text** (`text-muted-foreground/60`

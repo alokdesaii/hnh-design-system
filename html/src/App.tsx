@@ -6661,7 +6661,7 @@ export default function DrawerDemo() {
                           <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Settlement Account</span>
                           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
                         </div>
-                        <h4 className="text-xl font-bold tracking-tight text-foreground">$125,000.00</h4>
+                        <div className="text-xl font-bold tracking-tight text-foreground">$125,000.00</div>
                         <div className="mt-3 flex items-center justify-between text-[10px] text-muted-foreground border-t border-border/40 pt-3">
                           <span>Vault Vault-01</span>
                           <span>HNH Vault Services</span>
@@ -7825,7 +7825,7 @@ export function SecuritySettingsTemplate() {
                   <div className="w-10 h-10 rounded-lg bg-secondary-500/10 text-secondary flex items-center justify-center">
                     <Eye size={20} />
                   </div>
-                  <h3 className="font-bold text-foreground text-sm">1. Perceivable</h3>
+                  <h2 className="font-bold text-foreground text-sm">1. Perceivable</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Text color pairings guarantee minimum 4.5:1 contrast for normal text and 3:1 for large text/icons. Supports dark mode and forced high-contrast themes.
                   </p>
@@ -7985,7 +7985,7 @@ export function SecuritySettingsTemplate() {
                             <span>Live Render Preview</span>
                             <span>Font: Inter Sans (16px normal / 20px bold)</span>
                           </div>
-                          <h4 className="text-xl font-bold">Harbour & Hills Enterprise Liquidity Portal</h4>
+                          <div className="text-xl font-bold">Harbour & Hills Enterprise Liquidity Portal</div>
                           <p className="text-sm leading-relaxed">
                             Institutional multi-currency vault operations require clear visual legibility. High-contrast typography reduces cognitive load and protects against user error during high-frequency wire transfers.
                           </p>
@@ -10517,14 +10517,14 @@ export function SecuritySettingsTemplate() {
                       <div className="relative w-full rounded-r-xl border border-y-border border-r-border border-l-4 border-l-secondary-500 bg-card p-4 flex gap-3 text-left shadow-hnh-sm" role="alert">
                         <Info className="shrink-0 mt-0.5 text-secondary-500" size={16} aria-hidden="true" />
                         <div className="flex-1 space-y-1">
-                          <h5 className="font-bold text-xs leading-none tracking-tight text-foreground">System Advisory</h5>
+                          <div className="font-bold text-xs leading-none tracking-tight text-foreground">System Advisory</div>
                           <p className="text-[11px] text-muted-foreground leading-relaxed">Secondary signature requirement will be activated automatically at midnight UTC.</p>
                         </div>
                       </div>
                       <div className="relative w-full rounded-r-xl border border-y-border border-r-border border-l-4 border-l-emerald-500 bg-card p-4 flex gap-3 text-left shadow-hnh-sm" role="alert">
                         <CheckCircle2 className="shrink-0 mt-0.5 text-emerald-500" size={16} aria-hidden="true" />
                         <div className="flex-1 space-y-1">
-                          <h5 className="font-bold text-xs leading-none tracking-tight text-foreground">Transaction Complete</h5>
+                          <h4 className="font-bold text-xs leading-none tracking-tight text-foreground">Transaction Complete</h4>
                           <p className="text-[11px] text-muted-foreground leading-relaxed">Vault allocation swap has been confirmed on-chain. Audit record #4492 has been logged.</p>
                         </div>
                       </div>
@@ -10552,14 +10552,14 @@ export function SecuritySettingsTemplate() {
                       <div className="relative w-full rounded-xl border border-transparent bg-secondary-500/8 dark:bg-secondary-500/10 text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs" role="alert">
                         <Info className="shrink-0 mt-0.5" size={16} aria-hidden="true" />
                         <div className="flex-1 space-y-1">
-                          <h5 className="font-bold text-xs leading-none tracking-tight">Information Alert</h5>
+                          <div className="font-bold text-xs leading-none tracking-tight">Information Alert</div>
                           <p className="text-[11px] leading-relaxed opacity-90">All transaction feeds are operating at normal speeds with zero block delay.</p>
                         </div>
                       </div>
                       <div className="relative w-full rounded-xl border border-transparent bg-emerald-500/8 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 p-4 flex gap-3 text-left shadow-xs" role="alert">
                         <CheckCircle2 className="shrink-0 mt-0.5" size={16} aria-hidden="true" />
                         <div className="flex-1 space-y-1">
-                          <h5 className="font-bold text-xs leading-none tracking-tight">Success Advisory</h5>
+                          <h4 className="font-bold text-xs leading-none tracking-tight">Success Advisory</h4>
                           <p className="text-[11px] leading-relaxed opacity-90">Compliance status verified successfully. Direct deposit ledger synced with internal assets.</p>
                         </div>
                       </div>
@@ -10588,7 +10588,7 @@ export function SecuritySettingsTemplate() {
                         <Info className="shrink-0 mt-0.5 text-secondary-500" size={16} aria-hidden="true" />
                         <div className="flex-1 space-y-2">
                           <div>
-                            <h5 className="font-bold text-xs leading-none tracking-tight text-foreground">Compliance Policy Updated</h5>
+                            <div className="font-bold text-xs leading-none tracking-tight text-foreground">Compliance Policy Updated</div>
                             <p className="text-[11px] text-muted-foreground leading-relaxed mt-1">Please review the updated global liquidity reporting terms for regulatory clearance.</p>
                           </div>
                           <div className="flex items-center gap-3">
@@ -10601,7 +10601,7 @@ export function SecuritySettingsTemplate() {
                       <div className="relative w-full rounded-xl border border-border bg-card p-4 flex gap-3 text-left shadow-xs" role="alert">
                         <Bell className="shrink-0 mt-0.5 text-slate-400 dark:text-slate-500" size={16} aria-hidden="true" />
                         <div className="flex-1 space-y-1 pr-6">
-                          <h5 className="font-bold text-xs leading-none tracking-tight text-foreground">Dismissible System Notification</h5>
+                          <h4 className="font-bold text-xs leading-none tracking-tight text-foreground">Dismissible System Notification</h4>
                           <p className="text-[11px] text-muted-foreground leading-relaxed">Weekly maintenance windows have been set. Expect short downtime Sunday at 02:00 AM.</p>
                         </div>
                         <button className="absolute right-3 top-3 text-muted-foreground hover:text-foreground p-1 rounded-md transition focus:outline-none focus:ring-1 focus:ring-secondary-500" aria-label="Dismiss Alert">
@@ -10666,7 +10666,7 @@ export function SecuritySettingsTemplate() {
                             {playAlertVariant === 'default' && <Bell size={16} className={`shrink-0 mt-0.5 ${playAlertStyle === 'accent' ? 'text-slate-400 dark:text-slate-500' : ''}`} aria-hidden="true" />}
 
                             <div className="flex-1 space-y-1">
-                              <h5 className="font-bold text-xs leading-none tracking-tight">{playAlertTitle}</h5>
+                              <div className="font-bold text-xs leading-none tracking-tight">{playAlertTitle}</div>
                               <p className="text-[11px] leading-relaxed opacity-95">{playAlertDescription}</p>
                             </div>
 
@@ -12269,9 +12269,9 @@ export function SecuritySettingsTemplate() {
                         {/* Interactive Calendar Frame */}
                         <div className="border border-border/80 rounded-2xl p-4.5 bg-card w-full max-w-[340px] shadow-sm select-none">
                           <div className="flex items-center justify-between pb-3">
-                            <h4 className="text-xs font-bold text-foreground">
+                            <h3 className="text-xs font-bold text-foreground">
                               {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
-                            </h4>
+                            </h3>
                             <div className="flex gap-1">
                               <button 
                                 onClick={() => setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() - 1)))}
@@ -12569,7 +12569,7 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Specimen A: Single Date Picker */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[360px] relative">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-4">Single Date Selection</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-4">Single Date Selection</h3>
                       <div className="relative max-w-xs">
                         <button
                           onClick={() => setSpecimenDatePickerSingleOpen(!specimenDatePickerSingleOpen)}
@@ -13177,7 +13177,7 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Specimen A: Basic Text Popover */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[220px] flex flex-col justify-start items-center relative shadow-sm">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-8 w-full text-center">Basic Info Popover</h4>
+                      <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-8 w-full text-center">Basic Info Popover</div>
                       <div className="relative inline-block">
                         <button
                           onClick={() => setSpecimenPopoverAOpen(!specimenPopoverAOpen)}
@@ -13189,7 +13189,7 @@ export function SecuritySettingsTemplate() {
 
                         {specimenPopoverAOpen && (
                           <div className="absolute z-50 bg-card border border-border rounded-xl shadow-lg p-3.5 w-56 bottom-full mb-3 left-1/2 -translate-x-1/2 animate-in fade-in slide-in-from-bottom-1 duration-150">
-                            <h5 className="text-xs font-bold text-foreground mb-1">Vault Key Access</h5>
+                            <div className="text-xs font-bold text-foreground mb-1">Vault Key Access</div>
                             <p className="text-[11px] text-muted-foreground leading-normal">
                               API access tokens reset every 24 hours. Ensure keys are stored in a secure offline vault.
                             </p>
@@ -13202,7 +13202,7 @@ export function SecuritySettingsTemplate() {
 
                     {/* Specimen B: Popover Form */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[220px] flex flex-col justify-start items-center relative shadow-sm">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-8 w-full text-center">Interactive Config Form</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-8 w-full text-center">Interactive Config Form</h3>
                       <div className="relative inline-block">
                         <button
                           onClick={() => setSpecimenPopoverBOpen(!specimenPopoverBOpen)}
@@ -13214,7 +13214,7 @@ export function SecuritySettingsTemplate() {
 
                         {specimenPopoverBOpen && (
                           <div className="absolute z-50 bg-card border border-border rounded-xl shadow-lg p-4 w-64 top-full mt-3 left-1/2 -translate-x-1/2 animate-in fade-in slide-in-from-top-1 duration-150">
-                            <h5 className="text-xs font-bold text-foreground mb-1">Set Daily Transaction Limit</h5>
+                            <h4 className="text-xs font-bold text-foreground mb-1">Set Daily Transaction Limit</h4>
                             <p className="text-[10px] text-muted-foreground leading-normal mb-3">
                               Define maximum single threshold limit.
                             </p>
@@ -13407,7 +13407,7 @@ export function SecuritySettingsTemplate() {
 
                           {playPopoverOpen && (
                             <div className={`absolute z-50 bg-card border border-border rounded-xl shadow-xl p-4 w-64 animate-in fade-in zoom-in-95 duration-150 ${getPlacementClasses(playPopoverSide, playPopoverAlign)}`}>
-                              <h5 className="text-xs font-bold text-foreground mb-1">Configuration Settings</h5>
+                              <div className="text-xs font-bold text-foreground mb-1">Configuration Settings</div>
                               <p className="text-[11px] text-muted-foreground leading-normal mb-3">
                                 Adjust vault access logs and transaction validation guidelines.
                               </p>
@@ -13587,7 +13587,7 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Specimen A: User Profile Card */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[200px] flex flex-col justify-start items-center relative shadow-sm">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-12 w-full text-center">User Profile Preview</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-12 w-full text-center">User Profile Preview</h3>
                       <div className="relative inline-block">
                         <a
                           href="#"
@@ -13611,7 +13611,7 @@ export function SecuritySettingsTemplate() {
                                 AD
                               </div>
                               <div className="space-y-1">
-                                <h5 className="text-xs font-bold text-foreground">Alok Desai</h5>
+                                <div className="text-xs font-bold text-foreground">Alok Desai</div>
                                 <p className="text-[10px] text-muted-foreground">@alokdesai</p>
                                 <p className="text-[11px] text-muted-foreground leading-normal mt-1">
                                   Lead Developer working on semantic, high-contrast brand layouts and interactive overlay frameworks.
@@ -13791,7 +13791,7 @@ export function SecuritySettingsTemplate() {
                                   AD
                                 </div>
                                 <div className="space-y-1">
-                                  <h5 className="text-xs font-bold text-foreground">Alok Desai</h5>
+                                  <div className="text-xs font-bold text-foreground">Alok Desai</div>
                                   <p className="text-[10px] text-muted-foreground">@alokdesai</p>
                                   <p className="text-[11px] text-muted-foreground mt-1.5 leading-normal">
                                     Developing responsive visual specs, overlay grids, and micro-animated component libraries.
@@ -13953,7 +13953,7 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Specimen A: Grouped 6-Digit OTP */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[220px] flex flex-col justify-start items-center relative shadow-sm">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-10 w-full text-center">Grouped 6-Digit Layout</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-10 w-full text-center">Grouped 6-Digit Layout</h3>
                       
                       <div className="flex items-center gap-2" role="group" aria-label="Grouped 6-digit OTP code">
                         {/* Group 1 (3 slots) */}
@@ -14317,7 +14317,7 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                     {/* Left Controls Configuration */}
                     <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-5 shadow-xs space-y-5">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h3>
 
                       {/* Title Text Input */}
                       <div className="space-y-2">
@@ -14702,7 +14702,7 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                     {/* Left Controls Configuration */}
                     <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-5 shadow-xs space-y-5">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h3>
 
                       {/* Key Label Input */}
                       <div className="space-y-2">
@@ -14997,7 +14997,7 @@ export function SecuritySettingsTemplate() {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                     {/* Left Controls Configuration */}
                     <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-5 shadow-xs space-y-5">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h3>
 
                       {/* Border Switch */}
                       <div className="flex items-center justify-between">
@@ -19042,7 +19042,7 @@ export function ScrollArea({
                       {/* Code Snippet Card */}
                       <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm text-left space-y-4">
                         <div className="flex justify-between items-center">
-                          <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">Generated Specimen Code</h4>
+                          <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Generated Specimen Code</h3>
                           <button
                             onClick={() => handleCopy(getSkeletonCode(), 'skeleton-code')}
                             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-muted/50 text-xs font-bold transition text-foreground"
@@ -19179,7 +19179,7 @@ export function ScrollArea({
                     {/* Single Slider Specimen */}
                     <div className="bg-card border border-border rounded-2xl p-6 space-y-4 shadow-2xs text-left">
                       <div>
-                        <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">Single Slider (Default)</h4>
+                        <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Single Slider (Default)</h3>
                         <p className="text-[10px] text-muted-foreground mt-0.5">Standard single indicator layout in balanced size.</p>
                       </div>
                       <div className="py-4">
@@ -19404,7 +19404,7 @@ export function ScrollArea({
                         <div className="w-full max-w-md mx-auto border border-border/60 bg-card rounded-2xl p-6 space-y-5 shadow-hnh">
                           <div className="flex items-center justify-between border-b border-border/40 pb-3">
                             <div>
-                              <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">H&H Allocator</h4>
+                              <div className="text-xs font-bold text-foreground uppercase tracking-wider">H&H Allocator</div>
                               <p className="text-[10px] text-muted-foreground">Dynamic Portfolio Yield Simulator</p>
                             </div>
                             <span className={`px-2 py-0.5 rounded-full border text-[9px] font-bold ${riskTierColor}`}>
@@ -19455,7 +19455,7 @@ export function ScrollArea({
                       {/* Code Snippet */}
                       <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm text-left space-y-4">
                         <div className="flex justify-between items-center">
-                          <h4 className="text-xs font-bold text-foreground uppercase tracking-wider">Generated Specimen Code</h4>
+                          <h3 className="text-xs font-bold text-foreground uppercase tracking-wider">Generated Specimen Code</h3>
                           <button
                             onClick={() => handleCopy(getSliderCode(), 'slider-code')}
                             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-muted/50 text-xs font-bold transition text-foreground"
@@ -19523,14 +19523,14 @@ export function ScrollArea({
                 <section id="overview" className="space-y-9">
                   {/* Component API Overview */}
                   <div className="bg-card border border-border rounded-2xl p-6 space-y-4 shadow-xs">
-                    <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">Features & Anatomy</h3>
+                    <h2 className="text-sm font-bold text-foreground uppercase tracking-wider">Features & Anatomy</h2>
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       Toasts are low-disruption, floating notifications designed to alert users about real-time operations (e.g., successful transactions, error statuses, alerts). 
                       Our implementation guarantees smooth CSS animations, positional stacking, and viewport-level overlays that scale cleanly to mobile screens.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                       <div className="p-4 rounded-xl bg-muted/40 border border-border/60">
-                        <h4 className="text-xs font-bold text-foreground">Positional Stacking</h4>
+                        <h3 className="text-xs font-bold text-foreground">Positional Stacking</h3>
                         <p className="text-[10px] text-muted-foreground mt-1">Supports multi-toast stacking in 6 different layout corners with floating overlay logic.</p>
                       </div>
                       <div className="p-4 rounded-xl bg-muted/40 border border-border/60">
@@ -19989,13 +19989,13 @@ export function ScrollArea({
                 <section id="overview" className="space-y-9">
                   {/* Anatomy overview */}
                   <div className="bg-card border border-border rounded-2xl p-6 space-y-4 shadow-xs">
-                    <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">Features & Anatomy</h3>
+                    <h2 className="text-sm font-bold text-foreground uppercase tracking-wider">Features & Anatomy</h2>
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       Spinners are infinite loading loops appropriate for tight inline boundaries (like buttons or inline cards) where full skeleton layouts are disruptive.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                       <div className="p-4 rounded-xl bg-muted/40 border border-border/60">
-                        <h4 className="text-xs font-bold text-foreground">Inline Contexts</h4>
+                        <h3 className="text-xs font-bold text-foreground">Inline Contexts</h3>
                         <p className="text-[10px] text-muted-foreground mt-1">Sized as small as 12px to nest neatly within buttons and inputs without expanding bounding layouts.</p>
                       </div>
                       <div className="p-4 rounded-xl bg-muted/40 border border-border/60">
@@ -20775,7 +20775,7 @@ export function ScrollArea({
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4">
                       <div className="flex justify-between items-center pb-2 border-b border-border/45">
                         <div>
-                          <h4 className="text-sm font-semibold text-primary dark:text-slate-100">Area Chart (Performance Trend)</h4>
+                          <h3 className="text-sm font-semibold text-primary dark:text-slate-100">Area Chart (Performance Trend)</h3>
                           <p className="text-xs text-muted-foreground">Cumulative return over 6 months</p>
                         </div>
                         <span className="text-xs font-bold text-emerald-500">+12.4% YTD</span>
@@ -22090,11 +22090,11 @@ export function ScrollArea({
                   <div className="w-8 h-8 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-500 flex items-center justify-center">
                     <Accessibility size={18} />
                   </div>
-                  <h3 className="text-sm font-bold text-primary dark:text-slate-100">Accessibility Standards (WCAG 2.1 AA)</h3>
+                  <h2 className="text-sm font-bold text-primary dark:text-slate-100">Accessibility Standards (WCAG 2.1 AA)</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6 text-xs text-muted-foreground leading-relaxed font-light">
                   <div className="space-y-3">
-                    <h4 className="font-bold text-foreground">Aria & Role Contracts</h4>
+                    <h3 className="font-bold text-foreground">Aria & Role Contracts</h3>
                     <ul className="list-disc pl-5 space-y-1.5">
                       <li>The container element must hold <code className="bg-muted px-1 py-0.5 rounded text-foreground font-mono text-[10.5px]">role="alertdialog"</code>.</li>
                       <li>Use <code className="bg-muted px-1 py-0.5 rounded text-foreground font-mono text-[10.5px]">aria-modal="true"</code> to instruct screen readers to restrict navigation within dialog bounds.</li>
@@ -22131,7 +22131,7 @@ export function ScrollArea({
                           <CheckCircle2 size={16} />
                         </div>
                         <div className="space-y-1">
-                          <h4 className="text-xs font-bold text-foreground">Commit Portfolio Allocation</h4>
+                          <div className="text-xs font-bold text-foreground">Commit Portfolio Allocation</div>
                           <p className="text-[10.5px] text-muted-foreground leading-relaxed">Confirm and lock transaction logs across HK custodian indices. Daily yields start accruing immediately.</p>
                         </div>
                       </div>
@@ -22151,7 +22151,7 @@ export function ScrollArea({
                           <AlertTriangle size={16} />
                         </div>
                         <div className="space-y-1">
-                          <h4 className="text-xs font-bold text-foreground">Delete Vault ingester?</h4>
+                          <h3 className="text-xs font-bold text-foreground">Delete Vault ingester?</h3>
                           <p className="text-[10.5px] text-muted-foreground leading-relaxed">This completely erases the vault pipeline config. Historical transaction tracking files cannot be recovered.</p>
                         </div>
                       </div>
@@ -23215,7 +23215,7 @@ export function ScrollArea({
                       B2B Payout Confirmation
                     </div>
                     <div className="space-y-3">
-                      <h4 className="text-sm font-bold text-foreground">Disburse Ledger Funds</h4>
+                      <div className="text-sm font-bold text-foreground">Disburse Ledger Funds</div>
                       <p className="text-xs text-muted-foreground leading-relaxed">
                         You are initiating a manual routing payout of <strong>$185,200.00 USD</strong> to Acme Settlement Vault (Singapore routing bank). Please confirm this dispatch.
                       </p>
@@ -23247,7 +23247,7 @@ export function ScrollArea({
                       System Danger Alert
                     </div>
                     <div className="space-y-3">
-                      <h4 className="text-sm font-bold text-foreground">Revoke Sandbox Access Credentials?</h4>
+                      <h3 className="text-sm font-bold text-foreground">Revoke Sandbox Access Credentials?</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed font-light">
                         This action will immediately disable the sandbox testing environment credentials for Harbour & Hills developers. All current mock transfers will fail.
                       </p>
@@ -25840,9 +25840,9 @@ export function ScrollArea({
                         <span className="font-bold text-secondary">&lt;h1&gt;</span>
                         <span>48px / 3.0rem • Extrabold • Tracking Tighter</span>
                       </div>
-                      <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
+                      <div className="text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
                         Global Liquidity Settlement Platform
-                      </h1>
+                      </div>
                     </div>
 
                     {/* H2 */}
@@ -25851,9 +25851,9 @@ export function ScrollArea({
                         <span className="font-bold text-secondary">&lt;h2&gt;</span>
                         <span>30px / 1.875rem • Bold • Tracking Tight</span>
                       </div>
-                      <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 border-b border-border pb-2">
+                      <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 border-b border-border pb-2">
                         Real-Time Treasury Operations & Reserve Audit
-                      </h2>
+                      </div>
                     </div>
 
                     {/* H3 */}
@@ -25862,9 +25862,9 @@ export function ScrollArea({
                         <span className="font-bold text-secondary">&lt;h3&gt;</span>
                         <span>24px / 1.5rem • Semibold • Tracking Tight</span>
                       </div>
-                      <h3 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+                      <div className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
                         Automated Currency Conversion & Clearing Rails
-                      </h3>
+                      </div>
                     </div>
 
                     {/* H4 */}
@@ -25873,9 +25873,9 @@ export function ScrollArea({
                         <span className="font-bold text-secondary">&lt;h4&gt;</span>
                         <span>20px / 1.25rem • Semibold • Tracking Tight</span>
                       </div>
-                      <h4 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+                      <div className="text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
                         Institutional Escrow & Smart Contract Guarantee
-                      </h4>
+                      </div>
                     </div>
                   </div>
 
@@ -26085,24 +26085,24 @@ export function ScrollArea({
                       <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Live Preview</span>
                       <div className="p-8 rounded-xl border border-border/80 bg-background min-h-36 flex items-center justify-center text-center shadow-xs">
                         {compVariant === 'h1' && (
-                          <h1 className={`text-4xl lg:text-5xl tracking-tight ${compWeight} ${compColor}`}>
+                          <div className={`text-4xl lg:text-5xl tracking-tight ${compWeight} ${compColor}`}>
                             {compText}
-                          </h1>
+                          </div>
                         )}
                         {compVariant === 'h2' && (
-                          <h2 className={`text-3xl tracking-tight border-b border-border pb-2 ${compWeight} ${compColor}`}>
+                          <div className={`text-3xl tracking-tight border-b border-border pb-2 ${compWeight} ${compColor}`}>
                             {compText}
-                          </h2>
+                          </div>
                         )}
                         {compVariant === 'h3' && (
-                          <h3 className={`text-2xl tracking-tight ${compWeight} ${compColor}`}>
+                          <div className={`text-2xl tracking-tight ${compWeight} ${compColor}`}>
                             {compText}
-                          </h3>
+                          </div>
                         )}
                         {compVariant === 'h4' && (
-                          <h4 className={`text-xl tracking-tight ${compWeight} ${compColor}`}>
+                          <div className={`text-xl tracking-tight ${compWeight} ${compColor}`}>
                             {compText}
-                          </h4>
+                          </div>
                         )}
                         {compVariant === 'p' && (
                           <p className={`text-base leading-7 ${compWeight} ${compColor}`}>
@@ -26234,7 +26234,7 @@ export function ScrollArea({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Basic Collapsible Specimen */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Basic Specimen</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Basic Specimen</h3>
                       <div className="border border-border rounded-xl p-4 space-y-3">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-bold text-foreground">Global Fund Liquidity Disclosures</span>
@@ -26322,7 +26322,7 @@ export function ScrollArea({
                       <div className="p-8 flex items-center justify-center flex-grow">
                         <div className={`w-full max-w-md border border-border rounded-xl p-4 bg-card shadow-xs transition-opacity duration-200 ${playCollapsibleDisabled ? 'opacity-55' : ''}`}>
                           <div className="flex items-center justify-between">
-                            <h4 className="text-xs font-bold text-foreground">Strategic Advisory Restructuring</h4>
+                            <div className="text-xs font-bold text-foreground">Strategic Advisory Restructuring</div>
                             <button
                               onClick={() => !playCollapsibleDisabled && setPlayCollapsibleOpen(!playCollapsibleOpen)}
                               disabled={playCollapsibleDisabled}
@@ -26525,7 +26525,7 @@ export function ScrollArea({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Standard Search Select */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4 min-h-[300px]">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Single Autocomplete</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Single Autocomplete</h3>
                       <div className="relative w-full max-w-xs">
                         <button
                           onClick={() => setLocalOpenA(!localOpenA)}
@@ -26855,7 +26855,7 @@ export function ScrollArea({
                     {/* Inline Console Specimen */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4">
                       <div className="flex items-center justify-between border-b border-border/40 pb-2">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Inline Console</h4>
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Inline Console</h3>
                         <span className="text-[10px] text-secondary-500 bg-secondary-500/10 px-1.5 py-0.5 rounded-md font-semibold">Embedded View</span>
                       </div>
                       
@@ -27623,7 +27623,7 @@ export function ScrollArea({
                     {/* Compact Interactive Ledger Specimen */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4">
                       <div className="flex items-center justify-between border-b border-border/40 pb-2">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Premium Client Ledger</h4>
+                        <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Premium Client Ledger</div>
                         <span className="text-[10px] text-secondary-500 bg-secondary-500/10 px-1.5 py-0.5 rounded-md font-semibold">Active Specimen</span>
                       </div>
 
@@ -28302,7 +28302,7 @@ export function ScrollArea({
                     {/* Inline Static Representation */}
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4 relative overflow-hidden min-h-[340px] flex items-center justify-center">
                       <div className="text-center space-y-3">
-                        <h4 className="text-sm font-bold text-foreground">Transaction Receipt Viewer</h4>
+                        <div className="text-sm font-bold text-foreground">Transaction Receipt Viewer</div>
                         <p className="text-xs text-muted-foreground max-w-sm">
                           Click the button below to slide out a complete receipt review panel from the right edge.
                         </p>
@@ -28527,7 +28527,7 @@ export function ScrollArea({
                       <div className="w-12 h-12 rounded-full bg-muted/40 flex items-center justify-center text-secondary-500 mb-4">
                         <Search size={24} />
                       </div>
-                      <h4 className="text-sm font-bold text-foreground">No Matching Transactions</h4>
+                      <div className="text-sm font-bold text-foreground">No Matching Transactions</div>
                       <p className="text-[11px] text-muted-foreground mt-1.5 max-w-[200px] leading-relaxed">
                         We couldn't find any compliance record matching that query.
                       </p>
@@ -28541,7 +28541,7 @@ export function ScrollArea({
                       <div className="w-12 h-12 rounded-full bg-muted/40 flex items-center justify-center text-primary mb-4">
                         <FolderPlus size={24} />
                       </div>
-                      <h4 className="text-sm font-bold text-foreground">No Settlement Pools</h4>
+                      <h3 className="text-sm font-bold text-foreground">No Settlement Pools</h3>
                       <p className="text-[11px] text-muted-foreground mt-1.5 max-w-[200px] leading-relaxed">
                         Create a settlement pool container to begin automated adjustments.
                       </p>
@@ -28995,7 +28995,7 @@ export function ScrollArea({
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                     {/* Left Controls Configuration */}
                     <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-5 shadow-xs space-y-5">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h4>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Properties</h3>
 
                       {/* Label Text Input */}
                       <div className="space-y-2">
@@ -29354,7 +29354,7 @@ export function ScrollArea({
         {/* Right Sidebar - Scroll-spy Page TOC (Wise Design layout) */}
         <aside className="hidden xl:block w-[220px] border-l border-border/70 px-5 py-8 sticky top-[65px] h-[calc(100vh-65px)] overflow-y-auto">
           <div className="space-y-4">
-            <h5 className="text-[10px] font-extrabold tracking-widest text-muted-foreground uppercase">On this page</h5>
+            <h3 className="text-[10px] font-extrabold tracking-widest text-muted-foreground uppercase">On this page</h3>
             <ul className="space-y-2.5">
               {getTOCItems().map((item) => (
                 <li key={item.id}>

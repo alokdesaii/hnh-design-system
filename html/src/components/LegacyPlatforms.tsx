@@ -1409,7 +1409,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
               <Cpu className="w-5 h-5 text-slate-900" />
             </div>
             <div className="space-y-2 mt-8">
-              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">Payments & FX Core</h3>
+              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Payments & FX Core</h2>
               <p className="text-xs text-slate-600 leading-relaxed font-light">
                 QoR3+, DigiQore+, and H Markets provide automated FX revaluations, 3-way bank reconciliation, dynamic bank charge routing, and instant spot rate execution.
               </p>
@@ -1421,7 +1421,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
               <ShieldCheck className="w-5 h-5 text-[#00bfb3]" />
             </div>
             <div className="space-y-2 mt-8">
-              <h3 className="text-2xl font-black tracking-tight text-[#090d16]">Unified RegTech & AML</h3>
+              <h2 className="text-2xl font-black tracking-tight text-[#090d16]">Unified RegTech & AML</h2>
               <p className="text-xs text-[#090d16]/90 leading-relaxed font-medium">
                 Edge+ integrates corporate KYC onboarding, real-time sanctions screening against 180+ global watchlists, and post-transaction anomaly detection.
               </p>
@@ -1433,7 +1433,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
               <Building2 className="w-5 h-5 text-slate-900" />
             </div>
             <div className="space-y-2 mt-8">
-              <h3 className="text-2xl font-bold text-slate-900 tracking-tight">Enterprise & HRMS Suite</h3>
+              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Enterprise & HRMS Suite</h2>
               <p className="text-xs text-slate-600 leading-relaxed font-light">
                 H Business, Ficoy+, and Coventrix+ unite multi-currency business accounts, complete employee lifecycle payroll, and departmental analytics.
               </p>
@@ -1445,7 +1445,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
               <Globe className="w-5 h-5 text-[#00bfb3]" />
             </div>
             <div className="space-y-2 mt-8">
-              <h3 className="text-2xl font-bold text-white tracking-tight">ISO 20022 Compliance</h3>
+              <h2 className="text-2xl font-bold text-white tracking-tight">ISO 20022 Compliance</h2>
               <p className="text-xs text-slate-300 leading-relaxed font-light">
                 98.6% Straight Through Processing clearance aligned with international SWIFT MT messaging protocols and enterprise-grade FIDO2 security.
               </p>
@@ -1545,6 +1545,10 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
         </div>
       </div>
 
+      {/* The visible title is a logo inside the paragraph below, so this page
+          had no h1 at all. This gives the outline and screen readers a real
+          page title without altering the visual design. */}
+      <h1 className="sr-only">{activePlatform.name}</h1>
       {/* Hero Headline */}
       <div className="space-y-4 max-w-4xl">
         <p className="text-base sm:text-lg md:text-xl font-light text-slate-100 tracking-tight leading-relaxed">
@@ -1651,7 +1655,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                 <CapIcon0 className="w-5 h-5 text-slate-900" />
               </div>
               <div className="space-y-2 mt-8">
-                <h3 className="text-2xl font-bold text-slate-900 tracking-tight">{activePlatform.capabilities[0]?.title}</h3>
+                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">{activePlatform.capabilities[0]?.title}</h2>
                 <p className="text-xs text-slate-600 leading-relaxed font-light">{activePlatform.capabilities[0]?.desc}</p>
               </div>
             </div>
@@ -1662,7 +1666,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                 <CapIcon1 className="w-5 h-5 text-[#00bfb3]" />
               </div>
               <div className="space-y-2 mt-8">
-                <h3 className="text-2xl font-black tracking-tight text-[#090d16]">{activePlatform.capabilities[1]?.title}</h3>
+                <h2 className="text-2xl font-black tracking-tight text-[#090d16]">{activePlatform.capabilities[1]?.title}</h2>
                 <p className="text-xs text-[#090d16]/90 leading-relaxed font-medium">{activePlatform.capabilities[1]?.desc}</p>
               </div>
             </div>
@@ -1673,7 +1677,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                 <CapIcon2 className="w-5 h-5 text-slate-900" />
               </div>
               <div className="space-y-2 mt-8">
-                <h3 className="text-2xl font-bold text-slate-900 tracking-tight">{activePlatform.capabilities[2]?.title}</h3>
+                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">{activePlatform.capabilities[2]?.title}</h2>
                 <p className="text-xs text-slate-600 leading-relaxed font-light">{activePlatform.capabilities[2]?.desc}</p>
               </div>
             </div>
@@ -1684,7 +1688,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                 <CapIcon3 className="w-5 h-5 text-[#00bfb3]" />
               </div>
               <div className="space-y-2 mt-8">
-                <h3 className="text-2xl font-bold text-white tracking-tight">{activePlatform.capabilities[3]?.title}</h3>
+                <h2 className="text-2xl font-bold text-white tracking-tight">{activePlatform.capabilities[3]?.title}</h2>
                 <p className="text-xs text-slate-300 leading-relaxed font-light">{activePlatform.capabilities[3]?.desc}</p>
               </div>
             </div>
