@@ -1,5 +1,16 @@
 # Design System Audit
 
+> **Working copy moved off Google Drive (2026-08-26).** The repo now lives at
+> `~/dev/hnh-design-system`. Builds inside the Drive-synced folder had degraded
+> from ~200 ms to **20 m 13 s** — every file write triggered Drive sync, and two
+> `tsc` processes were found hung at 0 % CPU alongside three orphaned dev
+> servers. The same build on local disk: **209 ms** (~250× faster).
+>
+> The clone was taken from the Drive repo, not from GitHub, so all unpushed
+> commits came with it. `origin` points at GitHub. The Drive copy is now stale
+> and should not be used — treat `~/dev/hnh-design-system` as the source of
+> truth.
+
 Running tracker for the H&H design system audit. Nothing is pushed to GitHub
 until the full audit is signed off.
 
