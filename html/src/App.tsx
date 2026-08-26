@@ -10801,7 +10801,7 @@ export function SecuritySettingsTemplate() {
                         <span className="text-[10.5px] font-bold text-foreground">Dismissible Action</span>
                         <span className="text-[9px] text-muted-foreground">Expose close button</span>
                       </div>
-                      <button
+                      <button aria-label="Toggle Expose close button"
                         onClick={() => {
                           setPlayAlertDismissible(!playAlertDismissible);
                           setPlayAlertVisible(true);
@@ -11191,7 +11191,7 @@ export function SecuritySettingsTemplate() {
                       {/* Status dot */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-semibold text-muted-foreground">Status dot</span>
-                        <button
+                        <button aria-label="Toggle Status dot"
                           onClick={() => setPlayBadgeDot(!playBadgeDot)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none ${playBadgeDot ? 'bg-secondary-500' : 'bg-slate-300 dark:bg-slate-700'}`}
                         >
@@ -11201,7 +11201,7 @@ export function SecuritySettingsTemplate() {
                       {/* Pill shape */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-semibold text-muted-foreground">Pill shape</span>
-                        <button
+                        <button aria-label="Toggle Pill shape"
                           onClick={() => setPlayBadgeRounded(!playBadgeRounded)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none ${playBadgeRounded ? 'bg-secondary-500' : 'bg-slate-300 dark:bg-slate-700'}`}
                         >
@@ -12392,7 +12392,7 @@ export function SecuritySettingsTemplate() {
                         {/* Outside days toggle */}
                         <div className="flex items-center justify-between">
                           <span className="text-[11.5px] font-medium text-foreground">Show Outside Days</span>
-                          <button
+                          <button aria-label="Toggle Show Outside Days"
                             onClick={() => setPlayCalendarShowOutsideDays(!playCalendarShowOutsideDays)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playCalendarShowOutsideDays ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'}`}
                           >
@@ -12403,7 +12403,7 @@ export function SecuritySettingsTemplate() {
                         {/* Disable weekends toggle */}
                         <div className="flex items-center justify-between">
                           <span className="text-[11.5px] font-medium text-foreground">Disable Weekends</span>
-                          <button
+                          <button aria-label="Toggle Disable Weekends"
                             onClick={() => setPlayCalendarDisableWeekends(!playCalendarDisableWeekends)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playCalendarDisableWeekends ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'}`}
                           >
@@ -12414,7 +12414,7 @@ export function SecuritySettingsTemplate() {
                         {/* Min Max Boundary limits toggle */}
                         <div className="flex items-center justify-between">
                           <span className="text-[11.5px] font-medium text-foreground">Limit Date Boundaries</span>
-                          <button
+                          <button aria-label="Toggle Limit Date Boundaries"
                             onClick={() => setPlayCalendarMinMax(!playCalendarMinMax)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playCalendarMinMax ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'}`}
                           >
@@ -12858,7 +12858,7 @@ export function SecuritySettingsTemplate() {
                             <div className="text-xs font-bold text-foreground">Shortcut Presets</div>
                             <div className="text-[10px] text-muted-foreground">Add a quick select panel</div>
                           </div>
-                          <button
+                          <button aria-label="Toggle Add a quick select panel"
                             onClick={() => setPlayDatePickerShowShortcuts(!playDatePickerShowShortcuts)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playDatePickerShowShortcuts ? 'bg-secondary' : 'bg-slate-300 dark:bg-slate-700'}`}
                           >
@@ -12872,7 +12872,7 @@ export function SecuritySettingsTemplate() {
                             <div className="text-xs font-bold text-foreground">Min / Max Constraints</div>
                             <div className="text-[10px] text-muted-foreground">Lock dates outside 10 days</div>
                           </div>
-                          <button
+                          <button aria-label="Toggle Lock dates outside 10 days"
                             onClick={() => setPlayDatePickerMinMax(!playDatePickerMinMax)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playDatePickerMinMax ? 'bg-secondary' : 'bg-slate-300 dark:bg-slate-700'}`}
                           >
@@ -12886,7 +12886,7 @@ export function SecuritySettingsTemplate() {
                             <div className="text-xs font-bold text-foreground">Disable Weekends</div>
                             <div className="text-[10px] text-muted-foreground">Make Saturdays & Sundays unselectable</div>
                           </div>
-                          <button
+                          <button aria-label="Toggle Make Saturdays & Sundays unselectable"
                             onClick={() => setPlayDatePickerDisableWeekends(!playDatePickerDisableWeekends)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playDatePickerDisableWeekends ? 'bg-secondary' : 'bg-slate-300 dark:bg-slate-700'}`}
                           >
@@ -12900,7 +12900,7 @@ export function SecuritySettingsTemplate() {
                             <div className="text-xs font-bold text-foreground">Show Outside Days</div>
                             <div className="text-[10px] text-muted-foreground">Render days from adjacent months</div>
                           </div>
-                          <button
+                          <button aria-label="Toggle Render days from adjacent months"
                             onClick={() => setPlayDatePickerShowOutsideDays(!playDatePickerShowOutsideDays)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playDatePickerShowOutsideDays ? 'bg-secondary' : 'bg-slate-300 dark:bg-slate-700'}`}
                           >
@@ -13367,7 +13367,7 @@ export function SecuritySettingsTemplate() {
                             <div className="text-xs font-bold text-foreground">Popover Arrow</div>
                             <div className="text-[10px] text-muted-foreground">Add anchor pointer arrow</div>
                           </div>
-                          <button
+                          <button aria-label="Toggle Add anchor pointer arrow"
                             onClick={() => setPlayPopoverHasArrow(!playPopoverHasArrow)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playPopoverHasArrow ? 'bg-secondary' : 'bg-slate-300 dark:bg-slate-700'}`}
                           >
@@ -14081,7 +14081,7 @@ export function SecuritySettingsTemplate() {
                             <div className="text-xs font-bold text-foreground">Secure Masking</div>
                             <div className="text-[10px] text-muted-foreground">Hide digits under dots</div>
                           </div>
-                          <button
+                          <button aria-label="Toggle Hide digits under dots"
                             onClick={() => setPlayOtpMask(!playOtpMask)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playOtpMask ? 'bg-secondary' : 'bg-slate-300 dark:bg-slate-700'}`}
                           >
@@ -14095,7 +14095,7 @@ export function SecuritySettingsTemplate() {
                             <div className="text-xs font-bold text-foreground">Disabled Mode</div>
                             <div className="text-[10px] text-muted-foreground">Prevent entry edits</div>
                           </div>
-                          <button
+                          <button aria-label="Toggle Prevent entry edits"
                             onClick={() => setPlayOtpDisabled(!playOtpDisabled)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playOtpDisabled ? 'bg-secondary' : 'bg-slate-300 dark:bg-slate-700'}`}
                           >
@@ -15002,7 +15002,7 @@ export function SecuritySettingsTemplate() {
                       {/* Border Switch */}
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-foreground">Outer border</span>
-                        <button
+                        <button aria-label="Toggle Outer border"
                           onClick={() => setPlayMenubarBordered(!playMenubarBordered)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-hidden cursor-pointer ${
                             playMenubarBordered ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -15017,7 +15017,7 @@ export function SecuritySettingsTemplate() {
                       {/* Icons Switch */}
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-foreground">Dropdown Icons</span>
-                        <button
+                        <button aria-label="Toggle Dropdown Icons"
                           onClick={() => setPlayMenubarIcons(!playMenubarIcons)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-hidden cursor-pointer ${
                             playMenubarIcons ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -15032,7 +15032,7 @@ export function SecuritySettingsTemplate() {
                       {/* State Control (Workspace Checked State) */}
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-foreground">Auto-Save Workspace</span>
-                        <button
+                        <button aria-label="Toggle Auto-Save Workspace"
                           onClick={() => setPlayMenubarCheckedState(!playMenubarCheckedState)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-hidden cursor-pointer ${
                             playMenubarCheckedState ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -19757,7 +19757,7 @@ export function ScrollArea({
                           <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Embed Action Button</span>
                           <span className="text-[9px] text-muted-foreground">Add action callback trigger</span>
                         </div>
-                        <button
+                        <button aria-label="Toggle Add action callback trigger"
                           onClick={() => setPlaySonnerHasAction(!playSonnerHasAction)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-none ${
                             playSonnerHasAction ? 'bg-secondary' : 'bg-muted-foreground/30'
@@ -20578,7 +20578,7 @@ export function ScrollArea({
                       {/* Loop Toggle */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11.5px] font-medium text-foreground">Infinite Loop</span>
-                        <button
+                        <button aria-label="Toggle Infinite Loop"
                           onClick={() => setPlayCarouselLoop(!playCarouselLoop)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playCarouselLoop ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'}`}
                         >
@@ -20590,7 +20590,7 @@ export function ScrollArea({
                       <div className="space-y-3 pt-3 border-t border-border/40">
                         <div className="flex items-center justify-between">
                           <span className="text-[11.5px] font-medium text-foreground">Autoplay Cycle</span>
-                          <button
+                          <button aria-label="Toggle Autoplay Cycle"
                             onClick={() => setPlayCarouselAutoplay(!playCarouselAutoplay)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${playCarouselAutoplay ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'}`}
                           >
@@ -21195,7 +21195,7 @@ export function ScrollArea({
                       <div className="space-y-3 pt-2">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-semibold text-foreground">Grid Lines</span>
-                          <button
+                          <button aria-label="Toggle Grid Lines"
                             onClick={() => setPlayChartShowGrid(!playChartShowGrid)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${
                               playChartShowGrid ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -21211,7 +21211,7 @@ export function ScrollArea({
 
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-semibold text-foreground">Value Tooltips</span>
-                          <button
+                          <button aria-label="Toggle Value Tooltips"
                             onClick={() => setPlayChartShowTooltip(!playChartShowTooltip)}
                             className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${
                               playChartShowTooltip ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -21585,7 +21585,7 @@ export function ScrollArea({
                       {/* Checked state */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-semibold text-muted-foreground">Toggle State (Checked)</span>
-                        <button
+                        <button aria-label="Toggle Toggle State (Checked)"
                           onClick={() => setPlaySwitchChecked(!playSwitchChecked)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none ${playSwitchChecked ? 'bg-secondary-500' : 'bg-slate-300 dark:bg-slate-700'}`}
                         >
@@ -21596,7 +21596,7 @@ export function ScrollArea({
                       {/* Disabled switch simulator */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-semibold text-muted-foreground">Simulate Disabled</span>
-                        <button
+                        <button aria-label="Toggle Simulate Disabled"
                           onClick={() => setPlaySwitchDisabled(!playSwitchDisabled)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none ${playSwitchDisabled ? 'bg-secondary-500' : 'bg-slate-300 dark:bg-slate-700'}`}
                         >
@@ -21607,7 +21607,7 @@ export function ScrollArea({
                       {/* Error switch simulator */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-semibold text-muted-foreground">Simulate Error</span>
-                        <button
+                        <button aria-label="Toggle Simulate Error"
                           onClick={() => setPlaySwitchError(!playSwitchError)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none ${playSwitchError ? 'bg-secondary-500' : 'bg-slate-300 dark:bg-slate-700'}`}
                         >
@@ -22020,7 +22020,7 @@ export function ScrollArea({
                       {/* Show Footer */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-semibold text-muted-foreground">Show Card Footer Actions</span>
-                        <button
+                        <button aria-label="Toggle Show Card Footer Actions"
                           onClick={() => setPlayCardShowFooter(!playCardShowFooter)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none ${playCardShowFooter ? 'bg-secondary-500' : 'bg-slate-300 dark:bg-slate-700'}`}
                         >
@@ -22031,7 +22031,7 @@ export function ScrollArea({
                       {/* Simulate Interactivity */}
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-semibold text-muted-foreground">Interactive Card Mode</span>
-                        <button
+                        <button aria-label="Toggle Interactive Card Mode"
                           onClick={() => setPlayCardInteractive(!playCardInteractive)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none ${playCardInteractive ? 'bg-secondary-500' : 'bg-slate-300 dark:bg-slate-700'}`}
                         >
@@ -24947,9 +24947,9 @@ export function ScrollArea({
                           
                           <div className="flex items-center justify-between">
                             <span className="text-xs text-muted-foreground font-medium">Pressed State</span>
-                            <button
+                            <button aria-label="Toggle Pressed State"
                               type="button"
-                              role="switch" aria-label="Pressed State"
+                              role="switch"
                               aria-checked={playTogglePressed}
                               onClick={() => setPlayTogglePressed(!playTogglePressed)}
                               className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden ${
@@ -24964,9 +24964,9 @@ export function ScrollArea({
 
                           <div className="flex items-center justify-between">
                             <span className="text-xs text-muted-foreground font-medium">Disabled Status</span>
-                            <button
+                            <button aria-label="Toggle Disabled Status"
                               type="button"
-                              role="switch" aria-label="Disabled Status"
+                              role="switch"
                               aria-checked={playToggleDisabled}
                               onClick={() => setPlayToggleDisabled(!playToggleDisabled)}
                               className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden ${
@@ -26387,7 +26387,7 @@ export function ScrollArea({
                       {/* Toggle state */}
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-foreground">Expanded State</span>
-                        <button
+                        <button aria-label="Toggle Expanded State"
                           onClick={() => setPlayCollapsibleOpen(!playCollapsibleOpen)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${
                             playCollapsibleOpen ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -26404,7 +26404,7 @@ export function ScrollArea({
                       {/* Disable state */}
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-foreground">Disabled State</span>
-                        <button
+                        <button aria-label="Toggle Disabled State"
                           onClick={() => setPlayCollapsibleDisabled(!playCollapsibleDisabled)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${
                             playCollapsibleDisabled ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -26744,7 +26744,7 @@ export function ScrollArea({
                       {/* Toggle Multi Mode */}
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-foreground">Multi-Select Tags</span>
-                        <button
+                        <button aria-label="Toggle Multi-Select Tags"
                           onClick={() => {
                             setPlayComboboxMulti(!playComboboxMulti);
                             setPlayComboboxIsOpen(false);
@@ -27135,7 +27135,7 @@ export function ScrollArea({
                       {/* Toggle Shortcut Hint */}
                       <div className="flex items-center justify-between pt-2">
                         <span className="text-xs font-semibold text-foreground">Keyboard Shortcut Hint</span>
-                        <button
+                        <button aria-label="Toggle Keyboard Shortcut Hint"
                           onClick={() => setPlayCommandShortcutHint(!playCommandShortcutHint)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${
                             playCommandShortcutHint ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -27927,7 +27927,7 @@ export function ScrollArea({
                       {/* Toggle Row Selection Checkbox */}
                       <div className="flex items-center justify-between pt-2">
                         <span className="text-xs font-semibold text-foreground">Show Checkboxes</span>
-                        <button
+                        <button aria-label="Toggle Show Checkboxes"
                           onClick={() => setPlayDataTableShowCheckbox(!playDataTableShowCheckbox)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${
                             playDataTableShowCheckbox ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
@@ -28427,7 +28427,7 @@ export function ScrollArea({
                       {/* Close on Overlay click */}
                       <div className="flex items-center justify-between pt-2">
                         <span className="text-xs font-semibold text-foreground">Close on Overlay Tap</span>
-                        <button
+                        <button aria-label="Toggle Close on Overlay Tap"
                           onClick={() => setPlayDrawerCloseOnOverlay(!playDrawerCloseOnOverlay)}
                           className={`w-9 h-5 rounded-full p-0.5 transition-colors duration-200 focus:outline-none cursor-pointer ${
                             playDrawerCloseOnOverlay ? 'bg-secondary-500' : 'bg-slate-350 dark:bg-slate-700'
