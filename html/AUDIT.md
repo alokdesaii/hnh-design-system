@@ -354,6 +354,43 @@ the generated code snippets still show the semantic markup a consumer should
 copy. That is the usual design-system convention, but worth a look when the
 component pages get their own review.
 
+### ✅ Contrast leftovers — second pass
+
+| | Original | After tokens | **Now** |
+| :-- | :-- | :-- | :-- |
+| Light failures | 128 | 45 | **28** |
+| Light pages clean | 22 / 77 | 42 | **55** |
+| Dark failures | 45 | 45 | **19** |
+| Dark pages clean | 44 / 77 | 44 | **62** |
+
+Fixes: opacity-reduced muted text (`/80`, `/70`, `/50`) raised to full opacity
+where it carries meaning · `text-slate-400` swapped for `--muted-foreground`
+only where it renders on light surfaces · navy `text-primary` given
+`dark:text-primary-300` on the 6 dark-surface instances (1.59:1 → passing) ·
+chart active-state chips likewise.
+
+#### 🔴 Real bug found: `bg-primary-950` does not exist
+
+Eight elements used `bg-primary-950`, but the theme defines `primary-50`
+through `primary-900` only. The class resolved to nothing, so those elements
+rendered **transparent** — the sidebar specimen's light text was sitting on the
+white page, at 1.23:1. It looked like a contrast bug; it was a missing token.
+Changed to `bg-primary-900`. No other undefined palette step is in use.
+
+#### Two regressions I introduced and caught
+
+1. Swapping `text-slate-400` → `text-muted-foreground` globally broke text
+   inside **dark code panels**, where `slate-400` was correct — dark-on-dark.
+   Caught by the very next measurement (3 new failures), reverted for sites
+   carrying the `hover:text-slate-200` dark-panel cue.
+2. Adding `dark:text-slate-400` to a brand-kit chip was wrong because that
+   chip's background is `bg-slate-100` — **fixed light regardless of theme**.
+   The dark variant made it fail in dark mode. Removed; its sibling "Dark
+   Specimen" chip on `bg-slate-900` correctly keeps `slate-400`.
+
+Both are the same trap: a colour is only "correct" relative to the surface it
+sits on, and a surface is not always theme-dependent.
+
 ### Still open (contrast)
 
 Remaining failures are mostly **opacity-reduced text** (`text-muted-foreground/60`

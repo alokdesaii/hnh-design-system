@@ -1783,7 +1783,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                       </>
                     )}
                   </div>
-                  <span className="text-xs text-slate-400 font-mono px-3 py-1 rounded-full bg-slate-100 border border-slate-200">Light Specimen</span>
+                  <span className="text-xs text-slate-600 font-mono px-3 py-1 rounded-full bg-slate-100 border border-slate-200">Light Specimen</span>
                 </div>
 
                 <div className="p-6 rounded-2xl border border-slate-800 bg-[#011927] text-white flex items-center justify-between shadow-md">

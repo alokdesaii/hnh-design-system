@@ -2483,7 +2483,7 @@ function App() {
       `      {/* Profile/User header displaying logical positioning */}\n` +
       `      <div className="flex items-center gap-3.5">\n` +
       `        {/* Left side (LTR) / Right side (RTL) profile image placeholder */}\n` +
-      `        <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold font-mono shrink-0">\n` +
+      `        <div className="w-10 h-10 rounded-full bg-primary/10 text-primary dark:text-primary-300 flex items-center justify-center font-bold font-mono shrink-0">\n` +
       `          HH\n` +
       `        </div>\n` +
       `        <div className="flex-1 min-w-0 text-left">\n` +
@@ -3835,7 +3835,7 @@ function App() {
     const themeClass = {
       default: "bg-card border-border text-card-foreground",
       glass: "bg-card/75 backdrop-blur-md border-border/60 text-card-foreground shadow-hnh-lg",
-      brand: "bg-primary-950 border-primary-800 text-slate-100"
+      brand: "bg-primary-900 border-primary-800 text-slate-100"
     }[playSheetTheme];
 
     code += "          {/* Slide-out Panel Drawer */}\n";
@@ -3902,7 +3902,7 @@ function App() {
 
     const themeClass = {
       default: "bg-card border-r border-border text-card-foreground",
-      brand: "bg-primary-950 border-r border-primary-900 text-slate-200 dark:bg-slate-905",
+      brand: "bg-primary-900 border-r border-primary-900 text-slate-200 dark:bg-slate-905",
       bordered: "bg-card border-r border-border text-card-foreground shadow-xs"
     }[playSidebarTheme];
 
@@ -5195,7 +5195,7 @@ export default function DrawerDemo() {
                   <button
                     type="button"
                     onClick={() => toggleGroup(group.title)}
-                    className="flex items-center justify-between w-full text-left text-[10px] font-bold tracking-widest text-muted-foreground/80 uppercase hover:text-foreground cursor-pointer focus:outline-none py-1 group"
+                    className="flex items-center justify-between w-full text-left text-[10px] font-bold tracking-widest text-muted-foreground uppercase hover:text-foreground cursor-pointer focus:outline-none py-1 group"
                   >
                     <span>{group.title}</span>
                     {isExpanded ? (
@@ -6284,7 +6284,7 @@ export default function DrawerDemo() {
                               {item.token}
                             </td>
                             <td className="py-3.5 px-4 font-mono text-muted-foreground">
-                              {item.rem} <span className="text-[10px] text-slate-400">({item.px})</span>
+                              {item.rem} <span className="text-[10px] text-muted-foreground">({item.px})</span>
                             </td>
                             <td className="py-3.5 px-4">
                               <div className="h-6 w-full max-w-[280px] bg-muted/40 rounded-md flex items-center px-1 overflow-hidden">
@@ -6877,7 +6877,7 @@ export default function DrawerDemo() {
                           }`}
                         >
                           <div className="text-xs font-bold">{d.label}</div>
-                          <div className="text-[10px] text-muted-foreground/80 mt-0.5">{d.desc}</div>
+                          <div className="text-[10px] text-muted-foreground mt-0.5">{d.desc}</div>
                         </button>
                       ))}
                     </div>
@@ -8200,7 +8200,7 @@ export function SecuritySettingsTemplate() {
 
                     {/* Simulated Voice Output Screen */}
                     <div className="p-4 rounded-xl border border-emerald-500/30 bg-slate-950 text-slate-100 font-mono text-xs space-y-2 relative overflow-hidden">
-                      <div className="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-2">
+                      <div className="flex items-center justify-between text-[10px] text-muted-foreground border-b border-slate-800 pb-2">
                         <span className="flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> VoiceOver / NVDA Speech Synthesizer Output
                         </span>
@@ -9034,7 +9034,7 @@ export function SecuritySettingsTemplate() {
                           placeholder="Search ticker, ISIN, or sector..."
                           className="w-full text-xs bg-transparent border-none py-2.5 pl-9.5 pr-12 outline-none text-foreground"
                         />
-                        <span className="absolute right-3 text-[9px] font-mono font-semibold text-muted-foreground/80 bg-muted px-1.5 py-0.5 rounded border border-border/40">
+                        <span className="absolute right-3 text-[9px] font-mono font-semibold text-muted-foreground bg-muted px-1.5 py-0.5 rounded border border-border/40">
                           ⌘K
                         </span>
                       </div>
@@ -9512,7 +9512,7 @@ export function SecuritySettingsTemplate() {
                       </div>
                       <div>
                         <span className="text-xs font-semibold text-muted-foreground block">Disabled Unchecked</span>
-                        <span className="text-[10px] text-muted-foreground/80 block">Actions locked.</span>
+                        <span className="text-[10px] text-muted-foreground block">Actions locked.</span>
                       </div>
                     </div>
 
@@ -9531,7 +9531,7 @@ export function SecuritySettingsTemplate() {
                       </div>
                       <div>
                         <span className="text-xs font-semibold text-muted-foreground block">Disabled Checked</span>
-                        <span className="text-[10px] text-muted-foreground/80 block">Checked state preserved but inactive.</span>
+                        <span className="text-[10px] text-muted-foreground block">Checked state preserved but inactive.</span>
                       </div>
                     </div>
 
@@ -9622,7 +9622,7 @@ export function SecuritySettingsTemplate() {
                       </div>
                       <div>
                         <span className="text-xs font-semibold text-muted-foreground block">Disabled Unselected</span>
-                        <span className="text-[10px] text-muted-foreground/80 block">Selection locked.</span>
+                        <span className="text-[10px] text-muted-foreground block">Selection locked.</span>
                       </div>
                     </div>
 
@@ -9641,7 +9641,7 @@ export function SecuritySettingsTemplate() {
                       </div>
                       <div>
                         <span className="text-xs font-semibold text-muted-foreground block">Disabled Selected</span>
-                        <span className="text-[10px] text-muted-foreground/80 block">Preserved but interactive-locked.</span>
+                        <span className="text-[10px] text-muted-foreground block">Preserved but interactive-locked.</span>
                       </div>
                     </div>
 
@@ -10157,7 +10157,7 @@ export function SecuritySettingsTemplate() {
                       </label>
                       <select id="account-billing-currency" 
                         defaultValue=""
-                        className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 rounded-md py-2.5 px-3.5 outline-none transition duration-200 text-muted-foreground/80 cursor-pointer"
+                        className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-secondary/80 rounded-md py-2.5 px-3.5 outline-none transition duration-200 text-muted-foreground cursor-pointer"
                       >
                         <option value="" disabled>Choose currency...</option>
                         <option value="usd">USD ($)</option>
@@ -10354,7 +10354,7 @@ export function SecuritySettingsTemplate() {
                                 playSelectError ? 'bg-rose-500/[0.02] dark:bg-rose-500/[0.01] border-rose-500/80 focus:ring-2 focus:ring-rose-500/30 text-rose-500' :
                                 'bg-muted/30 dark:bg-slate-950/40 border-border/80 hover:border-secondary/80 focus:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border),_0_0_8px_rgba(100,116,139,0.15)] focus:border-transparent text-foreground'
                               }
-                              ${playSelectValue === '' ? 'text-muted-foreground/80' : ''}
+                              ${playSelectValue === '' ? 'text-muted-foreground' : ''}
                             `}
                           >
                             {playSelectPlaceholder && (
@@ -13796,7 +13796,7 @@ export function SecuritySettingsTemplate() {
                                   <p className="text-[11px] text-muted-foreground mt-1.5 leading-normal">
                                     Developing responsive visual specs, overlay grids, and micro-animated component libraries.
                                   </p>
-                                  <div className="flex items-center gap-1.5 text-[10px] text-slate-400 mt-2">
+                                  <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground mt-2">
                                     <Calendar size={12} />
                                     <span>Joined December 2024</span>
                                   </div>
@@ -14903,7 +14903,7 @@ export function SecuritySettingsTemplate() {
 
                       <div className="flex items-center justify-between p-1.5 bg-muted/40 border border-border/60 rounded-xl max-w-2xl">
                         <div className="flex items-center gap-1.5 text-xs">
-                          <span className="font-extrabold text-primary px-3 text-sm">H&H</span>
+                          <span className="font-extrabold text-primary dark:text-primary-300 px-3 text-sm">H&H</span>
                           <button className="px-3 py-1 font-semibold text-foreground rounded-lg hover:bg-muted/80 transition cursor-not-allowed opacity-80">File</button>
                           <button className="px-3 py-1 font-semibold text-foreground rounded-lg hover:bg-muted/80 transition cursor-not-allowed opacity-80">Edit</button>
                           <button className="px-3 py-1 font-semibold text-foreground rounded-lg hover:bg-muted/80 transition cursor-not-allowed opacity-80">View</button>
@@ -15137,7 +15137,7 @@ export function SecuritySettingsTemplate() {
                           </div>
 
                           {/* Info help tag */}
-                          <div className="absolute bottom-3 text-[10px] text-slate-400 font-light">
+                          <div className="absolute bottom-3 text-[10px] text-muted-foreground font-light">
                             Click any menu title above to trigger drop-downs.
                           </div>
                         </div>
@@ -17741,7 +17741,7 @@ export function ScrollArea({
             const themeClass = {
               default: "bg-card border-border text-card-foreground",
               glass: "bg-card/75 backdrop-blur-md border-border/60 text-card-foreground shadow-hnh-lg",
-              brand: "bg-primary-950 border-primary-800 text-slate-100 dark:bg-slate-905"
+              brand: "bg-primary-900 border-primary-800 text-slate-100 dark:bg-slate-905"
             }[theme];
 
             const backdropClass = {
@@ -17923,7 +17923,7 @@ export function ScrollArea({
                         tabIndex={0}
                         ref={(node) => { if (node) node.focus(); }}
                         onKeyDown={(e) => e.key === 'Escape' && setSpecimenSheetOpen('none')}
-                        className="absolute inset-y-0 left-0 h-full w-full sm:w-80 bg-primary-950 dark:bg-slate-905 border-r border-primary-800 text-slate-100 flex flex-col p-6 animate-slide-right outline-none text-left"
+                        className="absolute inset-y-0 left-0 h-full w-full sm:w-80 bg-primary-900 dark:bg-slate-905 border-r border-primary-800 text-slate-100 flex flex-col p-6 animate-slide-right outline-none text-left"
                       >
                         <div className="flex justify-between items-center pb-4 border-b border-primary-800">
                           <div className="flex items-center gap-2">
@@ -17947,7 +17947,7 @@ export function ScrollArea({
                               key={idx} 
                               onClick={() => setSpecimenSheetOpen('none')}
                               className={`w-full py-2 px-3 rounded-lg flex items-center justify-between font-medium transition ${
-                                item.active ? 'bg-secondary text-secondary-foreground font-bold' : 'hover:bg-primary-950 text-slate-300 hover:text-slate-100'
+                                item.active ? 'bg-secondary text-secondary-foreground font-bold' : 'hover:bg-primary-900 text-slate-300 hover:text-slate-100'
                               }`}
                             >
                               <span>{item.label}</span>
@@ -17961,7 +17961,7 @@ export function ScrollArea({
                           ))}
                         </div>
 
-                        <div className="pt-4 border-t border-primary-800 flex items-center justify-between text-[10px] text-slate-400">
+                        <div className="pt-4 border-t border-primary-800 flex items-center justify-between text-[10px] text-muted-foreground">
                           <span>API status: Active</span>
                           <span className="w-2 h-2 rounded-full bg-green-500" />
                         </div>
@@ -18282,7 +18282,7 @@ export function ScrollArea({
 
             const themeClass = {
               default: "bg-card border-r border-border text-card-foreground",
-              brand: "bg-primary-950 border-r border-primary-900 text-slate-200 dark:bg-slate-905",
+              brand: "bg-primary-900 border-r border-primary-900 text-slate-200 dark:bg-slate-905",
               bordered: "bg-card border-r border-border text-card-foreground shadow-xs"
             }[theme];
 
@@ -18418,7 +18418,7 @@ export function ScrollArea({
 
                         {/* Rendering Specimen 3 Box */}
                         <div className="border border-border/60 rounded-xl overflow-hidden bg-muted/10 h-64">
-                          <aside className="h-full w-full bg-primary-950 dark:bg-slate-905 border-r border-primary-800 flex flex-col py-4 px-3 text-xs text-slate-200">
+                          <aside className="h-full w-full bg-primary-900 dark:bg-slate-905 border-r border-primary-800 flex flex-col py-4 px-3 text-xs text-slate-200">
                             <div className="flex items-center gap-2 px-2 pb-3 border-b border-primary-900">
                               <div className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center font-extrabold text-xs text-secondary-foreground">H</div>
                               <div className="text-left leading-none">
@@ -18991,7 +18991,7 @@ export function ScrollArea({
                             >
                               {/* Header */}
                               <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-primary-50 text-primary dark:bg-primary-950/40 dark:text-primary-300 flex items-center justify-center font-bold text-xs shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-primary-50 text-primary dark:bg-primary-900/40 dark:text-primary-300 flex items-center justify-center font-bold text-xs shrink-0">
                                   SM
                                 </div>
                                 <div className="flex-1 leading-none font-bold">
@@ -21160,7 +21160,7 @@ export function ScrollArea({
                                 onClick={() => setPlayChartTimeframe(period)}
                                 className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition cursor-pointer ${
                                   playChartTimeframe === period
-                                    ? 'bg-primary/10 border-primary text-primary'
+                                    ? 'bg-primary/10 border-primary text-primary dark:text-primary-300'
                                     : 'bg-card border-border/80 text-muted-foreground hover:border-slate-300 dark:hover:border-slate-700'
                                 }`}
                               >
@@ -21181,7 +21181,7 @@ export function ScrollArea({
                               onClick={() => setPlayChartTheme(theme)}
                               className={`px-2 py-1.5 rounded-lg border text-[10px] font-bold uppercase transition cursor-pointer ${
                                 playChartTheme === theme
-                                  ? 'bg-primary/10 border-primary text-primary'
+                                  ? 'bg-primary/10 border-primary text-primary dark:text-primary-300'
                                   : 'bg-card border-border/80 text-muted-foreground hover:border-slate-300 dark:hover:border-slate-700'
                                 }`}
                             >
@@ -22855,7 +22855,7 @@ export function ScrollArea({
                               >
                                 <div className="flex items-center gap-1.5">
                                   Date
-                                  <ArrowUpDown size={11} className={playTableSortField === 'date' ? 'text-secondary-500' : 'text-muted-foreground/50'} />
+                                  <ArrowUpDown size={11} className={playTableSortField === 'date' ? 'text-secondary-500' : 'text-muted-foreground'} />
                                 </div>
                               </th>
                               <th className="py-3 px-4 font-semibold">Transaction ID</th>
@@ -22873,7 +22873,7 @@ export function ScrollArea({
                               >
                                 <div className="flex items-center justify-end gap-1.5">
                                   Amount
-                                  <ArrowUpDown size={11} className={playTableSortField === 'amount' ? 'text-secondary-500' : 'text-muted-foreground/50'} />
+                                  <ArrowUpDown size={11} className={playTableSortField === 'amount' ? 'text-secondary-500' : 'text-muted-foreground'} />
                                 </div>
                               </th>
                               <th className="py-3 px-4 font-semibold">Status</th>
@@ -25359,7 +25359,7 @@ export function ScrollArea({
                         <Activity className="text-secondary" size={20} />
                         <div>
                           <div className="text-sm font-bold">Portfolio Yield Performance</div>
-                          <div className="text-xs text-slate-400 font-mono">+18.4% YTD ($248,500.00)</div>
+                          <div className="text-xs text-muted-foreground font-mono">+18.4% YTD ($248,500.00)</div>
                         </div>
                       </div>
 
@@ -26885,7 +26885,7 @@ export function ScrollArea({
                                   <span className="text-[10px] text-muted-foreground">{item.description}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                  <span className="text-[9px] uppercase tracking-wider text-muted-foreground/80 font-bold bg-muted px-1.5 py-0.5 rounded">{item.category}</span>
+                                  <span className="text-[9px] uppercase tracking-wider text-muted-foreground font-bold bg-muted px-1.5 py-0.5 rounded">{item.category}</span>
                                   <kbd className="font-mono text-[9px] text-muted-foreground border border-border bg-muted/40 px-1 py-0.5 rounded">{item.shortcut}</kbd>
                                 </div>
                               </div>
@@ -26900,7 +26900,7 @@ export function ScrollArea({
                       <div className="space-y-4">
                         <div className="flex items-center justify-between border-b border-border/40 pb-2">
                           <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Dialog Overlay</h4>
-                          <span className="text-[10px] text-primary bg-primary/10 px-1.5 py-0.5 rounded-md font-semibold">Modal Dialog</span>
+                          <span className="text-[10px] text-primary dark:text-primary-300 bg-primary/10 px-1.5 py-0.5 rounded-md font-semibold">Modal Dialog</span>
                         </div>
                         <p className="text-xs text-muted-foreground">
                           Simulates a global modal popup that mounts on the document root. Useful for platform-wide command bars.
@@ -26956,7 +26956,7 @@ export function ScrollArea({
                                       <span className="text-[10px] text-muted-foreground">{item.description}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                      <span className="text-[9px] uppercase tracking-wider text-muted-foreground/80 font-bold bg-muted px-1.5 py-0.5 rounded">{item.category}</span>
+                                      <span className="text-[9px] uppercase tracking-wider text-muted-foreground font-bold bg-muted px-1.5 py-0.5 rounded">{item.category}</span>
                                       <kbd className="font-mono text-[9px] text-muted-foreground border border-border bg-muted/40 px-1 py-0.5 rounded">{item.shortcut}</kbd>
                                     </div>
                                   </div>
@@ -27265,7 +27265,7 @@ export function ScrollArea({
                             <Activity size={13} className="text-muted-foreground" />
                             <span>View History</span>
                           </span>
-                          <span className="text-[10px] text-muted-foreground/50 font-mono">⇧⌘H</span>
+                          <span className="text-[10px] text-muted-foreground font-mono">⇧⌘H</span>
                         </button>
                       </div>
                     </div>
@@ -28040,7 +28040,7 @@ export function ScrollArea({
                       </div>
                       <div dir="ltr" className="w-full bg-card border border-border rounded-xl p-5 text-foreground space-y-4 shadow-xs">
                         <div className="flex items-center gap-3.5">
-                          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold font-mono shrink-0">
+                          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary dark:text-primary-300 flex items-center justify-center font-bold font-mono shrink-0">
                             HH
                           </div>
                           <div className="flex-1 min-w-0 text-left">
@@ -28071,7 +28071,7 @@ export function ScrollArea({
                       </div>
                       <div dir="rtl" className="w-full bg-card border border-border rounded-xl p-5 text-foreground space-y-4 shadow-xs">
                         <div className="flex items-center gap-3.5">
-                          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold font-mono shrink-0">
+                          <div className="w-10 h-10 rounded-full bg-primary/10 text-primary dark:text-primary-300 flex items-center justify-center font-bold font-mono shrink-0">
                             HH
                           </div>
                           <div className="flex-1 min-w-0 text-right">
@@ -28169,7 +28169,7 @@ export function ScrollArea({
                             className="w-full bg-card border border-border rounded-xl p-5 text-foreground space-y-4 shadow-sm"
                           >
                             <div className="flex items-center gap-3.5">
-                              <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold font-mono shrink-0">
+                              <div className="w-10 h-10 rounded-full bg-primary/10 text-primary dark:text-primary-300 flex items-center justify-center font-bold font-mono shrink-0">
                                 HH
                               </div>
                               <div className={`flex-1 min-w-0 ${playDirectionMode === 'rtl' ? 'text-right' : 'text-left'}`}>
@@ -29517,7 +29517,7 @@ export function ScrollArea({
                     <p className="text-sm text-muted-foreground font-medium">
                       No matching items found for "<span className="text-foreground">{globalSearchQuery}</span>"
                     </p>
-                    <p className="text-xs text-muted-foreground/70">
+                    <p className="text-xs text-muted-foreground">
                       Try searching for "Button", "Colors", "Dialog", or "Typography"
                     </p>
                   </div>
