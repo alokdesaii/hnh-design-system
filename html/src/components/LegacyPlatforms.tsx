@@ -1834,7 +1834,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                   <div className="p-4 text-xs space-y-1">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-white text-sm">Primary Navy</span>
-                      <button onClick={() => handleCopy('#023E63', 'navy')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
+                      <button aria-label="Copy Primary Navy value" onClick={() => handleCopy('#023E63', 'navy')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
                         {copiedToken === 'navy' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
                     </div>
@@ -1849,7 +1849,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                   <div className="p-4 text-xs space-y-1">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-white text-sm">Secondary Teal</span>
-                      <button onClick={() => handleCopy('#00BFB3', 'teal')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
+                      <button aria-label="Copy Secondary Teal value" onClick={() => handleCopy('#00BFB3', 'teal')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
                         {copiedToken === 'teal' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
                     </div>
@@ -1864,7 +1864,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                   <div className="p-4 text-xs space-y-1">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-white text-sm">Dark Navy</span>
-                      <button onClick={() => handleCopy('#0A0F1D', 'darknavy')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
+                      <button aria-label="Copy Dark Navy value" onClick={() => handleCopy('#0A0F1D', 'darknavy')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
                         {copiedToken === 'darknavy' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
                     </div>
@@ -1879,7 +1879,7 @@ export const LegacyPlatforms: React.FC<LegacyPlatformsProps> = ({
                   <div className="p-4 text-xs space-y-1">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-white text-sm">Light Slate</span>
-                      <button onClick={() => handleCopy('#F8FAFC', 'slate')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
+                      <button aria-label="Copy Light Slate value" onClick={() => handleCopy('#F8FAFC', 'slate')} className="p-1 rounded text-slate-400 hover:text-white cursor-pointer transition-colors">
                         {copiedToken === 'slate' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
                     </div>

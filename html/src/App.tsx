@@ -4542,7 +4542,7 @@ export default function CollapsibleDemo() {
     <div className="w-full max-w-md border border-border bg-card rounded-xl p-4 shadow-sm">
       <div className="flex items-center justify-between">
         <h4 className="text-sm font-bold text-foreground">Strategic Advisory Restructuring</h4>
-        <button
+        <button aria-label="Toggle section"
           onClick={() => !disabled && setIsOpen(!isOpen)}
           disabled={disabled}
           aria-expanded={isOpen}
@@ -5385,7 +5385,7 @@ export default function DrawerDemo() {
                     </div>
                   </div>
 
-                  <button className="w-full bg-primary hover:bg-primary-600 text-primary-foreground py-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition cursor-pointer">
+                  <button aria-label="Next item" className="w-full bg-primary hover:bg-primary-600 text-primary-foreground py-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm transition cursor-pointer">
                     Authorize B2B Settlement <ArrowRight size={13} />
                   </button>
                 </div>
@@ -6204,7 +6204,7 @@ export default function DrawerDemo() {
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           className="{`${playgroundSize} ${playgroundWeight} ${playgroundLeading} ${playgroundTracking} ${playgroundColor}`}"
                         </code>
-                        <button
+                        <button aria-label="Copy Generated Class List"
                           onClick={() => handleCopy(`${playgroundSize} ${playgroundWeight} ${playgroundLeading} ${playgroundTracking} ${playgroundColor}`, 'playground')}
                           className="absolute right-3.5 bg-slate-900 hover:bg-slate-800 border border-white/10 hover:border-white/20 text-white rounded-lg p-2 transition cursor-pointer flex items-center justify-center"
                           title="Copy Class String"
@@ -8896,7 +8896,7 @@ export function SecuritySettingsTemplate() {
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           {`<Button\n  variant="${btnVariant}"\n  size="${btnSize}"${btnLoading ? '\n  loading' : ''}${btnDisabled ? '\n  disabled' : ''}${btnIcon !== 'none' ? `\n  icon={${btnIcon === 'left' ? '<Wallet />' : '<ArrowRight />'}` : ''}\n>\n  Confirm Portfolio Settlement\n</Button>`}
                         </code>
-                        <button
+                        <button aria-label="Copy Generated JSX Component"
                           onClick={() => handleCopy(`<Button\n  variant="${btnVariant}"\n  size="${btnSize}"${btnLoading ? '\n  loading' : ''}${btnDisabled ? '\n  disabled' : ''}${btnIcon !== 'none' ? `\n  icon={${btnIcon === 'left' ? '<Wallet />' : '<ArrowRight />'}` : ''}\n>\n  Confirm Portfolio Settlement\n</Button>`, 'button-code')}
                           className="absolute right-3.5 bg-slate-900 hover:bg-slate-800 border border-white/10 hover:border-white/20 text-white rounded-lg p-2 transition cursor-pointer"
                           title="Copy JSX String"
@@ -8990,7 +8990,7 @@ export function SecuritySettingsTemplate() {
                           readOnly
                           className="w-full text-xs bg-transparent border-none py-2.5 pl-3.5 pr-10 outline-none text-foreground font-mono"
                         />
-                        <button
+                        <button aria-label="Toggle password visibility"
                           type="button"
                           onClick={() => setInputPassShow(!inputPassShow)}
                           className="absolute right-3 text-muted-foreground hover:text-foreground cursor-pointer focus:outline-none"
@@ -9851,7 +9851,7 @@ export function SecuritySettingsTemplate() {
                              `  </div>\n` +
                              `</label>`}
                           </code>
-                          <button
+                          <button aria-label="Copy code snippet"
                             onClick={() => handleCopy(
                               `<label className="flex items-start gap-2.5 cursor-pointer">\n` +
                               `  <div className="relative flex items-center justify-center shrink-0 mt-0.5">\n` +
@@ -10066,7 +10066,7 @@ export function SecuritySettingsTemplate() {
                              `  </label>\n` +
                              `</div>`}
                           </code>
-                          <button
+                          <button aria-label="Copy code snippet"
                             onClick={() => handleCopy(
                               `<div className="space-y-3">\n` +
                               `  <label className="flex items-start gap-2.5 cursor-pointer">\n` +
@@ -10416,7 +10416,7 @@ export function SecuritySettingsTemplate() {
                             playSelectHelper ? `  <span className="text-muted-foreground text-[10px]">${playSelectHelper}</span>\n` : '') +
                            `</div>`}
                         </code>
-                        <button
+                        <button aria-label="Copy code snippet"
                           onClick={() => handleCopy(
                             `<div className="space-y-1.5 w-full max-w-md">\n` +
                             (playSelectLabel ? `  <Label>${playSelectLabel}</Label>\n` : '') +
@@ -12171,8 +12171,8 @@ export function SecuritySettingsTemplate() {
                         <div className="flex items-center justify-between pb-3">
                           <h4 className="text-xs font-bold text-foreground">July 2026</h4>
                           <div className="flex gap-1">
-                            <button className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronLeft size={14} /></button>
-                            <button className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronRight size={14} /></button>
+                            <button aria-label="Previous month" className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronLeft size={14} /></button>
+                            <button aria-label="Next month" className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronRight size={14} /></button>
                           </div>
                         </div>
                         <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-semibold text-muted-foreground mb-1">
@@ -12215,8 +12215,8 @@ export function SecuritySettingsTemplate() {
                           <div className="flex items-center justify-between pb-3">
                             <h4 className="text-xs font-bold text-foreground">July 2026</h4>
                             <div className="flex gap-1">
-                              <button className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronLeft size={14} /></button>
-                              <button className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronRight size={14} /></button>
+                              <button aria-label="Previous month" className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronLeft size={14} /></button>
+                              <button aria-label="Next month" className="p-1 hover:bg-muted rounded text-muted-foreground"><ChevronRight size={14} /></button>
                             </div>
                           </div>
                           <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-semibold text-muted-foreground mb-1">
@@ -12273,13 +12273,13 @@ export function SecuritySettingsTemplate() {
                               {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
                             </h3>
                             <div className="flex gap-1">
-                              <button 
+                              <button aria-label="Previous month" 
                                 onClick={() => setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() - 1)))}
                                 className="p-1 hover:bg-muted rounded text-muted-foreground cursor-pointer"
                               >
                                 <ChevronLeft size={14} />
                               </button>
-                              <button 
+                              <button aria-label="Next month" 
                                 onClick={() => setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() + 1)))}
                                 className="p-1 hover:bg-muted rounded text-muted-foreground cursor-pointer"
                               >
@@ -14389,7 +14389,7 @@ export function SecuritySettingsTemplate() {
                         {/* Selectable toggle */}
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-medium text-foreground">Interactive (Hover states)</span>
-                          <button
+                          <button aria-label="Toggle Interactive (Hover states)"
                             onClick={() => setPlayItemSelectable(!playItemSelectable)}
                             className={`relative w-8 h-4 rounded-full transition-colors duration-200 focus:outline-hidden ${
                               playItemSelectable ? 'bg-primary dark:bg-secondary' : 'bg-slate-300 dark:bg-slate-700'
@@ -14406,7 +14406,7 @@ export function SecuritySettingsTemplate() {
                         {/* Checked state */}
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-medium text-foreground">Checked / Selected Border</span>
-                          <button
+                          <button aria-label="Toggle Checked / Selected Border"
                             onClick={() => setPlayItemChecked(!playItemChecked)}
                             className={`relative w-8 h-4 rounded-full transition-colors duration-200 focus:outline-hidden ${
                               playItemChecked ? 'bg-primary dark:bg-secondary' : 'bg-slate-300 dark:bg-slate-700'
@@ -14423,7 +14423,7 @@ export function SecuritySettingsTemplate() {
                         {/* Disabled toggle */}
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-medium text-foreground">Is Disabled</span>
-                          <button
+                          <button aria-label="Toggle Is Disabled"
                             onClick={() => setPlayItemDisabled(!playItemDisabled)}
                             className={`relative w-8 h-4 rounded-full transition-colors duration-200 focus:outline-hidden ${
                               playItemDisabled ? 'bg-primary dark:bg-secondary' : 'bg-slate-300 dark:bg-slate-700'
@@ -18547,7 +18547,7 @@ export function ScrollArea({
                                         <div className="text-[9px] text-muted-foreground font-semibold scale-90 origin-left">Admin Center</div>
                                       </div>
                                     </div>
-                                    <button 
+                                    <button aria-label="Previous item" 
                                       onClick={() => setPlaySidebarCollapsed(true)} 
                                       className="p-1 rounded-lg hover:bg-muted/80 transition text-muted-foreground hover:text-foreground"
                                     >
@@ -18565,7 +18565,7 @@ export function ScrollArea({
                               </div>
                             ) : (
                               <div className={`h-10 flex items-center ${collapsed ? 'justify-center px-2' : 'justify-end px-4'}`}>
-                                <button onClick={() => setPlaySidebarCollapsed(!collapsed)} className="p-1 rounded-lg hover:bg-muted/80 transition text-muted-foreground hover:text-foreground">
+                                <button aria-label="Next item" onClick={() => setPlaySidebarCollapsed(!collapsed)} className="p-1 rounded-lg hover:bg-muted/80 transition text-muted-foreground hover:text-foreground">
                                   {collapsed ? <ChevronRight size={13} /> : <ChevronLeft size={13} />}
                                 </button>
                               </div>
@@ -19283,7 +19283,7 @@ export function ScrollArea({
                       {/* Range Mode */}
                       <div className="flex items-center justify-between py-1 border-b border-border/50">
                         <span className="font-bold text-foreground">Range Mode</span>
-                        <button
+                        <button aria-label="Toggle Range Mode"
                           onClick={() => setPlaySliderRange(!playSliderRange)}
                           className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out outline-none focus:ring-1 focus:ring-secondary ${
                             playSliderRange ? 'bg-secondary' : 'bg-muted-foreground/30'
@@ -19382,7 +19382,7 @@ export function ScrollArea({
                       {/* Disabled state */}
                       <div className="flex items-center justify-between py-1 border-t border-border/50">
                         <span className="font-bold text-foreground">Disabled Mode</span>
-                        <button
+                        <button aria-label="Toggle Disabled Mode"
                           onClick={() => setPlaySliderDisabled(!playSliderDisabled)}
                           className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out outline-none focus:ring-1 focus:ring-secondary ${
                             playSliderDisabled ? 'bg-secondary' : 'bg-muted-foreground/30'
@@ -20400,10 +20400,10 @@ export function ScrollArea({
                         </div>
                         {/* Static Navigation controls */}
                         <div className="absolute inset-y-0 left-3 flex items-center">
-                          <button className="w-7 h-7 bg-slate-950/45 text-white rounded-full flex items-center justify-center backdrop-blur-xs"><ChevronLeft size={14} /></button>
+                          <button aria-label="Previous slide" className="w-7 h-7 bg-slate-950/45 text-white rounded-full flex items-center justify-center backdrop-blur-xs"><ChevronLeft size={14} /></button>
                         </div>
                         <div className="absolute inset-y-0 right-3 flex items-center">
-                          <button className="w-7 h-7 bg-slate-950/45 text-white rounded-full flex items-center justify-center backdrop-blur-xs"><ChevronRight size={14} /></button>
+                          <button aria-label="Next slide" className="w-7 h-7 bg-slate-950/45 text-white rounded-full flex items-center justify-center backdrop-blur-xs"><ChevronRight size={14} /></button>
                         </div>
                       </div>
                     </div>
@@ -22782,7 +22782,7 @@ export function ScrollArea({
                         <label className="text-xs font-bold text-foreground block">Striped Rows</label>
                         <span className="text-[10px] text-muted-foreground">Alternating row background</span>
                       </div>
-                      <button
+                      <button aria-label="Toggle Alternating row background"
                         onClick={() => setPlayTableStriped(!playTableStriped)}
                         className={`w-10 h-5.5 rounded-full p-0.5 transition duration-250 cursor-pointer ${
                           playTableStriped ? 'bg-secondary' : 'bg-muted border border-border/80'
@@ -22800,7 +22800,7 @@ export function ScrollArea({
                         <label className="text-xs font-bold text-foreground block">Hover Highlights</label>
                         <span className="text-[10px] text-muted-foreground">Apply row highlight on hover</span>
                       </div>
-                      <button
+                      <button aria-label="Toggle Apply row highlight on hover"
                         onClick={() => setPlayTableHoverable(!playTableHoverable)}
                         className={`w-10 h-5.5 rounded-full p-0.5 transition duration-250 cursor-pointer ${
                           playTableHoverable ? 'bg-secondary' : 'bg-muted border border-border/80'
@@ -23119,21 +23119,21 @@ export function ScrollArea({
                   <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-2xs">
                     <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Action Navigation</h3>
                     <div className="space-y-2">
-                      <button className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
+                      <button aria-label="Next item" className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
                         <div className="flex items-center gap-3">
                           <Wallet size={16} className="text-secondary-500" />
                           <span>View Wallet Balance</span>
                         </div>
                         <ChevronRight size={14} className="text-muted-foreground" />
                       </button>
-                      <button className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
+                      <button aria-label="Next item" className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
                         <div className="flex items-center gap-3">
                           <Send size={16} className="text-secondary-500" />
                           <span>Initiate B2B Payout</span>
                         </div>
                         <ChevronRight size={14} className="text-muted-foreground" />
                       </button>
-                      <button className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
+                      <button aria-label="Next item" className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-border hover:border-secondary hover:bg-muted/10 transition text-xs font-semibold text-foreground cursor-pointer">
                         <div className="flex items-center gap-3">
                           <Activity size={16} className="text-secondary-500" />
                           <span>Real-time Audit Logs</span>
@@ -23324,7 +23324,7 @@ export function ScrollArea({
                         <label className="text-xs font-bold text-foreground block">Close on Overlay Click</label>
                         <span className="text-[10px] text-muted-foreground">Dismiss dialog on backdrop click</span>
                       </div>
-                      <button
+                      <button aria-label="Toggle Dismiss dialog on backdrop click"
                         onClick={() => setPlayDialogClickOutside(!playDialogClickOutside)}
                         className={`w-10 h-5.5 rounded-full p-0.5 transition duration-250 cursor-pointer ${
                           playDialogClickOutside ? 'bg-secondary' : 'bg-muted border border-border/80'
@@ -23883,7 +23883,7 @@ export function ScrollArea({
                     {/* Pointer Arrow Switch */}
                     <div className="flex items-center justify-between border-t border-border/40 pt-3 mt-3">
                       <label className="text-[10.5px] font-bold text-foreground">Display Indicator Arrow</label>
-                      <button
+                      <button aria-label="Toggle Display Indicator Arrow"
                         onClick={() => setPlayTooltipArrow(!playTooltipArrow)}
                         className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
                           playTooltipArrow ? 'bg-secondary' : 'bg-muted-foreground/30'
@@ -24259,7 +24259,7 @@ export function ScrollArea({
                     {/* Display Icons */}
                     <div className="flex items-center justify-between border-t border-border/40 pt-3 mt-3">
                       <label className="text-[10.5px] font-bold text-foreground">Display Menu Item Icons</label>
-                      <button
+                      <button aria-label="Toggle Display Menu Item Icons"
                         onClick={() => setPlayDropdownWithIcons(!playDropdownWithIcons)}
                         className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
                           playDropdownWithIcons ? 'bg-secondary' : 'bg-muted-foreground/30'
@@ -24412,7 +24412,7 @@ export function ScrollArea({
                       Classic Numeric Pagination
                     </div>
                     <nav className="flex items-center justify-center gap-1.5" aria-label="Pagination">
-                      <button className="p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer disabled:opacity-50" disabled>
+                      <button aria-label="Previous page" className="p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer disabled:opacity-50" disabled>
                         <ChevronLeft size={14} />
                       </button>
                       <button className="px-3.5 py-2 text-xs font-semibold border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer">1</button>
@@ -24420,7 +24420,7 @@ export function ScrollArea({
                       <button className="px-3.5 py-2 text-xs font-semibold bg-primary text-primary-foreground rounded-lg transition duration-150 cursor-pointer shadow-xs">3</button>
                       <span className="px-2 text-xs text-muted-foreground">...</span>
                       <button className="px-3.5 py-2 text-xs font-semibold border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer">10</button>
-                      <button className="p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer">
+                      <button aria-label="Next page" className="p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer">
                         <ChevronRight size={14} />
                       </button>
                     </nav>
@@ -24432,12 +24432,12 @@ export function ScrollArea({
                       Compact Prev / Next
                     </div>
                     <nav className="flex items-center justify-center gap-3 text-xs font-semibold" aria-label="Pagination">
-                      <button className="px-3.5 py-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer flex items-center gap-1.5">
+                      <button aria-label="Previous page" className="px-3.5 py-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer flex items-center gap-1.5">
                         <ChevronLeft size={13} />
                         <span>Previous</span>
                       </button>
                       <span className="text-muted-foreground font-light">Page 3 of 10</span>
-                      <button className="px-3.5 py-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer flex items-center gap-1.5">
+                      <button aria-label="Next page" className="px-3.5 py-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer flex items-center gap-1.5">
                         <span>Next</span>
                         <ChevronRight size={13} />
                       </button>
@@ -24490,7 +24490,7 @@ export function ScrollArea({
 
                       <div className="flex items-center justify-center p-6">
                         <nav className="flex items-center justify-center gap-1.5" aria-label="Pagination">
-                          <button
+                          <button aria-label="Previous page"
                             onClick={() => setPlayPaginationCurrentPage(Math.max(1, playPaginationCurrentPage - 1))}
                             className="p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
                             disabled={playPaginationCurrentPage === 1}
@@ -24521,7 +24521,7 @@ export function ScrollArea({
                             )
                           })}
 
-                          <button
+                          <button aria-label="Next page"
                             onClick={() => setPlayPaginationCurrentPage(Math.min(5, playPaginationCurrentPage + 1))}
                             className="p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground rounded-lg transition duration-150 cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
                             disabled={playPaginationCurrentPage === 5}
@@ -26238,7 +26238,7 @@ export function ScrollArea({
                       <div className="border border-border rounded-xl p-4 space-y-3">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-bold text-foreground">Global Fund Liquidity Disclosures</span>
-                          <button
+                          <button aria-label="Toggle section"
                             onClick={() => setLocalOpenA(!localOpenA)}
                             className="p-1 rounded bg-muted hover:bg-muted-foreground/10 text-muted-foreground cursor-pointer transition animate-none"
                             aria-expanded={localOpenA}
@@ -26271,7 +26271,7 @@ export function ScrollArea({
                             <span className="text-xs font-bold text-foreground">Restructuring Pipeline v2</span>
                             <span className="text-[9px] font-bold bg-secondary-500/10 text-secondary-500 px-1.5 py-0.5 rounded-full">Active</span>
                           </div>
-                          <button
+                          <button aria-label="Toggle section"
                             onClick={() => setLocalOpenB(!localOpenB)}
                             className="p-1 rounded bg-muted hover:bg-muted-foreground/10 text-muted-foreground cursor-pointer transition animate-none"
                             aria-expanded={localOpenB}
@@ -26323,7 +26323,7 @@ export function ScrollArea({
                         <div className={`w-full max-w-md border border-border rounded-xl p-4 bg-card shadow-xs transition-opacity duration-200 ${playCollapsibleDisabled ? 'opacity-55' : ''}`}>
                           <div className="flex items-center justify-between">
                             <div className="text-xs font-bold text-foreground">Strategic Advisory Restructuring</div>
-                            <button
+                            <button aria-label="Toggle section"
                               onClick={() => !playCollapsibleDisabled && setPlayCollapsibleOpen(!playCollapsibleOpen)}
                               disabled={playCollapsibleDisabled}
                               aria-expanded={playCollapsibleOpen}
@@ -27333,7 +27333,7 @@ export function ScrollArea({
                       {/* Display Icons */}
                       <div className="flex items-center justify-between border-b border-border/40 pb-3">
                         <label className="text-[10.5px] font-bold text-foreground">Prefix Icons</label>
-                        <button
+                        <button aria-label="Toggle Prefix Icons"
                           onClick={() => setPlayContextMenuWithIcons(!playContextMenuWithIcons)}
                           className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
                             playContextMenuWithIcons ? 'bg-secondary' : 'bg-muted-foreground/30'
@@ -27350,7 +27350,7 @@ export function ScrollArea({
                       {/* Display Shortcuts */}
                       <div className="flex items-center justify-between border-b border-border/40 pb-3">
                         <label className="text-[10.5px] font-bold text-foreground">Shortcut Labels</label>
-                        <button
+                        <button aria-label="Toggle Shortcut Labels"
                           onClick={() => setPlayContextMenuWithShortcuts(!playContextMenuWithShortcuts)}
                           className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
                             playContextMenuWithShortcuts ? 'bg-secondary' : 'bg-muted-foreground/30'
@@ -28056,7 +28056,7 @@ export function ScrollArea({
                           </div>
                         </div>
 
-                        <button className="w-full py-2 bg-primary hover:bg-primary/95 text-primary-foreground text-xs font-bold rounded-lg flex items-center justify-center gap-2 cursor-pointer transition">
+                        <button aria-label="Next item" className="w-full py-2 bg-primary hover:bg-primary/95 text-primary-foreground text-xs font-bold rounded-lg flex items-center justify-center gap-2 cursor-pointer transition">
                           <span>Node Configuration</span>
                           <ArrowRight size={13} />
                         </button>
@@ -28087,7 +28087,7 @@ export function ScrollArea({
                           </div>
                         </div>
 
-                        <button className="w-full py-2 bg-primary hover:bg-primary/95 text-primary-foreground text-xs font-bold rounded-lg flex items-center justify-center gap-2 cursor-pointer transition">
+                        <button aria-label="Next item" className="w-full py-2 bg-primary hover:bg-primary/95 text-primary-foreground text-xs font-bold rounded-lg flex items-center justify-center gap-2 cursor-pointer transition">
                           <span>Node Configuration</span>
                           <ArrowRight size={13} className="rotate-180" />
                         </button>
@@ -28185,7 +28185,7 @@ export function ScrollArea({
                               </div>
                             </div>
 
-                            <button className="w-full py-2 bg-primary hover:bg-primary/95 text-primary-foreground text-xs font-bold rounded-lg flex items-center justify-center gap-2 cursor-pointer transition">
+                            <button aria-label="Next item" className="w-full py-2 bg-primary hover:bg-primary/95 text-primary-foreground text-xs font-bold rounded-lg flex items-center justify-center gap-2 cursor-pointer transition">
                               <span>Proceed to Node Configuration</span>
                               <ArrowRight size={13} className={`transition-transform duration-200 ${playDirectionMode === 'rtl' ? 'rotate-180' : ''}`} />
                             </button>
@@ -28644,7 +28644,7 @@ export function ScrollArea({
                         {/* Boxed panel style */}
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-medium text-foreground">Card Box Panel Border</span>
-                          <button
+                          <button aria-label="Toggle Card Box Panel Border"
                             onClick={() => setPlayEmptyBoxed(!playEmptyBoxed)}
                             className={`relative w-8 h-4 rounded-full transition-colors duration-200 focus:outline-hidden ${
                               playEmptyBoxed ? 'bg-primary dark:bg-secondary' : 'bg-slate-300 dark:bg-slate-700'
@@ -28661,7 +28661,7 @@ export function ScrollArea({
                         {/* Action trigger button */}
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-medium text-foreground">Show Action Trigger Button</span>
-                          <button
+                          <button aria-label="Toggle Show Action Trigger Button"
                             onClick={() => setPlayEmptyAction(!playEmptyAction)}
                             className={`relative w-8 h-4 rounded-full transition-colors duration-200 focus:outline-hidden ${
                               playEmptyAction ? 'bg-primary dark:bg-secondary' : 'bg-slate-300 dark:bg-slate-700'
@@ -29063,7 +29063,7 @@ export function ScrollArea({
                         {/* Required toggle */}
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-medium text-foreground">Is Required (*)</span>
-                          <button
+                          <button aria-label="Toggle Is Required (*)"
                             onClick={() => setPlayFieldRequired(!playFieldRequired)}
                             className={`relative w-8 h-4 rounded-full transition-colors duration-200 focus:outline-hidden ${
                               playFieldRequired ? 'bg-primary dark:bg-secondary' : 'bg-slate-300 dark:bg-slate-700'
@@ -29080,7 +29080,7 @@ export function ScrollArea({
                         {/* Disabled toggle */}
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-medium text-foreground">Is Disabled</span>
-                          <button
+                          <button aria-label="Toggle Is Disabled"
                             onClick={() => setPlayFieldDisabled(!playFieldDisabled)}
                             className={`relative w-8 h-4 rounded-full transition-colors duration-200 focus:outline-hidden ${
                               playFieldDisabled ? 'bg-primary dark:bg-secondary' : 'bg-slate-300 dark:bg-slate-700'

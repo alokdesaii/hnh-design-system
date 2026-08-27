@@ -490,6 +490,41 @@ earlier.
 One of the 18 was **not** a defect: line 8091 is prose documentation mentioning
 `role="switch"`, not an element.
 
+#### Group 3c ✅ APPLIED — every interactive element now has a name
+
+**Final: 0 unnamed buttons, 0 unnamed form controls, 0 unnamed switches**, across
+all 77 pages. 1,250 buttons · 297 controls · 17 switches. 0 console errors.
+
+| Stage | Unnamed buttons |
+| :-- | :-- |
+| Baseline (verified with full accessible-name computation) | 102 |
+| Toggle switches named from adjacent labels | 78 |
+| Chevron nav, copy, expand, reveal buttons | 22 |
+| Directional siblings + deep code-block copy buttons | **0** |
+
+Names were derived from context, not invented: `Previous/Next month` on
+calendars, `Previous/Next page` on pagination, `Previous/Next slide` on
+carousels, `Toggle {label}` from each switch's own label text, `Copy {token}
+value` on the brand-kit swatches, `Copy code snippet` on code panels.
+
+##### A mislabel I introduced and caught
+
+My first pass read each button's icon by scanning **forward** from the `<button>`
+line. Where a button and its icon sit on one line, that picked up the *next*
+button's icon — so three "Previous" buttons were labelled **"Next month"** and
+**"Next slide"**. A wrong name is worse than no name: a screen-reader user is
+told the control does the opposite of what it does.
+
+Found by cross-checking every directional label against the icon inside its own
+markup, then re-deriving names from the button's own segment. **25 directional
+buttons verified, 0 mismatched.**
+
+Two other traps in the same batch: buttons whose accessible name came from
+`title=` looked unnamed to a naive source grep (they were fine), and three copy
+buttons had their `<button>` tag ~20 lines above the `className`, because the
+`onClick` spans a long template literal — a fixed look-back window missed them
+entirely.
+
 ### 🆕 Still open: non-native controls have no accessible names
 
 The 297-control metric only counts `input`/`select`/`textarea`. It is blind to
