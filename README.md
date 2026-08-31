@@ -26,13 +26,13 @@ The **Harbour & Hills Design System** brings institutional-grade trust and high-
 
 ## 📚 What's Inside
 
-77 documented pages across four navigation groups:
+77 pages across four navigation groups — 73 documented, 4 in progress:
 
 | Group | Count | Contents |
 | :--- | :--- | :--- |
 | **Getting Started** | 2 | Introduction, Design Principles |
 | **Foundations** | 8 | Colors, Typography, Spacing & Grids, Borders & Shadows, Iconography, Theme Builder & Tokens, Enterprise UX Patterns, Accessibility & WCAG |
-| **Components** | 59 | Accordion through Typography — each with overview, specimens, and an interactive playground |
+| **Components** | 59 | Accordion through Typography — each with overview, specimens, and an interactive playground. **55 documented**; Textarea, Input Group, Native Select and Button Group are scaffolded and marked in-progress. |
 | **Legacy Platforms** | 8 | Platforms Directory, QoR3+, DigiQore+, H Markets, Edge+, H Business, Ficoy+, Coventrix+ |
 
 **Legacy Platforms** are the portal-brand microsites operating under Harbour & Hills, documented so each retains its own identity while sharing the core token layer.

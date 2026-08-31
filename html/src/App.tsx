@@ -210,15 +210,11 @@ const implementedPaths = [
   'legacy-platforms/ficoy',
   'legacy-platforms/coventrix',
   'components/button',
-  'components/button-group',
   'components/input',
   'components/label',
-  'components/textarea',
-  'components/input-group',
   'components/checkbox',
   'components/radio-group',
   'components/select',
-  'components/native-select',
   'components/accordion',
   'components/alert',
   'components/alert-dialog',
@@ -1640,15 +1636,11 @@ function App() {
           { id: 'keyboard-tester', name: 'Keyboard Focus Simulator' },
         ]
       case 'components/button':
-      case 'components/button-group':
       case 'components/input':
-      case 'components/input-group':
-      case 'components/textarea':
       case 'components/label':
       case 'components/checkbox':
       case 'components/radio-group':
       case 'components/select':
-      case 'components/native-select':
       case 'components/accordion':
       case 'components/alert':
         return [
@@ -8637,7 +8629,7 @@ export function SecuritySettingsTemplate() {
             </div>
           )}
 
-          {['components/button', 'components/button-group'].includes(currentPath) && (
+          {['components/button'].includes(currentPath) && (
             <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
               {/* Header */}
               <section className="space-y-3">
@@ -8934,7 +8926,7 @@ export function SecuritySettingsTemplate() {
             </div>
           )}
 
-          {['components/input', 'components/label', 'components/textarea', 'components/input-group'].includes(currentPath) && (
+          {['components/input', 'components/label'].includes(currentPath) && (
             <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
               {/* Header */}
               <section className="space-y-3">
@@ -10121,7 +10113,7 @@ export function SecuritySettingsTemplate() {
             </div>
           )}
 
-          {['components/select', 'components/native-select'].includes(currentPath) && (
+          {['components/select'].includes(currentPath) && (
             <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
               {/* Header */}
               <section className="space-y-3">
@@ -29339,7 +29331,7 @@ export function ScrollArea({
             <div className="space-y-6 max-w-4xl" id="overview">
               <div className="p-8 border border-dashed border-border rounded-xl bg-card text-center space-y-4 shadow-xs">
                 <div className="inline-flex w-12 h-12 rounded-full bg-primary/10 text-primary items-center justify-center text-xl font-bold">!</div>
-                <h2 className="text-lg font-bold text-primary dark:text-slate-100 capitalize">{activeItem.name} Page</h2>
+                <h1 className="text-lg font-bold text-primary dark:text-slate-100 capitalize">{activeItem.name} Page</h1>
                 <p className="text-xs text-muted-foreground max-w-md mx-auto">
                   The <strong>{activeItem.name}</strong> documentation page under the <strong>{activeItem.id.split('/')[0]}</strong> category is scaffolded and ready for implementation in the next step.
                 </p>

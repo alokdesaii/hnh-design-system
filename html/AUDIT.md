@@ -191,6 +191,44 @@ implemented, and the README advertises "59 components — each with overview,
 specimens, and an interactive playground". The true figure is 55 documented
 components across 69 distinct pages.
 
+### ✅ Resolved — wrong content replaced with honest status
+
+The duplication was **deliberate**: four page blocks each rendered for several
+routes via `['components/input', 'components/label', …].includes(currentPath)`.
+The source for those blocks does mention the siblings, but only inside generated
+code strings — the *rendered* page never did, so four components had a sidebar
+entry and no documentation.
+
+Since these are real components that are intended to ship, they were **not**
+removed from the nav. Instead each now falls through to the existing
+"scaffolded / in progress" placeholder rather than displaying another
+component's page:
+
+| Route | Was | Now |
+| :-- | :-- | :-- |
+| `components/textarea` | Input & Label page | Textarea placeholder |
+| `components/input-group` | Input & Label page | Input Group placeholder |
+| `components/native-select` | Select page | Native Select placeholder |
+| `components/button-group` | Button page | Button Group placeholder |
+
+Changes: narrowed the three shared route conditions · dropped the four paths
+from `implementedPaths` · removed their `case` labels from the TOC switch so the
+right rail no longer advertises Specimens/Playground sections that do not exist
+· promoted the placeholder's `h2` → `h1`, since these pages otherwise had **no
+`h1` at all** and would have broken the heading rule established earlier.
+
+The six genuinely documented routes are untouched: `input` and `label` both
+serve the "Input & Label" page, `checkbox` and `radio-group` the "Checkbox &
+Radio" page — in both cases the page title names both components, so the shared
+page is honest.
+
+Verified: all 77 pages have exactly one `h1`, 0 heading skips, 0 console errors.
+README updated — 77 pages, 73 documented, 4 in progress.
+
+**Still to do:** write real documentation for the four components (overview,
+specimens, playground, code generator) to match the other 55. That is authoring
+work, not an audit fix.
+
 **Corrected earlier claim:** Phase 1 reported "all 77 nav entries resolve to
 implemented pages, no dead links". That was measured by checking each route
 rendered *something*, which it does. It never checked whether routes rendered
