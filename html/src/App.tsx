@@ -5475,7 +5475,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     Design Principles <ChevronRight size={16} />
                   </span>
                 </a>
@@ -5549,7 +5549,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                      <ChevronLeft size={16} /> Introduction
                   </span>
                 </a>
@@ -5559,7 +5559,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     Colors <ChevronRight size={16} />
                   </span>
                 </a>
@@ -5892,7 +5892,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Design Principles
                   </span>
                 </a>
@@ -5902,7 +5902,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     Typography <ChevronRight size={16} />
                   </span>
                 </a>
@@ -6216,7 +6216,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Colors
                   </span>
                 </a>
@@ -6226,7 +6226,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Spacing & Grids <ChevronRight size={16} />
                   </span>
                 </a>
@@ -6437,7 +6437,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Typography
                   </span>
                 </a>
@@ -6447,7 +6447,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Borders & Shadows <ChevronRight size={16} />
                   </span>
                 </a>
@@ -6688,7 +6688,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Spacing & Grids
                   </span>
                 </a>
@@ -6698,7 +6698,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Theme Builder <ChevronRight size={16} />
                   </span>
                 </a>
@@ -7114,7 +7114,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Borders & Shadows
                   </span>
                 </a>
@@ -7124,7 +7124,7 @@ export default function DrawerDemo() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     UX Patterns <ChevronRight size={16} />
                   </span>
                 </a>
@@ -7776,7 +7776,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Theme Builder & Tokens
                   </span>
                 </a>
@@ -7786,7 +7786,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Accessibility & WCAG <ChevronRight size={16} />
                   </span>
                 </a>
@@ -8215,7 +8215,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Enterprise UX Patterns
                   </span>
                 </a>
@@ -8225,7 +8225,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Button <ChevronRight size={16} />
                   </span>
                 </a>
@@ -8613,7 +8613,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Card
                   </span>
                 </a>
@@ -8623,7 +8623,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Alert <ChevronRight size={16} />
                   </span>
                 </a>
@@ -8910,7 +8910,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Borders & Shadows
                   </span>
                 </a>
@@ -8920,7 +8920,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Input & Label <ChevronRight size={16} />
                   </span>
                 </a>
@@ -9376,7 +9376,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Accessibility & WCAG
                   </span>
                 </a>
@@ -9386,7 +9386,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Checkbox & Radio <ChevronRight size={16} />
                   </span>
                 </a>
@@ -10097,7 +10097,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Input & Label
                   </span>
                 </a>
@@ -10107,7 +10107,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Select <ChevronRight size={16} />
                   </span>
                 </a>
@@ -10447,7 +10447,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Checkbox & Radio
                   </span>
                 </a>
@@ -10457,7 +10457,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Switch <ChevronRight size={16} />
                   </span>
                 </a>
@@ -10822,7 +10822,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Accordion
                   </span>
                 </a>
@@ -10832,7 +10832,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Alert Dialog <ChevronRight size={16} />
                   </span>
                 </a>
@@ -11214,7 +11214,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Avatar
                   </span>
                 </a>
@@ -11223,7 +11223,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Calendar <ChevronRight size={16} />
                   </span>
                 </a>
@@ -11527,7 +11527,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Alert Dialog
                   </span>
                 </a>
@@ -11536,7 +11536,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Avatar <ChevronRight size={16} />
                   </span>
                 </a>
@@ -11987,7 +11987,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Aspect Ratio
                   </span>
                 </a>
@@ -11996,7 +11996,7 @@ export function SecuritySettingsTemplate() {
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Breadcrumb <ChevronRight size={16} />
                   </span>
                 </a>
@@ -12437,7 +12437,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Badge
                     </span>
                   </a>
@@ -12446,7 +12446,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Carousel <ChevronRight size={16} />
                     </span>
                   </a>
@@ -13092,7 +13092,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Data Table
                     </span>
                   </a>
@@ -13101,7 +13101,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Dialog <ChevronRight size={16} />
                     </span>
                   </a>
@@ -13469,7 +13469,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Pagination
                     </span>
                   </a>
@@ -13478,7 +13478,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Hover Card <ChevronRight size={16} />
                     </span>
                   </a>
@@ -13828,7 +13828,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Field
                     </span>
                   </a>
@@ -13837,7 +13837,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Input <ChevronRight size={16} />
                     </span>
                   </a>
@@ -14172,7 +14172,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:-translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Input
                     </span>
                   </a>
@@ -14181,7 +14181,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Item <ChevronRight size={16} />
                     </span>
                   </a>
@@ -14522,7 +14522,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Input OTP
                     </span>
                   </a>
@@ -14531,7 +14531,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Kbd <ChevronRight size={16} />
                     </span>
                   </a>
@@ -14782,7 +14782,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Item
                     </span>
                   </a>
@@ -14791,7 +14791,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Menubar <ChevronRight size={16} />
                     </span>
                   </a>
@@ -15161,7 +15161,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Kbd
                     </span>
                   </a>
@@ -15170,7 +15170,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Navigation Menu <ChevronRight size={16} />
                     </span>
                   </a>
@@ -15664,7 +15664,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Menubar
                     </span>
                   </a>
@@ -15674,7 +15674,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Progress <ChevronRight size={16} />
                     </span>
                   </a>
@@ -16167,7 +16167,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Navigation Menu
                     </span>
                   </a>
@@ -16176,7 +16176,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Resizable <ChevronRight size={16} />
                     </span>
                   </a>
@@ -16817,7 +16817,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Progress
                     </span>
                   </a>
@@ -16826,7 +16826,7 @@ export function SecuritySettingsTemplate() {
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Scroll Area <ChevronRight size={16} />
                     </span>
                   </a>
@@ -17267,7 +17267,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Resizable
                     </span>
                   </a>
@@ -17276,7 +17276,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Separator <ChevronRight size={16} />
                     </span>
                   </a>
@@ -17683,7 +17683,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Scroll Area
                     </span>
                   </a>
@@ -17692,7 +17692,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Sheet <ChevronRight size={16} />
                     </span>
                   </a>
@@ -18247,7 +18247,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Separator
                     </span>
                   </a>
@@ -18256,7 +18256,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Sidebar <ChevronRight size={16} />
                     </span>
                   </a>
@@ -18654,7 +18654,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Sheet
                     </span>
                   </a>
@@ -18663,7 +18663,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Skeleton <ChevronRight size={16} />
                     </span>
                   </a>
@@ -19062,7 +19062,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Sidebar
                     </span>
                   </a>
@@ -19071,7 +19071,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Slider <ChevronRight size={16} />
                     </span>
                   </a>
@@ -19475,7 +19475,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Skeleton
                     </span>
                   </a>
@@ -19484,7 +19484,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Sonner <ChevronRight size={16} />
                     </span>
                   </a>
@@ -19832,7 +19832,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Slider
                     </span>
                   </a>
@@ -19841,7 +19841,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Spinner <ChevronRight size={16} />
                     </span>
                   </a>
@@ -20276,7 +20276,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Sonner
                     </span>
                   </a>
@@ -20285,7 +20285,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Switch <ChevronRight size={16} />
                     </span>
                   </a>
@@ -20644,7 +20644,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Resizable
                     </span>
                   </a>
@@ -20654,7 +20654,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Chart <ChevronRight size={16} />
                     </span>
                   </a>
@@ -21230,7 +21230,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Carousel
                     </span>
                   </a>
@@ -21239,7 +21239,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Switch <ChevronRight size={16} />
                     </span>
                   </a>
@@ -21622,7 +21622,7 @@ export function ScrollArea({
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Chart
                   </span>
                 </a>
@@ -21631,7 +21631,7 @@ export function ScrollArea({
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Card <ChevronRight size={16} />
                   </span>
                 </a>
@@ -22046,7 +22046,7 @@ export function ScrollArea({
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Switch
                   </span>
                 </a>
@@ -22055,7 +22055,7 @@ export function ScrollArea({
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Accordion <ChevronRight size={16} />
                   </span>
                 </a>
@@ -22349,7 +22349,7 @@ export function ScrollArea({
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Alert
                   </span>
                 </a>
@@ -22358,7 +22358,7 @@ export function ScrollArea({
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Aspect Ratio <ChevronRight size={16} />
                   </span>
                 </a>
@@ -24769,7 +24769,7 @@ export function ScrollArea({
                   className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                     <ChevronLeft size={16} /> Pagination
                   </span>
                 </a>
@@ -24778,7 +24778,7 @@ export function ScrollArea({
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                  <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                     Toggle <ChevronRight size={16} />
                   </span>
                 </a>
@@ -25098,7 +25098,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Toast
                     </span>
                   </a>
@@ -25107,7 +25107,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Toggle Group <ChevronRight size={16} />
                     </span>
                   </a>
@@ -25701,7 +25701,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Toggle
                     </span>
                   </a>
@@ -25710,7 +25710,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Tooltip <ChevronRight size={16} />
                     </span>
                   </a>
@@ -26164,7 +26164,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Toggle Group
                     </span>
                   </a>
@@ -26173,7 +26173,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Color System <ChevronRight size={16} />
                     </span>
                   </a>
@@ -26424,7 +26424,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Toast
                     </span>
                   </a>
@@ -26433,7 +26433,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Combobox <ChevronRight size={16} />
                     </span>
                   </a>
@@ -26767,7 +26767,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Collapsible
                     </span>
                   </a>
@@ -26776,7 +26776,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Command <ChevronRight size={16} />
                     </span>
                   </a>
@@ -27155,7 +27155,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Combobox
                     </span>
                   </a>
@@ -27164,7 +27164,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Context Menu <ChevronRight size={16} />
                     </span>
                   </a>
@@ -27499,7 +27499,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Command
                     </span>
                   </a>
@@ -27508,7 +27508,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Data Table <ChevronRight size={16} />
                     </span>
                   </a>
@@ -27970,7 +27970,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Context Menu
                     </span>
                   </a>
@@ -27979,7 +27979,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Direction <ChevronRight size={16} />
                     </span>
                   </a>
@@ -28213,7 +28213,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Data Table
                     </span>
                   </a>
@@ -28222,7 +28222,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Drawer <ChevronRight size={16} />
                     </span>
                   </a>
@@ -28447,7 +28447,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Direction
                     </span>
                   </a>
@@ -28456,7 +28456,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Empty <ChevronRight size={16} />
                     </span>
                   </a>
@@ -28739,7 +28739,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Drawer
                     </span>
                   </a>
@@ -28748,7 +28748,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Field <ChevronRight size={16} />
                     </span>
                   </a>
@@ -29214,7 +29214,7 @@ export function ScrollArea({
                     className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
                       <ChevronLeft size={16} /> Empty
                     </span>
                   </a>
@@ -29223,7 +29223,7 @@ export function ScrollArea({
                     className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                   >
                     <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
-                    <span className="font-bold text-sm text-secondary dark:text-secondary group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
                       Hover Card <ChevronRight size={16} />
                     </span>
                   </a>

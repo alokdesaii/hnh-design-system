@@ -32,6 +32,12 @@
   --color-secondary-800: #004d47;
   --color-secondary-900: #002624;
 
+  /* The literal brand teal, identical in both themes and never remapped for
+     contrast. Use for brand expression (section navigation, marks, accents).
+     For body text on light surfaces prefer `text-secondary`, which maps to the
+     AA-safe #00736b in light mode. */
+  --color-brand-teal: #00bfb3;
+
   /* Shadcn-compatible theme mappings */
   --color-background: var(--background);
   --color-foreground: var(--foreground);

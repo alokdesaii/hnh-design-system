@@ -429,6 +429,26 @@ Changed to `bg-primary-900`. No other undefined palette step is in use.
 Both are the same trap: a colour is only "correct" relative to the surface it
 sits on, and a surface is not always theme-dependent.
 
+### ⚠️ Accepted exception — section navigation uses the literal brand teal
+
+Owner decision after reviewing the light theme: the "Previous / Next Section"
+links read as a darker green than the brand, and should use the real brand teal.
+
+Implemented as a new `--color-brand-teal: #00bfb3` token that is **identical in
+both themes and never remapped**, applied to the 109 section-navigation links.
+Body text, labels and UI copy continue to use `text-secondary`, which stays
+`#00736b` (AA-safe) in light mode — so this is one scoped exception, not a
+reversal of the contrast work.
+
+**Known cost:** `#00bfb3` on `--background` is **2.20:1** at 14px/700, where AA
+requires 4.5:1. It does not clear the 3:1 large-text bar either — the brand teal
+cannot pass on a light surface at any text size. Mitigation: these links carry a
+chevron icon and an uppercase "PREVIOUS / NEXT SECTION" label, so colour is not
+the only cue.
+
+Any future contrast sweep will report these 109 links as failures. That is
+expected and intentional; do not "fix" them without checking here first.
+
 ### Still open (contrast)
 
 Remaining failures are mostly **opacity-reduced text** (`text-muted-foreground/60`
