@@ -753,6 +753,58 @@ with the pre-paint script in place, readings are now correct. **Any contrast
 audit must sanity-check that `body` background matches the active theme token
 before its results are trusted.**
 
+## Desktop testing ✅
+
+Running locally unlocked something the Drive setup never allowed: setting the
+viewport to 1280×2400 captures a **whole page in one screenshot**, so the visual
+review that was blocked for the entire audit is now possible.
+
+### Focus indicators — 918 focusable elements checked
+
+| | |
+| :-- | :-- |
+| Without a visible focus indicator | 6 → **2** |
+| Remaining 2 | intentional "Focused Mimic / `:focus-visible`" specimens |
+
+Fixed: 2 accordion triggers and 2 toggle switches used `outline-none` /
+`outline-hidden` with no replacement. Added
+`focus-visible:ring-2 focus-visible:ring-secondary` with offset.
+
+**The first two attempts at this check were both wrong**, and both would have
+produced a false report:
+
+1. Focusing an element and diffing computed styles reported **689/689 failing**.
+   Cause: `document.hasFocus()` is `false` — the preview pane does not hold OS
+   focus, so elements never match `:focus` even when `activeElement` is set.
+2. Reading `:focus` rules from the CSSOM found **0 selectors**. Cause: Tailwind
+   v4 emits *nested* CSS (`.foo { &:focus { … } }`), so the child rule's
+   selector is `&:focus` and stripping the pseudo yields `&`.
+
+The working method inspects the authored classes (`focus:` / `focus-visible:`
+utilities, plus the native control rules in `index.css`) and flags only
+elements that kill the default outline without providing a replacement.
+
+### Visual review
+
+Full-page captures reviewed in both themes: Introduction, Colors, Badge.
+Layout, spacing rhythm and dark-mode parity all read correctly; the AA-safe
+teal and the `dark:text-slate-950` fill labels look right in place.
+
+### Interactive smoke test — inconclusive by tooling, verified by hand
+
+An automated "click a control, diff the generated code" sweep reported **0 of 34
+pages reacting**. That was false three times over: it read the *first* `<code>`
+on the page (an inline snippet in prose, never the playground output); the
+`#none` hash trick fell through to the placeholder page; and `navigate` strips
+the hash, leaving the previous page rendered. A stale DOM reference then made
+even correct clicks look inert, because React had replaced the node.
+
+Verified manually instead: on Badge, clicking **Outline** moves the active state
+to that button, and on Tabs the generated code updates. **The controls work.**
+
+**Not testable here:** real keyboard tab order, because the pane never has OS
+focus. That needs a real browser session.
+
 ## Phase 3 — Accessibility, page by page ⬜ NOT STARTED
 
 Keyboard tab order, focus visibility, ARIA correctness.

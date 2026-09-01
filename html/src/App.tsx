@@ -8326,7 +8326,7 @@ export function SecuritySettingsTemplate() {
                     <div className="space-y-2">
                       <div className="text-[10px] uppercase font-bold text-muted-foreground">Focused Header</div>
                       <div className="border border-border/80 rounded-lg bg-card/10 overflow-hidden">
-                        <button className="w-full py-3 px-3 flex justify-between items-center font-bold text-xs text-left outline-none shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)]">
+                        <button className="w-full py-3 px-3 flex justify-between items-center font-bold text-xs text-left outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)]">
                           <span className="text-slate-900 dark:text-white">Focus Ring State</span>
                           <ChevronDown size={14} className="text-muted-foreground" />
                         </button>
@@ -8348,7 +8348,7 @@ export function SecuritySettingsTemplate() {
                     <div className="space-y-2">
                       <div className="text-[10px] uppercase font-bold text-muted-foreground">Active Highlight</div>
                       <div className="border border-secondary/60 rounded-lg bg-secondary/5 overflow-hidden">
-                        <button className="w-full py-3 px-3 flex justify-between items-center font-bold text-xs text-left outline-none">
+                        <button className="w-full py-3 px-3 flex justify-between items-center font-bold text-xs text-left outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
                           <span className="text-secondary-500">Active / Open Item</span>
                           <ChevronDown size={14} className="text-secondary-500 rotate-180" />
                         </button>
@@ -24946,7 +24946,7 @@ export function ScrollArea({
                               role="switch"
                               aria-checked={playTogglePressed}
                               onClick={() => setPlayTogglePressed(!playTogglePressed)}
-                              className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden ${
+                              className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                                 playTogglePressed ? 'bg-secondary' : 'bg-muted'
                               }`}
                             >
@@ -24963,7 +24963,7 @@ export function ScrollArea({
                               role="switch"
                               aria-checked={playToggleDisabled}
                               onClick={() => setPlayToggleDisabled(!playToggleDisabled)}
-                              className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden ${
+                              className={`w-9 h-5 rounded-full p-0.5 transition-colors cursor-pointer outline-hidden focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                                 playToggleDisabled ? 'bg-secondary' : 'bg-muted'
                               }`}
                             >
