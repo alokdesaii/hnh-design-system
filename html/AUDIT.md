@@ -605,6 +605,52 @@ entirely.
 The 297-control metric only counts `input`/`select`/`textarea`. It is blind to
 custom widgets, and two classes remain:
 
+#### Group 3b ✅ APPLIED — button groups named
+
+**114 groups, 0 unnamed. 0 orphan labels. 0 unnamed buttons or controls.**
+0 console errors, heading structure unchanged.
+
+##### Why `role="group"` and not `role="radiogroup"`
+
+Analysis of all 106 blocks: 93 set a single state variable, 9 set two from one
+choice (e.g. "Aspect Ratios" sets width *and* height), and 4 were not control
+groups at all — captions on code panels. So **102 are conceptually single-select
+radio groups.**
+
+That argues for `radiogroup` — but the keyboard behaviour does not support it.
+Focusing the first button of a segmented control and pressing ArrowRight:
+
+    buttons:       ["Accent", "Flat", "Outline"]
+    tabIndexes:    [0, 0, 0]
+    arrowKeyMoves: false          ← focus did not move
+
+`radiogroup` is a *promise* of one tab stop with arrow-key traversal and a
+roving `tabindex`. Declaring it without that behaviour tells a screen-reader
+user "radio group, 1 of 3" and points them at keys that do nothing — the same
+class of defect as the reversed "Next month" labels: confidently wrong metadata
+that no automated checker flags. `role="group"` + `aria-labelledby` describes
+what is actually there and is a strict improvement.
+
+Applied: 95 control groups → `<span id>` + `role="group" aria-labelledby` · 4
+code-panel captions → plain `<span>` · 7 single-toggle labels → `<span>` (their
+buttons already carry `aria-label`) · 5 remaining orphan labels → `<span>` ·
+`LocalToggleGroup` gained a `groupLabel` prop (it already emitted
+`radiogroup`/`group` correctly but had no name).
+
+**Upgrade path:** implementing roving `tabindex`, arrow/Home/End handling and
+`aria-checked` would make `radiogroup` correct. That is interaction work across
+102 controls, tracked as a future enhancement.
+
+##### Two things caught during verification
+
+1. My first check counted only `aria-labelledby`, so it reported 8 unnamed
+   groups. **Seven were false positives** — carousel slides and OTP groups
+   already carry `aria-label`. Only the toggle-group one was real.
+2. Converting labels to group captions **orphaned two colour inputs** on the
+   Theme Builder, whose blocks contain both an input *and* preset buttons.
+   Unnamed controls went 0 → 2. Fixed by pointing the inputs at the same label
+   via `aria-labelledby`; verified the name resolves to "PRIMARY BRAND COLOR".
+
 - ~~18 `role="switch"` buttons~~ — ✅ fixed above (17 real, 1 was prose).
 - **104 `<label>`s on button groups** (Group 3b) — a `<label>` cannot label a
   group of `<button>`s, so those segmented controls have no group name and the

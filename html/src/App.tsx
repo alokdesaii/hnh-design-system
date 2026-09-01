@@ -6190,7 +6190,7 @@ export default function DrawerDemo() {
 
                     {/* Compiled Class output */}
                     <div className="space-y-2">
-                      {/* Not a form control, so this is a span rather than a <label> pointing at nothing */}
+                      {/* Not a form control, so this is a span rather than a <span> pointing at nothing */}
                       <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated Class List</span>
                       <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
@@ -6412,7 +6412,7 @@ export default function DrawerDemo() {
 
                     {/* Class output */}
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">JSX Implementation</label>
+                      <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">JSX Implementation</span>
                       <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           {`<div className="grid grid-cols-${gridCols} ${gridGap}">\n  {/* Columns content */}\n</div>`}
@@ -6663,7 +6663,7 @@ export default function DrawerDemo() {
 
                     {/* Compiled Code Output */}
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Class List</label>
+                      <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Class List</span>
                       <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           {`className="${composerRadius} ${composerShadow} ${composerBorder} ${composerBg}"`}
@@ -6747,12 +6747,12 @@ export default function DrawerDemo() {
                   {/* Primary Color Picker */}
                   <div className="bg-card border border-border rounded-2xl p-5 space-y-4 shadow-hnh-sm">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold uppercase tracking-wider text-foreground">Primary Brand Color</label>
+                      <span id="primary-brand-color-label" className="text-xs font-bold uppercase tracking-wider text-foreground">Primary Brand Color</span>
                       <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-muted text-muted-foreground">{tbPrimaryColor}</span>
                     </div>
 
                     {/* Presets */}
-                    <div className="flex items-center gap-2.5">
+                    <div role="group" aria-labelledby="primary-brand-color-label" className="flex items-center gap-2.5">
                       {[
                         { label: 'Harbour Navy', hex: '#023e63' },
                         { label: 'Midnight Slate', hex: '#0f172a' },
@@ -6776,6 +6776,7 @@ export default function DrawerDemo() {
                       {/* Native Picker */}
                       <input
                         type="color"
+                        aria-labelledby="primary-brand-color-label"
                         value={tbPrimaryColor}
                         onChange={(e) => setTbPrimaryColor(e.target.value)}
                         className="w-7 h-7 rounded-full border border-border cursor-pointer bg-transparent"
@@ -6787,12 +6788,12 @@ export default function DrawerDemo() {
                   {/* Secondary Color Picker */}
                   <div className="bg-card border border-border rounded-2xl p-5 space-y-4 shadow-hnh-sm">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold uppercase tracking-wider text-foreground">Secondary Accent Color</label>
+                      <span id="secondary-accent-color-label" className="text-xs font-bold uppercase tracking-wider text-foreground">Secondary Accent Color</span>
                       <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-muted text-muted-foreground">{tbSecondaryColor}</span>
                     </div>
 
                     {/* Presets */}
-                    <div className="flex items-center gap-2.5">
+                    <div role="group" aria-labelledby="secondary-accent-color-label" className="flex items-center gap-2.5">
                       {[
                         { label: 'Hills Teal', hex: '#00a896' },
                         { label: 'Electric Cyan', hex: '#06b6d4' },
@@ -6816,6 +6817,7 @@ export default function DrawerDemo() {
                       {/* Native Picker */}
                       <input
                         type="color"
+                        aria-labelledby="secondary-accent-color-label"
                         value={tbSecondaryColor}
                         onChange={(e) => setTbSecondaryColor(e.target.value)}
                         className="w-7 h-7 rounded-full border border-border cursor-pointer bg-transparent"
@@ -6826,8 +6828,8 @@ export default function DrawerDemo() {
 
                   {/* Border Radius Control */}
                   <div className="bg-card border border-border rounded-2xl p-5 space-y-4 shadow-hnh-sm">
-                    <label className="text-xs font-bold uppercase tracking-wider text-foreground block">Corner Radius Token</label>
-                    <div className="grid grid-cols-5 gap-1.5">
+                    <span id="corner-radius-token-label" className="text-xs font-bold uppercase tracking-wider text-foreground block">Corner Radius Token</span>
+                    <div role="group" aria-labelledby="corner-radius-token-label" className="grid grid-cols-5 gap-1.5">
                       {[
                         { id: 'sharp', label: 'Sharp', val: '0px' },
                         { id: 'subtle', label: 'Subtle', val: '4px' },
@@ -6852,8 +6854,8 @@ export default function DrawerDemo() {
 
                   {/* Layout Density Control */}
                   <div className="bg-card border border-border rounded-2xl p-5 space-y-4 shadow-hnh-sm">
-                    <label className="text-xs font-bold uppercase tracking-wider text-foreground block">Layout Density Scale</label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <span id="layout-density-scale-label" className="text-xs font-bold uppercase tracking-wider text-foreground block">Layout Density Scale</span>
+                    <div role="group" aria-labelledby="layout-density-scale-label" className="grid grid-cols-3 gap-2">
                       {[
                         { id: 'compact', label: 'Compact (32px)', desc: 'High density tables & tools' },
                         { id: 'standard', label: 'Standard (40px)', desc: 'Balanced web applications' },
@@ -8168,7 +8170,7 @@ export function SecuritySettingsTemplate() {
                     </div>
 
                     <div className="space-y-3">
-                      <label className="text-xs font-semibold text-muted-foreground">Custom Live Announcement Payload:</label>
+                      <span className="text-xs font-semibold text-muted-foreground">Custom Live Announcement Payload:</span>
                       <div className="flex gap-2">
                         <input 
                           aria-label="Type live announcement"
@@ -8374,8 +8376,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Accordion Layout style */}
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-muted-foreground">Visual Style</label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <span id="visual-style-label" className="text-xs font-bold text-muted-foreground">Visual Style</span>
+                      <div role="group" aria-labelledby="visual-style-label" className="grid grid-cols-2 gap-2">
                         <button
                           onClick={() => setPlayAccordionVariant('bordered')}
                           className={`py-1.5 text-xs font-semibold rounded-lg border transition cursor-pointer ${
@@ -8401,8 +8403,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Sizing options */}
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-muted-foreground">Component Density</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <span id="component-density-label" className="text-xs font-bold text-muted-foreground">Component Density</span>
+                      <div role="group" aria-labelledby="component-density-label" className="grid grid-cols-3 gap-2">
                         {['sm', 'md', 'lg'].map((sz) => (
                           <button
                             key={sz}
@@ -8883,7 +8885,7 @@ export function SecuritySettingsTemplate() {
 
                     {/* Compiled Code Output */}
                     <div className="space-y-2">
-                      <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</label>
+                      <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</span>
                       <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           {`<Button\n  variant="${btnVariant}"\n  size="${btnSize}"${btnLoading ? '\n  loading' : ''}${btnDisabled ? '\n  disabled' : ''}${btnIcon !== 'none' ? `\n  icon={${btnIcon === 'left' ? '<Wallet />' : '<ArrowRight />'}` : ''}\n>\n  Confirm Portfolio Settlement\n</Button>`}
@@ -9821,7 +9823,7 @@ export function SecuritySettingsTemplate() {
 
                       {/* Checkbox Code Output */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</label>
+                        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</span>
                         <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                           <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                             {`<label className="flex items-start gap-2.5 cursor-pointer">\n` +
@@ -9894,7 +9896,7 @@ export function SecuritySettingsTemplate() {
 
                       {/* Radio Selected Value */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-foreground block">Select Choice</label>
+                        <span className="text-xs font-bold text-foreground block">Select Choice</span>
                         <div className="flex flex-col gap-2">
                           <label className="flex items-center gap-2 text-xs font-semibold text-foreground cursor-pointer">
                             <input
@@ -10037,7 +10039,7 @@ export function SecuritySettingsTemplate() {
 
                       {/* Radio Code Output */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</label>
+                        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">Generated JSX Component</span>
                         <div className="relative rounded-xl overflow-hidden border border-border/80 bg-slate-950 dark:bg-slate-900/50 shadow-sm flex items-center justify-between px-4 py-3">
                           <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                             {`<div className="space-y-3">\n` +
@@ -10719,8 +10721,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Style Selection */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Visual Style</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <span id="visual-style-label-2" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Visual Style</span>
+                      <div role="group" aria-labelledby="visual-style-label-2" className="grid grid-cols-3 gap-2">
                         {['accent', 'flat', 'outline'].map((style) => (
                           <button
                             key={style}
@@ -10739,8 +10741,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Variant Selection */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Status Variant</label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      <span id="status-variant-label" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Status Variant</span>
+                      <div role="group" aria-labelledby="status-variant-label" className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                         {[
                           { id: 'info', name: 'Info (Teal)' },
                           { id: 'success', name: 'Success (Green)' },
@@ -11138,8 +11140,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Variant */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Variant</label>
-                      <div className="flex gap-2">
+                      <span id="variant-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Variant</span>
+                      <div role="group" aria-labelledby="variant-label" className="flex gap-2">
                         {(['solid', 'soft', 'outline'] as const).map(v => (
                           <button
                             key={v}
@@ -11152,8 +11154,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Color */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <span id="color-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color</span>
+                      <div role="group" aria-labelledby="color-label" className="grid grid-cols-3 gap-2">
                         {(['primary', 'secondary', 'success', 'warning', 'destructive', 'neutral'] as const).map(c => (
                           <button
                             key={c}
@@ -11166,8 +11168,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Size */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size</label>
-                      <div className="flex gap-2">
+                      <span id="size-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size</span>
+                      <div role="group" aria-labelledby="size-label" className="flex gap-2">
                         {(['sm', 'md', 'lg'] as const).map(s => (
                           <button
                             key={s}
@@ -11425,8 +11427,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Ratio Presets */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Aspect Ratios</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <span id="aspect-ratios-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Aspect Ratios</span>
+                      <div role="group" aria-labelledby="aspect-ratios-label" className="grid grid-cols-3 gap-2">
                         {[
                           { label: '16:9 (Video)', w: 16, h: 9 },
                           { label: '4:3 (Photo)', w: 4, h: 3 },
@@ -11455,8 +11457,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Media Type Selection */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Media Content Type</label>
-                      <div className="flex gap-2">
+                      <span id="media-content-type-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Media Content Type</span>
+                      <div role="group" aria-labelledby="media-content-type-label" className="flex gap-2">
                         {(['image', 'video', 'map'] as const).map(m => (
                           <button
                             key={m}
@@ -11474,8 +11476,8 @@ export function SecuritySettingsTemplate() {
                     {/* Object Fit Selector (Only visible for Image content type) */}
                     {playAspectMedia === 'image' && (
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Object Fitting Model</label>
-                        <div className="flex gap-2">
+                        <span id="object-fitting-model-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Object Fitting Model</span>
+                        <div role="group" aria-labelledby="object-fitting-model-label" className="flex gap-2">
                           {(['cover', 'contain', 'fill'] as const).map(f => (
                             <button
                               key={f}
@@ -11878,8 +11880,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Content Type */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Content Type</label>
-                      <div className="flex gap-2">
+                      <span id="content-type-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Content Type</span>
+                      <div role="group" aria-labelledby="content-type-label" className="flex gap-2">
                         {(['image', 'initials', 'icon'] as const).map(t => (
                           <button
                             key={t}
@@ -11909,8 +11911,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Sizes Selection */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Sizes</label>
-                      <div className="grid grid-cols-6 gap-1.5">
+                      <span id="sizes-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Sizes</span>
+                      <div role="group" aria-labelledby="sizes-label" className="grid grid-cols-6 gap-1.5">
                         {(['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const).map(sz => (
                           <button
                             key={sz}
@@ -11925,8 +11927,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Shapes Selection */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Shapes</label>
-                      <div className="flex gap-2">
+                      <span id="shapes-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Shapes</span>
+                      <div role="group" aria-labelledby="shapes-label" className="flex gap-2">
                         {(['circle', 'rounded', 'square'] as const).map(sh => (
                           <button
                             key={sh}
@@ -11941,8 +11943,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Status Ring selection */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Status Indicators</label>
-                      <div className="grid grid-cols-5 gap-1">
+                      <span id="status-indicators-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Status Indicators</span>
+                      <div role="group" aria-labelledby="status-indicators-label" className="grid grid-cols-5 gap-1">
                         {(['none', 'online', 'offline', 'away', 'busy'] as const).map(st => (
                           <button
                             key={st}
@@ -11957,8 +11959,8 @@ export function SecuritySettingsTemplate() {
 
                     {/* Outer border decoration */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Decorative Outer Ring</label>
-                      <div className="grid grid-cols-4 gap-1">
+                      <span id="decorative-outer-ring-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Decorative Outer Ring</span>
+                      <div role="group" aria-labelledby="decorative-outer-ring-label" className="grid grid-cols-4 gap-1">
                         {(['none', 'primary', 'secondary', 'accent'] as const).map(b => (
                           <button
                             key={b}
@@ -12361,8 +12363,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Selection Mode Selection */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Selection Mode</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="selection-mode-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Selection Mode</span>
+                        <div role="group" aria-labelledby="selection-mode-label" className="grid grid-cols-3 gap-2">
                           {(['single', 'range', 'multiple'] as const).map(m => (
                             <button
                               key={m}
@@ -12379,10 +12381,10 @@ export function SecuritySettingsTemplate() {
 
                       {/* Interactive Properties Toggles */}
                       <div className="space-y-3 pt-3 border-t border-border/40">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider block">Layout Rules</label>
+                        <span id="layout-rules-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider block">Layout Rules</span>
                         
                         {/* Outside days toggle */}
-                        <div className="flex items-center justify-between">
+                        <div role="group" aria-labelledby="layout-rules-label" className="flex items-center justify-between">
                           <span className="text-[11.5px] font-medium text-foreground">Show Outside Days</span>
                           <button aria-label="Toggle Show Outside Days"
                             onClick={() => setPlayCalendarShowOutsideDays(!playCalendarShowOutsideDays)}
@@ -12821,8 +12823,8 @@ export function SecuritySettingsTemplate() {
                       <div className="space-y-4">
                         {/* Selector Mode */}
                         <div className="space-y-2">
-                          <label className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Mode Selection</label>
-                          <div className="grid grid-cols-2 gap-1.5 bg-muted p-1 rounded-xl">
+                          <span id="mode-selection-label" className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Mode Selection</span>
+                          <div role="group" aria-labelledby="mode-selection-label" className="grid grid-cols-2 gap-1.5 bg-muted p-1 rounded-xl">
                             <button
                               onClick={() => {
                                 setPlayDatePickerMode('single');
@@ -13316,8 +13318,8 @@ export function SecuritySettingsTemplate() {
                       <div className="space-y-4">
                         {/* Selector Side */}
                         <div className="space-y-2">
-                          <label className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Placement Side</label>
-                          <div className="grid grid-cols-4 gap-1 bg-muted p-1 rounded-xl">
+                          <span id="placement-side-label" className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Placement Side</span>
+                          <div role="group" aria-labelledby="placement-side-label" className="grid grid-cols-4 gap-1 bg-muted p-1 rounded-xl">
                             {(['top', 'bottom', 'left', 'right'] as const).map(s => (
                               <button
                                 key={s}
@@ -13335,8 +13337,8 @@ export function SecuritySettingsTemplate() {
 
                         {/* Selector Align */}
                         <div className="space-y-2">
-                          <label className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Alignment</label>
-                          <div className="grid grid-cols-3 gap-1 bg-muted p-1 rounded-xl">
+                          <span id="alignment-label" className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Alignment</span>
+                          <div role="group" aria-labelledby="alignment-label" className="grid grid-cols-3 gap-1 bg-muted p-1 rounded-xl">
                             {(['start', 'center', 'end'] as const).map(a => (
                               <button
                                 key={a}
@@ -13685,8 +13687,8 @@ export function SecuritySettingsTemplate() {
                       <div className="space-y-4">
                         {/* Selector Side */}
                         <div className="space-y-2">
-                          <label className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Placement Side</label>
-                          <div className="grid grid-cols-4 gap-1 bg-muted p-1 rounded-xl">
+                          <span id="placement-side-label-2" className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Placement Side</span>
+                          <div role="group" aria-labelledby="placement-side-label-2" className="grid grid-cols-4 gap-1 bg-muted p-1 rounded-xl">
                             {(['top', 'bottom', 'left', 'right'] as const).map(s => (
                               <button
                                 key={s}
@@ -14050,8 +14052,8 @@ export function SecuritySettingsTemplate() {
                       <div className="space-y-4">
                         {/* Slot Length Selector */}
                         <div className="space-y-2">
-                          <label className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Passcode Length</label>
-                          <div className="grid grid-cols-2 gap-1 bg-muted p-1 rounded-xl">
+                          <span id="passcode-length-label" className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Passcode Length</span>
+                          <div role="group" aria-labelledby="passcode-length-label" className="grid grid-cols-2 gap-1 bg-muted p-1 rounded-xl">
                             {([4, 6] as const).map(l => (
                               <button
                                 key={l}
@@ -15432,8 +15434,8 @@ export function SecuritySettingsTemplate() {
                       
                       {/* Control 1: Active transition indicator style */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Transition Indicator</label>
-                        <div className="grid grid-cols-2 gap-1.5">
+                        <span id="transition-indicator-label" className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Transition Indicator</span>
+                        <div role="group" aria-labelledby="transition-indicator-label" className="grid grid-cols-2 gap-1.5">
                           {[
                             { id: 'none', label: 'None' },
                             { id: 'border', label: 'Border Underline' },
@@ -15453,8 +15455,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Control 2: Dropdown Layout type */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Dropdown Layout Type</label>
-                        <div className="grid grid-cols-2 gap-1.5">
+                        <span id="dropdown-layout-type-label" className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Dropdown Layout Type</span>
+                        <div role="group" aria-labelledby="dropdown-layout-type-label" className="grid grid-cols-2 gap-1.5">
                           {[
                             { id: 'simple', label: 'Simple List' },
                             { id: 'mega', label: 'Mega Menu' }
@@ -15472,8 +15474,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Control 3: Logo alignment spacer offset */}
                       <div className="space-y-2">
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Logo Alignment</label>
-                        <div className="grid grid-cols-2 gap-1.5">
+                        <span id="logo-alignment-label" className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Logo Alignment</span>
+                        <div role="group" aria-labelledby="logo-alignment-label" className="grid grid-cols-2 gap-1.5">
                           {[
                             { id: 'left', label: 'Left Aligned' },
                             { id: 'center', label: 'Center Aligned' }
@@ -15890,8 +15892,8 @@ export function SecuritySettingsTemplate() {
                       
                       {/* Mode selection (Determinate vs Indeterminate) */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Mode</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="mode-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Mode</span>
+                        <div role="group" aria-labelledby="mode-label" className="grid grid-cols-2 gap-2">
                           <button
                             onClick={() => {
                               setPlayProgressIndeterminate(false);
@@ -15920,7 +15922,7 @@ export function SecuritySettingsTemplate() {
                       {!playProgressIndeterminate && (
                         <div className="space-y-2.5">
                           <div className="flex justify-between items-center">
-                            <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Value ({playProgressValue}%)</label>
+                            <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Value ({playProgressValue}%)</span>
                             <button
                               onClick={() => setPlayProgressIntervalActive(!playProgressIntervalActive)}
                               className={`p-1.5 rounded-lg border transition ${
@@ -15964,8 +15966,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Theme Colors */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Theme Accent</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="theme-accent-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Theme Accent</span>
+                        <div role="group" aria-labelledby="theme-accent-label" className="grid grid-cols-2 gap-2">
                           {(['primary', 'secondary', 'success', 'danger'] as const).map(theme => (
                             <button
                               key={theme}
@@ -15982,8 +15984,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Variant Styles */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Variant</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="style-variant-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Variant</span>
+                        <div role="group" aria-labelledby="style-variant-label" className="grid grid-cols-2 gap-2">
                           {(['gradient', 'solid', 'striped', 'glow'] as const).map(variant => (
                             <button
                               key={variant}
@@ -16000,8 +16002,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Size Heights */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size (Height)</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="size-height-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size (Height)</span>
+                        <div role="group" aria-labelledby="size-height-label" className="grid grid-cols-3 gap-2">
                           {(['sm', 'md', 'lg'] as const).map(sz => (
                             <button
                               key={sz}
@@ -16018,8 +16020,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Label Placement */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Label Layout</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="label-layout-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Label Layout</span>
+                        <div role="group" aria-labelledby="label-layout-label" className="grid grid-cols-2 gap-2">
                           {(['none', 'top-right', 'inside', 'bottom'] as const).map(lbl => (
                             <button
                               key={lbl}
@@ -16583,8 +16585,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Orientation */}
                       <div className="space-y-2">
-                        <label className="text-xs font-bold text-foreground block">Orientation</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="orientation-label" className="text-xs font-bold text-foreground block">Orientation</span>
+                        <div role="group" aria-labelledby="orientation-label" className="grid grid-cols-2 gap-2">
                           {['horizontal', 'vertical'].map((val) => (
                             <button
                               key={val}
@@ -16603,8 +16605,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Number of Panels */}
                       <div className="space-y-2">
-                        <label className="text-xs font-bold text-foreground block">Panel Count</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="panel-count-label" className="text-xs font-bold text-foreground block">Panel Count</span>
+                        <div role="group" aria-labelledby="panel-count-label" className="grid grid-cols-2 gap-2">
                           {[2, 3].map((val) => (
                             <button
                               key={val}
@@ -16626,8 +16628,8 @@ export function SecuritySettingsTemplate() {
 
                       {/* Handle Design */}
                       <div className="space-y-2">
-                        <label className="text-xs font-bold text-foreground block">Handle Design</label>
-                        <div className="grid grid-cols-3 gap-1.5">
+                        <span id="handle-design-label" className="text-xs font-bold text-foreground block">Handle Design</span>
+                        <div role="group" aria-labelledby="handle-design-label" className="grid grid-cols-3 gap-1.5">
                           {['line', 'dots', 'glass'].map((val) => (
                             <button
                               key={val}
@@ -17101,8 +17103,8 @@ export function ScrollArea({
 
                       {/* Orientation */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Orientation</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="orientation-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Orientation</span>
+                        <div role="group" aria-labelledby="orientation-label-2" className="grid grid-cols-3 gap-2">
                           {(['vertical', 'horizontal', 'both'] as const).map(o => (
                             <button
                               key={o}
@@ -17119,8 +17121,8 @@ export function ScrollArea({
 
                       {/* Visibility behavior */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Visibility Behavior</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="visibility-behavior-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Visibility Behavior</span>
+                        <div role="group" aria-labelledby="visibility-behavior-label" className="grid grid-cols-2 gap-2">
                           {(['always', 'hover'] as const).map(v => (
                             <button
                               key={v}
@@ -17137,8 +17139,8 @@ export function ScrollArea({
 
                       {/* Thickness sizes */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Thickness Size</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="thickness-size-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Thickness Size</span>
+                        <div role="group" aria-labelledby="thickness-size-label" className="grid grid-cols-3 gap-2">
                           {(['thin', 'medium', 'thick'] as const).map(t => (
                             <button
                               key={t}
@@ -17155,8 +17157,8 @@ export function ScrollArea({
 
                       {/* Accent Themes */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Accent Theme</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="accent-theme-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Accent Theme</span>
+                        <div role="group" aria-labelledby="accent-theme-label" className="grid grid-cols-2 gap-2">
                           {(['default', 'brand', 'success', 'danger'] as const).map(t => (
                             <button
                               key={t}
@@ -17173,8 +17175,8 @@ export function ScrollArea({
 
                       {/* Corner Radius */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Corner Radius</label>
-                        <div className="grid grid-cols-4 gap-1.5">
+                        <span id="corner-radius-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Corner Radius</span>
+                        <div role="group" aria-labelledby="corner-radius-label" className="grid grid-cols-4 gap-1.5">
                           {(['none', 'sm', 'md', 'full'] as const).map(r => (
                             <button
                               key={r}
@@ -17494,8 +17496,8 @@ export function ScrollArea({
 
                       {/* Orientation */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Orientation</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="orientation-label-3" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Orientation</span>
+                        <div role="group" aria-labelledby="orientation-label-3" className="grid grid-cols-2 gap-2">
                           {(['horizontal', 'vertical'] as const).map(o => (
                             <button
                               key={o}
@@ -17515,8 +17517,8 @@ export function ScrollArea({
 
                       {/* Variant Style */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Variant</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="style-variant-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Variant</span>
+                        <div role="group" aria-labelledby="style-variant-label-2" className="grid grid-cols-2 gap-2">
                           {(['solid', 'dashed', 'dotted', 'gradient'] as const).map(v => (
                             <button
                               key={v}
@@ -17533,8 +17535,8 @@ export function ScrollArea({
 
                       {/* Thickness weight */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Line Thickness</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="line-thickness-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Line Thickness</span>
+                        <div role="group" aria-labelledby="line-thickness-label" className="grid grid-cols-3 gap-2">
                           {(['1px', '2px', '4px'] as const).map(t => (
                             <button
                               key={t}
@@ -17551,8 +17553,8 @@ export function ScrollArea({
 
                       {/* Accent Color Theme */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color Theme</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="color-theme-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color Theme</span>
+                        <div role="group" aria-labelledby="color-theme-label" className="grid grid-cols-2 gap-2">
                           {(['default', 'brand', 'subtle', 'accent'] as const).map(t => (
                             <button
                               key={t}
@@ -17571,8 +17573,8 @@ export function ScrollArea({
                       {orient === 'horizontal' && (
                         <>
                           <div className="space-y-1.5">
-                            <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Overlay Decoration</label>
-                            <div className="grid grid-cols-3 gap-2">
+                            <span id="overlay-decoration-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Overlay Decoration</span>
+                            <div role="group" aria-labelledby="overlay-decoration-label" className="grid grid-cols-3 gap-2">
                               {(['none', 'text', 'icon'] as const).map(l => (
                                 <button
                                   key={l}
@@ -17589,8 +17591,8 @@ export function ScrollArea({
 
                           {label !== 'none' && (
                             <div className="space-y-1.5">
-                              <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Decoration Position</label>
-                              <div className="grid grid-cols-3 gap-2">
+                              <span id="decoration-position-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Decoration Position</span>
+                              <div role="group" aria-labelledby="decoration-position-label" className="grid grid-cols-3 gap-2">
                                 {(['left', 'center', 'right'] as const).map(p => (
                                   <button
                                     key={p}
@@ -17887,8 +17889,8 @@ export function ScrollArea({
                               </select>
                             </div>
                             <div className="space-y-1">
-                              <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Security Access Badge</label>
-                              <div className="flex gap-2">
+                              <span id="security-access-badge-label" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Security Access Badge</span>
+                              <div role="group" aria-labelledby="security-access-badge-label" className="flex gap-2">
                                 <span className="px-2.5 py-1 bg-rose-500/10 text-rose-500 font-bold rounded-lg text-[9px] uppercase tracking-wider">Level 5 Swap API</span>
                                 <span className="px-2.5 py-1 bg-green-500/10 text-green-500 font-bold rounded-lg text-[9px] uppercase tracking-wider">Multisig Admin</span>
                               </div>
@@ -18049,8 +18051,8 @@ export function ScrollArea({
 
                       {/* Side positioning */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Placement Side</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="placement-side-label-3" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Placement Side</span>
+                        <div role="group" aria-labelledby="placement-side-label-3" className="grid grid-cols-2 gap-2">
                           {(['top', 'right', 'bottom', 'left'] as const).map(s => (
                             <button
                               key={s}
@@ -18067,8 +18069,8 @@ export function ScrollArea({
 
                       {/* Size metrics */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Panel Size</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="panel-size-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Panel Size</span>
+                        <div role="group" aria-labelledby="panel-size-label" className="grid grid-cols-2 gap-2">
                           {(['sm', 'md', 'lg', 'full'] as const).map(sz => (
                             <button
                               key={sz}
@@ -18085,8 +18087,8 @@ export function ScrollArea({
 
                       {/* Style theme */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Theme</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="style-theme-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Theme</span>
+                        <div role="group" aria-labelledby="style-theme-label" className="grid grid-cols-3 gap-2">
                           {(['default', 'glass', 'brand'] as const).map(t => (
                             <button
                               key={t}
@@ -18103,8 +18105,8 @@ export function ScrollArea({
 
                       {/* Backdrop overlay type */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Backdrop Overlay</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="backdrop-overlay-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Backdrop Overlay</span>
+                        <div role="group" aria-labelledby="backdrop-overlay-label" className="grid grid-cols-3 gap-2">
                           {(['dimmed', 'blur', 'none'] as const).map(b => (
                             <button
                               key={b}
@@ -18458,8 +18460,8 @@ export function ScrollArea({
 
                       {/* Theme Variations */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Theme</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="style-theme-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Theme</span>
+                        <div role="group" aria-labelledby="style-theme-label-2" className="grid grid-cols-3 gap-2">
                           {(['default', 'brand', 'bordered'] as const).map(t => (
                             <button
                               key={t}
@@ -18476,8 +18478,8 @@ export function ScrollArea({
 
                       {/* Collapse/Expand state */}
                       <div className="space-y-1.5">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Collapse State</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="collapse-state-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Collapse State</span>
+                        <div role="group" aria-labelledby="collapse-state-label" className="grid grid-cols-2 gap-2">
                           {[
                             { value: false, label: 'Expanded' },
                             { value: true, label: 'Collapsed' }
@@ -18857,8 +18859,8 @@ export function ScrollArea({
                       
                       {/* Animation selection */}
                       <div className="space-y-3">
-                        <label className="text-[11px] font-bold text-foreground uppercase tracking-wider block">Animation Type</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="animation-type-label" className="text-[11px] font-bold text-foreground uppercase tracking-wider block">Animation Type</span>
+                        <div role="group" aria-labelledby="animation-type-label" className="grid grid-cols-3 gap-2">
                           {(['shimmer', 'pulse', 'none'] as const).map((a) => (
                             <button
                               key={a}
@@ -18877,8 +18879,8 @@ export function ScrollArea({
 
                       {/* Theme selection */}
                       <div className="space-y-3">
-                        <label className="text-[11px] font-bold text-foreground uppercase tracking-wider block">Thematic Style</label>
-                        <div className="flex flex-col gap-2">
+                        <span id="thematic-style-label" className="text-[11px] font-bold text-foreground uppercase tracking-wider block">Thematic Style</span>
+                        <div role="group" aria-labelledby="thematic-style-label" className="flex flex-col gap-2">
                           {[
                             { id: 'default', name: 'Default Slate Gray' },
                             { id: 'brand-navy', name: 'Corporate Brand Navy' },
@@ -19725,8 +19727,8 @@ export function ScrollArea({
 
                       {/* Type selection */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Toast Type</label>
-                        <div className="grid grid-cols-3 gap-1.5">
+                        <span id="toast-type-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Toast Type</span>
+                        <div role="group" aria-labelledby="toast-type-label" className="grid grid-cols-3 gap-1.5">
                           {(['default', 'success', 'error', 'warning', 'info'] as const).map((t) => (
                             <button
                               key={t}
@@ -20159,8 +20161,8 @@ export function ScrollArea({
 
                       {/* Size selection */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Scale Size</label>
-                        <div className="grid grid-cols-5 gap-1">
+                        <span id="scale-size-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Scale Size</span>
+                        <div role="group" aria-labelledby="scale-size-label" className="grid grid-cols-5 gap-1">
                           {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((sz) => (
                             <button
                               key={sz}
@@ -20179,8 +20181,8 @@ export function ScrollArea({
 
                       {/* Theme selection */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Theme Color Accent</label>
-                        <div className="grid grid-cols-4 gap-1">
+                        <span id="theme-color-accent-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Theme Color Accent</span>
+                        <div role="group" aria-labelledby="theme-color-accent-label" className="grid grid-cols-4 gap-1">
                           {(['primary', 'secondary', 'muted', 'white'] as const).map((t) => (
                             <button
                               key={t}
@@ -20199,8 +20201,8 @@ export function ScrollArea({
 
                       {/* Speed selection */}
                       <div className="space-y-2">
-                        <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Velocity Speed</label>
-                        <div className="grid grid-cols-3 gap-1">
+                        <span id="velocity-speed-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Velocity Speed</span>
+                        <div role="group" aria-labelledby="velocity-speed-label" className="grid grid-cols-3 gap-1">
                           {(['slow', 'normal', 'fast'] as const).map((spd) => (
                             <button
                               key={spd}
@@ -20592,8 +20594,8 @@ export function ScrollArea({
 
                         {playCarouselAutoplay && (
                           <div className="space-y-1.5">
-                            <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Transition Speed</label>
-                            <div className="flex gap-2">
+                            <span id="transition-speed-label" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Transition Speed</span>
+                            <div role="group" aria-labelledby="transition-speed-label" className="flex gap-2">
                               {([2000, 3000, 5000] as const).map(t => (
                                 <button
                                   key={t}
@@ -20612,8 +20614,8 @@ export function ScrollArea({
 
                       {/* Indicators Style */}
                       <div className="space-y-1.5 pt-3 border-t border-border/40">
-                        <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Indicator Template</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="indicator-template-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Indicator Template</span>
+                        <div role="group" aria-labelledby="indicator-template-label" className="grid grid-cols-3 gap-2">
                           {(['dots', 'numbers', 'fraction'] as const).map(ind => (
                             <button
                               key={ind}
@@ -21123,8 +21125,8 @@ export function ScrollArea({
 
                       {/* Chart Type */}
                       <div className="space-y-2">
-                        <label className="text-xs font-bold text-muted-foreground">Chart Format</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <span id="chart-format-label" className="text-xs font-bold text-muted-foreground">Chart Format</span>
+                        <div role="group" aria-labelledby="chart-format-label" className="grid grid-cols-2 gap-2">
                           {(['area', 'bar', 'line', 'donut'] as const).map((type) => (
                             <button
                               key={type}
@@ -21144,8 +21146,8 @@ export function ScrollArea({
                       {/* Timeframe selector */}
                       {playChartType !== 'donut' && (
                         <div className="space-y-2">
-                          <label className="text-xs font-bold text-muted-foreground">Data Period</label>
-                          <div className="grid grid-cols-3 gap-2">
+                          <span id="data-period-label" className="text-xs font-bold text-muted-foreground">Data Period</span>
+                          <div role="group" aria-labelledby="data-period-label" className="grid grid-cols-3 gap-2">
                             {(['1M', '6M', '1Y'] as const).map((period) => (
                               <button
                                 key={period}
@@ -21165,8 +21167,8 @@ export function ScrollArea({
 
                       {/* Color Theme */}
                       <div className="space-y-2">
-                        <label className="text-xs font-bold text-muted-foreground">Color Palette</label>
-                        <div className="grid grid-cols-3 gap-2">
+                        <span id="color-palette-label" className="text-xs font-bold text-muted-foreground">Color Palette</span>
+                        <div role="group" aria-labelledby="color-palette-label" className="grid grid-cols-3 gap-2">
                           {(['navy', 'teal', 'gradient'] as const).map((theme) => (
                             <button
                               key={theme}
@@ -21545,8 +21547,8 @@ export function ScrollArea({
 
                     {/* Color selection */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color Role</label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <span id="color-role-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color Role</span>
+                      <div role="group" aria-labelledby="color-role-label" className="grid grid-cols-2 gap-2">
                         {(['primary', 'secondary', 'success', 'destructive'] as const).map(c => (
                           <button
                             key={c}
@@ -21559,8 +21561,8 @@ export function ScrollArea({
 
                     {/* Size selection */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size Scale</label>
-                      <div className="flex gap-2">
+                      <span id="size-scale-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size Scale</span>
+                      <div role="group" aria-labelledby="size-scale-label" className="flex gap-2">
                         {(['sm', 'md', 'lg'] as const).map(s => (
                           <button
                             key={s}
@@ -21943,8 +21945,8 @@ export function ScrollArea({
 
                     {/* Theme Bg Fill */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Visual Archetype</label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <span id="visual-archetype-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Visual Archetype</span>
+                      <div role="group" aria-labelledby="visual-archetype-label" className="grid grid-cols-2 gap-2">
                         {(['solid', 'flat', 'glass', 'accent'] as const).map(b => (
                           <button
                             key={b}
@@ -21957,8 +21959,8 @@ export function ScrollArea({
 
                     {/* Corner Radius */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Corner Radius</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <span id="corner-radius-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Corner Radius</span>
+                      <div role="group" aria-labelledby="corner-radius-label-2" className="grid grid-cols-3 gap-2">
                         {[
                           { label: 'lg (8px)', val: 'rounded-lg' },
                           { label: 'xl (12px)', val: 'rounded-xl' },
@@ -21975,8 +21977,8 @@ export function ScrollArea({
 
                     {/* Padding Size */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Padding</label>
-                      <div className="flex gap-2">
+                      <span id="padding-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Padding</span>
+                      <div role="group" aria-labelledby="padding-label" className="flex gap-2">
                         {(['sm', 'md', 'lg'] as const).map(p => (
                           <button
                             key={p}
@@ -21989,8 +21991,8 @@ export function ScrollArea({
 
                     {/* Elevations / Shadows */}
                     <div className="space-y-1.5">
-                      <label className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Shadow Elevation</label>
-                      <div className="grid grid-cols-4 gap-2">
+                      <span id="shadow-elevation-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Shadow Elevation</span>
+                      <div role="group" aria-labelledby="shadow-elevation-label" className="grid grid-cols-4 gap-2">
                         {[
                           { label: 'None', val: 'none' },
                           { label: 'sm', val: 'shadow-hnh-sm' },
@@ -22276,8 +22278,8 @@ export function ScrollArea({
 
                     {/* Variant Group */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Visual Variant</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <span id="visual-variant-label" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Visual Variant</span>
+                      <div role="group" aria-labelledby="visual-variant-label" className="grid grid-cols-3 gap-2">
                         {['confirm', 'destructive', 'info'].map((v) => (
                           <button
                             key={v}
@@ -22296,8 +22298,8 @@ export function ScrollArea({
 
                     {/* Backdrop Blur Group */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Backdrop Blur</label>
-                      <div className="grid grid-cols-4 gap-2">
+                      <span id="backdrop-blur-label" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Backdrop Blur</span>
+                      <div role="group" aria-labelledby="backdrop-blur-label" className="grid grid-cols-4 gap-2">
                         {(['none', 'sm', 'md', 'lg'] as const).map((b) => (
                           <button
                             key={b}
@@ -22750,8 +22752,8 @@ export function ScrollArea({
                   <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-6 space-y-6 shadow-hnh-sm">
                     {/* Density */}
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-foreground block">Table Density</label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <span id="table-density-label" className="text-xs font-bold text-foreground block">Table Density</span>
+                      <div role="group" aria-labelledby="table-density-label" className="grid grid-cols-3 gap-2">
                         {['compact', 'md', 'spacious'].map((den) => (
                           <button
                             key={den}
@@ -22771,7 +22773,7 @@ export function ScrollArea({
                     {/* Striping */}
                     <div className="flex items-center justify-between border-t border-border/50 pt-4">
                       <div>
-                        <label className="text-xs font-bold text-foreground block">Striped Rows</label>
+                        <span className="text-xs font-bold text-foreground block">Striped Rows</span>
                         <span className="text-[10px] text-muted-foreground">Alternating row background</span>
                       </div>
                       <button aria-label="Toggle Alternating row background"
@@ -22789,7 +22791,7 @@ export function ScrollArea({
                     {/* Hover highlights */}
                     <div className="flex items-center justify-between border-t border-border/50 pt-4">
                       <div>
-                        <label className="text-xs font-bold text-foreground block">Hover Highlights</label>
+                        <span className="text-xs font-bold text-foreground block">Hover Highlights</span>
                         <span className="text-[10px] text-muted-foreground">Apply row highlight on hover</span>
                       </div>
                       <button aria-label="Toggle Apply row highlight on hover"
@@ -22806,8 +22808,8 @@ export function ScrollArea({
 
                     {/* Status filter */}
                     <div className="space-y-2 border-t border-border/50 pt-4">
-                      <label className="text-xs font-bold text-foreground block">Filter Status</label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <span id="filter-status-label" className="text-xs font-bold text-foreground block">Filter Status</span>
+                      <div role="group" aria-labelledby="filter-status-label" className="grid grid-cols-2 gap-2">
                         {['all', 'settled', 'pending', 'failed'].map((flt) => (
                           <button
                             key={flt}
@@ -23272,8 +23274,8 @@ export function ScrollArea({
                   <div className="lg:col-span-4 bg-card border border-border rounded-2xl p-6 space-y-6 shadow-hnh-sm">
                     {/* Size */}
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-foreground block">Modal Dimensions</label>
-                      <div className="grid grid-cols-2 gap-2">
+                      <span id="modal-dimensions-label" className="text-xs font-bold text-foreground block">Modal Dimensions</span>
+                      <div role="group" aria-labelledby="modal-dimensions-label" className="grid grid-cols-2 gap-2">
                         {['sm', 'md', 'lg', 'xl'].map((sz) => (
                           <button
                             key={sz}
@@ -23292,8 +23294,8 @@ export function ScrollArea({
 
                     {/* Backdrop style */}
                     <div className="space-y-2 border-t border-border/50 pt-4">
-                      <label className="text-xs font-bold text-foreground block">Overlay Backdrop</label>
-                      <div className="grid grid-cols-3 gap-1.5">
+                      <span id="overlay-backdrop-label" className="text-xs font-bold text-foreground block">Overlay Backdrop</span>
+                      <div role="group" aria-labelledby="overlay-backdrop-label" className="grid grid-cols-3 gap-1.5">
                         {['transparent', 'blur', 'opaque'].map((bd) => (
                           <button
                             key={bd}
@@ -23313,7 +23315,7 @@ export function ScrollArea({
                     {/* Click outside close */}
                     <div className="flex items-center justify-between border-t border-border/50 pt-4">
                       <div>
-                        <label className="text-xs font-bold text-foreground block">Close on Overlay Click</label>
+                        <span className="text-xs font-bold text-foreground block">Close on Overlay Click</span>
                         <span className="text-[10px] text-muted-foreground">Dismiss dialog on backdrop click</span>
                       </div>
                       <button aria-label="Toggle Dismiss dialog on backdrop click"
@@ -23556,8 +23558,8 @@ export function ScrollArea({
 
                     {/* Variant Selector */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Layout Variant</label>
-                      <div className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="layout-variant-label" className="text-[10.5px] font-bold text-foreground">Layout Variant</span>
+                      <div role="group" aria-labelledby="layout-variant-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['underline', 'segmented', 'vertical'] as const).map((v) => (
                           <button
                             key={v}
@@ -23576,8 +23578,8 @@ export function ScrollArea({
 
                     {/* Size Selector */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Size</label>
-                      <div className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="size-label-2" className="text-[10.5px] font-bold text-foreground">Size</span>
+                      <div role="group" aria-labelledby="size-label-2" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['sm', 'md', 'lg'] as const).map((s) => (
                           <button
                             key={s}
@@ -23814,8 +23816,8 @@ export function ScrollArea({
 
                     {/* Position Selector */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Position</label>
-                      <div className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="position-label" className="text-[10.5px] font-bold text-foreground">Position</span>
+                      <div role="group" aria-labelledby="position-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['top', 'bottom', 'left', 'right'] as const).map((p) => (
                           <button
                             key={p}
@@ -23834,8 +23836,8 @@ export function ScrollArea({
 
                     {/* Color Variant Selector */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Color Theme</label>
-                      <div className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="color-theme-label-2" className="text-[10.5px] font-bold text-foreground">Color Theme</span>
+                      <div role="group" aria-labelledby="color-theme-label-2" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['dark', 'brand', 'light'] as const).map((col) => (
                           <button
                             key={col}
@@ -23854,8 +23856,8 @@ export function ScrollArea({
 
                     {/* Trigger Event */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Trigger Action</label>
-                      <div className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="trigger-action-label" className="text-[10.5px] font-bold text-foreground">Trigger Action</span>
+                      <div role="group" aria-labelledby="trigger-action-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['hover', 'click'] as const).map((tr) => (
                           <button
                             key={tr}
@@ -23874,7 +23876,7 @@ export function ScrollArea({
 
                     {/* Pointer Arrow Switch */}
                     <div className="flex items-center justify-between border-t border-border/40 pt-3 mt-3">
-                      <label className="text-[10.5px] font-bold text-foreground">Display Indicator Arrow</label>
+                      <span className="text-[10.5px] font-bold text-foreground">Display Indicator Arrow</span>
                       <button aria-label="Toggle Display Indicator Arrow"
                         onClick={() => setPlayTooltipArrow(!playTooltipArrow)}
                         className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
@@ -24068,8 +24070,8 @@ export function ScrollArea({
 
                     {/* Separator Selector */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Separator Style</label>
-                      <div className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="separator-style-label" className="text-[10.5px] font-bold text-foreground">Separator Style</span>
+                      <div role="group" aria-labelledby="separator-style-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['slash', 'chevron', 'arrow'] as const).map((sep) => (
                           <button
                             key={sep}
@@ -24230,8 +24232,8 @@ export function ScrollArea({
 
                     {/* Alignment */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Menu Alignment</label>
-                      <div className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="menu-alignment-label" className="text-[10.5px] font-bold text-foreground">Menu Alignment</span>
+                      <div role="group" aria-labelledby="menu-alignment-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['left', 'center', 'right'] as const).map((a) => (
                           <button
                             key={a}
@@ -24250,7 +24252,7 @@ export function ScrollArea({
 
                     {/* Display Icons */}
                     <div className="flex items-center justify-between border-t border-border/40 pt-3 mt-3">
-                      <label className="text-[10.5px] font-bold text-foreground">Display Menu Item Icons</label>
+                      <span className="text-[10.5px] font-bold text-foreground">Display Menu Item Icons</span>
                       <button aria-label="Toggle Display Menu Item Icons"
                         onClick={() => setPlayDropdownWithIcons(!playDropdownWithIcons)}
                         className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
@@ -24456,8 +24458,8 @@ export function ScrollArea({
 
                     {/* Sizing */}
                     <div className="space-y-2">
-                      <label className="text-[10.5px] font-bold text-foreground">Sizing Weight</label>
-                      <div className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="sizing-weight-label" className="text-[10.5px] font-bold text-foreground">Sizing Weight</span>
+                      <div role="group" aria-labelledby="sizing-weight-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['sm', 'md', 'lg'] as const).map((sz) => (
                           <button
                             key={sz}
@@ -24639,8 +24641,8 @@ export function ScrollArea({
 
                     {/* Variant */}
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-foreground">Notification Theme</label>
-                      <div className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="notification-theme-label" className="text-xs font-bold text-foreground">Notification Theme</span>
+                      <div role="group" aria-labelledby="notification-theme-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['success', 'destructive', 'warning', 'info'] as const).map((v) => (
                           <button
                             key={v}
@@ -24659,8 +24661,8 @@ export function ScrollArea({
 
                     {/* Position */}
                     <div className="space-y-2">
-                      <label className="text-xs font-bold text-foreground">Corner Location</label>
-                      <div className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <span id="corner-location-label" className="text-xs font-bold text-foreground">Corner Location</span>
+                      <div role="group" aria-labelledby="corner-location-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['bottom-right', 'top-right'] as const).map((pos) => (
                           <button
                             key={pos}
@@ -24895,8 +24897,8 @@ export function ScrollArea({
                       <div className="space-y-4">
                         {/* Variant selection */}
                         <div className="space-y-2">
-                          <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Variant</label>
-                          <div className="flex rounded-lg border border-border p-0.5 bg-muted/40">
+                          <span id="variant-label-2" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Variant</span>
+                          <div role="group" aria-labelledby="variant-label-2" className="flex rounded-lg border border-border p-0.5 bg-muted/40">
                             {(['default', 'outline', 'solid'] as const).map((variant) => (
                               <button
                                 key={variant}
@@ -24915,8 +24917,8 @@ export function ScrollArea({
 
                         {/* Size selection */}
                         <div className="space-y-2">
-                          <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Size</label>
-                          <div className="flex rounded-lg border border-border p-0.5 bg-muted/40">
+                          <span id="size-label-3" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Size</span>
+                          <div role="group" aria-labelledby="size-label-3" className="flex rounded-lg border border-border p-0.5 bg-muted/40">
                             {(['sm', 'md', 'lg'] as const).map((size) => (
                               <button
                                 key={size}
@@ -24935,9 +24937,9 @@ export function ScrollArea({
 
                         {/* Toggle Options */}
                         <div className="space-y-2.5 pt-2 border-t border-border/40">
-                          <label className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Attributes</label>
+                          <span id="attributes-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Attributes</span>
                           
-                          <div className="flex items-center justify-between">
+                          <div role="group" aria-labelledby="attributes-label" className="flex items-center justify-between">
                             <span className="text-xs text-muted-foreground font-medium">Pressed State</span>
                             <button aria-label="Toggle Pressed State"
                               type="button"
@@ -25128,6 +25130,7 @@ export function ScrollArea({
               onMultiChange = setPlayToggleGroupMultiValue,
               items,
               className = '',
+              groupLabel = 'Toggle group example',
             }: {
               type?: 'single' | 'multiple';
               variant?: 'default' | 'outline' | 'solid';
@@ -25140,6 +25143,7 @@ export function ScrollArea({
               onMultiChange?: (val: string[]) => void;
               items: Array<{ value: string; label?: string; icon?: React.ReactNode; ariaLabel?: string }>;
               className?: string;
+              groupLabel?: string;
             }) => {
               const isHorizontal = orientation === 'horizontal';
 
@@ -25175,7 +25179,7 @@ export function ScrollArea({
               };
 
               return (
-                <div className={containerClasses} role={type === 'single' ? "radiogroup" : "group"}>
+                <div className={containerClasses} aria-label={groupLabel} role={type === 'single' ? "radiogroup" : "group"}>
                   {items.map((item) => {
                     const isSelected = type === 'single'
                       ? singleValue === item.value
@@ -25546,8 +25550,8 @@ export function ScrollArea({
 
                       {/* Type Switcher */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-foreground">Selection Mode (type)</label>
-                        <div className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <span id="selection-mode-type-label" className="text-xs font-semibold text-foreground">Selection Mode (type)</span>
+                        <div role="group" aria-labelledby="selection-mode-type-label" className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['single', 'multiple'] as const).map((mode) => (
                             <button
                               key={mode}
@@ -25563,8 +25567,8 @@ export function ScrollArea({
 
                       {/* Variant Switcher */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-foreground">Visual Variant</label>
-                        <div className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <span id="visual-variant-label-2" className="text-xs font-semibold text-foreground">Visual Variant</span>
+                        <div role="group" aria-labelledby="visual-variant-label-2" className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['default', 'outline', 'solid'] as const).map((v) => (
                             <button
                               key={v}
@@ -25580,8 +25584,8 @@ export function ScrollArea({
 
                       {/* Size Switcher */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-foreground">Size Density</label>
-                        <div className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <span id="size-density-label" className="text-xs font-semibold text-foreground">Size Density</span>
+                        <div role="group" aria-labelledby="size-density-label" className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['sm', 'md', 'lg'] as const).map((s) => (
                             <button
                               key={s}
@@ -25597,8 +25601,8 @@ export function ScrollArea({
 
                       {/* Orientation Switcher */}
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold text-foreground">Orientation</label>
-                        <div className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <span id="orientation-label-4" className="text-xs font-semibold text-foreground">Orientation</span>
+                        <div role="group" aria-labelledby="orientation-label-4" className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['horizontal', 'vertical'] as const).map((o) => (
                             <button
                               key={o}
@@ -27324,7 +27328,7 @@ export function ScrollArea({
 
                       {/* Display Icons */}
                       <div className="flex items-center justify-between border-b border-border/40 pb-3">
-                        <label className="text-[10.5px] font-bold text-foreground">Prefix Icons</label>
+                        <span className="text-[10.5px] font-bold text-foreground">Prefix Icons</span>
                         <button aria-label="Toggle Prefix Icons"
                           onClick={() => setPlayContextMenuWithIcons(!playContextMenuWithIcons)}
                           className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
@@ -27341,7 +27345,7 @@ export function ScrollArea({
 
                       {/* Display Shortcuts */}
                       <div className="flex items-center justify-between border-b border-border/40 pb-3">
-                        <label className="text-[10.5px] font-bold text-foreground">Shortcut Labels</label>
+                        <span className="text-[10.5px] font-bold text-foreground">Shortcut Labels</span>
                         <button aria-label="Toggle Shortcut Labels"
                           onClick={() => setPlayContextMenuWithShortcuts(!playContextMenuWithShortcuts)}
                           className={`w-7.5 h-4.5 rounded-full relative transition-colors duration-200 cursor-pointer ${
