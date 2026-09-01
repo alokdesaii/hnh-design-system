@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { LegacyPlatforms } from './components/LegacyPlatforms'
 import { 
@@ -272,6 +273,14 @@ interface Shade {
   hex: string
   twClass: string
 }
+
+// Overlays are declared deep inside <main>, where a z-50 fixed scrim still
+// paints *below* the sticky header and the on-this-page rail (verified with
+// elementsFromPoint; raising the scrim's own z-index changes nothing).
+// Portalling to <body> is the only reliable fix. Must wrap <AnimatePresence>,
+// never sit inside it — AnimatePresence can't see a portal as a motion child,
+// so exit animations silently stop rendering.
+const Portal = ({ children }: { children: React.ReactNode }) => createPortal(children, document.body)
 
 interface ColorCardProps {
   shade: Shade
@@ -17848,6 +17857,7 @@ export function ScrollArea({
 
                   {/* Render Specimen overlays */}
                   {specimenSheetOpen === 'profile' && (
+                    <Portal>
                     <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true" aria-labelledby="profile-title">
                       <div className="absolute inset-0 bg-black/50 backdrop-blur-xs animate-fade-in" onClick={() => setSpecimenSheetOpen('none')} />
                       <div 
@@ -17911,9 +17921,11 @@ export function ScrollArea({
                         </div>
                       </div>
                     </div>
+                    </Portal>
                   )}
 
                   {specimenSheetOpen === 'nav' && (
+                    <Portal>
                     <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true" aria-labelledby="nav-title">
                       <div className="absolute inset-0 bg-black/50 backdrop-blur-xs animate-fade-in" onClick={() => setSpecimenSheetOpen('none')} />
                       <div 
@@ -17964,9 +17976,11 @@ export function ScrollArea({
                         </div>
                       </div>
                     </div>
+                    </Portal>
                   )}
 
                   {specimenSheetOpen === 'filters' && (
+                    <Portal>
                     <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true" aria-labelledby="filters-title">
                       <div className="absolute inset-0 bg-black/50 backdrop-blur-xs animate-fade-in" onClick={() => setSpecimenSheetOpen('none')} />
                       <div 
@@ -18030,6 +18044,7 @@ export function ScrollArea({
                         </div>
                       </div>
                     </div>
+                    </Portal>
                   )}
                 </section>
 
@@ -18188,6 +18203,7 @@ export function ScrollArea({
 
                   {/* Render Playground Sheet Modal */}
                   {playSheetIsOpen && (
+                    <Portal>
                     <div className="fixed inset-0 z-50 flex animate-fade-in" role="dialog" aria-modal="true" aria-labelledby="playground-sheet-title">
                       <div 
                         className={`absolute inset-0 ${backdropClass}`} 
@@ -18238,6 +18254,7 @@ export function ScrollArea({
                         </div>
                       </div>
                     </div>
+                    </Portal>
                   )}
                 </section>
 
@@ -22368,6 +22385,7 @@ export function ScrollArea({
               </div>
 
               {/* Overlays Rendering Blocks */}
+              <Portal>
               <AnimatePresence>
                 {specimenConfirmOpen && (
                   <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-desc">
@@ -22597,6 +22615,7 @@ export function ScrollArea({
                   </div>
                 )}
               </AnimatePresence>
+              </Portal>
 
             </div>
           )}
@@ -23381,6 +23400,7 @@ export function ScrollArea({
                 </div>
 
                 {/* Actual Dialog Preview Render */}
+                <Portal>
                 <AnimatePresence>
                   {playDialogOpen && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -23454,6 +23474,7 @@ export function ScrollArea({
                     </div>
                   )}
                 </AnimatePresence>
+                </Portal>
               </section>
             </div>
           )}
@@ -29237,6 +29258,7 @@ export function ScrollArea({
           })()}
 
           {/* AnimatePresence for Drawer Overlay Panels */}
+          <Portal>
           <AnimatePresence>
             {playDrawerOpen && (() => {
               const variants = {
@@ -29332,6 +29354,7 @@ export function ScrollArea({
               );
             })()}
           </AnimatePresence>
+          </Portal>
 
           {/* Fallback Placeholder view for other pages */}
           {!implementedPaths.includes(currentPath) && (
@@ -29455,6 +29478,7 @@ export function ScrollArea({
       </div>
 
       {/* ── GLOBAL CMD+K COMMAND PALETTE OVERLAY ────────────────────────── */}
+      <Portal>
       <AnimatePresence>
         {globalSearchOpen && (
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4">
@@ -29578,6 +29602,7 @@ export function ScrollArea({
           </div>
         )}
       </AnimatePresence>
+      </Portal>
     </div>
   )
 }
