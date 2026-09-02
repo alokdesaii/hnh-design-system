@@ -702,7 +702,7 @@ const LocalSlider = ({
   const themeStyles = {
     default: { fill: 'bg-primary dark:bg-slate-400', thumb: 'border-primary dark:border-slate-400 bg-card' },
     'brand-navy': { fill: 'bg-primary dark:bg-primary-500', thumb: 'border-primary dark:border-primary-500 bg-card' },
-    'brand-teal': { fill: 'bg-secondary-500', thumb: 'border-secondary-500 bg-card' }
+    'brand-teal': { fill: 'bg-brand-teal', thumb: 'border-brand-teal bg-card' }
   }[theme];
 
   return (
@@ -3394,7 +3394,7 @@ function App() {
     code += "  const themeStyles = {\n";
     code += "    default: { fill: 'bg-primary dark:bg-slate-400', thumb: 'border-primary dark:border-slate-400 bg-card' },\n";
     code += "    'brand-navy': { fill: 'bg-primary dark:bg-primary-500', thumb: 'border-primary dark:border-primary-500 bg-card' },\n";
-    code += "    'brand-teal': { fill: 'bg-secondary-500', thumb: 'border-secondary-500 bg-card' }\n";
+    code += "    'brand-teal': { fill: 'bg-brand-teal', thumb: 'border-brand-teal bg-card' }\n";
     code += "  }[theme];\n\n";
     code += "  return (\n";
     code += "    <div \n";
@@ -4136,7 +4136,7 @@ function App() {
     const borderClassMap = {
       none: '',
       primary: 'ring-2 ring-primary ring-offset-2 ring-offset-background',
-      secondary: 'ring-2 ring-secondary-500 ring-offset-2 ring-offset-background',
+      secondary: 'ring-2 ring-brand-teal ring-offset-2 ring-offset-background',
       accent: 'ring-2 ring-slate-350 dark:ring-slate-700 ring-offset-2 ring-offset-background'
     };
     const borderClass = borderClassMap[playAvatarBorder];
@@ -11806,7 +11806,7 @@ export function SecuritySettingsTemplate() {
                             playAvatarType === 'icon' ? 'bg-muted' : 'bg-transparent',
                             // Outer ring border
                             playAvatarBorder === 'primary' ? 'ring-2 ring-primary ring-offset-2 ring-offset-background' :
-                            playAvatarBorder === 'secondary' ? 'ring-2 ring-secondary-500 ring-offset-2 ring-offset-background' :
+                            playAvatarBorder === 'secondary' ? 'ring-2 ring-brand-teal ring-offset-2 ring-offset-background' :
                             playAvatarBorder === 'accent' ? 'ring-2 ring-slate-350 dark:ring-slate-700 ring-offset-2 ring-offset-background' :
                             'ring-0'
                           ].filter(Boolean).join(' ')}
