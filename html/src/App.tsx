@@ -12004,12 +12004,12 @@ export function SecuritySettingsTemplate() {
                   </span>
                 </a>
                 <a
-                  href="#components/breadcrumb"
+                  href="#components/table"
                   className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
                 >
                   <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
                   <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
-                    Breadcrumb <ChevronRight size={16} />
+                    Table <ChevronRight size={16} />
                   </span>
                 </a>
               </div>
@@ -22975,6 +22975,29 @@ export function ScrollArea({
                   </div>
                 </div>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#components/avatar"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Avatar
+                  </span>
+                </a>
+
+                <a
+                  href="#foundations/iconography"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Iconography <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
@@ -23182,6 +23205,29 @@ export function ScrollArea({
                   </div>
                 </div>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#components/table"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Table
+                  </span>
+                </a>
+
+                <a
+                  href="#components/dialog"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Dialog <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
@@ -23476,6 +23522,29 @@ export function ScrollArea({
                 </AnimatePresence>
                 </Portal>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#foundations/iconography"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Iconography
+                  </span>
+                </a>
+
+                <a
+                  href="#components/tabs"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Tabs <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
@@ -23745,6 +23814,29 @@ export function ScrollArea({
                   </div>
                 </div>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#components/dialog"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Dialog
+                  </span>
+                </a>
+
+                <a
+                  href="#components/tooltip"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Tooltip <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
@@ -24001,6 +24093,29 @@ export function ScrollArea({
                   </div>
                 </div>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#components/tabs"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Tabs
+                  </span>
+                </a>
+
+                <a
+                  href="#components/breadcrumb"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Breadcrumb <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
@@ -24154,6 +24269,29 @@ export function ScrollArea({
                   </div>
                 </div>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#components/tooltip"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Tooltip
+                  </span>
+                </a>
+
+                <a
+                  href="#components/dropdown-menu"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Dropdown Menu <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
@@ -24383,6 +24521,29 @@ export function ScrollArea({
                   </div>
                 </div>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#components/breadcrumb"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Breadcrumb
+                  </span>
+                </a>
+
+                <a
+                  href="#components/pagination"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Pagination <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
@@ -24568,6 +24729,29 @@ export function ScrollArea({
                   </div>
                 </div>
               </section>
+
+              {/* Navigation Block */}
+              <div className="pt-8 border-t border-border/60 flex justify-between mt-12">
+                <a
+                  href="#components/dropdown-menu"
+                  className="group flex flex-col items-start gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-left w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Previous Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[-4px] transition-transform duration-200 flex items-center gap-1.5">
+                    <ChevronLeft size={16} /> Dropdown Menu
+                  </span>
+                </a>
+
+                <a
+                  href="#components/toast"
+                  className="group flex flex-col items-end gap-1.5 p-4 rounded-xl border border-border hover:border-slate-400 dark:hover:border-slate-700 hover:bg-muted/30 transition text-right w-64 shadow-xs"
+                >
+                  <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Next Section</span>
+                  <span className="font-bold text-sm text-brand-teal group-hover:translate-x-[4px] transition-transform duration-200 flex items-center gap-1.5">
+                    Toast <ChevronRight size={16} />
+                  </span>
+                </a>
+              </div>
             </div>
           )}
 
