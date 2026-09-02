@@ -11509,7 +11509,7 @@ export function SecuritySettingsTemplate() {
                     <div className="space-y-2 pt-2 border-t border-border/40">
                       <div className="flex justify-between text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                         <span>Simulated Container Width</span>
-                        <span className="font-mono text-secondary-500 font-bold">{playAspectWidthPercent}%</span>
+                        <span className="font-mono text-brand-teal font-bold">{playAspectWidthPercent}%</span>
                       </div>
                       <input
                         type="range"
@@ -13720,7 +13720,7 @@ export function SecuritySettingsTemplate() {
                         <div className="space-y-2">
                           <div className="flex justify-between text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                             <span>Open Delay</span>
-                            <span className="font-mono text-secondary-500">{playHoverCardOpenDelay}ms</span>
+                            <span className="font-mono text-brand-teal">{playHoverCardOpenDelay}ms</span>
                           </div>
                           <input
                             type="range"
@@ -13738,7 +13738,7 @@ export function SecuritySettingsTemplate() {
                         <div className="space-y-2">
                           <div className="flex justify-between text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                             <span>Close Delay</span>
-                            <span className="font-mono text-secondary-500">{playHoverCardCloseDelay}ms</span>
+                            <span className="font-mono text-brand-teal">{playHoverCardCloseDelay}ms</span>
                           </div>
                           <input
                             type="range"
