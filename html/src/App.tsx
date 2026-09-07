@@ -8454,28 +8454,29 @@ export function SecuritySettingsTemplate() {
                       </div>
                     </div>
 
-                    {/* Exporter Block */}
-                    <div className="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-                      <div className="border-b border-slate-800 bg-slate-900/60 px-4.5 py-3 flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-                          <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                          <span>Accordion.tsx</span>
-                        </div>
-                        <span className="text-[10px] text-muted-foreground font-bold tracking-wider uppercase">React / Motion</span>
-                      </div>
-                      <div className="p-4 relative group/code">
-                        <pre className="text-xs font-mono text-slate-300 overflow-x-auto whitespace-pre leading-relaxed select-all">
-                          <code>{getAccordionCode()}</code>
-                        </pre>
-                        <button
-                          onClick={() => handleCopy(getAccordionCode(), 'accordion-code')}
-                          className="absolute right-3.5 top-3.5 bg-slate-900 hover:bg-slate-800 border border-white/10 hover:border-white/20 text-white rounded-lg p-2 transition cursor-pointer"
-                          title="Copy Code"
-                        >
-                          <Copy size={13} />
-                        </button>
-                      </div>
+                  </div>
+                </div>
+
+                {/* Exporter Block */}
+                <div className="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+                  <div className="border-b border-slate-800 bg-slate-900/60 px-4.5 py-3 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                      <span>Accordion.tsx</span>
                     </div>
+                    <span className="text-[10px] text-muted-foreground font-bold tracking-wider uppercase">React / Motion</span>
+                  </div>
+                  <div className="p-4 relative group/code">
+                    <pre className="text-xs font-mono text-slate-300 overflow-x-auto whitespace-pre leading-relaxed select-all">
+                      <code>{getAccordionCode()}</code>
+                    </pre>
+                    <button
+                      onClick={() => handleCopy(getAccordionCode(), 'accordion-code')}
+                      className="absolute right-3.5 top-3.5 bg-slate-900 hover:bg-slate-800 border border-white/10 hover:border-white/20 text-white rounded-lg p-2 transition cursor-pointer"
+                      title="Copy Code"
+                    >
+                      <Copy size={13} />
+                    </button>
                   </div>
                 </div>
               </section>
