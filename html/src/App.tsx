@@ -5546,7 +5546,7 @@ export default function DrawerDemo() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
                 {/* Principle 1 */}
                 <div className="bg-card border border-border rounded-xl p-5 shadow-xs space-y-3" id="trust">
-                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-secondary-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <Shield size={20} />
                   </div>
                   <h2 className="font-bold text-base text-secondary-500">1. Trust & Stability</h2>
@@ -5557,7 +5557,7 @@ export default function DrawerDemo() {
 
                 {/* Principle 2 */}
                 <div className="bg-card border border-border rounded-xl p-5 shadow-xs space-y-3" id="clarity">
-                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-secondary-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <Compass size={20} />
                   </div>
                   <h2 className="font-bold text-base text-secondary-500">2. Turquoise/Teal Clarity</h2>
@@ -5568,7 +5568,7 @@ export default function DrawerDemo() {
 
                 {/* Principle 3 */}
                 <div className="bg-card border border-border rounded-xl p-5 shadow-xs space-y-3" id="spacing">
-                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-secondary-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <LayoutGrid size={20} />
                   </div>
                   <h2 className="font-bold text-base text-secondary-500">3. Generous Space & Confidence</h2>
@@ -5579,7 +5579,7 @@ export default function DrawerDemo() {
 
                 {/* Principle 4 */}
                 <div className="bg-card border border-border rounded-xl p-5 shadow-xs space-y-3" id="accessibility">
-                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-secondary-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <Accessibility size={20} />
                   </div>
                   <h2 className="font-bold text-base text-secondary-500">4. Accessibility First</h2>
@@ -5646,12 +5646,12 @@ export default function DrawerDemo() {
                     <div className="flex gap-2.5 rounded-lg border border-brand-teal/25 bg-brand-teal/5 dark:bg-brand-teal/10 p-3 mt-1">
                       <Info size={14} className="text-brand-teal shrink-0 mt-0.5" aria-hidden="true" />
                       <p className="text-[11px] text-muted-foreground leading-relaxed">
-                        <strong className="text-foreground">Teal text on light backgrounds uses <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">secondary-700</code>.</strong>{' '}
-                        The brand teal <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">#00bfb3</code> measures only
+                        <strong className="text-foreground">Teal text on light backgrounds uses <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">secondary-700</code>.</strong>{' '}
+                        The brand teal <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">#00bfb3</code> measures only
                         2.20:1 against our light background — below both the 4.5:1 body-text and 3:1 large-text thresholds — so light mode maps{' '}
-                        <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">--secondary</code>{' '}to{' '}
-                        <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">#00736b</code>{' '}(5.48:1, AA pass).
-                        Dark mode keeps the vivid <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">#00bfb3</code>, which passes against our deep navy.
+                        <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">--secondary</code>{' '}to{' '}
+                        <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">#00736b</code>{' '}(5.48:1, AA pass).
+                        Dark mode keeps the vivid <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">#00bfb3</code>, which passes against our deep navy.
                         Fills, borders, and non-text accents are unaffected by contrast minimums and use the brand teal in both themes.
                       </p>
                     </div>
@@ -8124,9 +8124,9 @@ export function SecuritySettingsTemplate() {
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>Headers are built using native HTML <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">button</code> tags to ensure screen reader focus.</li>
+                    <li>Headers are built using native HTML <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">button</code> tags to ensure screen reader focus.</li>
                     <li>Supports full keyboard tab traversal. Custom offset focus ring guarantees visibility against primary surfaces.</li>
-                    <li>Headers reflect active layout state dynamically via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-expanded</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-controls</code> declarations.</li>
+                    <li>Headers reflect active layout state dynamically via <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-expanded</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-controls</code> declarations.</li>
                   </ul>
                 </div>
               </section>
@@ -8256,7 +8256,7 @@ export function SecuritySettingsTemplate() {
                           onClick={() => setPlayAccordionVariant('bordered')}
                           className={`py-1.5 text-xs font-semibold rounded-lg border transition cursor-pointer ${
                             playAccordionVariant === 'bordered'
-                              ? 'bg-brand-teal/15 text-secondary-500 border-brand-teal/50 shadow-xs'
+                              ? 'bg-brand-teal/15 text-brand-teal border-brand-teal/50 shadow-xs'
                               : 'bg-card hover:bg-muted text-muted-foreground border-border/80'
                           }`}
                         >
@@ -8266,7 +8266,7 @@ export function SecuritySettingsTemplate() {
                           onClick={() => setPlayAccordionVariant('cards')}
                           className={`py-1.5 text-xs font-semibold rounded-lg border transition cursor-pointer ${
                             playAccordionVariant === 'cards'
-                              ? 'bg-brand-teal/15 text-secondary-500 border-brand-teal/50 shadow-xs'
+                              ? 'bg-brand-teal/15 text-brand-teal border-brand-teal/50 shadow-xs'
                               : 'bg-card hover:bg-muted text-muted-foreground border-border/80'
                           }`}
                         >
@@ -8285,7 +8285,7 @@ export function SecuritySettingsTemplate() {
                             onClick={() => setPlayAccordionSize(sz as 'sm' | 'md' | 'lg')}
                             className={`py-1.5 text-xs font-semibold rounded-lg border transition uppercase cursor-pointer ${
                               playAccordionSize === sz
-                                ? 'bg-brand-teal/15 text-secondary-500 border-brand-teal/50 shadow-xs'
+                                ? 'bg-brand-teal/15 text-brand-teal border-brand-teal/50 shadow-xs'
                                 : 'bg-card hover:bg-muted text-muted-foreground border-border/80'
                             }`}
                           >
@@ -10248,9 +10248,9 @@ export function SecuritySettingsTemplate() {
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>Uses the native HTML <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="alert"</code> declaration to trigger immediate screen reader announcements.</li>
-                    <li>Status icons contain <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> to prevent redundant vocalization of purely visual status states.</li>
-                    <li>Optional close buttons feature explicit, translated <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label</code> controls for proper button naming.</li>
+                    <li>Uses the native HTML <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="alert"</code> declaration to trigger immediate screen reader announcements.</li>
+                    <li>Status icons contain <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> to prevent redundant vocalization of purely visual status states.</li>
+                    <li>Optional close buttons feature explicit, translated <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label</code> controls for proper button naming.</li>
                     <li>Supports proper keyboard focus outlines on interactive action links or dismiss buttons.</li>
                   </ul>
                 </div>
@@ -10603,8 +10603,8 @@ export function SecuritySettingsTemplate() {
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>Badges are rendered as <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{'<span>'}</code> elements — not buttons — as they carry no interactive role.</li>
-                    <li>Color alone is never the sole conveyor of meaning; always pair with a text label or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label</code> for status-dot variants.</li>
+                    <li>Badges are rendered as <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{'<span>'}</code> elements — not buttons — as they carry no interactive role.</li>
+                    <li>Color alone is never the sole conveyor of meaning; always pair with a text label or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label</code> for status-dot variants.</li>
                     <li>Minimum 3:1 contrast ratio maintained between badge text and its background across all color variants in both light and dark modes.</li>
                     <li>When used inside a table or list, ensure the parent row or item has a meaningful accessible label that does not rely solely on the badge.</li>
                   </ul>
@@ -10974,7 +10974,7 @@ export function SecuritySettingsTemplate() {
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>When wrapping third-party content (like <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">iframe</code> embeds for videos/maps), always provide a descriptive, clear <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{'title'}</code> attribute.</li>
+                    <li>When wrapping third-party content (like <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">iframe</code> embeds for videos/maps), always provide a descriptive, clear <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{'title'}</code> attribute.</li>
                     <li>Ensure fallback illustrations or loading indicators within the aspect box also contain descriptive accessibility labels.</li>
                     <li>Avoid wrapping interactive controls directly in structural aspect ratio elements unless focus flows naturally.</li>
                   </ul>
@@ -11266,9 +11266,9 @@ export function SecuritySettingsTemplate() {
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>The avatar wrapper carries a descriptive <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{'aria-label'}</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{'title'}</code> when serving as standalone identification.</li>
-                    <li>Always provide a meaningful <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{'alt'}</code> tag for profile images. If the image fails to load, the markup must fallback seamlessly to textual initials or a neutral generic icon.</li>
-                    <li>Status indicator dots include an <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{'aria-label'}</code> (e.g. <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{"Status: Online"}</code>) rather than depending solely on color visual indicators.</li>
+                    <li>The avatar wrapper carries a descriptive <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{'aria-label'}</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{'title'}</code> when serving as standalone identification.</li>
+                    <li>Always provide a meaningful <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{'alt'}</code> tag for profile images. If the image fails to load, the markup must fallback seamlessly to textual initials or a neutral generic icon.</li>
+                    <li>Status indicator dots include an <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{'aria-label'}</code> (e.g. <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{"Status: Online"}</code>) rather than depending solely on color visual indicators.</li>
                     <li>When wrapped in interactive elements (e.g. user profile links), the anchor should receive focus state outlines.</li>
                   </ul>
                 </div>
@@ -11816,9 +11816,9 @@ export function SecuritySettingsTemplate() {
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>The calendar month view grid carries <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="grid"</code>.</li>
-                      <li>Colheaders contain <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{'<abbr>'}</code> titles for day labels (e.g. <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">{"title=\"Monday\""}</code>).</li>
-                      <li>Day cells represent buttons inside grid cells with <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="gridcell"</code>. Selected days receive <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-selected="true"</code>.</li>
+                      <li>The calendar month view grid carries <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="grid"</code>.</li>
+                      <li>Colheaders contain <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{'<abbr>'}</code> titles for day labels (e.g. <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">{"title=\"Monday\""}</code>).</li>
+                      <li>Day cells represent buttons inside grid cells with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="gridcell"</code>. Selected days receive <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-selected="true"</code>.</li>
                       <li>Month navigation keys support screen-reader announcement of month change events via aria-live notification alerts.</li>
                     </ul>
                   </div>
@@ -15200,9 +15200,9 @@ export function SecuritySettingsTemplate() {
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Carries the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="progressbar"</code> attribute to signal status role.</li>
-                      <li>Sets <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemin="0"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemax="100"</code>.</li>
-                      <li>Sets <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuenow</code> to the current numeric value, or omits it for indeterminate/loading states.</li>
+                      <li>Carries the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="progressbar"</code> attribute to signal status role.</li>
+                      <li>Sets <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-valuemin="0"</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-valuemax="100"</code>.</li>
+                      <li>Sets <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-valuenow</code> to the current numeric value, or omits it for indeterminate/loading states.</li>
                       <li>Visual focus or label options ensure accessible indicators are visible on all screen reader layers.</li>
                     </ul>
                   </div>
@@ -18113,8 +18113,8 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Skeletons should always carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> so screen readers ignore raw loading geometry and avoid announcing empty elements.</li>
-                      <li>The container wrapper holding the skeletons should carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-busy="true"</code> to notify screen readers that data is currently fetching.</li>
+                      <li>Skeletons should always carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> so screen readers ignore raw loading geometry and avoid announcing empty elements.</li>
+                      <li>The container wrapper holding the skeletons should carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-busy="true"</code> to notify screen readers that data is currently fetching.</li>
                       <li>Ensure that screen reader users receive alternative indicators (like toast notices, live region announcements, or standard text labels) when a layout transitions to loading.</li>
                       <li>Maintains visual consistency with current themes without adding interactive keyboard focus points.</li>
                     </ul>
@@ -18504,8 +18504,8 @@ export function ScrollArea({
                         ARIA Roles & Layout
                       </div>
                       <ul className="list-disc list-inside space-y-1.5 pl-1">
-                        <li><strong>Role Slider</strong>: Thumb handles must have <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="slider"</code>.</li>
-                        <li><strong>Aria Values</strong>: Must carry <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemin</code>, <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuemax</code>, and <code className="font-mono text-[10px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-valuenow</code>.</li>
+                        <li><strong>Role Slider</strong>: Thumb handles must have <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="slider"</code>.</li>
+                        <li><strong>Aria Values</strong>: Must carry <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-valuemin</code>, <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-valuemax</code>, and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-valuenow</code>.</li>
                         <li><strong>Touch Safe targets</strong>: Slider track and thumbs utilize pointer interaction offsets for click accuracy.</li>
                       </ul>
                     </div>
@@ -19651,9 +19651,9 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>The outer container carries <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="region"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-roledescription="carousel"</code>.</li>
-                      <li>Individual slide items are tagged with <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="group"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-roledescription="slide"</code>.</li>
-                      <li>Chevron buttons carry clear <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label</code> tags (e.g. <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">"Next slide"</code>).</li>
+                      <li>The outer container carries <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="region"</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-roledescription="carousel"</code>.</li>
+                      <li>Individual slide items are tagged with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="group"</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-roledescription="slide"</code>.</li>
+                      <li>Chevron buttons carry clear <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label</code> tags (e.g. <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">"Next slide"</code>).</li>
                       <li>For automated carousels, hover and focus events trigger an automatic pause on the autoplay cycle to allow users to read at their own pace.</li>
                     </ul>
                   </div>
@@ -20016,7 +20016,7 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Uses high-contrast SVG paths with descriptive <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label</code> configurations for screen reader compatibility.</li>
+                      <li>Uses high-contrast SVG paths with descriptive <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label</code> configurations for screen reader compatibility.</li>
                       <li>Contains explicit legends matching color markers with text labels for visual and keyboard clarity.</li>
                       <li>Interactive nodes support keyboard navigation markers using focus rings and clear hover descriptions.</li>
                       <li>Implements tooltips positioned via relative coordinates, ensuring screen readers can follow dynamic values.</li>
@@ -20520,11 +20520,11 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>Uses the HTML <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="switch"</code> attribute to declare the component identity to screen readers.</li>
-                    <li>Synchronizes the toggle state with the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-checked</code> attribute (values: <code className="font-mono text-[11px]">"true"</code> or <code className="font-mono text-[11px]">"false"</code>).</li>
-                    <li>Keyboard navigation is supported: the control is focusable via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Tab</code>, and toggled with <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Space</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Enter</code>.</li>
-                    <li>Focus outline transitions smoothly using <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">focus-visible:</code> ring offsets to prevent overlay overlap.</li>
-                    <li>If disabled, standard <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">disabled</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-disabled="true"</code> is set, dropping opacity to 40% and blocking pointer/click events.</li>
+                    <li>Uses the HTML <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="switch"</code> attribute to declare the component identity to screen readers.</li>
+                    <li>Synchronizes the toggle state with the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-checked</code> attribute (values: <code className="font-mono text-[11px]">"true"</code> or <code className="font-mono text-[11px]">"false"</code>).</li>
+                    <li>Keyboard navigation is supported: the control is focusable via <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Tab</code>, and toggled with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Space</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Enter</code>.</li>
+                    <li>Focus outline transitions smoothly using <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">focus-visible:</code> ring offsets to prevent overlay overlap.</li>
+                    <li>If disabled, standard <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">disabled</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-disabled="true"</code> is set, dropping opacity to 40% and blocking pointer/click events.</li>
                   </ul>
                 </div>
               </section>
@@ -20890,10 +20890,10 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>Uses standard heading tags (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">h3</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">h4</code>) within the card header to preserve document outline structure.</li>
-                    <li>If the card functions as a click destination, it must carry a semantic <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="button"</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="link"</code> and have a focusable <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">tabIndex={0}</code>.</li>
-                    <li>Interactive cards respond to keyboard toggles, firing click handlers on <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Space</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Enter</code>.</li>
-                    <li>Focus outline states use the subtle primary blue glow (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">focus-visible:ring-primary-200/40</code>) to prevent visual clutter while ensuring accessibility.</li>
+                    <li>Uses standard heading tags (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">h3</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">h4</code>) within the card header to preserve document outline structure.</li>
+                    <li>If the card functions as a click destination, it must carry a semantic <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="button"</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="link"</code> and have a focusable <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">tabIndex={0}</code>.</li>
+                    <li>Interactive cards respond to keyboard toggles, firing click handlers on <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Space</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Enter</code>.</li>
+                    <li>Focus outline states use the subtle primary blue glow (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">focus-visible:ring-primary-200/40</code>) to prevent visual clutter while ensuring accessibility.</li>
                   </ul>
                 </div>
               </section>
@@ -20974,7 +20974,7 @@ export function ScrollArea({
                         tabIndex={0}
                         className="bg-card border border-border/80 rounded-xl p-6 shadow-hnh-sm hover:-translate-y-1 hover:shadow-hnh-md hover:border-slate-350 dark:hover:border-slate-700 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:focus-visible:ring-primary-200/40 ring-offset-2 ring-offset-background space-y-3"
                       >
-                        <span className="text-[9px] uppercase font-bold text-secondary-500 bg-brand-teal/10 px-2 py-0.5 rounded inline-block">Clickable Action</span>
+                        <span className="text-[9px] uppercase font-bold text-brand-teal bg-brand-teal/10 px-2 py-0.5 rounded inline-block">Clickable Action</span>
                         <h4 className="text-xs font-bold text-foreground">Interactive Card</h4>
                         <p className="text-[11px] text-muted-foreground leading-relaxed">
                           Hover or focus this container to see the premium translation shift, shadow expansion, and accessible outline.
@@ -21806,10 +21806,10 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>Use semantic table tags (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">table</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">thead</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">tbody</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">tr</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">th</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">td</code>) rather than div tables to allow screen readers to parse the cell matrix accurately.</li>
-                    <li>Always provide <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">scope="col"</code> on column headers (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">th</code>) and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">scope="row"</code> on row headers if active.</li>
-                    <li>When a header is sortable, it must carry a semantic <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-sort</code> attribute (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ascending</code>, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">descending</code>, or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">none</code>).</li>
-                    <li>Row action triggers (e.g. download PDF, refund buttons) must carry clear text descriptors or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label</code> tags containing the transaction ID to provide unique context.</li>
+                    <li>Use semantic table tags (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">table</code>, <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">thead</code>, <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">tbody</code>, <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">tr</code>, <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">th</code>, <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">td</code>) rather than div tables to allow screen readers to parse the cell matrix accurately.</li>
+                    <li>Always provide <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">scope="col"</code> on column headers (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">th</code>) and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">scope="row"</code> on row headers if active.</li>
+                    <li>When a header is sortable, it must carry a semantic <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-sort</code> attribute (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">ascending</code>, <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">descending</code>, or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">none</code>).</li>
+                    <li>Row action triggers (e.g. download PDF, refund buttons) must carry clear text descriptors or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label</code> tags containing the transaction ID to provide unique context.</li>
                   </ul>
                 </div>
               </section>
@@ -22178,7 +22178,7 @@ export function ScrollArea({
                     </div>
                     <h3 className="text-sm font-bold text-foreground">Stroke Thickness</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed font-light">
-                      Always use <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">stroke-[2]</code> or <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">stroke-[2.5]</code> for interface actions. Refrain from heavy styling to preserve neat legibility on high-density displays.
+                      Always use <code className="font-mono text-[10.5px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">stroke-[2]</code> or <code className="font-mono text-[10.5px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">stroke-[2.5]</code> for interface actions. Refrain from heavy styling to preserve neat legibility on high-density displays.
                     </p>
                   </div>
 
@@ -22189,7 +22189,7 @@ export function ScrollArea({
                     </div>
                     <h3 className="text-sm font-bold text-foreground">Consistent Sizing</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed font-light">
-                      Icons map to three key scale sizes: <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">12px</code> (subtle actions/badges), <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">16px</code> (standard buttons/inputs), and <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">20px</code> (major headers/cards).
+                      Icons map to three key scale sizes: <code className="font-mono text-[10.5px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">12px</code> (subtle actions/badges), <code className="font-mono text-[10.5px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">16px</code> (standard buttons/inputs), and <code className="font-mono text-[10.5px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">20px</code> (major headers/cards).
                     </p>
                   </div>
 
@@ -22200,7 +22200,7 @@ export function ScrollArea({
                     </div>
                     <h3 className="text-sm font-bold text-foreground">Contextual Coloring</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed font-light">
-                      Ensure icons inherit their color dynamically via <code className="font-mono text-[10.5px] text-secondary-500 bg-muted px-1.5 py-0.5 rounded">currentColor</code> or match the system status roles (e.g. emerald success dots, red failed indicators).
+                      Ensure icons inherit their color dynamically via <code className="font-mono text-[10.5px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">currentColor</code> or match the system status roles (e.g. emerald success dots, red failed indicators).
                     </p>
                   </div>
                 </div>
@@ -22373,10 +22373,10 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>Must be rendered inside a semantic <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="dialog"</code> container and carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-modal="true"</code>.</li>
-                    <li>The title header should be labeled via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-labelledby</code> pointing directly to the dialog's header element.</li>
+                    <li>Must be rendered inside a semantic <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="dialog"</code> container and carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-modal="true"</code>.</li>
+                    <li>The title header should be labeled via <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-labelledby</code> pointing directly to the dialog's header element.</li>
                     <li><strong>Focus Trapping</strong>: Active dialogs must lock tab focus within the modal bounds, preventing users from tabbing to background nodes.</li>
-                    <li><strong>Keyboard Escape</strong>: Pressing the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Escape</code> key must invoke the close trigger handler.</li>
+                    <li><strong>Keyboard Escape</strong>: Pressing the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Escape</code> key must invoke the close trigger handler.</li>
                   </ul>
                 </div>
               </section>
@@ -22668,10 +22668,10 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>The container must have <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="tablist"</code>.</li>
-                    <li>Each tab trigger must have <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="tab"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-selected="true/false"</code>.</li>
-                    <li>Use <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-controls</code> pointing to the associated <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="tabpanel"</code>.</li>
-                    <li><strong>Keyboard Navigation</strong>: support <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ArrowRight</code>/<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ArrowLeft</code> to move focus, and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Home</code>/<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">End</code> to go to first/last tab.</li>
+                    <li>The container must have <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="tablist"</code>.</li>
+                    <li>Each tab trigger must have <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="tab"</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-selected="true/false"</code>.</li>
+                    <li>Use <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-controls</code> pointing to the associated <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="tabpanel"</code>.</li>
+                    <li><strong>Keyboard Navigation</strong>: support <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">ArrowRight</code>/<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">ArrowLeft</code> to move focus, and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Home</code>/<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">End</code> to go to first/last tab.</li>
                   </ul>
                 </div>
               </section>
@@ -22938,10 +22938,10 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>The target trigger element must carry an <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-describedby</code> attribute referencing the tooltip's unique ID.</li>
-                    <li>The tooltip content container must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="tooltip"</code>.</li>
+                    <li>The target trigger element must carry an <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-describedby</code> attribute referencing the tooltip's unique ID.</li>
+                    <li>The tooltip content container must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="tooltip"</code>.</li>
                     <li>Must be triggerable via both keyboard focus (`Focus`) and mouse hover (`Hover`).</li>
-                    <li>Pressing the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Escape</code> key must dismiss the active tooltip.</li>
+                    <li>Pressing the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Escape</code> key must dismiss the active tooltip.</li>
                   </ul>
                 </div>
               </section>
@@ -23195,9 +23195,9 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>The navigation container must have <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label="Breadcrumb"</code>.</li>
-                    <li>The separator symbols should be hidden from screen readers using <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code>.</li>
-                    <li>The active node representing the current page must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-current="page"</code>.</li>
+                    <li>The navigation container must have <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="Breadcrumb"</code>.</li>
+                    <li>The separator symbols should be hidden from screen readers using <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code>.</li>
+                    <li>The active node representing the current page must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-current="page"</code>.</li>
                   </ul>
                 </div>
               </section>
@@ -23349,9 +23349,9 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>The trigger button must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-haspopup="menu"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-expanded="true/false"</code>.</li>
-                    <li>The floating menu panel must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menu"</code>.</li>
-                    <li>Each menu item button should carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menuitem"</code>.</li>
+                    <li>The trigger button must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-haspopup="menu"</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-expanded="true/false"</code>.</li>
+                    <li>The floating menu panel must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="menu"</code>.</li>
+                    <li>Each menu item button should carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="menuitem"</code>.</li>
                     <li><strong>Keyboard Trapping</strong>: pressing Up/Down arrow keys must move selection focus within the open dropdown.</li>
                   </ul>
                 </div>
@@ -23579,9 +23579,9 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>The navigation block container must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="navigation"</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label="Pagination"</code>.</li>
-                    <li>The active page trigger button must have <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-current="page"</code>.</li>
-                    <li>Inactive buttons should carry clear descriptive text labels or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label="Go to page X"</code> labels.</li>
+                    <li>The navigation block container must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="navigation"</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="Pagination"</code>.</li>
+                    <li>The active page trigger button must have <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-current="page"</code>.</li>
+                    <li>Inactive buttons should carry clear descriptive text labels or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="Go to page X"</code> labels.</li>
                   </ul>
                 </div>
               </section>
@@ -23765,9 +23765,9 @@ export function ScrollArea({
                     Accessibility Contract (WCAG 2.1 AA)
                   </div>
                   <ul className="list-disc list-inside space-y-1.5 pl-1">
-                    <li>The Toast container must have <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="status"</code> (or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="alert"</code> for critical warnings).</li>
-                    <li>Specify <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-live="polite"</code> so screen readers read updates dynamically.</li>
-                    <li>Include a clear dismiss button with an <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label="Dismiss"</code> to support mouse-free actions.</li>
+                    <li>The Toast container must have <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="status"</code> (or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="alert"</code> for critical warnings).</li>
+                    <li>Specify <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-live="polite"</code> so screen readers read updates dynamically.</li>
+                    <li>Include a clear dismiss button with an <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="Dismiss"</code> to support mouse-free actions.</li>
                   </ul>
                 </div>
               </section>
@@ -25326,10 +25326,10 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Uses the HTML <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-expanded</code> attribute on the trigger button to announce the visibility state of the panel.</li>
-                      <li>Sets the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-controls</code> attribute pointing to the ID of the collapsible panel content.</li>
-                      <li>Ensures keyboard navigability: focusable via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Tab</code>, toggled using <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Space</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Enter</code>.</li>
-                      <li>Synchronizes the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-disabled="true"</code> state to block toggle events when disabled.</li>
+                      <li>Uses the HTML <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-expanded</code> attribute on the trigger button to announce the visibility state of the panel.</li>
+                      <li>Sets the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-controls</code> attribute pointing to the ID of the collapsible panel content.</li>
+                      <li>Ensures keyboard navigability: focusable via <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Tab</code>, toggled using <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Space</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Enter</code>.</li>
+                      <li>Synchronizes the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-disabled="true"</code> state to block toggle events when disabled.</li>
                     </ul>
                   </div>
                 </section>
@@ -25596,10 +25596,10 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Trigger button carries <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="combobox"</code> to identify the widget role.</li>
-                      <li>Floating panel synchronizes its state using <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-expanded="true/false"</code>.</li>
+                      <li>Trigger button carries <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="combobox"</code> to identify the widget role.</li>
+                      <li>Floating panel synchronizes its state using <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-expanded="true/false"</code>.</li>
                       <li>Autocomplete input supports focus lockouts and announces results count to screen readers via aria live regions.</li>
-                      <li>Keyboard triggers are mapped: <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Esc</code> closes the list, and Arrow keys scroll options.</li>
+                      <li>Keyboard triggers are mapped: <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Esc</code> closes the list, and Arrow keys scroll options.</li>
                     </ul>
                   </div>
                 </section>
@@ -25904,10 +25904,10 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Widget acts as a composite input element carrying <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="combobox"</code>.</li>
+                      <li>Widget acts as a composite input element carrying <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="combobox"</code>.</li>
                       <li>Standard overlay dialog includes focus lock, returning focus to the trigger element when closed.</li>
-                      <li>Supports keybindings: <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Cmd+K</code> / <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Ctrl+K</code> triggers toggle, <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Esc</code> dismisses.</li>
-                      <li>Visual focus index is bound to items and announced dynamically to screen readers using <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-selected="true"</code>.</li>
+                      <li>Supports keybindings: <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Cmd+K</code> / <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Ctrl+K</code> triggers toggle, <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Esc</code> dismisses.</li>
+                      <li>Visual focus index is bound to items and announced dynamically to screen readers using <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-selected="true"</code>.</li>
                     </ul>
                   </div>
                 </section>
@@ -25928,7 +25928,7 @@ export function ScrollArea({
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4">
                       <div className="flex items-center justify-between border-b border-border/40 pb-2">
                         <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Inline Console</h3>
-                        <span className="text-[10px] text-secondary-500 bg-brand-teal/10 px-1.5 py-0.5 rounded-md font-semibold">Embedded View</span>
+                        <span className="text-[10px] text-brand-teal bg-brand-teal/10 px-1.5 py-0.5 rounded-md font-semibold">Embedded View</span>
                       </div>
                       
                       <div className="border border-border rounded-xl bg-muted/20 overflow-hidden shadow-xs">
@@ -26269,9 +26269,9 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>The context menu must intercept the native browser right-click context menu via <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">e.preventDefault()</code>.</li>
-                      <li>The floating panel must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menu"</code>.</li>
-                      <li>Each item button should carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">role="menuitem"</code>.</li>
+                      <li>The context menu must intercept the native browser right-click context menu via <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">e.preventDefault()</code>.</li>
+                      <li>The floating panel must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="menu"</code>.</li>
+                      <li>Each item button should carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="menuitem"</code>.</li>
                       <li><strong>Dismissal</strong>: Clicking anywhere outside the menu or pressing <kbd className="font-mono text-[11px] bg-muted px-1 py-0.5 rounded">Esc</kbd> must close it.</li>
                       <li><strong>Edge Safety</strong>: Menu coordinates must be auto-adjusted to prevent rendering outside the viewport.</li>
                     </ul>
@@ -26631,8 +26631,8 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Uses semantic <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">&lt;table&gt;</code> structure with <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-sort</code> attributes set on sortable column headers.</li>
-                      <li>Checkbox items carry descriptive screen-reader labels using <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label="Select row..."</code> to provide clear cell identification.</li>
+                      <li>Uses semantic <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;table&gt;</code> structure with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-sort</code> attributes set on sortable column headers.</li>
+                      <li>Checkbox items carry descriptive screen-reader labels using <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="Select row..."</code> to provide clear cell identification.</li>
                       <li>Keyboard focus outline triggers cleanly on row select checkboxes and interactive pagination buttons.</li>
                     </ul>
                   </div>
@@ -26654,7 +26654,7 @@ export function ScrollArea({
                     <div className="border border-border/80 bg-card rounded-2xl p-6 space-y-4">
                       <div className="flex items-center justify-between border-b border-border/40 pb-2">
                         <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Premium Client Ledger</div>
-                        <span className="text-[10px] text-secondary-500 bg-brand-teal/10 px-1.5 py-0.5 rounded-md font-semibold">Active Specimen</span>
+                        <span className="text-[10px] text-brand-teal bg-brand-teal/10 px-1.5 py-0.5 rounded-md font-semibold">Active Specimen</span>
                       </div>
 
                       {/* Bulk action toolbar */}
@@ -27022,8 +27022,8 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Use the standard HTML <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">dir</code> attribute (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">dir="ltr"</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">dir="rtl"</code>) to communicate text directionality to screen readers.</li>
-                      <li><strong>Logical CSS Properties</strong>: Avoid physical placement styles like <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">margin-left</code> or <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">right: 0</code>. Instead, use logical counterparts: <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">margin-inline-start</code> (or Tailwind <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">ms-*</code>) and logical coordinates (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">start-*</code> / <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">end-*</code>) for automated swapping.</li>
+                      <li>Use the standard HTML <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">dir</code> attribute (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">dir="ltr"</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">dir="rtl"</code>) to communicate text directionality to screen readers.</li>
+                      <li><strong>Logical CSS Properties</strong>: Avoid physical placement styles like <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">margin-left</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">right: 0</code>. Instead, use logical counterparts: <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">margin-inline-start</code> (or Tailwind <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">ms-*</code>) and logical coordinates (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">start-*</code> / <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">end-*</code>) for automated swapping.</li>
                       <li><strong>Logical Icons</strong>: Mirror directional navigation icons (e.g., arrows) in RTL, but preserve icons indicating status or utility configurations (e.g., settings, search, profile, lock).</li>
                     </ul>
                   </div>
@@ -27268,9 +27268,9 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Uses an overlay backdrop container carrying role <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">dialog</code> and <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-modal="true"</code>.</li>
-                      <li>Closes automatically when the user presses the <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">Esc</code> key.</li>
-                      <li>The dismiss button carries screen-reader text labels (<code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-label="Close panel"</code>).</li>
+                      <li>Uses an overlay backdrop container carrying role <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">dialog</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-modal="true"</code>.</li>
+                      <li>Closes automatically when the user presses the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Esc</code> key.</li>
+                      <li>The dismiss button carries screen-reader text labels (<code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="Close panel"</code>).</li>
                     </ul>
                   </div>
                 </section>
@@ -27470,7 +27470,7 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li><strong>Aria Hidden</strong>: Decorative or illustrative icons inside the empty state must carry <code className="font-mono text-[11px] text-secondary-500 bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> so they are hidden from screen readers.</li>
+                      <li><strong>Aria Hidden</strong>: Decorative or illustrative icons inside the empty state must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> so they are hidden from screen readers.</li>
                       <li><strong>Clear Instructions</strong>: Provide a concise action message explaining <em>why</em> the view is empty and <em>what</em> step the user can take next.</li>
                       <li><strong>Logical Button Flow</strong>: The primary action button must be in the tab outline, matching standard focus rings.</li>
                     </ul>
