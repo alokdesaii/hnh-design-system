@@ -8157,7 +8157,7 @@ export function SecuritySettingsTemplate() {
                       {/* Item 2 (Expanded) */}
                       <div className="border-b border-border/80">
                         <button className="w-full py-3.5 flex justify-between items-center font-bold text-xs text-left outline-none focus-visible:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)] rounded-md transition duration-150">
-                          <span className="text-secondary-500">Asset Allocation Matrix</span>
+                          <span className="text-brand-teal">Asset Allocation Matrix</span>
                           <ChevronDown size={15} className="text-brand-teal rotate-180 transition-transform duration-200" />
                         </button>
                         <div className="pb-4 px-1 text-xs text-muted-foreground leading-relaxed animate-fade-in">
@@ -8181,7 +8181,7 @@ export function SecuritySettingsTemplate() {
                       {/* Item 2 (Expanded) */}
                       <div className="bg-card/45 border border-border/80 rounded-xl overflow-hidden shadow-xs">
                         <button className="w-full py-3.5 px-4 flex justify-between items-center font-bold text-xs text-left outline-none focus-visible:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)] rounded-md transition duration-150">
-                          <span className="text-secondary-500">Multi-Sig Cold Storage</span>
+                          <span className="text-brand-teal">Multi-Sig Cold Storage</span>
                           <ChevronDown size={15} className="text-brand-teal rotate-180 transition-transform duration-200" />
                         </button>
                         <div className="pb-4 px-4 text-xs text-muted-foreground leading-relaxed border-t border-border/30 pt-3 animate-fade-in">
@@ -8223,7 +8223,7 @@ export function SecuritySettingsTemplate() {
                       <div className="text-[10px] uppercase font-bold text-muted-foreground">Active Highlight</div>
                       <div className="border border-brand-teal/60 rounded-lg bg-brand-teal/5 overflow-hidden">
                         <button className="w-full py-3 px-3 flex justify-between items-center font-bold text-xs text-left outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-                          <span className="text-secondary-500">Active / Open Item</span>
+                          <span className="text-brand-teal">Active / Open Item</span>
                           <ChevronDown size={14} className="text-brand-teal rotate-180" />
                         </button>
                       </div>
@@ -8372,7 +8372,7 @@ export function SecuritySettingsTemplate() {
                                     aria-expanded={isOpen}
                                     className={`w-full flex justify-between items-center ${sizePadding} font-bold text-left transition duration-150 rounded-md outline-none focus-visible:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)] disabled:opacity-40 disabled:cursor-not-allowed`}
                                   >
-                                    <span className={isOpen ? 'text-secondary-500' : 'text-slate-900 dark:text-white'}>{item.title}</span>
+                                    <span className={isOpen ? 'text-brand-teal' : 'text-slate-900 dark:text-white'}>{item.title}</span>
                                     <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180 text-brand-teal' : 'text-muted-foreground'}`} />
                                   </button>
                                   <AnimatePresence initial={false}>
@@ -8428,7 +8428,7 @@ export function SecuritySettingsTemplate() {
                                     aria-expanded={isOpen}
                                     className={`w-full flex justify-between items-center ${sizePadding} font-bold text-left transition duration-150 outline-none focus-visible:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)] disabled:opacity-40 disabled:cursor-not-allowed`}
                                   >
-                                    <span className={isOpen ? 'text-secondary-500' : 'text-slate-900 dark:text-white'}>{item.title}</span>
+                                    <span className={isOpen ? 'text-brand-teal' : 'text-slate-900 dark:text-white'}>{item.title}</span>
                                     <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180 text-brand-teal' : 'text-muted-foreground'}`} />
                                   </button>
                                   <AnimatePresence initial={false}>
