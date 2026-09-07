@@ -282,12 +282,16 @@ interface Shade {
 // so exit animations silently stop rendering.
 const Portal = ({ children }: { children: React.ReactNode }) => createPortal(children, document.body)
 
-// The prev/next footer nav, derived from implementedPaths — the curated reading
-// order, not the alphabetical sidebar. Legacy platform pages are their own
-// microsites and stay out of the chain.
+// The prev/next footer nav follows the sidebar, so "next" is always the entry
+// directly below the current one in the navigation the reader can see.
+// (Not implementedPaths — that is build history: it has Iconography between
+// Table and Dialog, and Switch between Chart and Card.)
+// Legacy platform pages are their own microsites and stay out of the chain.
 // This used to be hand-written on every page, which is how eight consecutive
 // pages ended up with no nav at all and Avatar ended up pointing across the gap.
-const readingOrder = implementedPaths.filter(p => !p.startsWith('legacy-platforms/'))
+const readingOrder = navigationGroups
+  .flatMap(g => g.items.map(i => i.id))
+  .filter(p => !p.startsWith('legacy-platforms/'))
 const pageNames: Record<string, string> = Object.fromEntries(
   navigationGroups.flatMap(g => g.items.map(i => [i.id, i.name]))
 )
