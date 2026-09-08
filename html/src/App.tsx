@@ -11864,7 +11864,7 @@ export function SecuritySettingsTemplate() {
                                 key={`day-${d}`}
                                 className={`w-8 h-8 rounded-lg flex items-center justify-center font-semibold transition ${
                                   isSel ? 'bg-brand-teal text-slate-950' : 'hover:bg-muted text-foreground'
-                                } ${isTod && !isSel ? 'ring-1 ring-secondary-500 text-secondary-500' : ''}`}
+                                } ${isTod && !isSel ? 'ring-1 ring-brand-teal text-brand-teal' : ''}`}
                               >
                                 {d}
                               </button>
@@ -11879,7 +11879,7 @@ export function SecuritySettingsTemplate() {
                       <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Calendar with Sidebar Presets</h3>
                       <div className="border border-border/80 rounded-2xl bg-card shadow-xs overflow-hidden flex max-w-[500px]">
                         <div className="w-36 border-r border-border bg-muted/20 p-3 flex flex-col gap-1.5 text-[11px] font-semibold">
-                          <button className="text-left px-2 py-1 bg-brand-teal/10 text-secondary-500 rounded-md">Today</button>
+                          <button className="text-left px-2 py-1 bg-brand-teal/10 text-brand-teal rounded-md">Today</button>
                           <button className="text-left px-2 py-1 text-muted-foreground hover:bg-muted rounded-md transition">Yesterday</button>
                           <button className="text-left px-2 py-1 text-muted-foreground hover:bg-muted rounded-md transition">Last 7 Days</button>
                           <button className="text-left px-2 py-1 text-muted-foreground hover:bg-muted rounded-md transition">Last 30 Days</button>
@@ -11909,7 +11909,7 @@ export function SecuritySettingsTemplate() {
                                   className={`w-8 h-8 flex items-center justify-center font-semibold transition rounded-lg ${
                                     isStart ? 'bg-brand-teal text-slate-950' :
                                     isEnd ? 'bg-brand-teal text-slate-950' :
-                                    isRange ? 'bg-brand-teal/10 text-secondary-500' : 'hover:bg-muted text-foreground'
+                                    isRange ? 'bg-brand-teal/10 text-brand-teal' : 'hover:bg-muted text-foreground'
                                   }`}
                                 >
                                   {d}
@@ -11986,12 +11986,12 @@ export function SecuritySettingsTemplate() {
                                     'w-8 h-8 flex items-center justify-center font-semibold transition cursor-pointer',
                                     outside ? 'text-slate-350 dark:text-slate-650 font-normal' : '',
                                     disabled ? 'opacity-30 cursor-not-allowed hover:bg-transparent' : '',
-                                    rangeStart ? 'bg-secondary-500 text-white rounded-lg' : '',
-                                    rangeEnd ? 'bg-secondary-500 text-white rounded-lg' : '',
-                                    active && playCalendarMode !== 'range' ? 'bg-secondary-500 text-white rounded-lg' : '',
-                                    rangeFill ? 'bg-secondary-500/10 text-secondary-500 rounded-lg' : '',
+                                    rangeStart ? 'bg-brand-teal text-slate-950 rounded-lg' : '',
+                                    rangeEnd ? 'bg-brand-teal text-slate-950 rounded-lg' : '',
+                                    active && playCalendarMode !== 'range' ? 'bg-brand-teal text-slate-950 rounded-lg' : '',
+                                    rangeFill ? 'bg-brand-teal/10 text-brand-teal rounded-lg' : '',
                                     !active && !rangeFill && !disabled ? 'hover:bg-muted text-foreground rounded-lg' : '',
-                                    isToday(day) && !active && !rangeFill ? 'ring-1 ring-secondary-500 text-secondary-500 rounded-lg' : ''
+                                    isToday(day) && !active && !rangeFill ? 'ring-1 ring-brand-teal text-brand-teal rounded-lg' : ''
                                   ].filter(Boolean).join(' ')}
                                 >
                                   {day.getDate()}
@@ -12035,7 +12035,7 @@ export function SecuritySettingsTemplate() {
                             setSelectedDates([new Date()]);
                             setCurrentMonth(new Date());
                           }}
-                          className="text-[10px] text-secondary-500 hover:underline font-semibold cursor-pointer"
+                          className="text-[10px] text-brand-teal hover:underline font-semibold cursor-pointer"
                         >
                           Reset Defaults
                         </button>
@@ -12200,9 +12200,9 @@ export function SecuritySettingsTemplate() {
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Trigger button uses <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">aria-haspopup="dialog"</code> and <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">aria-expanded</code> status synchronization.</li>
+                      <li>Trigger button uses <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-haspopup="dialog"</code> and <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-expanded</code> status synchronization.</li>
                       <li>Overlay popover captures focus and manages dialog semantics with escape key closes.</li>
-                      <li>Calendar cells feature explicit button roles with descriptive dates like <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">aria-label="July 13, 2026"</code>.</li>
+                      <li>Calendar cells feature explicit button roles with descriptive dates like <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="July 13, 2026"</code>.</li>
                       <li>Standardized arrow keys can be used to select adjacent dates once calendar grid focus is established.</li>
                     </ul>
                   </div>
@@ -12279,7 +12279,7 @@ export function SecuritySettingsTemplate() {
                                     className={`h-7 w-7 text-[10px] rounded-lg flex items-center justify-center cursor-pointer transition
                                       ${isOutside ? 'text-muted-foreground/30' : 'text-foreground font-medium'}
                                       ${isSel ? 'bg-brand-teal text-slate-950 font-bold' : 'hover:bg-muted'}
-                                      ${isToday && !isSel ? 'border border-secondary text-secondary-500 font-bold' : ''}`}
+                                      ${isToday && !isSel ? 'border border-brand-teal text-brand-teal font-bold' : ''}`}
                                   >
                                     {day.getDate()}
                                   </button>
@@ -12451,7 +12451,7 @@ export function SecuritySettingsTemplate() {
                                     className={`h-7 w-7 text-[10px] rounded-lg flex items-center justify-center cursor-pointer transition
                                       ${isOutside ? 'text-muted-foreground/30' : 'text-foreground font-medium'}
                                       ${isSel ? 'bg-brand-teal text-slate-950 font-bold' : 'hover:bg-muted'}
-                                      ${isToday && !isSel ? 'border border-secondary text-secondary-500 font-bold' : ''}`}
+                                      ${isToday && !isSel ? 'border border-brand-teal text-brand-teal font-bold' : ''}`}
                                   >
                                     {day.getDate()}
                                   </button>
@@ -12711,7 +12711,7 @@ export function SecuritySettingsTemplate() {
                                           ${isEnd ? 'bg-brand-teal text-slate-950 rounded-r-lg font-bold' : ''}
                                           ${inRange ? 'bg-muted/80 text-foreground rounded-lg' : 'rounded-lg'}
                                           ${!isSel && !isStart && !isEnd && !inRange && !isDisabled ? 'hover:bg-muted' : ''}
-                                          ${isToday && !isSel && !isStart && !isEnd ? 'border border-secondary text-secondary-500 font-bold' : ''}`}
+                                          ${isToday && !isSel && !isStart && !isEnd ? 'border border-brand-teal text-brand-teal font-bold' : ''}`}
                                       >
                                         {day.getDate()}
                                       </button>
@@ -12788,9 +12788,9 @@ export function SecuritySettingsTemplate() {
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Trigger elements must carry <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">aria-haspopup="dialog"</code> and synchronize <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">aria-expanded</code> state.</li>
-                      <li>The popover card container represents a dialog element with <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">role="dialog"</code>.</li>
-                      <li>Dismissed instantly via <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">Esc</code> key or clicking outside.</li>
+                      <li>Trigger elements must carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-haspopup="dialog"</code> and synchronize <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-expanded</code> state.</li>
+                      <li>The popover card container represents a dialog element with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="dialog"</code>.</li>
+                      <li>Dismissed instantly via <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Esc</code> key or clicking outside.</li>
                       <li>Focus should be locked inside the popover if it contains input fields or forms.</li>
                     </ul>
                   </div>
@@ -13180,8 +13180,8 @@ export function SecuritySettingsTemplate() {
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
                       <li>Hover cards must remain interactive (i.e. mouse can move into the card itself without it immediately closing).</li>
-                      <li>For keyboard navigation, triggers should double as active anchors focusing on <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">Tab</code> navigation or support focus triggers.</li>
-                      <li>Underlying container represents context details with <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">role="tooltip"</code> or <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">aria-haspopup</code> references.</li>
+                      <li>For keyboard navigation, triggers should double as active anchors focusing on <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">Tab</code> navigation or support focus triggers.</li>
+                      <li>Underlying container represents context details with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="tooltip"</code> or <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-haspopup</code> references.</li>
                     </ul>
                   </div>
                 </section>
@@ -13525,8 +13525,8 @@ export function SecuritySettingsTemplate() {
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1">
-                      <li>Each slot carries explicit focus rings. The slot grid container specifies <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">aria-label="OTP verification code"</code>.</li>
-                      <li>Input fields enforce numeric inputs with <code className="font-mono text-[11px] text-secondary bg-muted px-1 py-0.5 rounded">inputMode="numeric"</code> and validation patterns.</li>
+                      <li>Each slot carries explicit focus rings. The slot grid container specifies <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label="OTP verification code"</code>.</li>
+                      <li>Input fields enforce numeric inputs with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">inputMode="numeric"</code> and validation patterns.</li>
                       <li>Includes copy-paste event overrides that intercept clipboards, parsing and distributing digits correctly across slots.</li>
                     </ul>
                   </div>
@@ -13790,9 +13790,9 @@ export function SecuritySettingsTemplate() {
                       ACCESSIBILITY & USABILITY CONTRACT
                     </div>
                     <ul className="list-disc pl-5 space-y-1 leading-relaxed">
-                      <li>Use semantically correct markup; list items should be structured within <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">ul</code> and <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">li</code> elements.</li>
-                      <li>Interactive items must have appropriate focus outlines (<code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">focus-visible:ring-2</code>) and respond to keyboard triggers (Enter / Space).</li>
-                      <li>Selectable or checkable items must carry appropriate ARIA states such as <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">aria-selected</code> or <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">aria-checked</code>.</li>
+                      <li>Use semantically correct markup; list items should be structured within <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">ul</code> and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">li</code> elements.</li>
+                      <li>Interactive items must have appropriate focus outlines (<code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">focus-visible:ring-2</code>) and respond to keyboard triggers (Enter / Space).</li>
+                      <li>Selectable or checkable items must carry appropriate ARIA states such as <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-selected</code> or <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-checked</code>.</li>
                       <li>Provide high-contrast typography scaling and descriptive sub-labels to assist screen readers and users with visual cognitive impairments.</li>
                     </ul>
                   </div>
@@ -14132,9 +14132,9 @@ export function SecuritySettingsTemplate() {
                       ACCESSIBILITY & USABILITY CONTRACT
                     </div>
                     <ul className="list-disc pl-5 space-y-1 leading-relaxed">
-                      <li>Use the semantically correct <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">&lt;kbd&gt;</code> HTML tag to assist screen reader navigation.</li>
+                      <li>Use the semantically correct <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;kbd&gt;</code> HTML tag to assist screen reader navigation.</li>
                       <li>Avoid over-using inline keys; group hotkey shortcuts with explicit text titles or descriptions whenever possible.</li>
-                      <li>Ensure that keys match the user's localized platform (e.g. use <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">⌘</code> for macOS and <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">Ctrl</code> for Windows/Linux).</li>
+                      <li>Ensure that keys match the user's localized platform (e.g. use <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">⌘</code> for macOS and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">Ctrl</code> for Windows/Linux).</li>
                       <li>Provide high-contrast styling so key outlines remain highly readable on dark page backdrops.</li>
                     </ul>
                   </div>
@@ -14408,7 +14408,7 @@ export function SecuritySettingsTemplate() {
                       ACCESSIBILITY & USABILITY CONTRACT
                     </div>
                     <ul className="list-disc pl-5 space-y-1 leading-relaxed">
-                      <li>Use standard semantic markup with <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">role="menubar"</code> and <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">role="menuitem"</code> attributes.</li>
+                      <li>Use standard semantic markup with <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="menubar"</code> and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="menuitem"</code> attributes.</li>
                       <li>Incorporate arrow-key navigation (left/right to switch active menus, up/down to traverse items) when building full custom implementations.</li>
                       <li>Handle outside clicks and <kbd className="text-[9px] bg-muted border border-border px-1 rounded shadow-2xs font-mono">ESC</kbd> key presses to close open dropdown list panels instantly.</li>
                       <li>Provide visual indicators like checkmarks (<code className="font-mono text-[10px]">✓</code>) for checkbox menu rows and dots for radio item lists.</li>
@@ -14719,8 +14719,8 @@ export function SecuritySettingsTemplate() {
                       ACCESSIBILITY & USABILITY CONTRACT
                     </div>
                     <ul className="list-disc pl-5 space-y-1 leading-relaxed">
-                      <li>Use standard semantic markup with <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">&lt;nav&gt;</code>, <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">&lt;ul&gt;</code>, and <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">&lt;li&gt;</code> tags.</li>
-                      <li>Assign <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">aria-expanded</code> and <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">aria-haspopup</code> attributes to triggers containing submenus.</li>
+                      <li>Use standard semantic markup with <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;nav&gt;</code>, <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;ul&gt;</code>, and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;li&gt;</code> tags.</li>
+                      <li>Assign <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-expanded</code> and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-haspopup</code> attributes to triggers containing submenus.</li>
                       <li>Handle outside clicks and the <kbd className="text-[9px] bg-muted border border-border px-1 rounded shadow-2xs font-mono">ESC</kbd> key to instantly dismiss open navigation drawers and dropdown popups.</li>
                       <li>Incorporate high-contrast focus rings and ensure fully accessible navigation via keyboard <kbd className="text-[9px] bg-muted border border-border px-1 rounded shadow-2xs font-mono">Tab</kbd> controls.</li>
                     </ul>
@@ -15837,7 +15837,7 @@ export function SecuritySettingsTemplate() {
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1 text-[11px] leading-relaxed">
-                      <li>Handles are built using accessible <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">div</code> components with keyboard event focus targets.</li>
+                      <li>Handles are built using accessible <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">div</code> components with keyboard event focus targets.</li>
                       <li>Supports full keyboard arrow traversal (<kbd className="text-[9px] bg-muted border border-border px-1 rounded shadow-2xs font-mono">←</kbd> / <kbd className="text-[9px] bg-muted border border-border px-1 rounded shadow-2xs font-mono">→</kbd> and <kbd className="text-[9px] bg-muted border border-border px-1 rounded shadow-2xs font-mono">↑</kbd> / <kbd className="text-[9px] bg-muted border border-border px-1 rounded shadow-2xs font-mono">↓</kbd> keys) for fluid mouse-less sizing.</li>
                       <li>Grip indicators provide clear visual cues for resizing capability and cursor pointer style overrides.</li>
                     </ul>
@@ -16352,7 +16352,7 @@ export function SecuritySettingsTemplate() {
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1 text-[11px] leading-relaxed">
-                      <li>Ensures scrollable regions carry an explicit <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">tabIndex={0}</code> attribute, allowing keyboard-only users to navigate and scroll using Arrow keys.</li>
+                      <li>Ensures scrollable regions carry an explicit <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">tabIndex={0}</code> attribute, allowing keyboard-only users to navigate and scroll using Arrow keys.</li>
                       <li>Includes accessible labels if necessary to describe the purpose of nested scroll regions.</li>
                       <li>Maintains strict text and visual contrast ratio targets for scrollbar thumbs in both light and dark modes.</li>
                     </ul>
@@ -16792,8 +16792,8 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1 text-[11px] leading-relaxed">
-                      <li>Uses the semantic <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">role="separator"</code> attribute to declare the layout division to assistive technologies.</li>
-                      <li>Includes appropriate <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">aria-orientation</code> configuration to inform screen readers of structural flow boundaries.</li>
+                      <li>Uses the semantic <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">role="separator"</code> attribute to declare the layout division to assistive technologies.</li>
+                      <li>Includes appropriate <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">aria-orientation</code> configuration to inform screen readers of structural flow boundaries.</li>
                       <li>If decorative, the element remains non-interactive and does not require keyboard tab focus.</li>
                     </ul>
                   </div>
@@ -17174,8 +17174,8 @@ export function ScrollArea({
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1 text-[11px] leading-relaxed">
                       <li>Provides keyboard control constraints: Focus is captured when opened, and pressing <kbd className="font-mono text-[9px] bg-muted px-1.5 py-0.5 rounded text-secondary border border-border shadow-2xs">Esc</kbd> closes the active drawer panel.</li>
-                      <li>Declares semantic modal behavior using <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">role="dialog"</code> and <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">aria-modal="true"</code>.</li>
-                      <li>Contains explicit header tag bindings with <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">aria-labelledby</code> to maintain clear screen reader headers.</li>
+                      <li>Declares semantic modal behavior using <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">role="dialog"</code> and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">aria-modal="true"</code>.</li>
+                      <li>Contains explicit header tag bindings with <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">aria-labelledby</code> to maintain clear screen reader headers.</li>
                     </ul>
                   </div>
                 </section>
@@ -17696,9 +17696,9 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1 text-[11px] leading-relaxed">
-                      <li>Uses semantic <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">&lt;aside&gt;</code> and <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">&lt;nav&gt;</code> container wrappers.</li>
+                      <li>Uses semantic <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">&lt;aside&gt;</code> and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">&lt;nav&gt;</code> container wrappers.</li>
                       <li>Declares correct focus boundaries for item nodes using keyboard tab key indices.</li>
-                      <li>Declares screen reader announcements for collapse actions using <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">aria-expanded</code> and <code className="font-mono text-[10px] text-secondary bg-muted px-1.5 py-0.5 rounded">aria-label</code> configurations.</li>
+                      <li>Declares screen reader announcements for collapse actions using <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">aria-expanded</code> and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">aria-label</code> configurations.</li>
                     </ul>
                   </div>
                 </section>
@@ -27733,10 +27733,10 @@ export function ScrollArea({
                       ACCESSIBILITY & USABILITY CONTRACT
                     </div>
                     <ul className="list-disc pl-5 space-y-1 leading-relaxed">
-                      <li>The <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">label</code> element must possess a matching <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">htmlFor</code> referencing the control's unique ID.</li>
-                      <li>Controls must declare <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">aria-describedby</code> linking to the descriptions and validation notifications.</li>
-                      <li>Inputs under error states must be decorated with <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">aria-invalid="true"</code> to prompt screen readers.</li>
-                      <li>Disabled fields must carry the <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">disabled</code> attribute and appropriate visual opacity scales (e.g. <code className="font-mono text-[10px] text-secondary bg-muted px-1 py-0.5 rounded">disabled:opacity-50</code>).</li>
+                      <li>The <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">label</code> element must possess a matching <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">htmlFor</code> referencing the control's unique ID.</li>
+                      <li>Controls must declare <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-describedby</code> linking to the descriptions and validation notifications.</li>
+                      <li>Inputs under error states must be decorated with <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-invalid="true"</code> to prompt screen readers.</li>
+                      <li>Disabled fields must carry the <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">disabled</code> attribute and appropriate visual opacity scales (e.g. <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">disabled:opacity-50</code>).</li>
                     </ul>
                   </div>
                 </section>
