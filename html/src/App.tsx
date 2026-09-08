@@ -20050,8 +20050,8 @@ export function ScrollArea({
                         <svg className="w-full h-full" viewBox="0 0 500 200" preserveAspectRatio="none">
                           <defs>
                             <linearGradient id="areaGradSpec" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="var(--color-secondary-500, #00F2FE)" stopOpacity="0.4" />
-                              <stop offset="100%" stopColor="var(--color-secondary-500, #00F2FE)" stopOpacity="0.0" />
+                              <stop offset="0%" stopColor="var(--color-brand-teal, #00bfb3)" stopOpacity="0.4" />
+                              <stop offset="100%" stopColor="var(--color-brand-teal, #00bfb3)" stopOpacity="0.0" />
                             </linearGradient>
                           </defs>
                           {/* Grid Lines */}
@@ -20062,7 +20062,7 @@ export function ScrollArea({
                           
                           {/* Area & Line */}
                           <path d="M 40 150 L 128 110 L 216 130 L 304 80 L 392 90 L 480 30 L 480 150 Z" fill="url(#areaGradSpec)" />
-                          <path d="M 40 150 L 128 110 L 216 130 L 304 80 L 392 90 L 480 30" fill="none" stroke="var(--color-secondary-500, #00F2FE)" strokeWidth="2.5" />
+                          <path d="M 40 150 L 128 110 L 216 130 L 304 80 L 392 90 L 480 30" fill="none" stroke="var(--color-brand-teal, #00bfb3)" strokeWidth="2.5" />
                           
                           {/* Data points */}
                           {[40, 128, 216, 304, 392, 480].map((cx, idx) => {
@@ -20172,7 +20172,7 @@ export function ScrollArea({
                                 <span className="text-sm font-bold text-foreground">
                                   {playChartHoveredIndex !== null && donutData[playChartHoveredIndex] ? donutData[playChartHoveredIndex].label : 'Total'}
                                 </span>
-                                <span className="text-xs font-semibold text-secondary-500">
+                                <span className="text-xs font-semibold text-brand-teal">
                                   {playChartHoveredIndex !== null && donutData[playChartHoveredIndex] ? `${donutData[playChartHoveredIndex].value}%` : '100%'}
                                 </span>
                               </div>
@@ -20389,7 +20389,7 @@ export function ScrollArea({
                             setPlayChartTheme('gradient');
                             setPlayChartTimeframe('6M');
                           }}
-                          className="text-[10px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[10px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset Default
                         </button>
@@ -20405,7 +20405,7 @@ export function ScrollArea({
                               onClick={() => setPlayChartType(type)}
                               className={`px-3 py-1.5 rounded-lg border text-xs font-semibold uppercase tracking-wider transition cursor-pointer ${
                                 playChartType === type
-                                  ? 'bg-brand-teal/10 border-brand-teal text-secondary-500'
+                                  ? 'bg-brand-teal/10 border-brand-teal text-brand-teal'
                                   : 'bg-card border-border/80 text-muted-foreground hover:border-slate-300 dark:hover:border-slate-700'
                               }`}
                             >
