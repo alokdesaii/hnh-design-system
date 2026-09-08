@@ -5331,7 +5331,7 @@ export default function DrawerDemo() {
                 </div>
 
                 <h1 id="hh-financial" className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground leading-[1.05] max-w-3xl mx-auto text-balance">
-                  Build premium <span className="text-secondary-500">financial interfaces</span> with speed.
+                  Build premium <span className="text-brand-teal">financial interfaces</span> with speed.
                 </h1>
 
                 <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
@@ -5374,7 +5374,7 @@ export default function DrawerDemo() {
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary dark:text-slate-100 tabular-nums">$24,892,400.00</h3>
                     </div>
-                    <div className="flex items-center gap-1 px-2 py-0.8 bg-brand-teal/10 text-secondary-500 dark:bg-brand-teal/10 dark:text-secondary rounded-full text-[10px] font-bold">
+                    <div className="flex items-center gap-1 px-2 py-0.8 bg-brand-teal/10 text-brand-teal dark:bg-brand-teal/10 dark:text-secondary rounded-full text-[10px] font-bold">
                       <ArrowUpRight size={12} />
                       +28.4%
                     </div>
@@ -5382,7 +5382,7 @@ export default function DrawerDemo() {
                   
                   {/* Mock SVG Line Chart */}
                   <div className="h-16 w-full mt-4 flex items-end">
-                    <svg viewBox="0 0 400 100" className="w-full h-full text-secondary-500 dark:text-secondary overflow-visible">
+                    <svg viewBox="0 0 400 100" className="w-full h-full text-brand-teal dark:text-secondary overflow-visible">
                       <defs>
                         <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
                           <stop offset="0%" stopColor="currentColor" stopOpacity="0.18" />
@@ -5417,7 +5417,7 @@ export default function DrawerDemo() {
 
                   <div className="space-y-3.5 my-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-secondary-100 dark:bg-secondary-900 flex items-center justify-center text-xs font-bold text-secondary-500 dark:text-secondary-300">SC</div>
+                      <div className="w-8 h-8 rounded-full bg-secondary-100 dark:bg-secondary-900 flex items-center justify-center text-xs font-bold text-brand-teal dark:text-secondary-300">SC</div>
                       <div className="flex-1">
                         <p className="text-xs font-semibold leading-none">SingCorp Trading Ltd</p>
                         <p className="text-[10px] text-muted-foreground leading-none mt-1">vendor-settlement@singcorp.com</p>
@@ -5448,7 +5448,7 @@ export default function DrawerDemo() {
                       <Activity size={11} className="text-brand-teal" />
                       RECENT SETTLEMENTS
                     </div>
-                    <a href="#components/table" className="text-[10px] text-secondary-500 hover:underline font-semibold">View All</a>
+                    <a href="#components/table" className="text-[10px] text-brand-teal hover:underline font-semibold">View All</a>
                   </div>
 
                   <div className="divide-y divide-border/60">
