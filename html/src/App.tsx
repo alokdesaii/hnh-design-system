@@ -25384,7 +25384,7 @@ export function ScrollArea({
                           <div className="flex items-center gap-3">
                             <span className="w-2 h-2 rounded-full bg-emerald-500" />
                             <span className="text-xs font-bold text-foreground">Restructuring Pipeline v2</span>
-                            <span className="text-[9px] font-bold bg-brand-teal/10 text-secondary-500 px-1.5 py-0.5 rounded-full">Active</span>
+                            <span className="text-[9px] font-bold bg-brand-teal/10 text-brand-teal px-1.5 py-0.5 rounded-full">Active</span>
                           </div>
                           <button aria-label="Toggle section"
                             onClick={() => setLocalOpenB(!localOpenB)}
@@ -25493,7 +25493,7 @@ export function ScrollArea({
                             setPlayCollapsibleOpen(false);
                             setPlayCollapsibleDisabled(false);
                           }}
-                          className="text-[10px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[10px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset Default
                         </button>
