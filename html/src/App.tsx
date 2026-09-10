@@ -7909,7 +7909,7 @@ export function SecuritySettingsTemplate() {
                       <tbody className="divide-y divide-border/60">
                         <tr className="hover:bg-muted/20 transition">
                           <td className="py-3.5 px-4 font-bold text-foreground flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span className="w-2 h-2 rounded-full bg-brand-teal"></span>
                             Button
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
@@ -7925,7 +7925,7 @@ export function SecuritySettingsTemplate() {
 
                         <tr className="hover:bg-muted/20 transition">
                           <td className="py-3.5 px-4 font-bold text-foreground flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span className="w-2 h-2 rounded-full bg-brand-teal"></span>
                             Alert Dialog
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
@@ -7941,7 +7941,7 @@ export function SecuritySettingsTemplate() {
 
                         <tr className="hover:bg-muted/20 transition">
                           <td className="py-3.5 px-4 font-bold text-foreground flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span className="w-2 h-2 rounded-full bg-brand-teal"></span>
                             Combobox / Select
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
@@ -7957,7 +7957,7 @@ export function SecuritySettingsTemplate() {
 
                         <tr className="hover:bg-muted/20 transition">
                           <td className="py-3.5 px-4 font-bold text-foreground flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span className="w-2 h-2 rounded-full bg-brand-teal"></span>
                             Slider
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
@@ -7973,7 +7973,7 @@ export function SecuritySettingsTemplate() {
 
                         <tr className="hover:bg-muted/20 transition">
                           <td className="py-3.5 px-4 font-bold text-foreground flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span className="w-2 h-2 rounded-full bg-brand-teal"></span>
                             Toggle / Switch
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
@@ -24936,7 +24936,7 @@ export function ScrollArea({
                     </div>
                     <div className="p-5 rounded-2xl border border-border/70 bg-muted/20 space-y-2">
                       <h3 className="font-bold text-sm text-foreground flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span className="w-2 h-2 rounded-full bg-brand-teal"></span>
                         Tabular Figures
                       </h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">
