@@ -25382,7 +25382,7 @@ export function ScrollArea({
                       <div className="border border-border rounded-xl p-4 space-y-3">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                            <span className="w-2 h-2 rounded-full bg-brand-teal" />
                             <span className="text-xs font-bold text-foreground">Restructuring Pipeline v2</span>
                             <span className="text-[9px] font-bold bg-brand-teal/10 text-brand-teal px-1.5 py-0.5 rounded-full">Active</span>
                           </div>
