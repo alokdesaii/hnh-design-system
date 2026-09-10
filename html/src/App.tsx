@@ -468,7 +468,7 @@ const secondaryTealShades: Shade[] = [
   { shade: '200', hex: '#9ff5ef', twClass: 'bg-secondary-200' },
   { shade: '300', hex: '#6ee0d6', twClass: 'bg-secondary-300' },
   { shade: '400', hex: '#3ecabd', twClass: 'bg-secondary-400' },
-  { shade: '500', hex: '#00bfb3', twClass: 'bg-secondary-500' },
+  { shade: '500', hex: '#00bfb3', twClass: 'bg-brand-teal' },
   { shade: '600', hex: '#00998f', twClass: 'bg-secondary-600' },
   { shade: '700', hex: '#00736b', twClass: 'bg-secondary-700' },
   { shade: '800', hex: '#004d47', twClass: 'bg-secondary-800' },
@@ -1929,8 +1929,8 @@ function App() {
           `              aria-expanded={isOpen}\n` +
           `              className="w-full flex justify-between items-center ${sizeClasses} font-bold text-left transition duration-150 rounded-md outline-none focus-visible:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)] disabled:opacity-40 disabled:cursor-not-allowed"\n` +
           `            >\n` +
-          `              <span className={isOpen ? 'text-secondary-500' : 'text-slate-900 dark:text-white'}>{item.title}</span>\n` +
-          `              <ChevronDown size={16} className={\`transition-transform duration-200 \${isOpen ? 'rotate-180 text-secondary-500' : 'text-muted-foreground'}\`} />\n` +
+          `              <span className={isOpen ? 'text-brand-teal' : 'text-slate-900 dark:text-white'}>{item.title}</span>\n` +
+          `              <ChevronDown size={16} className={\`transition-transform duration-200 \${isOpen ? 'rotate-180 text-brand-teal' : 'text-muted-foreground'}\`} />\n` +
           `            </button>\n` +
           `            <AnimatePresence initial={false}>\n` +
           `              {isOpen && (\n` +
@@ -1963,8 +1963,8 @@ function App() {
           `              aria-expanded={isOpen}\n` +
           `              className="w-full flex justify-between items-center ${sizeClasses} font-bold text-left transition duration-150 outline-none focus-visible:shadow-[0_0_0_2px_var(--card),_0_0_0_4px_var(--border)] disabled:opacity-40 disabled:cursor-not-allowed"\n` +
           `            >\n` +
-          `              <span className={isOpen ? 'text-secondary-500' : 'text-slate-900 dark:text-white'}>{item.title}</span>\n` +
-          `              <ChevronDown size={16} className={\`transition-transform duration-200 \${isOpen ? 'rotate-180 text-secondary-500' : 'text-muted-foreground'}\`} />\n` +
+          `              <span className={isOpen ? 'text-brand-teal' : 'text-slate-900 dark:text-white'}>{item.title}</span>\n` +
+          `              <ChevronDown size={16} className={\`transition-transform duration-200 \${isOpen ? 'rotate-180 text-brand-teal' : 'text-muted-foreground'}\`} />\n` +
           `            </button>\n` +
           `            <AnimatePresence initial={false}>\n` +
           `              {isOpen && (\n` +
@@ -2007,14 +2007,14 @@ function App() {
         default: 'relative w-full rounded-r-xl border border-y-border border-r-border border-l-4 border-l-slate-400 dark:border-l-slate-600 bg-card p-4 flex gap-3 text-left shadow-hnh-sm text-foreground'
       }[playAlertVariant],
       flat: {
-        info: 'relative w-full rounded-xl border border-transparent bg-secondary-500/8 dark:bg-secondary-500/10 text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
+        info: 'relative w-full rounded-xl border border-transparent bg-brand-teal/8 dark:bg-brand-teal/10 text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
         success: 'relative w-full rounded-xl border border-transparent bg-emerald-500/8 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 p-4 flex gap-3 text-left shadow-xs',
         warning: 'relative w-full rounded-xl border border-transparent bg-amber-500/8 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300 p-4 flex gap-3 text-left shadow-xs',
         destructive: 'relative w-full rounded-xl border border-transparent bg-red-500/8 dark:bg-red-500/10 text-red-700 dark:text-red-300 p-4 flex gap-3 text-left shadow-xs',
         default: 'relative w-full rounded-xl border border-transparent bg-muted/65 text-slate-700 dark:text-slate-300 p-4 flex gap-3 text-left shadow-xs'
       }[playAlertVariant],
       outline: {
-        info: 'relative w-full rounded-xl border border-secondary-500/40 bg-transparent text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
+        info: 'relative w-full rounded-xl border border-brand-teal/40 bg-transparent text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
         success: 'relative w-full rounded-xl border border-emerald-500/40 bg-transparent text-emerald-700 dark:text-emerald-300 p-4 flex gap-3 text-left shadow-xs',
         warning: 'relative w-full rounded-xl border border-amber-500/40 bg-transparent text-amber-700 dark:text-amber-300 p-4 flex gap-3 text-left shadow-xs',
         destructive: 'relative w-full rounded-xl border border-red-500/40 bg-transparent text-red-700 dark:text-red-300 p-4 flex gap-3 text-left shadow-xs',
@@ -2024,7 +2024,7 @@ function App() {
 
     const iconColorClass = {
       accent: {
-        info: 'text-secondary-500',
+        info: 'text-brand-teal',
         success: 'text-emerald-500',
         warning: 'text-amber-500',
         destructive: 'text-red-500',
@@ -2071,7 +2071,7 @@ function App() {
       : 'translate-x-0';
     
     const colorClass = playSwitchChecked
-      ? (playSwitchColor === 'secondary' ? 'bg-secondary' : playSwitchColor === 'success' ? 'bg-emerald-500' : playSwitchColor === 'destructive' ? 'bg-rose-500' : 'bg-primary')
+      ? (playSwitchColor === 'secondary' ? 'bg-brand-teal' : playSwitchColor === 'success' ? 'bg-emerald-500' : playSwitchColor === 'destructive' ? 'bg-rose-500' : 'bg-primary')
       : 'bg-slate-300 dark:bg-slate-700';
 
     const errorClass = playSwitchError && !playSwitchDisabled ? ' ring-2 ring-rose-500/80 ring-offset-2 ring-offset-card' : '';
@@ -2160,7 +2160,7 @@ function App() {
     const actionBtnColorClass = {
       confirm: 'bg-primary hover:opacity-95 text-primary-foreground focus-visible:ring-primary',
       destructive: 'bg-destructive hover:bg-destructive-600 text-destructive-foreground focus-visible:ring-destructive',
-      info: 'bg-secondary-500 hover:opacity-95 text-white focus-visible:ring-secondary-500'
+      info: 'bg-brand-teal hover:opacity-95 text-white focus-visible:ring-brand-teal'
     }[playAlertDialogVariant];
 
     return `// Installation: npm i framer-motion lucide-react\n` +
@@ -2544,7 +2544,7 @@ function App() {
       `      </div>\n\n` +
       `      {/* Info Block showing border-inline-start/padding-inline-start mirroring */}\n` +
       `      <div className="flex items-start gap-2.5 p-3 rounded-lg bg-muted/40 border-s-2 border-brand-teal text-left">\n` +
-      `        <Info size={14} className="text-secondary shrink-0 mt-0.5" />\n` +
+      `        <Info size={14} className="text-brand-teal shrink-0 mt-0.5" />\n` +
       `        <div className="text-[11px] leading-relaxed text-muted-foreground">\n` +
       `          This node is running in ${playDirectionMode.toUpperCase()} mode. All layout spacings (margins, paddings, borders) automatically flip when the document direction is changed.\n` +
       `        </div>\n` +
@@ -2586,7 +2586,7 @@ function App() {
     }[playEmptyVariant];
 
     const scenarioIcon = {
-      search: `<Search size={${iconSize}} className="text-secondary-500" />`,
+      search: `<Search size={${iconSize}} className="text-brand-teal" />`,
       onboarding: `<FolderPlus size={${iconSize}} className="text-primary-500" />`,
       success: `<CheckCircle size={${iconSize}} className="text-emerald-500" />`
     }[playEmptyVariant];
@@ -2711,9 +2711,9 @@ function App() {
     if (playItemLeftSlot === 'icon') {
       leftSlotCode = "\n      {/* Left Prefix Slot: Icon */}\n      <div className=\"flex shrink-0 items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary\">\n        <Activity size={16} />\n      </div>\n";
     } else if (playItemLeftSlot === 'avatar') {
-      leftSlotCode = "\n      {/* Left Prefix Slot: Avatar */}\n      <div className=\"flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-secondary-500 text-white font-bold text-xs font-sans\">\n        CP\n      </div>\n";
+      leftSlotCode = "\n      {/* Left Prefix Slot: Avatar */}\n      <div className=\"flex shrink-0 items-center justify-center w-8 h-8 rounded-full bg-brand-teal text-slate-950 font-bold text-xs font-sans\">\n        CP\n      </div>\n";
     } else if (playItemLeftSlot === 'checkbox') {
-      leftSlotCode = "\n      {/* Left Prefix Slot: Checkbox */}\n      <input \n        type=\"checkbox\" \n        checked={" + playItemChecked + "}\n        readOnly\n        className=\"w-4 h-4 text-secondary focus:ring-secondary border-border rounded cursor-pointer\"\n      />\n";
+      leftSlotCode = "\n      {/* Left Prefix Slot: Checkbox */}\n      <input \n        type=\"checkbox\" \n        checked={" + playItemChecked + "}\n        readOnly\n        className=\"w-4 h-4 text-brand-teal focus:ring-brand-teal border-border rounded cursor-pointer\"\n      />\n";
     }
 
     let rightSlotCode = "";
@@ -2732,7 +2732,7 @@ function App() {
     code += "    <div \n";
     code += "      className={`flex items-center gap-3 w-full max-w-md bg-card border ${\n";
     code += "        " + playItemChecked + " \n";
-    code += "          ? 'border-secondary' \n";
+    code += "          ? 'border-brand-teal' \n";
     code += "          : 'border-border/80 hover:border-slate-400 dark:hover:border-slate-700'\n";
     code += "      } rounded-xl " + (playItemDense === 'dense' ? 'p-2.5' : 'p-4') + " ${\n";
     code += "        " + playItemSelectable + " ? 'cursor-pointer transition hover:bg-muted/30 group' : ''\n";
@@ -2829,7 +2829,7 @@ function App() {
     code += "              className=\"flex items-center justify-between w-full px-2.5 py-1.5 text-xs rounded-lg text-left text-foreground hover:bg-muted transition-colors cursor-pointer\"\n";
     code += "            >\n";
     code += "              <span className=\"flex items-center gap-2\">\n";
-    code += "                <span className=\"w-3.5 h-3.5 flex items-center justify-center text-[10px] text-secondary font-bold\">\n";
+    code += "                <span className=\"w-3.5 h-3.5 flex items-center justify-center text-[10px] text-brand-teal font-bold\">\n";
     code += "                  {checkedState ? '✓' : ''}\n";
     code += "                </span>\n";
     code += "                <span>Auto-Save Workspace</span>\n";
@@ -2859,7 +2859,7 @@ function App() {
       code += "      {/* Left Logo */}\n";
       code += "      <div className=\"flex items-center gap-2\">\n";
       code += "        <span className=\"font-extrabold text-primary dark:text-white tracking-wider text-base\">H&H</span>\n";
-      code += "        <span className=\"text-[9px] bg-secondary-500/10 text-secondary border border-secondary/20 px-1.5 py-0.5 rounded font-mono font-bold\">PRO</span>\n";
+      code += "        <span className=\"text-[9px] bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-1.5 py-0.5 rounded font-mono font-bold\">PRO</span>\n";
       code += "      </div>\n\n";
     }
     code += "      {/* Navigation Items */}\n";
@@ -2882,7 +2882,7 @@ function App() {
     code += "            >\n";
     code += "              <button className={`px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1 transition-all duration-200 cursor-pointer relative z-10 ${\n";
     if (playNavMenuTransition === 'text-highlight') {
-      code += "                isActive ? 'text-secondary' : 'text-muted-foreground hover:text-foreground'\n";
+      code += "                isActive ? 'text-brand-teal' : 'text-muted-foreground hover:text-foreground'\n";
     } else {
       code += "                'text-muted-foreground hover:text-foreground'\n";
     }
@@ -2897,7 +2897,7 @@ function App() {
       code += "                )}\n";
     } else if (playNavMenuTransition === 'border') {
       code += "                {isActive && (\n";
-      code += "                  <span className=\"absolute bottom-0 left-4 right-4 h-0.5 bg-secondary rounded-full\" />\n";
+      code += "                  <span className=\"absolute bottom-0 left-4 right-4 h-0.5 bg-brand-teal rounded-full\" />\n";
       code += "                )}\n";
     }
     code += "                <span>{item}</span>\n";
@@ -2924,10 +2924,10 @@ function App() {
       code += "                      </div>\n";
       code += "                      <div className=\"bg-muted/40 rounded-xl p-4 border border-border/40 flex flex-col justify-between\">\n";
       code += "                        <div className=\"space-y-1.5\">\n";
-      code += "                          <div className=\"font-bold text-xs text-secondary\">Enterprise Gateway</div>\n";
+      code += "                          <div className=\"font-bold text-xs text-brand-teal\">Enterprise Gateway</div>\n";
       code += "                          <p className=\"text-[10px] text-muted-foreground leading-relaxed\">Scale cross-border settlement channels with customized liquidity curves and smart routing.</p>\n";
       code += "                        </div>\n";
-      code += "                        <a href=\"#\" className=\"text-[10px] font-bold text-secondary flex items-center gap-1 group/link mt-2\">\n";
+      code += "                        <a href=\"#\" className=\"text-[10px] font-bold text-brand-teal flex items-center gap-1 group/link mt-2\">\n";
       code += "                          View Documentation <ArrowRight size={10} className=\"group-hover/link:translate-x-0.5 transition-transform\" />\n";
       code += "                        </a>\n";
       code += "                      </div>\n";
@@ -2994,10 +2994,10 @@ function App() {
 
     const themeStyles = {
       primary: {
-        bg: "bg-secondary/20",
-        fill: "bg-gradient-to-r from-secondary to-indigo-500",
-        solid: "bg-secondary",
-        text: "text-secondary"
+        bg: "bg-brand-teal/20",
+        fill: "bg-gradient-to-r from-brand-teal to-indigo-500",
+        solid: "bg-brand-teal",
+        text: "text-brand-teal"
       },
       secondary: {
         bg: "bg-muted",
@@ -3169,7 +3169,7 @@ function App() {
 
     const themeClasses = {
       default: '[&::-webkit-scrollbar-thumb]:bg-slate-350 dark:[&::-webkit-scrollbar-thumb]:bg-slate-700 hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-slate-650',
-      brand: '[&::-webkit-scrollbar-thumb]:bg-secondary-500/70 hover:[&::-webkit-scrollbar-thumb]:bg-secondary-500',
+      brand: '[&::-webkit-scrollbar-thumb]:bg-brand-teal/70 hover:[&::-webkit-scrollbar-thumb]:bg-brand-teal',
       success: '[&::-webkit-scrollbar-thumb]:bg-emerald-500/70 hover:[&::-webkit-scrollbar-thumb]:bg-emerald-500',
       danger: '[&::-webkit-scrollbar-thumb]:bg-rose-500/70 hover:[&::-webkit-scrollbar-thumb]:bg-rose-500'
     }[theme];
@@ -3184,7 +3184,7 @@ function App() {
     if (vis === 'hover') {
       const hoverTheme = {
         default: 'hover:[&::-webkit-scrollbar-thumb]:bg-slate-350 dark:hover:[&::-webkit-scrollbar-thumb]:bg-slate-700',
-        brand: 'hover:[&::-webkit-scrollbar-thumb]:bg-secondary-500',
+        brand: 'hover:[&::-webkit-scrollbar-thumb]:bg-brand-teal',
         success: 'hover:[&::-webkit-scrollbar-thumb]:bg-emerald-500',
         danger: 'hover:[&::-webkit-scrollbar-thumb]:bg-rose-500'
       }[theme];
@@ -3213,7 +3213,7 @@ function App() {
       code += `        {[...Array(15)].map((_, i) => (\n`;
       code += `          <div key={i} className="p-3 bg-muted/40 border border-border/80 rounded-lg text-xs text-muted-foreground flex justify-between">\n`;
       code += `            <span>Task description #{i + 1}</span>\n`;
-      code += `            <span className="text-[10px] text-secondary-500 font-mono">ID-{1000 + i}</span>\n`;
+      code += `            <span className="text-[10px] text-brand-teal font-mono">ID-{1000 + i}</span>\n`;
       code += `          </div>\n`;
       code += `        ))}\n`;
       code += `      </div>\n`;
@@ -3257,10 +3257,10 @@ function App() {
         text: 'text-muted-foreground/60'
       },
       accent: {
-        bg: 'bg-secondary-500',
-        border: 'border-secondary-500',
-        gradient: 'via-secondary-500',
-        text: 'text-secondary-500'
+        bg: 'bg-brand-teal',
+        border: 'border-brand-teal',
+        gradient: 'via-brand-teal',
+        text: 'text-brand-teal'
       }
     }[theme];
 
@@ -3343,7 +3343,7 @@ function App() {
     code += "  const themeClass = {\n";
     code += "    default: 'bg-muted dark:bg-slate-800/80',\n";
     code += "    'brand-navy': 'bg-primary/10 dark:bg-primary-900/40',\n";
-    code += "    'brand-teal': 'bg-secondary-500/10 dark:bg-secondary-900/30'\n";
+    code += "    'brand-teal': 'bg-brand-teal/10 dark:bg-secondary-900/30'\n";
     code += "  }[theme];\n\n";
     code += "  const animClass = animation === 'pulse' ? 'animate-pulse' : '';\n\n";
     code += "  return (\n";
@@ -3623,7 +3623,7 @@ function App() {
     code += "  }[size];\n\n";
     code += "  const colorClasses = {\n";
     code += "    primary: 'text-primary border-primary bg-primary/20',\n";
-    code += "    secondary: 'text-secondary-500 border-secondary-500 bg-secondary-500/20',\n";
+    code += "    secondary: 'text-brand-teal border-brand-teal bg-brand-teal/20',\n";
     code += "    muted: 'text-muted-foreground border-muted-foreground bg-muted-foreground/20',\n";
     code += "    white: 'text-white border-white bg-white/20',\n";
     code += "  }[theme];\n\n";
@@ -3911,7 +3911,7 @@ function App() {
     code += "            <div className=\"flex-1 overflow-y-auto py-6 space-y-4\">\n";
     code += "              <div className=\"border border-border/60 p-4 rounded-xl space-y-3\">\n";
     code += "                <div className=\"flex items-center gap-2 text-xs font-bold\">\n";
-    code += "                  <Shield size={14} className=\"text-secondary-500\" />\n";
+    code += "                  <Shield size={14} className=\"text-brand-teal\" />\n";
     code += "                  <span>Secure Credentials node</span>\n";
     code += "                </div>\n";
     code += "                <p className=\"text-[11px] text-muted-foreground leading-relaxed\">Node credentials have been synced. Ensure external APIs are white-listed before enabling swap transactions.</p>\n";
@@ -3928,7 +3928,7 @@ function App() {
     code += "              </button>\n";
     code += "              <button \n";
     code += "                onClick={() => setIsOpen(false)} \n";
-    code += "                className=\"px-3 py-1.5 rounded-lg bg-secondary text-secondary-foreground text-xs hover:bg-secondary/90 transition font-bold\"\n";
+    code += "                className=\"px-3 py-1.5 rounded-lg bg-brand-teal text-slate-950 text-xs hover:bg-brand-teal/90 transition font-bold\"\n";
     code += "              >\n";
     code += "                Save Changes\n";
     code += "              </button>\n";
@@ -3965,7 +3965,7 @@ function App() {
       code += "        {!isCollapsed ? (\n";
       code += "          <>\n";
       code += "            <div className=\"flex items-center gap-2\">\n";
-      code += "              <div className=\"w-7 h-7 rounded-lg bg-secondary flex items-center justify-center font-extrabold text-xs text-secondary-foreground\">H</div>\n";
+      code += "              <div className=\"w-7 h-7 rounded-lg bg-brand-teal flex items-center justify-center font-extrabold text-xs text-secondary-foreground\">H</div>\n";
       code += "              <div className=\"space-y-0.5 text-left\">\n";
       code += "                <div className=\"text-xs font-bold truncate max-w-[140px]\">H&H Workspace</div>\n";
       code += "                <div className=\"text-[9px] text-muted-foreground\">Admin Center</div>\n";
@@ -3982,7 +3982,7 @@ function App() {
       code += "        ) : (\n";
       code += "          <button \n";
       code += "            onClick={() => setIsCollapsed(false)} \n";
-      code += "            className=\"w-7 h-7 rounded-lg bg-secondary flex items-center justify-center font-extrabold text-xs text-secondary-foreground hover:opacity-90 transition\"\n";
+      code += "            className=\"w-7 h-7 rounded-lg bg-brand-teal flex items-center justify-center font-extrabold text-xs text-secondary-foreground hover:opacity-90 transition\"\n";
       code += "            aria-label=\"Expand sidebar\"\n";
       code += "          >\n";
       code += "            H\n";
@@ -4031,7 +4031,7 @@ function App() {
       code += "      {/* User Footer Profile */}\n";
       code += "      <div className=\"p-4 border-t border-border/40\">\n";
       code += "        <div className=\"flex items-center gap-3\">\n";
-      code += "          <div className=\"w-8 h-8 rounded-full bg-secondary-500/20 flex items-center justify-center font-bold text-secondary text-xs shrink-0\">AD</div>\n";
+      code += "          <div className=\"w-8 h-8 rounded-full bg-brand-teal/20 flex items-center justify-center font-bold text-brand-teal text-xs shrink-0\">AD</div>\n";
       code += "          {!isCollapsed && (\n";
       code += "            <div className=\"space-y-0.5 text-left overflow-hidden\">\n";
       code += "              <div className=\"text-xs font-bold truncate\">Alok Desai</div>\n";
@@ -4443,7 +4443,7 @@ function App() {
       `        href="#"\n` +
       `        onMouseEnter={handleMouseEnter}\n` +
       `        onMouseLeave={handleMouseLeave}\n` +
-      `        className="text-xs font-bold text-secondary hover:underline"\n` +
+      `        className="text-xs font-bold text-brand-teal hover:underline"\n` +
       `      >\n` +
       `        @alokdesai\n` +
       `      </a>\n\n` +
@@ -4658,7 +4658,7 @@ export default function MultiComboboxDemo() {
         <div className="flex flex-wrap gap-1">
           {selectedTags.length === 0 && <span className="text-muted-foreground">Select sectors...</span>}
           {selectedTags.map(val => (
-            <span key={val} className="flex items-center gap-1 bg-brand-teal/10 text-secondary-500 font-bold px-1.5 py-0.5 rounded-md text-[10px]">
+            <span key={val} className="flex items-center gap-1 bg-brand-teal/10 text-brand-teal font-bold px-1.5 py-0.5 rounded-md text-[10px]">
               {items.find(i => i.value === val)?.label || val}
               <X size={10} className="hover:text-primary cursor-pointer" onClick={(e) => { e.stopPropagation(); handleToggleTag(val); }} />
             </span>
@@ -4809,7 +4809,7 @@ export default function CommandDemo() {
                     key={item.id}
                     className={\`flex items-center justify-between p-2 rounded-lg text-xs cursor-pointer transition \${
                       index === selectedIndex 
-                        ? '${playCommandTheme === 'navy' ? 'bg-primary text-white' : playCommandTheme === 'teal' ? 'bg-secondary-500 text-white' : 'bg-muted text-foreground'}' 
+                        ? '${playCommandTheme === 'navy' ? 'bg-primary text-white' : playCommandTheme === 'teal' ? 'bg-brand-teal text-slate-950' : 'bg-muted text-foreground'}' 
                         : 'hover:bg-muted/50 text-foreground'
                     }\`}
                   >
@@ -5186,9 +5186,9 @@ export default function DrawerDemo() {
 
         {/* Global Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
-          <a href="#introduction" className={`hover:text-primary dark:hover:text-secondary transition ${currentPath === 'introduction' || currentPath === 'principles' ? 'text-primary dark:text-secondary font-semibold' : 'text-muted-foreground'}`}>Getting Started</a>
-          <a href="#foundations/colors" className={`hover:text-primary dark:hover:text-secondary transition ${currentPath.startsWith('foundations') ? 'text-primary dark:text-secondary font-semibold' : 'text-muted-foreground'}`}>Foundations</a>
-          <a href="#components/button" className={`hover:text-primary dark:hover:text-secondary transition ${currentPath.startsWith('components') ? 'text-primary dark:text-secondary font-semibold' : 'text-muted-foreground'}`}>Components</a>
+          <a href="#introduction" className={`hover:text-primary dark:hover:text-brand-teal transition ${currentPath === 'introduction' || currentPath === 'principles' ? 'text-primary dark:text-brand-teal font-semibold' : 'text-muted-foreground'}`}>Getting Started</a>
+          <a href="#foundations/colors" className={`hover:text-primary dark:hover:text-brand-teal transition ${currentPath.startsWith('foundations') ? 'text-primary dark:text-brand-teal font-semibold' : 'text-muted-foreground'}`}>Foundations</a>
+          <a href="#components/button" className={`hover:text-primary dark:hover:text-brand-teal transition ${currentPath.startsWith('components') ? 'text-primary dark:text-brand-teal font-semibold' : 'text-muted-foreground'}`}>Components</a>
           <a 
             href="https://github.com" 
             target="_blank" 
@@ -5374,7 +5374,7 @@ export default function DrawerDemo() {
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary dark:text-slate-100 tabular-nums">$24,892,400.00</h3>
                     </div>
-                    <div className="flex items-center gap-1 px-2 py-0.8 bg-brand-teal/10 text-brand-teal dark:bg-brand-teal/10 dark:text-secondary rounded-full text-[10px] font-bold">
+                    <div className="flex items-center gap-1 px-2 py-0.8 bg-brand-teal/10 text-brand-teal dark:bg-brand-teal/10 dark:text-brand-teal rounded-full text-[10px] font-bold">
                       <ArrowUpRight size={12} />
                       +28.4%
                     </div>
@@ -5382,7 +5382,7 @@ export default function DrawerDemo() {
                   
                   {/* Mock SVG Line Chart */}
                   <div className="h-16 w-full mt-4 flex items-end">
-                    <svg viewBox="0 0 400 100" className="w-full h-full text-brand-teal dark:text-secondary overflow-visible">
+                    <svg viewBox="0 0 400 100" className="w-full h-full text-brand-teal dark:text-brand-teal overflow-visible">
                       <defs>
                         <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
                           <stop offset="0%" stopColor="currentColor" stopOpacity="0.18" />
@@ -5549,7 +5549,7 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <Shield size={20} />
                   </div>
-                  <h2 className="font-bold text-base text-secondary-500">1. Trust & Stability</h2>
+                  <h2 className="font-bold text-base text-brand-teal">1. Trust & Stability</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Our users entrust us with their financial assets. We build trust by utilizing stable layouts, precise alignment, strong typographic weights, and our authoritative deep Navy blue color. Consistency is key to establishing security.
                   </p>
@@ -5560,7 +5560,7 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <Compass size={20} />
                   </div>
-                  <h2 className="font-bold text-base text-secondary-500">2. Turquoise/Teal Clarity</h2>
+                  <h2 className="font-bold text-base text-brand-teal">2. Turquoise/Teal Clarity</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     We use our secondary Teal color purposefully to signify primary action states, notifications, success indicators, and interactive points. This creates a high visual contrast against our dark blue assets, steering user attention.
                   </p>
@@ -5571,7 +5571,7 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <LayoutGrid size={20} />
                   </div>
-                  <h2 className="font-bold text-base text-secondary-500">3. Generous Space & Confidence</h2>
+                  <h2 className="font-bold text-base text-brand-teal">3. Generous Space & Confidence</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Financial dashboards can quickly become overwhelming. We solve this by employing a rigorous grid system and generous spacing tokens. Giving metrics room to breathe projects sophistication and calm control.
                   </p>
@@ -5582,7 +5582,7 @@ export default function DrawerDemo() {
                   <div className="w-10 h-10 rounded-lg bg-brand-teal/10 dark:bg-brand-teal/15 text-brand-teal flex items-center justify-center">
                     <Accessibility size={20} />
                   </div>
-                  <h2 className="font-bold text-base text-secondary-500">4. Accessibility First</h2>
+                  <h2 className="font-bold text-base text-brand-teal">4. Accessibility First</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     A financial service is for everyone. H&H mandates WCAG 2.1 AA contrast levels across all text rendering, proper keyboard layouts, visible focus states, and scalable font dimensions using relative rem values.
                   </p>
@@ -5633,7 +5633,7 @@ export default function DrawerDemo() {
                   {/* Secondary Teal Grid */}
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-secondary-500">Secondary Teal (Action Core)</h3>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-teal">Secondary Teal (Action Core)</h3>
                       <span className="text-[10px] text-muted-foreground font-mono">--color-secondary-*</span>
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-3">
@@ -6175,7 +6175,7 @@ export default function DrawerDemo() {
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-brand-teal font-medium text-foreground cursor-pointer"
                       >
                         <option value="text-primary">Primary Navy (text-primary)</option>
-                        <option value="text-secondary-500">Secondary Teal (text-secondary-500)</option>
+                        <option value="text-brand-teal">Secondary Teal (text-brand-teal)</option>
                         <option value="text-foreground">Slate Foreground (text-foreground)</option>
                         <option value="text-muted-foreground">Slate Muted (text-muted-foreground)</option>
                       </select>
@@ -6598,7 +6598,7 @@ export default function DrawerDemo() {
                         <option value="bg-card">Card Surface (bg-card)</option>
                         <option value="bg-muted/30">Muted Inset (bg-muted/30)</option>
                         <option value="bg-primary/5">Primary Tint (bg-primary/5)</option>
-                        <option value="bg-secondary/5">Secondary Tint (bg-secondary/5)</option>
+                        <option value="bg-brand-teal/5">Secondary Tint (bg-brand-teal/5)</option>
                       </select>
                     </div>
                   </div>
@@ -6779,7 +6779,7 @@ export default function DrawerDemo() {
                           onClick={() => setTbRadius(r.id as any)}
                           className={`px-2 py-2 rounded-lg border text-[11px] font-semibold transition cursor-pointer text-center ${
                             tbRadius === r.id
-                              ? 'bg-brand-teal/15 border-brand-teal text-secondary font-bold'
+                              ? 'bg-brand-teal/15 border-brand-teal text-brand-teal font-bold'
                               : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
                           }`}
                         >
@@ -6803,7 +6803,7 @@ export default function DrawerDemo() {
                           onClick={() => setTbDensity(d.id as any)}
                           className={`p-2.5 rounded-xl border text-left transition cursor-pointer ${
                             tbDensity === d.id
-                              ? 'bg-brand-teal/15 border-brand-teal text-secondary'
+                              ? 'bg-brand-teal/15 border-brand-teal text-brand-teal'
                               : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
                           }`}
                         >
@@ -7063,7 +7063,7 @@ export default function DrawerDemo() {
                     </p>
                   </div>
 
-                  <div className="px-3 py-1.5 rounded-full border border-brand-teal/30 bg-brand-teal/10 text-secondary text-xs font-bold shrink-0 self-start">
+                  <div className="px-3 py-1.5 rounded-full border border-brand-teal/30 bg-brand-teal/10 text-brand-teal text-xs font-bold shrink-0 self-start">
                     3 Production Templates
                   </div>
                 </div>
@@ -7287,7 +7287,7 @@ export default function DrawerDemo() {
                               </td>
                               <td className="p-3 text-muted-foreground text-[11px]">{row.time}</td>
                               <td className="p-3 text-right">
-                                <button className="px-2 py-1 text-[11px] font-semibold text-secondary hover:underline cursor-pointer">
+                                <button className="px-2 py-1 text-[11px] font-semibold text-brand-teal hover:underline cursor-pointer">
                                   View Audit
                                 </button>
                               </td>
@@ -7329,7 +7329,7 @@ export default function DrawerDemo() {
                             />
                             <span
                               className={`text-[11px] font-semibold block transition ${
-                                wireStep === s.step ? 'text-secondary font-bold' : 'text-muted-foreground'
+                                wireStep === s.step ? 'text-brand-teal font-bold' : 'text-muted-foreground'
                               }`}
                             >
                               {s.title}
@@ -7441,7 +7441,7 @@ export default function DrawerDemo() {
                     {wireStep === 3 && (
                       <div className="space-y-4 pt-4 border-t border-border/60">
                         <div className="p-4 bg-brand-teal/10 border border-brand-teal/30 rounded-xl space-y-3">
-                          <div className="flex items-center gap-2 text-xs font-bold text-secondary">
+                          <div className="flex items-center gap-2 text-xs font-bold text-brand-teal">
                             <Shield size={16} /> Final Dispatch Verification
                           </div>
                           <div className="space-y-1.5 text-xs text-muted-foreground">
@@ -7711,7 +7711,7 @@ export function SecuritySettingsTemplate() {
               {/* Core Pillars */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div className="p-5 rounded-xl border border-border bg-card shadow-xs space-y-2">
-                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 text-secondary flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center">
                     <Eye size={20} />
                   </div>
                   <h2 className="font-bold text-foreground text-sm">1. Perceivable</h2>
@@ -7913,7 +7913,7 @@ export function SecuritySettingsTemplate() {
                             Button
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
-                            <span className="text-secondary font-semibold">role="button"</span>, <span className="text-secondary">aria-disabled</span>, <span className="text-secondary">aria-label</span>
+                            <span className="text-brand-teal font-semibold">role="button"</span>, <span className="text-brand-teal">aria-disabled</span>, <span className="text-brand-teal">aria-label</span>
                           </td>
                           <td className="py-3.5 px-4 text-muted-foreground">
                             <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Tab</kbd> focus, <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Enter</kbd> / <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Space</kbd> trigger
@@ -7929,7 +7929,7 @@ export function SecuritySettingsTemplate() {
                             Alert Dialog
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
-                            <span className="text-secondary font-semibold">role="alertdialog"</span>, <span className="text-secondary">aria-modal="true"</span>, <span className="text-secondary">aria-labelledby</span>
+                            <span className="text-brand-teal font-semibold">role="alertdialog"</span>, <span className="text-brand-teal">aria-modal="true"</span>, <span className="text-brand-teal">aria-labelledby</span>
                           </td>
                           <td className="py-3.5 px-4 text-muted-foreground">
                             Focus trap inside modal, <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Esc</kbd> dismiss, <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Tab</kbd> cycle
@@ -7945,7 +7945,7 @@ export function SecuritySettingsTemplate() {
                             Combobox / Select
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
-                            <span className="text-secondary font-semibold">role="combobox"</span>, <span className="text-secondary">aria-expanded</span>, <span className="text-secondary">aria-autocomplete="list"</span>
+                            <span className="text-brand-teal font-semibold">role="combobox"</span>, <span className="text-brand-teal">aria-expanded</span>, <span className="text-brand-teal">aria-autocomplete="list"</span>
                           </td>
                           <td className="py-3.5 px-4 text-muted-foreground">
                             <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">↑</kbd> <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">↓</kbd> navigate items, <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Enter</kbd> select, <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Esc</kbd> close
@@ -7961,7 +7961,7 @@ export function SecuritySettingsTemplate() {
                             Slider
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
-                            <span className="text-secondary font-semibold">role="slider"</span>, <span className="text-secondary">aria-valuenow</span>, <span className="text-secondary">aria-valuemin</span>, <span className="text-secondary">aria-valuemax</span>
+                            <span className="text-brand-teal font-semibold">role="slider"</span>, <span className="text-brand-teal">aria-valuenow</span>, <span className="text-brand-teal">aria-valuemin</span>, <span className="text-brand-teal">aria-valuemax</span>
                           </td>
                           <td className="py-3.5 px-4 text-muted-foreground">
                             <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">←</kbd> <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">→</kbd> adjust by step, <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Home</kbd> / <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">End</kbd> min/max
@@ -7977,7 +7977,7 @@ export function SecuritySettingsTemplate() {
                             Toggle / Switch
                           </td>
                           <td className="py-3.5 px-4 font-mono text-[11px] text-muted-foreground">
-                            <span className="text-secondary font-semibold">role="switch"</span>, <span className="text-secondary">aria-checked="true|false"</span>
+                            <span className="text-brand-teal font-semibold">role="switch"</span>, <span className="text-brand-teal">aria-checked="true|false"</span>
                           </td>
                           <td className="py-3.5 px-4 text-muted-foreground">
                             <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Space</kbd> / <kbd className="px-1.5 py-0.5 bg-muted border border-border rounded text-[10px] font-mono text-foreground">Enter</kbd> toggle state
@@ -8009,7 +8009,7 @@ export function SecuritySettingsTemplate() {
                       <h3 className="font-bold text-foreground text-sm flex items-center gap-2">
                         <Keyboard size={16} className="text-brand-teal" /> Focus Ring Simulator
                       </h3>
-                      <span className="text-[10px] font-mono px-2 py-0.5 bg-brand-teal/10 text-secondary rounded-md font-bold">
+                      <span className="text-[10px] font-mono px-2 py-0.5 bg-brand-teal/10 text-brand-teal rounded-md font-bold">
                         Target: {a11ySimulatedFocus}
                       </span>
                     </div>
@@ -8022,7 +8022,7 @@ export function SecuritySettingsTemplate() {
                       <div className="flex flex-wrap gap-3">
                         <button
                           onClick={() => setA11ySimulatedFocus('button')}
-                          className={`px-4 py-2 text-xs font-semibold rounded-lg bg-primary text-primary-foreground transition-all ${a11ySimulatedFocus === 'button' ? 'outline-none ring-2 ring-secondary ring-offset-2 ring-offset-background scale-105' : 'opacity-80 hover:opacity-100'}`}
+                          className={`px-4 py-2 text-xs font-semibold rounded-lg bg-primary text-primary-foreground transition-all ${a11ySimulatedFocus === 'button' ? 'outline-none ring-2 ring-brand-teal ring-offset-2 ring-offset-background scale-105' : 'opacity-80 hover:opacity-100'}`}
                         >
                           Action Button
                         </button>
@@ -8048,7 +8048,7 @@ export function SecuritySettingsTemplate() {
                         <CheckCircle2 size={14} /> Focus Ring CSS Rule
                       </span>
                       <pre className="font-mono text-[11px] bg-background/60 p-2 rounded border border-border/40 mt-1">
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2
+                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2
                       </pre>
                     </div>
                   </div>
@@ -8307,7 +8307,7 @@ export function SecuritySettingsTemplate() {
                           />
                           {playAccordionAllowMultiple && <Check size={10} className="absolute text-slate-900 font-extrabold stroke-[4]" />}
                         </div>
-                        <span className="text-xs font-semibold text-foreground group-hover:text-primary dark:group-hover:text-secondary transition">Allow Multi-Expansion</span>
+                        <span className="text-xs font-semibold text-foreground group-hover:text-primary dark:group-hover:text-brand-teal transition">Allow Multi-Expansion</span>
                       </label>
 
                       {/* disabledState check */}
@@ -8326,7 +8326,7 @@ export function SecuritySettingsTemplate() {
                           />
                           {playAccordionDisabledItem && <Check size={10} className="absolute text-slate-900 font-extrabold stroke-[4]" />}
                         </div>
-                        <span className="text-xs font-semibold text-foreground group-hover:text-primary dark:group-hover:text-secondary transition">Disable Third Item</span>
+                        <span className="text-xs font-semibold text-foreground group-hover:text-primary dark:group-hover:text-brand-teal transition">Disable Third Item</span>
                       </label>
                     </div>
                   </div>
@@ -8652,7 +8652,7 @@ export function SecuritySettingsTemplate() {
                         className="w-full text-xs bg-muted/40 border border-border rounded-lg py-2 px-3 outline-none focus:border-primary dark:focus:border-brand-teal font-medium text-foreground cursor-pointer"
                       >
                         <option value="primary">Primary (bg-primary)</option>
-                        <option value="secondary">Secondary (bg-secondary)</option>
+                        <option value="secondary">Secondary (bg-brand-teal)</option>
                         <option value="outline">Outline (border-border)</option>
                         <option value="destructive">Destructive (bg-rose-500)</option>
                         <option value="ghost">Ghost (text-muted-foreground)</option>
@@ -8720,7 +8720,7 @@ export function SecuritySettingsTemplate() {
                         className={`
                           flex items-center justify-center gap-2 select-none active:scale-[0.98] transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background
                           ${btnSize === 'sm' ? 'px-3.5 py-2.5 text-[11px] rounded-md' : btnSize === 'lg' ? 'px-5.5 py-3.5 text-sm font-semibold rounded-xl' : 'px-4.5 py-3 text-xs font-semibold rounded-lg'}
-                          ${btnVariant === 'secondary' ? 'bg-brand-teal text-slate-950 hover:bg-brand-teal/95 shadow-sm focus-visible:ring-secondary' : 
+                          ${btnVariant === 'secondary' ? 'bg-brand-teal text-slate-950 hover:bg-brand-teal/95 shadow-sm focus-visible:ring-brand-teal' : 
                             btnVariant === 'outline' ? 'border border-border bg-card text-foreground hover:bg-muted focus-visible:ring-primary dark:focus-visible:ring-primary-200/40' :
                             btnVariant === 'destructive' ? 'bg-rose-500 text-white hover:bg-rose-600 shadow-sm focus-visible:ring-rose-500' :
                             btnVariant === 'ghost' ? 'text-muted-foreground hover:text-foreground hover:bg-muted/65 focus-visible:ring-primary dark:focus-visible:ring-primary-200/40' :
@@ -8796,7 +8796,7 @@ export function SecuritySettingsTemplate() {
                       <input id="account-holder-name"
                         type="text"
                         placeholder="e.g. Alok Desai"
-                        className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 focus:ring-2 focus:ring-brand-teal focus:border-transparent focus:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] rounded-md py-2.5 px-3.5 outline-none transition duration-200 text-foreground"
+                        className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 focus:ring-2 focus:ring-brand-teal focus:border-transparent focus:shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)] rounded-md py-2.5 px-3.5 outline-none transition duration-200 text-foreground"
                       />
                       <span className="text-[10px] text-muted-foreground block">
                         Enter your legal name as it appears on your passport.
@@ -8808,7 +8808,7 @@ export function SecuritySettingsTemplate() {
                       <label htmlFor="private-api-secret-key" className="text-xs font-semibold text-foreground block">
                         Private API Secret Key
                       </label>
-                      <div className="relative flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] transition duration-200">
+                      <div className="relative flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)] transition duration-200">
                         <input id="private-api-secret-key"
                           type={inputPassShow ? 'text' : 'password'}
                           value="hnh_secret_alloc_9042851"
@@ -8830,7 +8830,7 @@ export function SecuritySettingsTemplate() {
                       <label htmlFor="liquidity-funding-value" className="text-xs font-semibold text-foreground block">
                         Liquidity Funding Value
                       </label>
-                      <div className="flex rounded-md bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] transition duration-200 overflow-hidden">
+                      <div className="flex rounded-md bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)] transition duration-200 overflow-hidden">
                         <span className="inline-flex items-center px-3 bg-muted/60 dark:bg-slate-900 border-r border-border/80 text-xs text-muted-foreground select-none font-semibold font-mono">
                           $
                         </span>
@@ -8850,7 +8850,7 @@ export function SecuritySettingsTemplate() {
                       <label htmlFor="search-global-equities" className="text-xs font-semibold text-foreground block">
                         Search Global Equities
                       </label>
-                      <div className="relative flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] transition duration-200">
+                      <div className="relative flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)] transition duration-200">
                         <span className="absolute left-3.5 text-muted-foreground">
                           <Search size={13} />
                         </span>
@@ -8905,7 +8905,7 @@ export function SecuritySettingsTemplate() {
                       <input id="focused-state"
                         type="text"
                         placeholder="Focused state style"
-                        className="w-full text-xs bg-muted/10 dark:bg-slate-950/20 border border-transparent ring-2 ring-brand-teal shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)] rounded-md py-2.5 px-3.5 outline-none text-foreground"
+                        className="w-full text-xs bg-muted/10 dark:bg-slate-950/20 border border-transparent ring-2 ring-brand-teal shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)] rounded-md py-2.5 px-3.5 outline-none text-foreground"
                       />
                     </div>
 
@@ -9089,7 +9089,7 @@ export function SecuritySettingsTemplate() {
                           ${playInputSize === 'sm' ? 'rounded-md' : playInputSize === 'lg' ? 'rounded-lg' : 'rounded-md'}
                           ${playInputDisabled ? 'bg-muted/10 dark:bg-slate-900/10 border-border/60 opacity-50 cursor-not-allowed' :
                             playInputError ? 'bg-red-500/[0.02] dark:bg-red-500/[0.01] border-rose-500/80 focus-within:ring-2 focus-within:ring-rose-500/30 focus-within:border-rose-500 focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--destructive)_35%,transparent)]' :
-                            'bg-muted/30 dark:bg-slate-950/40 border-border/80 hover:border-brand-teal/80 focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:bg-muted/15 focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)]'
+                            'bg-muted/30 dark:bg-slate-950/40 border-border/80 hover:border-brand-teal/80 focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent focus-within:bg-muted/15 focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)]'
                           }
                         `}>
                           {/* Left Icon Render */}
@@ -9156,7 +9156,7 @@ export function SecuritySettingsTemplate() {
                         <code className="text-[10.5px] font-mono text-sky-300 break-all select-all pr-12">
                           {`<div className="space-y-1.5 w-full max-w-md">\n` +
                            (playInputLabel ? `  <Label htmlFor="input-field">${playInputLabel}</Label>\n` : '') +
-                           `  <div className="relative flex items-center bg-muted/30 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 ` + (playInputError ? 'focus-within:ring-rose-500/30 focus-within:border-rose-500 focus-within:shadow-[0_0_10px_rgba(244,63,94,0.35)]' : 'focus-within:ring-secondary focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)]') + `">\n` +
+                           `  <div className="relative flex items-center bg-muted/30 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 ` + (playInputError ? 'focus-within:ring-rose-500/30 focus-within:border-rose-500 focus-within:shadow-[0_0_10px_rgba(244,63,94,0.35)]' : 'focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)]') + `">\n` +
                            (playInputLeftIcon !== 'none' ? `    <span className="absolute left-3 text-muted-foreground"><${playInputLeftIcon.charAt(0).toUpperCase() + playInputLeftIcon.slice(1)} size={14} /></span>\n` : '') +
                            `    <input id="generated-jsx-component"\n` +
                            `      id="input-field"\n` +
@@ -9175,7 +9175,7 @@ export function SecuritySettingsTemplate() {
                           onClick={() => handleCopy(
                             `<div className="space-y-1.5 w-full max-w-md">\n` +
                             (playInputLabel ? `  <Label htmlFor="input-field">${playInputLabel}</Label>\n` : '') +
-                            `  <div className="relative flex items-center bg-muted/30 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 ` + (playInputError ? 'focus-within:ring-rose-500/30 focus-within:border-rose-500 focus-within:shadow-[0_0_10px_rgba(244,63,94,0.35)]' : 'focus-within:ring-secondary focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--secondary)_35%,transparent)]') + `">\n` +
+                            `  <div className="relative flex items-center bg-muted/30 border border-border/80 hover:border-brand-teal/80 rounded-md focus-within:ring-2 ` + (playInputError ? 'focus-within:ring-rose-500/30 focus-within:border-rose-500 focus-within:shadow-[0_0_10px_rgba(244,63,94,0.35)]' : 'focus-within:ring-brand-teal focus-within:border-transparent focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-brand-teal)_35%,transparent)]') + `">\n` +
                             (playInputLeftIcon !== 'none' ? `    <span className="absolute left-3 text-muted-foreground"><${playInputLeftIcon.charAt(0).toUpperCase() + playInputLeftIcon.slice(1)} size={14} /></span>\n` : '') +
                             `    <input\n` +
                             `      id="input-field"\n` +
@@ -10351,7 +10351,7 @@ export function SecuritySettingsTemplate() {
                             <p className="text-[11px] text-muted-foreground leading-relaxed mt-1">Please review the updated global liquidity reporting terms for regulatory clearance.</p>
                           </div>
                           <div className="flex items-center gap-3">
-                            <button className="text-[10px] font-bold text-secondary-500 hover:text-secondary-600 transition focus:outline-none focus:underline">Review Terms</button>
+                            <button className="text-[10px] font-bold text-brand-teal hover:text-secondary-600 transition focus:outline-none focus:underline">Review Terms</button>
                             <button className="text-[10px] font-bold text-muted-foreground hover:text-foreground transition focus:outline-none">Ignore</button>
                           </div>
                         </div>
@@ -10401,14 +10401,14 @@ export function SecuritySettingsTemplate() {
                                   default: 'relative w-full rounded-r-xl border border-y-border border-r-border border-l-4 border-l-slate-400 dark:border-l-slate-600 bg-card p-4 flex gap-3 text-left shadow-hnh-sm text-foreground'
                                 }[playAlertVariant],
                                 flat: {
-                                  info: 'relative w-full rounded-xl border border-transparent bg-secondary-500/8 dark:bg-secondary-500/10 text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
+                                  info: 'relative w-full rounded-xl border border-transparent bg-brand-teal/8 dark:bg-brand-teal/10 text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
                                   success: 'relative w-full rounded-xl border border-transparent bg-emerald-500/8 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 p-4 flex gap-3 text-left shadow-xs',
                                   warning: 'relative w-full rounded-xl border border-transparent bg-amber-500/8 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300 p-4 flex gap-3 text-left shadow-xs',
                                   destructive: 'relative w-full rounded-xl border border-transparent bg-red-500/8 dark:bg-red-500/10 text-red-700 dark:text-red-300 p-4 flex gap-3 text-left shadow-xs',
                                   default: 'relative w-full rounded-xl border border-transparent bg-muted/65 text-slate-700 dark:text-slate-300 p-4 flex gap-3 text-left shadow-xs'
                                 }[playAlertVariant],
                                 outline: {
-                                  info: 'relative w-full rounded-xl border border-secondary-500/40 bg-transparent text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
+                                  info: 'relative w-full rounded-xl border border-brand-teal/40 bg-transparent text-secondary-700 dark:text-secondary-300 p-4 flex gap-3 text-left shadow-xs',
                                   success: 'relative w-full rounded-xl border border-emerald-500/40 bg-transparent text-emerald-700 dark:text-emerald-300 p-4 flex gap-3 text-left shadow-xs',
                                   warning: 'relative w-full rounded-xl border border-amber-500/40 bg-transparent text-amber-700 dark:text-amber-300 p-4 flex gap-3 text-left shadow-xs',
                                   destructive: 'relative w-full rounded-xl border border-red-500/40 bg-transparent text-red-700 dark:text-red-300 p-4 flex gap-3 text-left shadow-xs',
@@ -10445,7 +10445,7 @@ export function SecuritySettingsTemplate() {
                           <p className="text-xs text-muted-foreground italic">Alert dismissed by the operator.</p>
                           <button
                             onClick={() => setPlayAlertVisible(true)}
-                            className="text-xs font-bold text-secondary-500 hover:text-secondary-600 transition flex items-center gap-1.5 mx-auto focus:outline-none focus:underline"
+                            className="text-xs font-bold text-brand-teal hover:text-secondary-600 transition flex items-center gap-1.5 mx-auto focus:outline-none focus:underline"
                           >
                             Reset Alert Preview
                           </button>
@@ -10494,7 +10494,7 @@ export function SecuritySettingsTemplate() {
                             onClick={() => setPlayAlertStyle(style as 'accent' | 'flat' | 'outline')}
                             className={`py-2 text-[10px] font-bold border rounded-lg transition capitalize focus:outline-none ${
                               playAlertStyle === style
-                                ? 'bg-brand-teal/10 border-brand-teal text-secondary-500'
+                                ? 'bg-brand-teal/10 border-brand-teal text-brand-teal'
                                 : 'border-border bg-card text-muted-foreground hover:bg-muted/50 hover:text-foreground'
                             }`}
                           >
@@ -10520,7 +10520,7 @@ export function SecuritySettingsTemplate() {
                             onClick={() => setPlayAlertVariant(v.id as 'info' | 'success' | 'warning' | 'destructive' | 'default')}
                             className={`py-2 px-1 text-[10px] font-bold border rounded-lg transition text-center focus:outline-none ${
                               playAlertVariant === v.id
-                                ? 'bg-brand-teal/10 border-brand-teal text-secondary-500'
+                                ? 'bg-brand-teal/10 border-brand-teal text-brand-teal'
                                 : 'border-border bg-card text-muted-foreground hover:bg-muted/50 hover:text-foreground'
                             }`}
                           >
@@ -10787,19 +10787,19 @@ export function SecuritySettingsTemplate() {
                             : playBadgeSize === 'sm' ? 'rounded' : playBadgeSize === 'lg' ? 'rounded-lg' : 'rounded-md',
                           // variant × color
                           playBadgeVariant === 'solid' && playBadgeColor === 'primary' && 'bg-primary text-primary-foreground',
-                          playBadgeVariant === 'solid' && playBadgeColor === 'secondary' && 'bg-secondary-500 text-white',
+                          playBadgeVariant === 'solid' && playBadgeColor === 'secondary' && 'bg-brand-teal text-slate-950',
                           playBadgeVariant === 'solid' && playBadgeColor === 'success' && 'bg-emerald-600 text-white',
                           playBadgeVariant === 'solid' && playBadgeColor === 'warning' && 'bg-amber-500 text-white',
                           playBadgeVariant === 'solid' && playBadgeColor === 'destructive' && 'bg-red-600 text-white',
                           playBadgeVariant === 'solid' && playBadgeColor === 'neutral' && 'bg-slate-500 text-white',
                           playBadgeVariant === 'soft' && playBadgeColor === 'primary' && 'bg-primary/10 text-primary dark:text-primary-300',
-                          playBadgeVariant === 'soft' && playBadgeColor === 'secondary' && 'bg-secondary-500/10 text-secondary-600 dark:text-secondary-300',
+                          playBadgeVariant === 'soft' && playBadgeColor === 'secondary' && 'bg-brand-teal/10 text-secondary-600 dark:text-secondary-300',
                           playBadgeVariant === 'soft' && playBadgeColor === 'success' && 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
                           playBadgeVariant === 'soft' && playBadgeColor === 'warning' && 'bg-amber-500/10 text-amber-700 dark:text-amber-300',
                           playBadgeVariant === 'soft' && playBadgeColor === 'destructive' && 'bg-red-500/10 text-red-700 dark:text-red-300',
                           playBadgeVariant === 'soft' && playBadgeColor === 'neutral' && 'bg-slate-500/10 text-slate-600 dark:text-slate-300',
                           playBadgeVariant === 'outline' && playBadgeColor === 'primary' && 'border border-primary/40 text-primary dark:text-primary-300',
-                          playBadgeVariant === 'outline' && playBadgeColor === 'secondary' && 'border border-secondary-500/40 text-secondary-600 dark:text-secondary-300',
+                          playBadgeVariant === 'outline' && playBadgeColor === 'secondary' && 'border border-brand-teal/40 text-secondary-600 dark:text-secondary-300',
                           playBadgeVariant === 'outline' && playBadgeColor === 'success' && 'border border-emerald-500/40 text-emerald-700 dark:text-emerald-300',
                           playBadgeVariant === 'outline' && playBadgeColor === 'warning' && 'border border-amber-500/40 text-amber-700 dark:text-amber-300',
                           playBadgeVariant === 'outline' && playBadgeColor === 'destructive' && 'border border-red-500/40 text-red-700 dark:text-red-300',
@@ -10811,7 +10811,7 @@ export function SecuritySettingsTemplate() {
                             className={[
                               'w-1.5 h-1.5 rounded-full shrink-0',
                               playBadgeColor === 'primary' && 'bg-primary',
-                              playBadgeColor === 'secondary' && 'bg-secondary-500',
+                              playBadgeColor === 'secondary' && 'bg-brand-teal',
                               playBadgeColor === 'success' && 'bg-emerald-500',
                               playBadgeColor === 'warning' && 'bg-amber-500',
                               playBadgeColor === 'destructive' && 'bg-red-500',
@@ -10834,11 +10834,11 @@ export function SecuritySettingsTemplate() {
                             const sizeClass = playBadgeSize === 'sm' ? 'text-[10px] px-2 py-0.5' : playBadgeSize === 'lg' ? 'text-xs px-3 py-1.5' : 'text-[11px] px-2.5 py-1';
                             const radiusClass = playBadgeRounded ? 'rounded-full' : (playBadgeSize === 'sm' ? 'rounded' : playBadgeSize === 'lg' ? 'rounded-lg' : 'rounded-md');
                             const colorMap: Record<string, Record<string, string>> = {
-                              solid: { primary: 'bg-primary text-primary-foreground', secondary: 'bg-secondary-500 text-white', success: 'bg-emerald-600 text-white', warning: 'bg-amber-500 text-white', destructive: 'bg-red-600 text-white', neutral: 'bg-slate-500 text-white' },
-                              soft: { primary: 'bg-primary/10 text-primary', secondary: 'bg-secondary-500/10 text-secondary-600', success: 'bg-emerald-500/10 text-emerald-700', warning: 'bg-amber-500/10 text-amber-700', destructive: 'bg-red-500/10 text-red-700', neutral: 'bg-slate-500/10 text-slate-600' },
-                              outline: { primary: 'border border-primary/40 text-primary', secondary: 'border border-secondary-500/40 text-secondary-600', success: 'border border-emerald-500/40 text-emerald-700', warning: 'border border-amber-500/40 text-amber-700', destructive: 'border border-red-500/40 text-red-700', neutral: 'border border-slate-400/40 text-slate-600' },
+                              solid: { primary: 'bg-primary text-primary-foreground', secondary: 'bg-brand-teal text-slate-950', success: 'bg-emerald-600 text-white', warning: 'bg-amber-500 text-white', destructive: 'bg-red-600 text-white', neutral: 'bg-slate-500 text-white' },
+                              soft: { primary: 'bg-primary/10 text-primary', secondary: 'bg-brand-teal/10 text-secondary-600', success: 'bg-emerald-500/10 text-emerald-700', warning: 'bg-amber-500/10 text-amber-700', destructive: 'bg-red-500/10 text-red-700', neutral: 'bg-slate-500/10 text-slate-600' },
+                              outline: { primary: 'border border-primary/40 text-primary', secondary: 'border border-brand-teal/40 text-secondary-600', success: 'border border-emerald-500/40 text-emerald-700', warning: 'border border-amber-500/40 text-amber-700', destructive: 'border border-red-500/40 text-red-700', neutral: 'border border-slate-400/40 text-slate-600' },
                             };
-                            const dotColorMap: Record<string, string> = { primary: 'bg-primary', secondary: 'bg-secondary-500', success: 'bg-emerald-500', warning: 'bg-amber-500', destructive: 'bg-red-500', neutral: 'bg-slate-400' };
+                            const dotColorMap: Record<string, string> = { primary: 'bg-primary', secondary: 'bg-brand-teal', success: 'bg-emerald-500', warning: 'bg-amber-500', destructive: 'bg-red-500', neutral: 'bg-slate-400' };
                             const code = `<span className="inline-flex items-center${dotClass} font-semibold leading-none ${sizeClass} ${radiusClass} ${colorMap[playBadgeVariant][playBadgeColor]}">\n${playBadgeDot ? `  <span className="w-1.5 h-1.5 rounded-full shrink-0 ${dotColorMap[playBadgeColor]}" aria-hidden="true" />\n` : ''}  ${playBadgeLabel}\n</span>`;
                             navigator.clipboard.writeText(code);
                             setCopiedToken('badge-code');
@@ -10855,11 +10855,11 @@ export function SecuritySettingsTemplate() {
                         const sizeClass = playBadgeSize === 'sm' ? 'text-[10px] px-2 py-0.5' : playBadgeSize === 'lg' ? 'text-xs px-3 py-1.5' : 'text-[11px] px-2.5 py-1';
                         const radiusClass = playBadgeRounded ? 'rounded-full' : (playBadgeSize === 'sm' ? 'rounded' : playBadgeSize === 'lg' ? 'rounded-lg' : 'rounded-md');
                         const colorMap: Record<string, Record<string, string>> = {
-                          solid: { primary: 'bg-primary text-primary-foreground', secondary: 'bg-secondary-500 text-white', success: 'bg-emerald-600 text-white', warning: 'bg-amber-500 text-white', destructive: 'bg-red-600 text-white', neutral: 'bg-slate-500 text-white' },
-                          soft: { primary: 'bg-primary/10 text-primary', secondary: 'bg-secondary-500/10 text-secondary-600', success: 'bg-emerald-500/10 text-emerald-700', warning: 'bg-amber-500/10 text-amber-700', destructive: 'bg-red-500/10 text-red-700', neutral: 'bg-slate-500/10 text-slate-600' },
-                          outline: { primary: 'border border-primary/40 text-primary', secondary: 'border border-secondary-500/40 text-secondary-600', success: 'border border-emerald-500/40 text-emerald-700', warning: 'border border-amber-500/40 text-amber-700', destructive: 'border border-red-500/40 text-red-700', neutral: 'border border-slate-400/40 text-slate-600' },
+                          solid: { primary: 'bg-primary text-primary-foreground', secondary: 'bg-brand-teal text-slate-950', success: 'bg-emerald-600 text-white', warning: 'bg-amber-500 text-white', destructive: 'bg-red-600 text-white', neutral: 'bg-slate-500 text-white' },
+                          soft: { primary: 'bg-primary/10 text-primary', secondary: 'bg-brand-teal/10 text-secondary-600', success: 'bg-emerald-500/10 text-emerald-700', warning: 'bg-amber-500/10 text-amber-700', destructive: 'bg-red-500/10 text-red-700', neutral: 'bg-slate-500/10 text-slate-600' },
+                          outline: { primary: 'border border-primary/40 text-primary', secondary: 'border border-brand-teal/40 text-secondary-600', success: 'border border-emerald-500/40 text-emerald-700', warning: 'border border-amber-500/40 text-amber-700', destructive: 'border border-red-500/40 text-red-700', neutral: 'border border-slate-400/40 text-slate-600' },
                         };
-                        const dotColorMap: Record<string, string> = { primary: 'bg-primary', secondary: 'bg-secondary-500', success: 'bg-emerald-500', warning: 'bg-amber-500', destructive: 'bg-red-500', neutral: 'bg-slate-400' };
+                        const dotColorMap: Record<string, string> = { primary: 'bg-primary', secondary: 'bg-brand-teal', success: 'bg-emerald-500', warning: 'bg-amber-500', destructive: 'bg-red-500', neutral: 'bg-slate-400' };
                         return `<span className="inline-flex items-center${dotClass} font-semibold leading-none ${sizeClass} ${radiusClass} ${colorMap[playBadgeVariant][playBadgeColor]}">\n${playBadgeDot ? `  <span className="w-1.5 h-1.5 rounded-full shrink-0 ${dotColorMap[playBadgeColor]}" aria-hidden="true" />\n` : ''}  ${playBadgeLabel}\n</span>`;
                       })()}</pre>
                     </div>
@@ -11141,7 +11141,7 @@ export function SecuritySettingsTemplate() {
                           setPlayAspectFit('cover');
                           setPlayAspectWidthPercent(100);
                         }}
-                        className="text-[10px] text-secondary-500 hover:underline font-semibold cursor-pointer"
+                        className="text-[10px] text-brand-teal hover:underline font-semibold cursor-pointer"
                       >
                         Reset Defaults
                       </button>
@@ -11573,7 +11573,7 @@ export function SecuritySettingsTemplate() {
                           setPlayAvatarBorder('none');
                           setPlayAvatarInitials('AD');
                         }}
-                        className="text-[10px] text-secondary-500 hover:underline font-semibold cursor-pointer"
+                        className="text-[10px] text-brand-teal hover:underline font-semibold cursor-pointer"
                       >
                         Reset Defaults
                       </button>
@@ -12859,7 +12859,7 @@ export function SecuritySettingsTemplate() {
                                 className="w-full bg-muted border border-border rounded-lg px-2 py-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-brand-teal"
                               />
                               <label htmlFor="notify-security-committee" className="flex items-center gap-2 cursor-pointer">
-                                <input id="notify-security-committee" type="checkbox" className="rounded border-border text-secondary focus:ring-0 cursor-pointer" defaultChecked />
+                                <input id="notify-security-committee" type="checkbox" className="rounded border-border text-brand-teal focus:ring-0 cursor-pointer" defaultChecked />
                                 <span className="text-[10px] text-muted-foreground">Notify security committee</span>
                               </label>
                             </div>
@@ -13208,7 +13208,7 @@ export function SecuritySettingsTemplate() {
                           onMouseLeave={handleSpecimenALeave}
                           onFocus={() => setSpecimenHoverCardAOpen(true)}
                           onBlur={() => setSpecimenHoverCardAOpen(false)}
-                          className="text-xs font-bold text-secondary-500 hover:underline cursor-pointer"
+                          className="text-xs font-bold text-brand-teal hover:underline cursor-pointer"
                         >
                           @alokdesai
                         </a>
@@ -13250,7 +13250,7 @@ export function SecuritySettingsTemplate() {
                           onMouseLeave={handleSpecimenBLeave}
                           onFocus={() => setSpecimenHoverCardBOpen(true)}
                           onBlur={() => setSpecimenHoverCardBOpen(false)}
-                          className="text-xs font-bold text-secondary-500 hover:underline cursor-pointer flex items-center gap-1"
+                          className="text-xs font-bold text-brand-teal hover:underline cursor-pointer flex items-center gap-1"
                         >
                           <span>HNH-V4</span>
                           <ExternalLink size={12} />
@@ -13595,7 +13595,7 @@ export function SecuritySettingsTemplate() {
 
                       <button
                         onClick={() => setSpecimenOtpAValue(['', '', '', '', '', ''])}
-                        className="mt-6 text-[10px] text-muted-foreground hover:text-secondary-500 font-bold transition cursor-pointer"
+                        className="mt-6 text-[10px] text-muted-foreground hover:text-brand-teal font-bold transition cursor-pointer"
                       >
                         Reset Slots
                       </button>
@@ -13626,7 +13626,7 @@ export function SecuritySettingsTemplate() {
 
                       <button
                         onClick={() => setSpecimenOtpBValue(['', '', '', ''])}
-                        className="mt-6 text-[10px] text-muted-foreground hover:text-secondary-500 font-bold transition cursor-pointer"
+                        className="mt-6 text-[10px] text-muted-foreground hover:text-brand-teal font-bold transition cursor-pointer"
                       >
                         Reset Slots
                       </button>
@@ -13739,7 +13739,7 @@ export function SecuritySettingsTemplate() {
 
                         {playOtpValue.join('').length > 0 && (
                           <div className="mt-6 text-[11px] text-muted-foreground font-light">
-                            Constructed Code: <span className="font-mono font-bold text-secondary-500">{playOtpValue.join('')}</span>
+                            Constructed Code: <span className="font-mono font-bold text-brand-teal">{playOtpValue.join('')}</span>
                           </div>
                         )}
                       </div>
@@ -13833,7 +13833,7 @@ export function SecuritySettingsTemplate() {
                           type="checkbox"
                           checked={true}
                           readOnly
-                          className="w-4 h-4 text-secondary focus:ring-brand-teal border-border rounded cursor-pointer shrink-0"
+                          className="w-4 h-4 text-brand-teal focus:ring-brand-teal border-border rounded cursor-pointer shrink-0"
                         />
                         <div className="flex-1 min-w-0 text-left">
                           <h4 className="text-xs font-bold text-foreground truncate">Primary Settlement Node</h4>
@@ -14017,7 +14017,7 @@ export function SecuritySettingsTemplate() {
                       <div className="bg-card border border-border rounded-2xl shadow-2xs overflow-hidden">
                         <div className="p-3 border-b border-border/60 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground">Interactive Target Zone</span>
-                          <span className="text-[10px] bg-brand-teal/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase font-mono">List Item</span>
+                          <span className="text-[10px] bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full font-bold uppercase font-mono">List Item</span>
                         </div>
 
                         {/* Sandbox Target Area */}
@@ -14047,7 +14047,7 @@ export function SecuritySettingsTemplate() {
                                 type="checkbox"
                                 checked={playItemChecked}
                                 readOnly
-                                className="w-4 h-4 text-secondary focus:ring-brand-teal border-border rounded cursor-pointer shrink-0"
+                                className="w-4 h-4 text-brand-teal focus:ring-brand-teal border-border rounded cursor-pointer shrink-0"
                               />
                             )}
 
@@ -14301,7 +14301,7 @@ export function SecuritySettingsTemplate() {
                       <div className="bg-card border border-border rounded-2xl shadow-2xs overflow-hidden">
                         <div className="p-3 border-b border-border/60 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground">Interactive Target Zone</span>
-                          <span className="text-[10px] bg-brand-teal/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase font-mono">Keyboard Key</span>
+                          <span className="text-[10px] bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full font-bold uppercase font-mono">Keyboard Key</span>
                         </div>
 
                         {/* Sandbox Target Area */}
@@ -14485,26 +14485,26 @@ export function SecuritySettingsTemplate() {
                         <div className="w-56 bg-card border border-border/85 rounded-xl p-1 shadow-md space-y-0.5">
                           <button className="flex items-center justify-between w-full px-2.5 py-1.5 text-xs rounded-lg text-left text-foreground hover:bg-muted transition cursor-not-allowed">
                             <span className="flex items-center gap-2">
-                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-secondary font-bold">✓</span>
+                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-brand-teal font-bold">✓</span>
                               <span>Show Gridlines</span>
                             </span>
                           </button>
                           <button className="flex items-center justify-between w-full px-2.5 py-1.5 text-xs rounded-lg text-left text-foreground hover:bg-muted transition cursor-not-allowed">
                             <span className="flex items-center gap-2">
-                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-secondary font-bold">✓</span>
+                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-brand-teal font-bold">✓</span>
                               <span>Auto-Indent Code</span>
                             </span>
                           </button>
                           <div className="h-px bg-border/60 my-1" />
                           <button className="flex items-center justify-between w-full px-2.5 py-1.5 text-xs rounded-lg text-left text-foreground hover:bg-muted transition cursor-not-allowed">
                             <span className="flex items-center gap-2">
-                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-secondary font-extrabold">•</span>
+                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-brand-teal font-extrabold">•</span>
                               <span>Dark Palette Mode</span>
                             </span>
                           </button>
                           <button className="flex items-center justify-between w-full px-2.5 py-1.5 text-xs rounded-lg text-left text-foreground hover:bg-muted transition cursor-not-allowed">
                             <span className="flex items-center gap-2">
-                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-secondary font-bold" />
+                              <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-brand-teal font-bold" />
                               <span>Light Palette Mode</span>
                             </span>
                           </button>
@@ -14581,7 +14581,7 @@ export function SecuritySettingsTemplate() {
                       <div className="bg-card border border-border rounded-2xl shadow-2xs overflow-hidden">
                         <div className="p-3 border-b border-border/60 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground">Interactive Target Zone</span>
-                          <span className="text-[10px] bg-brand-teal/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase font-mono">Top Menubar</span>
+                          <span className="text-[10px] bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full font-bold uppercase font-mono">Top Menubar</span>
                         </div>
 
                         {/* Sandbox Target Area */}
@@ -14621,7 +14621,7 @@ export function SecuritySettingsTemplate() {
                                               className="flex items-center justify-between w-full px-2.5 py-1.5 rounded-lg text-left text-foreground hover:bg-muted transition-colors cursor-pointer"
                                             >
                                               <span className="flex items-center gap-2">
-                                                <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-secondary font-bold">
+                                                <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-brand-teal font-bold">
                                                   {checked ? '✓' : ''}
                                                 </span>
                                                 <span>{item.label}</span>
@@ -14637,7 +14637,7 @@ export function SecuritySettingsTemplate() {
                                               className="flex items-center justify-between w-full px-2.5 py-1.5 rounded-lg text-left text-foreground hover:bg-muted transition-colors cursor-pointer"
                                             >
                                               <span className="flex items-center gap-2">
-                                                <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-secondary font-extrabold">
+                                                <span className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-brand-teal font-extrabold">
                                                   {(item as any).active ? '•' : ''}
                                                 </span>
                                                 <span>{item.label}</span>
@@ -14751,7 +14751,7 @@ export function SecuritySettingsTemplate() {
                           {/* Logo */}
                           <div className="flex items-center gap-2">
                             <span className="font-extrabold text-primary dark:text-white tracking-wider text-sm">H&H</span>
-                            <span className="text-[9px] bg-brand-teal/10 text-secondary border border-brand-teal/20 px-1.5 py-0.5 rounded font-mono font-bold">PRO</span>
+                            <span className="text-[9px] bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-1.5 py-0.5 rounded font-mono font-bold">PRO</span>
                           </div>
 
                           {/* Menu Items */}
@@ -14801,13 +14801,13 @@ export function SecuritySettingsTemplate() {
                                             </div>
                                             <div className="bg-muted/40 rounded-xl p-4 border border-border/40 flex flex-col justify-between">
                                               <div className="space-y-1.5">
-                                                <div className="font-bold text-xs text-secondary flex items-center gap-1">
+                                                <div className="font-bold text-xs text-brand-teal flex items-center gap-1">
                                                   <Activity size={12} />
                                                   <span>Smart Routing</span>
                                                 </div>
                                                 <p className="text-[10px] text-muted-foreground leading-relaxed">Scale cross-border settlement channels with customized liquidity curves.</p>
                                               </div>
-                                              <a href="#" className="text-[10px] font-bold text-secondary flex items-center gap-1 group/link mt-2 hover:underline">
+                                              <a href="#" className="text-[10px] font-bold text-brand-teal flex items-center gap-1 group/link mt-2 hover:underline">
                                                 View Tech Spec <ArrowRight size={10} className="group-hover/link:translate-x-0.5 transition-transform" />
                                               </a>
                                             </div>
@@ -14816,7 +14816,7 @@ export function SecuritySettingsTemplate() {
                                           <div className="space-y-2">
                                             <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider block px-2 mb-1">Developer Hub</span>
                                             <a href="#" className="flex items-center gap-3.5 p-2 rounded-lg hover:bg-muted/70 transition">
-                                              <span className="p-1.5 bg-brand-teal/10 text-secondary border border-brand-teal/20 rounded-md">
+                                              <span className="p-1.5 bg-brand-teal/10 text-brand-teal border border-brand-teal/20 rounded-md">
                                                 <Compass size={14} />
                                               </span>
                                               <div>
@@ -14825,7 +14825,7 @@ export function SecuritySettingsTemplate() {
                                               </div>
                                             </a>
                                             <a href="#" className="flex items-center gap-3.5 p-2 rounded-lg hover:bg-muted/70 transition">
-                                              <span className="p-1.5 bg-brand-teal/10 text-secondary border border-brand-teal/20 rounded-md">
+                                              <span className="p-1.5 bg-brand-teal/10 text-brand-teal border border-brand-teal/20 rounded-md">
                                                 <Activity size={14} />
                                               </span>
                                               <div>
@@ -14869,7 +14869,7 @@ export function SecuritySettingsTemplate() {
                                 <button
                                   key={tab}
                                   onClick={() => setSpecimenNavMenuTab(tab)}
-                                  className={`relative px-4 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer select-none ${isActive ? 'text-secondary dark:text-secondary-400' : 'text-muted-foreground hover:text-foreground'}`}
+                                  className={`relative px-4 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer select-none ${isActive ? 'text-brand-teal dark:text-secondary-400' : 'text-muted-foreground hover:text-foreground'}`}
                                 >
                                   {isActive && (
                                     <motion.div
@@ -14911,14 +14911,14 @@ export function SecuritySettingsTemplate() {
                                 <button
                                   key={item.label}
                                   onClick={() => setSidebarNavMenuActiveItem(item.label)}
-                                  className={`flex items-center justify-between w-full px-3 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${isActive ? 'bg-brand-teal/15 text-secondary border border-brand-teal/10' : 'text-muted-foreground hover:bg-muted/80 hover:text-foreground'}`}
+                                  className={`flex items-center justify-between w-full px-3 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${isActive ? 'bg-brand-teal/15 text-brand-teal border border-brand-teal/10' : 'text-muted-foreground hover:bg-muted/80 hover:text-foreground'}`}
                                 >
                                   <span className="flex items-center gap-2.5">
-                                    <item.icon size={13} className={isActive ? 'text-secondary' : 'text-muted-foreground'} />
+                                    <item.icon size={13} className={isActive ? 'text-brand-teal' : 'text-muted-foreground'} />
                                     <span>{item.label}</span>
                                   </span>
                                   {item.count && (
-                                    <span className={`px-1.5 py-0.5 rounded-md font-mono text-[9px] ${item.count === 'Active' ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20' : 'bg-brand-teal/10 text-secondary border border-brand-teal/20'}`}>
+                                    <span className={`px-1.5 py-0.5 rounded-md font-mono text-[9px] ${item.count === 'Active' ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20' : 'bg-brand-teal/10 text-brand-teal border border-brand-teal/20'}`}>
                                       {item.count}
                                     </span>
                                   )}
@@ -14961,7 +14961,7 @@ export function SecuritySettingsTemplate() {
                             <button
                               key={opt.id}
                               onClick={() => setPlayNavMenuTransition(opt.id as any)}
-                              className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuTransition === opt.id ? 'bg-brand-teal/10 border-brand-teal text-secondary' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
+                              className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuTransition === opt.id ? 'bg-brand-teal/10 border-brand-teal text-brand-teal' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
                             >
                               {opt.label}
                             </button>
@@ -14980,7 +14980,7 @@ export function SecuritySettingsTemplate() {
                             <button
                               key={opt.id}
                               onClick={() => setPlayNavMenuLayout(opt.id as any)}
-                              className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuLayout === opt.id ? 'bg-brand-teal/10 border-brand-teal text-secondary' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
+                              className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuLayout === opt.id ? 'bg-brand-teal/10 border-brand-teal text-brand-teal' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
                             >
                               {opt.label}
                             </button>
@@ -14999,7 +14999,7 @@ export function SecuritySettingsTemplate() {
                             <button
                               key={opt.id}
                               onClick={() => setPlayNavMenuLogoAlign(opt.id as any)}
-                              className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuLogoAlign === opt.id ? 'bg-brand-teal/10 border-brand-teal text-secondary' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
+                              className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuLogoAlign === opt.id ? 'bg-brand-teal/10 border-brand-teal text-brand-teal' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
                             >
                               {opt.label}
                             </button>
@@ -15021,7 +15021,7 @@ export function SecuritySettingsTemplate() {
                           {playNavMenuLogoAlign === 'left' && (
                             <div className="flex items-center gap-2">
                               <span className="font-extrabold text-primary dark:text-white tracking-wider text-sm">H&H</span>
-                              <span className="text-[9px] bg-brand-teal/10 text-secondary border border-brand-teal/20 px-1.5 py-0.5 rounded font-mono font-bold">PRO</span>
+                              <span className="text-[9px] bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-1.5 py-0.5 rounded font-mono font-bold">PRO</span>
                             </div>
                           )}
 
@@ -15046,7 +15046,7 @@ export function SecuritySettingsTemplate() {
                                   }}
                                 >
                                   <button className={`px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1 transition-all duration-200 cursor-pointer relative z-10 ${
-                                    playNavMenuTransition === 'text-highlight' && isActive ? 'text-secondary' : 'text-muted-foreground hover:text-foreground'
+                                    playNavMenuTransition === 'text-highlight' && isActive ? 'text-brand-teal' : 'text-muted-foreground hover:text-foreground'
                                   }`}>
                                     {playNavMenuTransition === 'slide-bg' && isActive && (
                                       <motion.div
@@ -15092,13 +15092,13 @@ export function SecuritySettingsTemplate() {
                                               </div>
                                               <div className="bg-muted/40 rounded-xl p-3 border border-border/40 flex flex-col justify-between">
                                                 <div className="space-y-1">
-                                                  <div className="font-bold text-xs text-secondary flex items-center gap-1">
+                                                  <div className="font-bold text-xs text-brand-teal flex items-center gap-1">
                                                     <Activity size={11} />
                                                     <span>Smart Routing</span>
                                                   </div>
                                                   <p className="text-[10px] text-muted-foreground leading-normal">Scale cross-border settlement channels with customized liquidity curves.</p>
                                                 </div>
-                                                <a href="#" className="text-[10px] font-bold text-secondary flex items-center gap-1 group/link mt-2">
+                                                <a href="#" className="text-[10px] font-bold text-brand-teal flex items-center gap-1 group/link mt-2">
                                                   View Tech Spec <ArrowRight size={10} className="group-hover/link:translate-x-0.5 transition-transform" />
                                                 </a>
                                               </div>
@@ -15107,7 +15107,7 @@ export function SecuritySettingsTemplate() {
                                             <div className="space-y-1.5">
                                               <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider block px-1.5 mb-0.5">Developer Hub</span>
                                               <a href="#" className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-muted/70 transition">
-                                                <span className="p-1 bg-brand-teal/10 text-secondary border border-brand-teal/20 rounded-md">
+                                                <span className="p-1 bg-brand-teal/10 text-brand-teal border border-brand-teal/20 rounded-md">
                                                   <Compass size={12} />
                                                 </span>
                                                 <div>
@@ -15116,7 +15116,7 @@ export function SecuritySettingsTemplate() {
                                                 </div>
                                               </a>
                                               <a href="#" className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-muted/70 transition">
-                                                <span className="p-1 bg-brand-teal/10 text-secondary border border-brand-teal/20 rounded-md">
+                                                <span className="p-1 bg-brand-teal/10 text-brand-teal border border-brand-teal/20 rounded-md">
                                                   <Activity size={12} />
                                                 </span>
                                                 <div>
@@ -15231,7 +15231,7 @@ export function SecuritySettingsTemplate() {
                         <div className="space-y-1.5">
                           <div className="flex justify-between items-center text-xs">
                             <span className="font-medium text-foreground">Standard (Primary)</span>
-                            <span className="font-semibold text-secondary">75%</span>
+                            <span className="font-semibold text-brand-teal">75%</span>
                           </div>
                           <div className="w-full bg-brand-teal/20 h-2 rounded-full overflow-hidden">
                             <div className="h-full bg-brand-teal rounded-full" style={{ width: '75%' }}></div>
@@ -15279,7 +15279,7 @@ export function SecuritySettingsTemplate() {
                       
                       <div className="space-y-4">
                         <div className="flex items-center gap-3 p-3 bg-muted/40 border border-border/55 rounded-xl">
-                          <div className="p-2 bg-indigo-500/10 text-secondary border border-brand-teal/20 rounded-lg">
+                          <div className="p-2 bg-indigo-500/10 text-brand-teal border border-brand-teal/20 rounded-lg">
                             <FileVideo size={18} />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -15293,7 +15293,7 @@ export function SecuritySettingsTemplate() {
                             </div>
                             <div className="flex justify-between items-center mt-1.5 text-[10px] text-muted-foreground">
                               <span>Uploading...</span>
-                              <span className="font-semibold text-secondary">65% (4.2 MB/s)</span>
+                              <span className="font-semibold text-brand-teal">65% (4.2 MB/s)</span>
                             </div>
                           </div>
                         </div>
@@ -15338,8 +15338,8 @@ export function SecuritySettingsTemplate() {
                           </div>
 
                           <div className="flex flex-col items-center relative z-10">
-                            <div className="w-8 h-8 rounded-full bg-brand-teal text-slate-950 flex items-center justify-center font-bold text-xs shadow-md border-2 border-secondary ring-4 ring-secondary/15">2</div>
-                            <span className="text-[10px] font-bold text-secondary mt-2">2. Identity Check (KYC)</span>
+                            <div className="w-8 h-8 rounded-full bg-brand-teal text-slate-950 flex items-center justify-center font-bold text-xs shadow-md border-2 border-brand-teal ring-4 ring-brand-teal/15">2</div>
+                            <span className="text-[10px] font-bold text-brand-teal mt-2">2. Identity Check (KYC)</span>
                           </div>
 
                           <div className="flex flex-col items-center relative z-10">
@@ -15543,10 +15543,10 @@ export function SecuritySettingsTemplate() {
                         {(() => {
                           const themeStyles = {
                             primary: {
-                              bg: "bg-secondary/20",
-                              fill: "bg-gradient-to-r from-secondary to-indigo-500",
-                              solid: "bg-secondary",
-                              text: "text-secondary"
+                              bg: "bg-brand-teal/20",
+                              fill: "bg-gradient-to-r from-brand-teal to-indigo-500",
+                              solid: "bg-brand-teal",
+                              text: "text-brand-teal"
                             },
                             secondary: {
                               bg: "bg-muted",
@@ -15807,14 +15807,14 @@ export function SecuritySettingsTemplate() {
             };
 
             const handleStyleClasses = {
-              line: 'bg-border hover:bg-secondary dark:hover:bg-teal-500 relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
-              dots: 'bg-border/60 hover:bg-secondary dark:hover:bg-teal-500 flex items-center justify-center relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
+              line: 'bg-border hover:bg-brand-teal dark:hover:bg-teal-500 relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
+              dots: 'bg-border/60 hover:bg-brand-teal dark:hover:bg-teal-500 flex items-center justify-center relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
               glass: 'bg-white/10 backdrop-blur-md border-x border-white/20 shadow-lg flex items-center justify-center relative z-20 hover:bg-white/20'
             }[playResizableHandleStyle];
 
             const verticalHandleStyleClasses = {
-              line: 'bg-border hover:bg-secondary dark:hover:bg-teal-500 relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
-              dots: 'bg-border/60 hover:bg-secondary dark:hover:bg-teal-500 flex items-center justify-center relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
+              line: 'bg-border hover:bg-brand-teal dark:hover:bg-teal-500 relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
+              dots: 'bg-border/60 hover:bg-brand-teal dark:hover:bg-teal-500 flex items-center justify-center relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
               glass: 'bg-white/10 backdrop-blur-md border-y border-white/20 shadow-lg flex items-center justify-center relative z-20 hover:bg-white/20'
             }[playResizableHandleStyle];
 
@@ -15977,7 +15977,7 @@ export function SecuritySettingsTemplate() {
                           className="bg-muted/10 border-r border-border/60 p-4 text-xs font-semibold space-y-3 select-none flex flex-col justify-between"
                         >
                           <div className="space-y-1">
-                            <div className="p-2 bg-brand-teal/15 text-secondary dark:text-teal-400 rounded-lg">Home Feed</div>
+                            <div className="p-2 bg-brand-teal/15 text-brand-teal dark:text-teal-400 rounded-lg">Home Feed</div>
                             <div className="p-2 text-muted-foreground hover:bg-muted/50 rounded-lg cursor-pointer">Transactions</div>
                             <div className="p-2 text-muted-foreground hover:bg-muted/50 rounded-lg cursor-pointer">Analytics</div>
                           </div>
@@ -16005,7 +16005,7 @@ export function SecuritySettingsTemplate() {
                             </div>
                             <div className="p-4 border border-border/60 rounded-xl bg-muted/20">
                               <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground block">Success Ratio</span>
-                              <span className="text-xl font-bold text-secondary dark:text-teal-400">99.8%</span>
+                              <span className="text-xl font-bold text-brand-teal dark:text-teal-400">99.8%</span>
                             </div>
                           </div>
                           <div className="p-4 border border-border/60 rounded-xl bg-muted/10 text-xs text-muted-foreground">
@@ -16066,7 +16066,7 @@ export function SecuritySettingsTemplate() {
                               onClick={() => setPlayResizableOrientation(val as 'horizontal' | 'vertical')}
                               className={`py-1.5 px-3 rounded-lg border text-xs capitalize transition ${
                                 playResizableOrientation === val
-                                  ? 'border-brand-teal bg-brand-teal/15 text-secondary dark:text-teal-400 font-semibold'
+                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal dark:text-teal-400 font-semibold'
                                   : 'border-border hover:bg-muted/30 text-muted-foreground'
                               }`}
                             >
@@ -16089,7 +16089,7 @@ export function SecuritySettingsTemplate() {
                               }}
                               className={`py-1.5 px-3 rounded-lg border text-xs transition ${
                                 playResizableNumPanels === val
-                                  ? 'border-brand-teal bg-brand-teal/15 text-secondary dark:text-teal-400 font-semibold'
+                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal dark:text-teal-400 font-semibold'
                                   : 'border-border hover:bg-muted/30 text-muted-foreground'
                               }`}
                             >
@@ -16109,7 +16109,7 @@ export function SecuritySettingsTemplate() {
                               onClick={() => setPlayResizableHandleStyle(val as 'line' | 'dots' | 'glass')}
                               className={`py-1.5 px-2 rounded-lg border text-xs capitalize transition ${
                                 playResizableHandleStyle === val
-                                  ? 'border-brand-teal bg-brand-teal/15 text-secondary dark:text-teal-400 font-semibold'
+                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal dark:text-teal-400 font-semibold'
                                   : 'border-border hover:bg-muted/30 text-muted-foreground'
                               }`}
                             >
@@ -16317,14 +16317,14 @@ export function SecuritySettingsTemplate() {
 
             const themeClasses = {
               default: '[&::-webkit-scrollbar-thumb]:bg-slate-350 dark:[&::-webkit-scrollbar-thumb]:bg-slate-750 hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-slate-650',
-              brand: '[&::-webkit-scrollbar-thumb]:bg-secondary-500/70 hover:[&::-webkit-scrollbar-thumb]:bg-secondary-500',
+              brand: '[&::-webkit-scrollbar-thumb]:bg-brand-teal/70 hover:[&::-webkit-scrollbar-thumb]:bg-brand-teal',
               success: '[&::-webkit-scrollbar-thumb]:bg-emerald-500/70 hover:[&::-webkit-scrollbar-thumb]:bg-emerald-500',
               danger: '[&::-webkit-scrollbar-thumb]:bg-rose-500/70 hover:[&::-webkit-scrollbar-thumb]:bg-rose-500'
             }[theme];
 
             const hoverThemeClass = {
               default: 'hover:[&::-webkit-scrollbar-thumb]:bg-slate-350 dark:hover:[&::-webkit-scrollbar-thumb]:bg-slate-755',
-              brand: 'hover:[&::-webkit-scrollbar-thumb]:bg-secondary-500',
+              brand: 'hover:[&::-webkit-scrollbar-thumb]:bg-brand-teal',
               success: 'hover:[&::-webkit-scrollbar-thumb]:bg-emerald-500',
               danger: 'hover:[&::-webkit-scrollbar-thumb]:bg-rose-500'
             }[theme];
@@ -16681,7 +16681,7 @@ export function ScrollArea({
                                       <Terminal size={12} className="text-slate-400" />
                                       <span className="font-bold text-foreground">Build Task #{i + 1}</span>
                                     </div>
-                                    <span className="text-[10px] text-secondary-500 font-mono bg-brand-teal/10 px-2 py-0.5 rounded-full">ACTIVE</span>
+                                    <span className="text-[10px] text-brand-teal font-mono bg-brand-teal/10 px-2 py-0.5 rounded-full">ACTIVE</span>
                                   </div>
                                 ))}
                               </div>
@@ -16746,10 +16746,10 @@ export function ScrollArea({
                 text: 'text-muted-foreground/60'
               },
               accent: {
-                bg: 'bg-secondary-500',
-                border: 'border-secondary-500',
-                gradient: 'via-secondary-500',
-                text: 'text-secondary-500'
+                bg: 'bg-brand-teal',
+                border: 'border-brand-teal',
+                gradient: 'via-brand-teal',
+                text: 'text-brand-teal'
               }
             }[theme];
 
@@ -16890,7 +16890,7 @@ export function ScrollArea({
 
                     <div className="border border-border/65 rounded-xl p-6 bg-muted/5 space-y-4">
                       <div className="space-y-2 text-xs text-muted-foreground leading-relaxed">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-secondary-500">Node Architecture Report</span>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-brand-teal">Node Architecture Report</span>
                         <h4 className="font-extrabold text-foreground text-sm">Alpha Cluster Swap Sync Status</h4>
                         <p>The global system sync has finished swapping secondary validators on Arbitrum One. Ledger synchronization swaps occurred automatically at block #492823.</p>
                       </div>
@@ -17173,7 +17173,7 @@ export function ScrollArea({
                       Accessibility Contract (WCAG 2.1 AA)
                     </div>
                     <ul className="list-disc list-inside space-y-1.5 pl-1 text-[11px] leading-relaxed">
-                      <li>Provides keyboard control constraints: Focus is captured when opened, and pressing <kbd className="font-mono text-[9px] bg-muted px-1.5 py-0.5 rounded text-secondary border border-border shadow-2xs">Esc</kbd> closes the active drawer panel.</li>
+                      <li>Provides keyboard control constraints: Focus is captured when opened, and pressing <kbd className="font-mono text-[9px] bg-muted px-1.5 py-0.5 rounded text-brand-teal border border-border shadow-2xs">Esc</kbd> closes the active drawer panel.</li>
                       <li>Declares semantic modal behavior using <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">role="dialog"</code> and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">aria-modal="true"</code>.</li>
                       <li>Contains explicit header tag bindings with <code className="font-mono text-[10px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">aria-labelledby</code> to maintain clear screen reader headers.</li>
                     </ul>
@@ -17195,7 +17195,7 @@ export function ScrollArea({
                     {/* Specimen 1 Card */}
                     <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm text-left flex flex-col justify-between min-h-48">
                       <div className="space-y-2">
-                        <div className="p-2 w-fit bg-brand-teal/10 text-secondary rounded-lg">
+                        <div className="p-2 w-fit bg-brand-teal/10 text-brand-teal rounded-lg">
                           <User size={18} />
                         </div>
                         <h3 className="text-sm font-bold text-foreground">Right Profile Editor</h3>
@@ -17215,7 +17215,7 @@ export function ScrollArea({
                     {/* Specimen 2 Card */}
                     <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm text-left flex flex-col justify-between min-h-48">
                       <div className="space-y-2">
-                        <div className="p-2 w-fit bg-brand-teal/10 text-secondary rounded-lg">
+                        <div className="p-2 w-fit bg-brand-teal/10 text-brand-teal rounded-lg">
                           <Compass size={18} />
                         </div>
                         <h3 className="text-sm font-bold text-foreground">Left Navigation Sidebar</h3>
@@ -17235,7 +17235,7 @@ export function ScrollArea({
                     {/* Specimen 3 Card */}
                     <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm text-left flex flex-col justify-between min-h-48">
                       <div className="space-y-2">
-                        <div className="p-2 w-fit bg-brand-teal/10 text-secondary rounded-lg">
+                        <div className="p-2 w-fit bg-brand-teal/10 text-brand-teal rounded-lg">
                           <SlidersHorizontal size={18} />
                         </div>
                         <h3 className="text-sm font-bold text-foreground">Bottom Filters Panel</h3>
@@ -17277,7 +17277,7 @@ export function ScrollArea({
                         <div className="flex-1 overflow-y-auto py-6 space-y-4">
                           {/* Avatar Circle */}
                           <div className="flex items-center gap-4 p-4 border border-border/60 rounded-xl bg-muted/10">
-                            <div className="w-12 h-12 rounded-full bg-brand-teal/20 flex items-center justify-center font-bold text-secondary text-sm">
+                            <div className="w-12 h-12 rounded-full bg-brand-teal/20 flex items-center justify-center font-bold text-brand-teal text-sm">
                               AD
                             </div>
                             <div className="space-y-1">
@@ -17403,7 +17403,7 @@ export function ScrollArea({
                             <div className="font-bold text-foreground text-[10px] uppercase tracking-wider">Metrics Categories</div>
                             {['Sync swaps logs', 'Multisig logs', 'API gateway syncs', 'Secondary backups'].map((c, i) => (
                               <label key={i} className="flex items-center gap-2 py-1.5 hover:text-foreground cursor-pointer transition">
-                                <input type="checkbox" defaultChecked className="rounded border-border bg-card text-secondary focus:ring-brand-teal/40" />
+                                <input type="checkbox" defaultChecked className="rounded border-border bg-card text-brand-teal focus:ring-brand-teal/40" />
                                 <span>{c}</span>
                               </label>
                             ))}
@@ -17414,7 +17414,7 @@ export function ScrollArea({
                             <div className="font-bold text-foreground text-[10px] uppercase tracking-wider">Date Filters</div>
                             {['Last 1 hour', 'Last 24 hours', 'Last 7 days', 'Custom block index'].map((d, i) => (
                               <label key={i} className="flex items-center gap-2 py-1.5 hover:text-foreground cursor-pointer transition">
-                                <input type="radio" name="dates" defaultChecked={i === 1} className="border-border bg-card text-secondary focus:ring-brand-teal/40" />
+                                <input type="radio" name="dates" defaultChecked={i === 1} className="border-border bg-card text-brand-teal focus:ring-brand-teal/40" />
                                 <span>{d}</span>
                               </label>
                             ))}
@@ -17425,7 +17425,7 @@ export function ScrollArea({
                             <div className="font-bold text-foreground text-[10px] uppercase tracking-wider">Metrics Density</div>
                             {['Ultra dense (500 logs)', 'Standard (100 logs)', 'Compact (20 logs)'].map((s, i) => (
                               <label key={i} className="flex items-center gap-2 py-1.5 hover:text-foreground cursor-pointer transition">
-                                <input type="radio" name="density" defaultChecked={i === 1} className="border-border bg-card text-secondary focus:ring-brand-teal/40" />
+                                <input type="radio" name="density" defaultChecked={i === 1} className="border-border bg-card text-brand-teal focus:ring-brand-teal/40" />
                                 <span>{s}</span>
                               </label>
                             ))}
@@ -17545,7 +17545,7 @@ export function ScrollArea({
                             type="checkbox" 
                             checked={playSheetCloseOnClickOutside} 
                             onChange={(e) => setPlaySheetCloseOnClickOutside(e.target.checked)} 
-                            className="rounded border-border bg-card text-secondary focus:ring-brand-teal/40" 
+                            className="rounded border-border bg-card text-brand-teal focus:ring-brand-teal/40" 
                           />
                         </label>
                         <label className="flex items-center justify-between text-xs cursor-pointer text-muted-foreground hover:text-foreground transition">
@@ -17554,7 +17554,7 @@ export function ScrollArea({
                             type="checkbox" 
                             checked={playSheetCloseOnEsc} 
                             onChange={(e) => setPlaySheetCloseOnEsc(e.target.checked)} 
-                            className="rounded border-border bg-card text-secondary focus:ring-brand-teal/40" 
+                            className="rounded border-border bg-card text-brand-teal focus:ring-brand-teal/40" 
                           />
                         </label>
                       </div>
@@ -17745,7 +17745,7 @@ export function ScrollArea({
                               </button>
                             </nav>
 
-                            <div className="w-8 h-8 rounded-full bg-brand-teal/20 flex items-center justify-center font-bold text-secondary text-xs">AD</div>
+                            <div className="w-8 h-8 rounded-full bg-brand-teal/20 flex items-center justify-center font-bold text-brand-teal text-xs">AD</div>
                           </aside>
                         </div>
                       </div>
@@ -17785,7 +17785,7 @@ export function ScrollArea({
 
                                 {specimenSubmenuOpen && (
                                   <div className="pl-6 space-y-1">
-                                    <button className="w-full text-left py-1 text-[11px] font-bold text-secondary">API Keys</button>
+                                    <button className="w-full text-left py-1 text-[11px] font-bold text-brand-teal">API Keys</button>
                                     <button className="w-full text-left py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground">Certificates</button>
                                     <button className="w-full text-left py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground">Whitelists</button>
                                   </div>
@@ -17902,7 +17902,7 @@ export function ScrollArea({
                             type="checkbox" 
                             checked={playSidebarHasWorkspaceSelector} 
                             onChange={(e) => setPlaySidebarHasWorkspaceSelector(e.target.checked)} 
-                            className="rounded border-border bg-card text-secondary focus:ring-brand-teal/40" 
+                            className="rounded border-border bg-card text-brand-teal focus:ring-brand-teal/40" 
                           />
                         </label>
                         <label className="flex items-center justify-between text-xs cursor-pointer text-muted-foreground hover:text-foreground transition">
@@ -17911,7 +17911,7 @@ export function ScrollArea({
                             type="checkbox" 
                             checked={playSidebarHasUserBlock} 
                             onChange={(e) => setPlaySidebarHasUserBlock(e.target.checked)} 
-                            className="rounded border-border bg-card text-secondary focus:ring-brand-teal/40" 
+                            className="rounded border-border bg-card text-brand-teal focus:ring-brand-teal/40" 
                           />
                         </label>
                       </div>
@@ -17996,7 +17996,7 @@ export function ScrollArea({
                             {hasUserBlock && (
                               <div className="p-3 border-t border-border/40 bg-muted/5 font-bold">
                                 <div className="flex items-center gap-2.5">
-                                  <div className="w-7 h-7 rounded-full bg-brand-teal/20 flex items-center justify-center font-bold text-secondary text-[11px] shrink-0">AD</div>
+                                  <div className="w-7 h-7 rounded-full bg-brand-teal/20 flex items-center justify-center font-bold text-brand-teal text-[11px] shrink-0">AD</div>
                                   {!collapsed && (
                                     <div className="space-y-0.5 text-left overflow-hidden leading-none font-bold">
                                       <div className="text-[11px] truncate">Alok Desai</div>
@@ -18016,7 +18016,7 @@ export function ScrollArea({
                             </p>
                             <div className="p-3 border border-border/60 rounded-xl bg-card text-[10px] text-muted-foreground flex justify-between items-center">
                               <span>Active Key Indicator:</span>
-                              <code className="font-mono text-secondary font-bold bg-muted px-1.5 py-0.5 rounded uppercase">{activeItem}</code>
+                              <code className="font-mono text-brand-teal font-bold bg-muted px-1.5 py-0.5 rounded uppercase">{activeItem}</code>
                             </div>
                           </div>
                         </div>
@@ -18076,7 +18076,7 @@ export function ScrollArea({
               const themeClass = {
                 default: 'bg-slate-200 dark:bg-slate-800/80',
                 'brand-navy': 'bg-primary-500/15 dark:bg-primary-500/25',
-                'brand-teal': 'bg-secondary-500/15 dark:bg-secondary-500/25'
+                'brand-teal': 'bg-brand-teal/15 dark:bg-brand-teal/25'
               }[theme];
 
               const animClass = anim === 'pulse' ? 'animate-pulse' : '';
@@ -18623,7 +18623,7 @@ export function ScrollArea({
                             setPlaySliderDisabled(false);
                             setPlaySliderSize('md');
                           }}
-                          className="text-[9px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[9px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset
                         </button>
@@ -19069,7 +19069,7 @@ export function ScrollArea({
                               onClick={() => setPlaySonnerType(t)}
                               className={`px-2 py-1.5 border rounded-lg text-[9px] font-bold capitalize transition cursor-pointer ${
                                 playSonnerType === t
-                                  ? 'bg-brand-teal text-slate-950 border-secondary'
+                                  ? 'bg-brand-teal text-slate-950 border-brand-teal'
                                   : 'bg-card text-muted-foreground border-border hover:bg-muted'
                               }`}
                             >
@@ -19205,7 +19205,7 @@ export function ScrollArea({
 
               const colorClasses = {
                 primary: 'text-primary border-primary bg-primary/20',
-                secondary: 'text-secondary-500 border-secondary-500 bg-secondary-500/20',
+                secondary: 'text-brand-teal border-brand-teal bg-brand-teal/20',
                 muted: 'text-muted-foreground border-muted-foreground bg-muted-foreground/20',
                 white: 'text-white border-white bg-white/20',
               }[theme];
@@ -19483,7 +19483,7 @@ export function ScrollArea({
                               onClick={() => setPlaySpinnerSize(sz)}
                               className={`py-1.5 border rounded-lg text-[9px] font-bold uppercase transition cursor-pointer ${
                                 playSpinnerSize === sz
-                                  ? 'bg-brand-teal text-slate-950 border-secondary'
+                                  ? 'bg-brand-teal text-slate-950 border-brand-teal'
                                   : 'bg-card text-muted-foreground border-border hover:bg-muted'
                               }`}
                             >
@@ -19503,7 +19503,7 @@ export function ScrollArea({
                               onClick={() => setPlaySpinnerTheme(t)}
                               className={`py-1.5 border rounded-lg text-[9px] font-bold capitalize transition cursor-pointer ${
                                 playSpinnerTheme === t
-                                  ? 'bg-brand-teal text-slate-950 border-secondary'
+                                  ? 'bg-brand-teal text-slate-950 border-brand-teal'
                                   : 'bg-card text-muted-foreground border-border hover:bg-muted'
                               }`}
                             >
@@ -19523,7 +19523,7 @@ export function ScrollArea({
                               onClick={() => setPlaySpinnerSpeed(spd)}
                               className={`py-1.5 border rounded-lg text-[9px] font-bold capitalize transition cursor-pointer ${
                                 playSpinnerSpeed === spd
-                                  ? 'bg-brand-teal text-slate-950 border-secondary'
+                                  ? 'bg-brand-teal text-slate-950 border-brand-teal'
                                   : 'bg-card text-muted-foreground border-border hover:bg-muted'
                               }`}
                             >
@@ -19701,7 +19701,7 @@ export function ScrollArea({
                       <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2">Testimonial Quote Showcase</h3>
                       <div className="w-full border border-border/80 rounded-2xl bg-card p-6 shadow-xs flex flex-col justify-between min-h-[180px]">
                         <div className="space-y-3">
-                          <span className="text-3xl text-secondary-500 font-serif leading-none">“</span>
+                          <span className="text-3xl text-brand-teal font-serif leading-none">“</span>
                           <p className="text-xs text-foreground italic leading-relaxed font-medium">
                             The strategic advisory services provided by Harbour & Hills transformed our corporate restructuring roadmap, securing our growth phase seamlessly.
                           </p>
@@ -19857,7 +19857,7 @@ export function ScrollArea({
                             setPlayCarouselInterval(3000);
                             setPlayCarouselIndicators('dots');
                           }}
-                          className="text-[10px] text-secondary-500 hover:underline font-semibold cursor-pointer"
+                          className="text-[10px] text-brand-teal hover:underline font-semibold cursor-pointer"
                         >
                           Reset Defaults
                         </button>
@@ -21495,7 +21495,7 @@ export function ScrollArea({
                             onClick={() => setPlayAlertDialogVariant(v as 'confirm' | 'destructive' | 'info')}
                             className={`py-1.5 text-[10px] font-bold border rounded-lg transition capitalize focus:outline-none cursor-pointer ${
                               playAlertDialogVariant === v
-                                ? 'bg-brand-teal text-slate-950 border-secondary-500'
+                                ? 'bg-brand-teal text-slate-950 border-brand-teal'
                                 : 'border-border bg-muted/30 text-muted-foreground hover:border-slate-400'
                             }`}
                           >
@@ -21515,7 +21515,7 @@ export function ScrollArea({
                             onClick={() => setPlayAlertDialogBlur(b)}
                             className={`py-1.5 text-[10px] font-bold border rounded-lg transition uppercase focus:outline-none cursor-pointer ${
                               playAlertDialogBlur === b
-                                ? 'bg-brand-teal text-slate-950 border-secondary-500'
+                                ? 'bg-brand-teal text-slate-950 border-brand-teal'
                                 : 'border-border bg-muted/30 text-muted-foreground hover:border-slate-400'
                             }`}
                           >
@@ -21772,7 +21772,7 @@ export function ScrollArea({
                             playAlertDialogVariant === 'destructive'
                               ? 'bg-destructive text-destructive-foreground hover:bg-destructive-600 focus-visible:ring-destructive'
                               : playAlertDialogVariant === 'info'
-                              ? 'bg-brand-teal text-slate-950 hover:opacity-95 focus-visible:ring-secondary-500'
+                              ? 'bg-brand-teal text-slate-950 hover:opacity-95 focus-visible:ring-brand-teal'
                               : 'bg-primary text-primary-foreground hover:opacity-95 focus-visible:ring-primary'
                           }`}
                         >
@@ -21950,7 +21950,7 @@ export function ScrollArea({
                             onClick={() => setPlayTableDensity(den as 'compact' | 'md' | 'spacious')}
                             className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold capitalize transition cursor-pointer ${
                               playTableDensity === den
-                                ? 'bg-primary border-primary text-primary-foreground dark:bg-secondary-500 dark:border-secondary-500 dark:text-slate-900'
+                                ? 'bg-primary border-primary text-primary-foreground dark:bg-brand-teal dark:border-brand-teal dark:text-slate-900'
                                 : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
                             }`}
                           >
@@ -22006,7 +22006,7 @@ export function ScrollArea({
                             onClick={() => setPlayTableFilter(flt as any)}
                             className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold capitalize transition cursor-pointer ${
                               playTableFilter === flt
-                                ? 'bg-brand-teal/15 border-brand-teal text-secondary font-bold'
+                                ? 'bg-brand-teal/15 border-brand-teal text-brand-teal font-bold'
                                 : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
                             }`}
                           >
@@ -22174,7 +22174,7 @@ export function ScrollArea({
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Grid 1: Stroke Width */}
                   <div className="bg-card border border-border rounded-xl p-5 space-y-3 shadow-xs">
-                    <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-secondary flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center">
                       <Shield size={16} className="stroke-[2.5]" />
                     </div>
                     <h3 className="text-sm font-bold text-foreground">Stroke Thickness</h3>
@@ -22185,7 +22185,7 @@ export function ScrollArea({
 
                   {/* Grid 2: Sizing Scale */}
                   <div className="bg-card border border-border rounded-xl p-5 space-y-3 shadow-xs">
-                    <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-secondary flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center">
                       <LayoutGrid size={16} />
                     </div>
                     <h3 className="text-sm font-bold text-foreground">Consistent Sizing</h3>
@@ -22196,7 +22196,7 @@ export function ScrollArea({
 
                   {/* Grid 3: Color Sync */}
                   <div className="bg-card border border-border rounded-xl p-5 space-y-3 shadow-xs">
-                    <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-secondary flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center">
                       <Bell size={16} />
                     </div>
                     <h3 className="text-sm font-bold text-foreground">Contextual Coloring</h3>
@@ -22243,7 +22243,7 @@ export function ScrollArea({
                       onClick={() => setIconCategory(cat)}
                       className={`px-3.5 py-1.5 rounded-lg border text-[11px] font-semibold transition cursor-pointer ${
                         iconCategory === cat
-                          ? 'bg-brand-teal text-slate-950 border-secondary dark:text-slate-900'
+                          ? 'bg-brand-teal text-slate-950 border-brand-teal dark:text-slate-900'
                           : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
                       }`}
                     >
@@ -22270,7 +22270,7 @@ export function ScrollArea({
                           className="bg-card hover:bg-muted/15 border border-border/80 hover:border-brand-teal/40 rounded-xl p-4.5 text-center flex flex-col items-center justify-between gap-3 group transition cursor-pointer shadow-2xs hover:shadow-xs relative"
                           title="Click to copy JSX tag"
                         >
-                          <div className="text-primary dark:text-slate-200 group-hover:text-secondary transition-colors duration-150 p-2 bg-muted/40 dark:bg-slate-950/20 rounded-lg">
+                          <div className="text-primary dark:text-slate-200 group-hover:text-brand-teal transition-colors duration-150 p-2 bg-muted/40 dark:bg-slate-950/20 rounded-lg">
                             <IconComponent size={20} className="stroke-[2]" />
                           </div>
                           <div className="space-y-1 w-full">
@@ -22474,7 +22474,7 @@ export function ScrollArea({
                             onClick={() => setPlayDialogSize(sz as any)}
                             className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold uppercase transition cursor-pointer ${
                               playDialogSize === sz
-                                ? 'bg-primary border-primary text-primary-foreground dark:bg-secondary-500 dark:border-secondary-500 dark:text-slate-900'
+                                ? 'bg-primary border-primary text-primary-foreground dark:bg-brand-teal dark:border-brand-teal dark:text-slate-900'
                                 : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
                             }`}
                           >
@@ -22494,7 +22494,7 @@ export function ScrollArea({
                             onClick={() => setPlayDialogBackdrop(bd as any)}
                             className={`px-2 py-1.5 rounded-lg border text-[10.5px] font-semibold capitalize transition cursor-pointer ${
                               playDialogBackdrop === bd
-                                ? 'bg-brand-teal/15 border-brand-teal text-secondary font-bold'
+                                ? 'bg-brand-teal/15 border-brand-teal text-brand-teal font-bold'
                                 : 'bg-transparent border-border text-muted-foreground hover:text-foreground'
                             }`}
                           >
@@ -23534,7 +23534,7 @@ export function ScrollArea({
 
                       {playDropdownSelectedValue && (
                         <div className="text-center text-[10.5px] text-muted-foreground font-light mt-1">
-                          Last Triggered Action: <span className="font-semibold text-secondary-500">{playDropdownSelectedValue}</span>
+                          Last Triggered Action: <span className="font-semibold text-brand-teal">{playDropdownSelectedValue}</span>
                         </div>
                       )}
 
@@ -23996,13 +23996,13 @@ export function ScrollArea({
 
               const variantClasses = {
                 default: pressed
-                  ? "bg-secondary/15 dark:bg-secondary/25 text-secondary dark:text-secondary-400 hover:bg-secondary/20 dark:hover:bg-secondary/30"
+                  ? "bg-brand-teal/15 dark:bg-brand-teal/25 text-brand-teal dark:text-secondary-400 hover:bg-brand-teal/20 dark:hover:bg-brand-teal/30"
                   : "bg-transparent text-foreground hover:bg-muted/80 hover:text-muted-foreground",
                 outline: pressed
-                  ? "bg-secondary/15 dark:bg-secondary/25 text-secondary dark:text-secondary-400 border border-secondary/30 hover:bg-secondary/20 dark:hover:bg-secondary/30"
+                  ? "bg-brand-teal/15 dark:bg-brand-teal/25 text-brand-teal dark:text-secondary-400 border border-brand-teal/30 hover:bg-brand-teal/20 dark:hover:bg-brand-teal/30"
                   : "bg-transparent text-foreground border border-border hover:bg-muted/80 hover:text-muted-foreground",
                 solid: pressed
-                  ? "bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                  ? "bg-brand-teal text-slate-950 hover:bg-brand-teal/90"
                   : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground",
               }[variant];
 
@@ -24347,15 +24347,15 @@ export function ScrollArea({
                     let activeStyle = "";
                     if (variant === 'default') {
                       activeStyle = isSelected
-                        ? "bg-card dark:bg-slate-800 text-secondary dark:text-secondary-400 font-bold shadow-xs border border-border/60"
+                        ? "bg-card dark:bg-slate-800 text-brand-teal dark:text-secondary-400 font-bold shadow-xs border border-border/60"
                         : "text-muted-foreground hover:text-foreground hover:bg-background/40";
                     } else if (variant === 'outline') {
                       activeStyle = isSelected
-                        ? "bg-secondary/15 dark:bg-secondary/25 text-secondary dark:text-secondary-400 border border-secondary/30 font-bold shadow-2xs"
+                        ? "bg-brand-teal/15 dark:bg-brand-teal/25 text-brand-teal dark:text-secondary-400 border border-brand-teal/30 font-bold shadow-2xs"
                         : "text-foreground border border-transparent hover:bg-muted/60";
                     } else {
                       activeStyle = isSelected
-                        ? "bg-secondary text-secondary-foreground font-bold shadow-xs"
+                        ? "bg-brand-teal text-slate-950 font-bold shadow-xs"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/70";
                     }
 
@@ -24396,7 +24396,7 @@ export function ScrollArea({
                 {/* Header */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-brand-teal/10 text-secondary dark:bg-brand-teal/20 dark:text-secondary-400 border border-brand-teal/20">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-brand-teal/10 text-brand-teal dark:bg-brand-teal/20 dark:text-secondary-400 border border-brand-teal/20">
                       Component
                     </span>
                     <span className="text-xs text-muted-foreground font-mono">v1.0.0</span>
@@ -24418,21 +24418,21 @@ export function ScrollArea({
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="p-5 rounded-xl border border-border/70 bg-card space-y-2 shadow-2xs">
-                      <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-secondary flex items-center justify-center font-bold text-xs">01</div>
+                      <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center font-bold text-xs">01</div>
                       <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">Single & Multiple Selection</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">
                         Switch seamlessly between mutually-exclusive radio choice behavior and multi-select active filter states.
                       </p>
                     </div>
                     <div className="p-5 rounded-xl border border-border/70 bg-card space-y-2 shadow-2xs">
-                      <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-secondary flex items-center justify-center font-bold text-xs">02</div>
+                      <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center font-bold text-xs">02</div>
                       <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">Orientations & Density</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">
                         Supports horizontal toolbars, vertical canvas control docks, and responsive sizing scales (`sm`, `md`, `lg`).
                       </p>
                     </div>
                     <div className="p-5 rounded-xl border border-border/70 bg-card space-y-2 shadow-2xs">
-                      <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-secondary flex items-center justify-center font-bold text-xs">03</div>
+                      <div className="w-8 h-8 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center font-bold text-xs">03</div>
                       <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">WCAG Accessibility</h3>
                       <p className="text-xs text-muted-foreground leading-relaxed">
                         Provides correct `aria-pressed` or `aria-checked` states, keyboard focus highlights, and high-contrast dark/light mode themes.
@@ -24506,7 +24506,7 @@ export function ScrollArea({
                         <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">Financial Market Timeframe Selector</h3>
                         <p className="text-xs text-muted-foreground">Brand Teal high-contrast pill group designed for trading charts and analytics dashboards.</p>
                       </div>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-teal/15 text-secondary dark:text-secondary-400 self-start sm:self-center font-bold">Chart Control</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-teal/15 text-brand-teal dark:text-secondary-400 self-start sm:self-center font-bold">Chart Control</span>
                     </div>
 
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 text-slate-100 p-5 rounded-xl border border-slate-800 shadow-md">
@@ -24584,7 +24584,7 @@ export function ScrollArea({
                           ]}
                         />
                         <div className="text-xs space-y-1 text-muted-foreground">
-                          <div className="font-bold text-foreground">Current Tool: <span className="text-secondary capitalize">{toolVal}</span></div>
+                          <div className="font-bold text-foreground">Current Tool: <span className="text-brand-teal capitalize">{toolVal}</span></div>
                           <p className="text-[11px] leading-tight">Clicking switches active cursor behavior for design canvas interaction.</p>
                         </div>
                       </div>
@@ -24716,7 +24716,7 @@ export function ScrollArea({
                               key={mode}
                               type="button"
                               onClick={() => setPlayToggleGroupType(mode)}
-                              className={`py-1.5 text-xs font-bold rounded-lg capitalize transition-all ${playToggleGroupType === mode ? 'bg-card text-secondary dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
+                              className={`py-1.5 text-xs font-bold rounded-lg capitalize transition-all ${playToggleGroupType === mode ? 'bg-card text-brand-teal dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
                             >
                               {mode}
                             </button>
@@ -24733,7 +24733,7 @@ export function ScrollArea({
                               key={v}
                               type="button"
                               onClick={() => setPlayToggleGroupVariant(v)}
-                              className={`py-1.5 text-xs font-bold rounded-lg capitalize transition-all ${playToggleGroupVariant === v ? 'bg-card text-secondary dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
+                              className={`py-1.5 text-xs font-bold rounded-lg capitalize transition-all ${playToggleGroupVariant === v ? 'bg-card text-brand-teal dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
                             >
                               {v}
                             </button>
@@ -24750,7 +24750,7 @@ export function ScrollArea({
                               key={s}
                               type="button"
                               onClick={() => setPlayToggleGroupSize(s)}
-                              className={`py-1.5 text-xs font-bold rounded-lg uppercase transition-all ${playToggleGroupSize === s ? 'bg-card text-secondary dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
+                              className={`py-1.5 text-xs font-bold rounded-lg uppercase transition-all ${playToggleGroupSize === s ? 'bg-card text-brand-teal dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
                             >
                               {s}
                             </button>
@@ -24767,7 +24767,7 @@ export function ScrollArea({
                               key={o}
                               type="button"
                               onClick={() => setPlayToggleGroupOrientation(o)}
-                              className={`py-1.5 text-xs font-bold rounded-lg capitalize transition-all ${playToggleGroupOrientation === o ? 'bg-card text-secondary dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
+                              className={`py-1.5 text-xs font-bold rounded-lg capitalize transition-all ${playToggleGroupOrientation === o ? 'bg-card text-brand-teal dark:text-secondary-400 shadow-xs' : 'text-muted-foreground hover:text-foreground'}`}
                             >
                               {o}
                             </button>
@@ -24783,7 +24783,7 @@ export function ScrollArea({
                             type="checkbox"
                             checked={playToggleGroupDisabled}
                             onChange={(e) => setPlayToggleGroupDisabled(e.target.checked)}
-                            className="rounded text-secondary focus:ring-brand-teal h-4 w-4"
+                            className="rounded text-brand-teal focus:ring-brand-teal h-4 w-4"
                           />
                         </label>
                       </div>
@@ -24816,7 +24816,7 @@ export function ScrollArea({
                           <span className="font-bold text-muted-foreground uppercase tracking-wider">Current Selected Value</span>
                           <span className="font-mono text-[11px] text-muted-foreground">{playToggleGroupType === 'single' ? 'string' : 'Array<string>'}</span>
                         </div>
-                        <div className="font-mono text-xs p-2.5 rounded-lg bg-card border border-border/60 text-secondary dark:text-secondary-400 font-bold overflow-x-auto">
+                        <div className="font-mono text-xs p-2.5 rounded-lg bg-card border border-border/60 text-brand-teal dark:text-secondary-400 font-bold overflow-x-auto">
                           {playToggleGroupType === 'single'
                             ? JSON.stringify(playToggleGroupSingleValue)
                             : JSON.stringify(playToggleGroupMultiValue)}
@@ -24874,7 +24874,7 @@ export function ScrollArea({
                 {/* Header */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-brand-teal/10 text-secondary dark:bg-brand-teal/20 dark:text-secondary-400 border border-brand-teal/20">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-brand-teal/10 text-brand-teal dark:bg-brand-teal/20 dark:text-secondary-400 border border-brand-teal/20">
                       Component
                     </span>
                     <span className="text-xs text-muted-foreground font-mono">v1.0.0</span>
@@ -24909,7 +24909,7 @@ export function ScrollArea({
                     </div>
                     <div className="p-4 rounded-xl border border-border/70 bg-card space-y-1 shadow-2xs">
                       <div className="text-xs text-muted-foreground font-bold uppercase tracking-wider">Base Size</div>
-                      <div className="text-lg font-extrabold text-secondary font-mono">16px / 1.0rem</div>
+                      <div className="text-lg font-extrabold text-brand-teal font-mono">16px / 1.0rem</div>
                       <div className="text-[11px] text-muted-foreground">Default Body Scaling</div>
                     </div>
                     <div className="p-4 rounded-xl border border-border/70 bg-card space-y-1 shadow-2xs">
@@ -24972,7 +24972,7 @@ export function ScrollArea({
                     {/* H1 */}
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">&lt;h1&gt;</span>
+                        <span className="font-bold text-brand-teal">&lt;h1&gt;</span>
                         <span>48px / 3.0rem • Extrabold • Tracking Tighter</span>
                       </div>
                       <div className="text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
@@ -24983,7 +24983,7 @@ export function ScrollArea({
                     {/* H2 */}
                     <div className="space-y-2 pt-4 border-t border-border/40">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">&lt;h2&gt;</span>
+                        <span className="font-bold text-brand-teal">&lt;h2&gt;</span>
                         <span>30px / 1.875rem • Bold • Tracking Tight</span>
                       </div>
                       <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 border-b border-border pb-2">
@@ -24994,7 +24994,7 @@ export function ScrollArea({
                     {/* H3 */}
                     <div className="space-y-2 pt-4 border-t border-border/40">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">&lt;h3&gt;</span>
+                        <span className="font-bold text-brand-teal">&lt;h3&gt;</span>
                         <span>24px / 1.5rem • Semibold • Tracking Tight</span>
                       </div>
                       <div className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
@@ -25005,7 +25005,7 @@ export function ScrollArea({
                     {/* H4 */}
                     <div className="space-y-2 pt-4 border-t border-border/40">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">&lt;h4&gt;</span>
+                        <span className="font-bold text-brand-teal">&lt;h4&gt;</span>
                         <span>20px / 1.25rem • Semibold • Tracking Tight</span>
                       </div>
                       <div className="text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
@@ -25024,7 +25024,7 @@ export function ScrollArea({
                     {/* Lead */}
                     <div className="space-y-1.5">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">Lead Text</span>
+                        <span className="font-bold text-brand-teal">Lead Text</span>
                         <span>20px / 1.25rem • Font Light • Relaxed</span>
                       </div>
                       <p className="text-xl text-muted-foreground font-light leading-relaxed">
@@ -25035,7 +25035,7 @@ export function ScrollArea({
                     {/* Paragraph */}
                     <div className="space-y-1.5 pt-4 border-t border-border/40">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">Paragraph Body (&lt;p&gt;)</span>
+                        <span className="font-bold text-brand-teal">Paragraph Body (&lt;p&gt;)</span>
                         <span>16px / 1.0rem • Line Height 1.75</span>
                       </div>
                       <p className="text-base text-foreground leading-7">
@@ -25046,7 +25046,7 @@ export function ScrollArea({
                     {/* Large */}
                     <div className="space-y-1.5 pt-4 border-t border-border/40">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">Large Text</span>
+                        <span className="font-bold text-brand-teal">Large Text</span>
                         <span>18px / 1.125rem • Semibold</span>
                       </div>
                       <div className="text-lg font-semibold text-foreground">
@@ -25057,7 +25057,7 @@ export function ScrollArea({
                     {/* Small */}
                     <div className="space-y-1.5 pt-4 border-t border-border/40">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">Small Text (&lt;small&gt;)</span>
+                        <span className="font-bold text-brand-teal">Small Text (&lt;small&gt;)</span>
                         <span>14px / 0.875rem • Medium</span>
                       </div>
                       <p className="text-sm font-medium text-foreground leading-none">
@@ -25068,7 +25068,7 @@ export function ScrollArea({
                     {/* Muted */}
                     <div className="space-y-1.5 pt-4 border-t border-border/40">
                       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-                        <span className="font-bold text-secondary">Muted Text</span>
+                        <span className="font-bold text-brand-teal">Muted Text</span>
                         <span>14px / 0.875rem • Muted Color</span>
                       </div>
                       <p className="text-sm text-muted-foreground">
@@ -25100,7 +25100,7 @@ export function ScrollArea({
                         <span className="text-xs font-mono text-muted-foreground">Monospace Font</span>
                       </div>
                       <p className="text-xs text-muted-foreground leading-relaxed">
-                        Execute <code className="relative rounded bg-muted px-1.5 py-0.5 font-mono text-xs font-semibold text-secondary">npm install @hh-ds/react</code> to initialize components in your React project.
+                        Execute <code className="relative rounded bg-muted px-1.5 py-0.5 font-mono text-xs font-semibold text-brand-teal">npm install @hh-ds/react</code> to initialize components in your React project.
                       </p>
                       <pre className="p-3 rounded-xl bg-slate-950 text-slate-200 font-mono text-[11px] leading-relaxed overflow-x-auto border border-slate-800">
                         {`import { H1, Paragraph } from '@hh-ds/typography';\n\n<H1>Treasury Dashboard</H1>`}
@@ -25195,7 +25195,7 @@ export function ScrollArea({
                           className="w-full text-xs font-medium bg-card border border-border/80 rounded-lg px-2.5 py-1.5 text-foreground focus:outline-hidden focus:ring-1 focus:ring-brand-teal"
                         >
                           <option value="text-slate-900 dark:text-slate-100">Default (Foreground)</option>
-                          <option value="text-secondary dark:text-secondary-400">Secondary Accent</option>
+                          <option value="text-brand-teal dark:text-secondary-400">Secondary Accent</option>
                           <option value="text-muted-foreground">Muted Gray</option>
                           <option value="text-emerald-500">Emerald Green</option>
                           <option value="text-rose-500">Rose Red</option>
@@ -25669,7 +25669,7 @@ export function ScrollArea({
                           <div className="flex flex-wrap gap-1">
                             {localSelectedB.length === 0 && <span className="text-muted-foreground text-xs">Select sectors...</span>}
                             {localSelectedB.map(val => (
-                              <span key={val} className="flex items-center gap-1 bg-brand-teal/10 text-secondary-500 font-bold px-1.5 py-0.5 rounded-md text-[10px]">
+                              <span key={val} className="flex items-center gap-1 bg-brand-teal/10 text-brand-teal font-bold px-1.5 py-0.5 rounded-md text-[10px]">
                                 {items.find(i => i.value === val)?.label.split(' ')[0] || val}
                                 <X size={10} className="hover:text-primary cursor-pointer" onClick={(e) => { e.stopPropagation(); handleToggleLocalTag(val); }} />
                               </span>
@@ -25730,7 +25730,7 @@ export function ScrollArea({
                               <div className="flex flex-wrap gap-1">
                                 {playComboboxSelectedTags.length === 0 && <span className="text-muted-foreground">Select tags...</span>}
                                 {playComboboxSelectedTags.map(val => (
-                                  <span key={val} className="flex items-center gap-1 bg-brand-teal/10 text-secondary-500 font-bold px-1.5 py-0.5 rounded-md text-[10px]">
+                                  <span key={val} className="flex items-center gap-1 bg-brand-teal/10 text-brand-teal font-bold px-1.5 py-0.5 rounded-md text-[10px]">
                                     {items.find(i => i.value === val)?.label.split(' ')[0] || val}
                                     <X size={10} className="hover:text-primary cursor-pointer" onClick={(e) => { e.stopPropagation(); handleToggleTag(val); }} />
                                   </span>
@@ -25829,7 +25829,7 @@ export function ScrollArea({
                             setPlayComboboxMulti(false);
                             setPlayComboboxSelectedTags([]);
                           }}
-                          className="text-[10px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[10px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset Default
                         </button>
@@ -26105,7 +26105,7 @@ export function ScrollArea({
                                       bgClass = 'bg-primary text-white';
                                       textClass = 'text-white';
                                     } else if (playCommandTheme === 'teal') {
-                                      bgClass = 'bg-secondary-500 text-white';
+                                      bgClass = 'bg-brand-teal text-slate-950';
                                       textClass = 'text-white';
                                     } else {
                                       bgClass = 'bg-muted text-foreground';
@@ -26159,7 +26159,7 @@ export function ScrollArea({
                             setPlayCommandShortcutHint(true);
                             setLocalSelectedIndex(0);
                           }}
-                          className="text-[10px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[10px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset Default
                         </button>
@@ -26175,7 +26175,7 @@ export function ScrollArea({
                               onClick={() => setPlayCommandTheme(theme as any)}
                               className={`text-xs px-2.5 py-1 rounded-md border font-medium capitalize cursor-pointer transition ${
                                 playCommandTheme === theme
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -26195,7 +26195,7 @@ export function ScrollArea({
                               onClick={() => setPlayCommandSize(sz as any)}
                               className={`text-xs px-2.5 py-1 rounded-md border font-medium uppercase cursor-pointer transition ${
                                 playCommandSize === sz
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -26376,7 +26376,7 @@ export function ScrollArea({
                             setPlayContextMenuWithShortcuts(true);
                             setPlayContextMenuLastAction(null);
                           }}
-                          className="text-[9px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[9px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset
                         </button>
@@ -26421,7 +26421,7 @@ export function ScrollArea({
                         <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">Action Feed</div>
                         <div className="min-h-12 bg-card border border-border/80 rounded-lg p-2.5 flex items-center justify-center text-center text-xs font-medium">
                           {playContextMenuLastAction ? (
-                            <span className="text-secondary font-semibold font-mono text-center">{playContextMenuLastAction}</span>
+                            <span className="text-brand-teal font-semibold font-mono text-center">{playContextMenuLastAction}</span>
                           ) : (
                             <span className="text-muted-foreground italic font-light">Right-click & select action</span>
                           )}
@@ -26434,7 +26434,7 @@ export function ScrollArea({
                       <div className="bg-card border border-border rounded-2xl shadow-2xs overflow-hidden">
                         <div className="p-3 border-b border-border/60 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground">Interactive Target Zone</span>
-                          <span className="text-[10px] bg-brand-teal/10 text-secondary px-2 py-0.5 rounded-full font-bold">Right-Click Area</span>
+                          <span className="text-[10px] bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full font-bold">Right-Click Area</span>
                         </div>
 
                         {/* Right click zone container */}
@@ -26929,7 +26929,7 @@ export function ScrollArea({
                             setPlayDataTablePage(1);
                             setPlayDataTableLocalSelectedIds([]);
                           }}
-                          className="text-[10px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[10px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset Default
                         </button>
@@ -26945,7 +26945,7 @@ export function ScrollArea({
                               onClick={() => setPlayDataTableDensity(dens as any)}
                               className={`text-xs px-2.5 py-1 rounded-md border font-medium capitalize cursor-pointer transition ${
                                 playDataTableDensity === dens
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -26985,7 +26985,7 @@ export function ScrollArea({
                               }}
                               className={`text-xs px-2 py-1 rounded-md border font-medium capitalize cursor-pointer transition ${
                                 playDataTableSortCol === col
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -27126,7 +27126,7 @@ export function ScrollArea({
                           onClick={() => {
                             setPlayDirectionMode('ltr');
                           }}
-                          className="text-[9px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[9px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset
                         </button>
@@ -27142,7 +27142,7 @@ export function ScrollArea({
                               onClick={() => setPlayDirectionMode(mode as any)}
                               className={`text-xs px-2.5 py-1.5 rounded-lg border font-semibold uppercase cursor-pointer transition ${
                                 playDirectionMode === mode
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -27169,7 +27169,7 @@ export function ScrollArea({
                       <div className="bg-card border border-border rounded-2xl shadow-2xs overflow-hidden">
                         <div className="p-3 border-b border-border/60 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground">Interactive Target Zone</span>
-                          <span className="text-[10px] bg-brand-teal/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase font-mono">dir="{playDirectionMode}"</span>
+                          <span className="text-[10px] bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full font-bold uppercase font-mono">dir="{playDirectionMode}"</span>
                         </div>
 
                         {/* Interactive Sandbox Target Area */}
@@ -27367,7 +27367,7 @@ export function ScrollArea({
                             setPlayDrawerSize('md');
                             setPlayDrawerCloseOnOverlay(true);
                           }}
-                          className="text-[10px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[10px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset Default
                         </button>
@@ -27383,7 +27383,7 @@ export function ScrollArea({
                               onClick={() => setPlayDrawerPosition(pos as any)}
                               className={`text-xs px-2 py-1 rounded-md border font-medium capitalize cursor-pointer transition ${
                                 playDrawerPosition === pos
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -27403,7 +27403,7 @@ export function ScrollArea({
                               onClick={() => setPlayDrawerSize(sz as any)}
                               className={`text-xs px-2.5 py-1.5 rounded-md border font-medium uppercase cursor-pointer transition ${
                                 playDrawerSize === sz
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -27492,7 +27492,7 @@ export function ScrollArea({
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* Search Specimen */}
                     <div className="bg-card border border-border rounded-xl p-6 flex flex-col justify-between items-center text-center shadow-xs">
-                      <div className="w-12 h-12 rounded-full bg-muted/40 flex items-center justify-center text-secondary-500 mb-4">
+                      <div className="w-12 h-12 rounded-full bg-muted/40 flex items-center justify-center text-brand-teal mb-4">
                         <Search size={24} />
                       </div>
                       <div className="text-sm font-bold text-foreground">No Matching Transactions</div>
@@ -27557,7 +27557,7 @@ export function ScrollArea({
                             setPlayEmptyBoxed(true);
                             setPlayEmptyAction(true);
                           }}
-                          className="text-[9px] font-semibold text-secondary hover:underline cursor-pointer"
+                          className="text-[9px] font-semibold text-brand-teal hover:underline cursor-pointer"
                         >
                           Reset
                         </button>
@@ -27577,7 +27577,7 @@ export function ScrollArea({
                               onClick={() => setPlayEmptyVariant(tmpl.id as any)}
                               className={`text-[10.5px] py-1 rounded-md border font-medium cursor-pointer transition ${
                                 playEmptyVariant === tmpl.id
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -27597,7 +27597,7 @@ export function ScrollArea({
                               onClick={() => setPlayEmptySize(sz as any)}
                               className={`text-[10.5px] py-1 rounded-md border font-medium capitalize cursor-pointer transition ${
                                 playEmptySize === sz
-                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-secondary'
+                                  ? 'bg-primary text-white dark:text-slate-950 border-primary dark:bg-brand-teal dark:border-brand-teal'
                                   : 'bg-card border-border hover:bg-muted text-muted-foreground'
                               }`}
                             >
@@ -27650,14 +27650,14 @@ export function ScrollArea({
                       <div className="bg-card border border-border rounded-2xl shadow-2xs overflow-hidden">
                         <div className="p-3 border-b border-border/60 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground">Interactive Target Zone</span>
-                          <span className="text-[10px] bg-brand-teal/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase font-mono">Empty State</span>
+                          <span className="text-[10px] bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full font-bold uppercase font-mono">Empty State</span>
                         </div>
 
                         {/* Sandbox Target Area */}
                         <div className="p-8 bg-slate-950 dark:bg-slate-900/60 flex items-center justify-center min-h-[300px]">
                           <div className={`flex flex-col items-center justify-center text-center w-full transition ${playEmptyBoxed ? 'bg-card border border-border rounded-2xl shadow-xs' : 'bg-transparent'} ${sizeClasses}`}>
                             <div className="w-16 h-16 rounded-full bg-muted/40 flex items-center justify-center text-muted-foreground mb-4.5">
-                              {playEmptyVariant === 'search' && <Search size={iconSize} className="text-secondary-500" />}
+                              {playEmptyVariant === 'search' && <Search size={iconSize} className="text-brand-teal" />}
                               {playEmptyVariant === 'onboarding' && <FolderPlus size={iconSize} className="text-primary" />}
                               {playEmptyVariant === 'success' && <CheckCircle2 size={iconSize} className="text-emerald-500" />}
                             </div>
@@ -27892,7 +27892,7 @@ export function ScrollArea({
                           </label>
                           <button
                             type="button"
-                            className="text-[10px] text-secondary-500 hover:text-secondary-600 transition font-bold uppercase tracking-wider cursor-pointer"
+                            className="text-[10px] text-brand-teal hover:text-secondary-600 transition font-bold uppercase tracking-wider cursor-pointer"
                           >
                             Reset PIN
                           </button>
@@ -28048,7 +28048,7 @@ export function ScrollArea({
                       <div className="bg-card border border-border rounded-2xl shadow-2xs overflow-hidden">
                         <div className="p-3 border-b border-border/60 bg-muted/20 flex items-center justify-between text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground">Interactive Target Zone</span>
-                          <span className="text-[10px] bg-brand-teal/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase font-mono">Field Wrapper</span>
+                          <span className="text-[10px] bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full font-bold uppercase font-mono">Field Wrapper</span>
                         </div>
 
                         {/* Sandbox Target Area */}
@@ -28299,7 +28299,7 @@ export function ScrollArea({
                         element.scrollIntoView({ behavior: 'smooth' })
                       }
                     }}
-                    className="text-xs text-muted-foreground hover:text-primary dark:hover:text-secondary block transition font-medium"
+                    className="text-xs text-muted-foreground hover:text-primary dark:hover:text-brand-teal block transition font-medium"
                   >
                     {item.name}
                   </a>
@@ -28468,7 +28468,7 @@ export function ScrollArea({
                         onMouseEnter={() => setGlobalSearchSelectedIndex(index)}
                         className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl cursor-pointer transition ${
                           isSelected
-                            ? 'bg-brand-teal/15 dark:bg-brand-teal/25 border border-brand-teal/30 text-secondary dark:text-secondary-300'
+                            ? 'bg-brand-teal/15 dark:bg-brand-teal/25 border border-brand-teal/30 text-brand-teal dark:text-secondary-300'
                             : 'hover:bg-muted/40 text-foreground border border-transparent'
                         }`}
                       >
@@ -28482,7 +28482,7 @@ export function ScrollArea({
 
                         <div className="flex items-center gap-2">
                           {isSelected && (
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-secondary dark:text-secondary-400">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-brand-teal dark:text-secondary-400">
                               Jump to section ↵
                             </span>
                           )}
