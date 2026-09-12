@@ -24919,7 +24919,7 @@ export function ScrollArea({
                     </div>
                     <div className="p-4 rounded-xl border border-border/70 bg-card space-y-1 shadow-2xs">
                       <div className="text-xs text-muted-foreground font-bold uppercase tracking-wider">Core Hierarchy</div>
-                      <div className="text-lg font-extrabold text-emerald-500 font-mono">9 Variants</div>
+                      <div className="text-lg font-extrabold text-brand-teal font-mono">9 Variants</div>
                       <div className="text-[11px] text-muted-foreground">H1 through Muted</div>
                     </div>
                   </div>
@@ -25118,14 +25118,14 @@ export function ScrollArea({
                       <div className="p-4 rounded-xl border border-border/60 bg-muted/20 space-y-1">
                         <span className="text-xs text-muted-foreground font-medium">Available Cash Reserves</span>
                         <div className="text-2xl font-bold font-mono text-foreground tracking-tight tabular-nums">
-                          $1,482,900.50 <span className="text-xs text-emerald-500 font-normal">USD</span>
+                          $1,482,900.50 <span className="text-xs text-brand-teal font-normal">USD</span>
                         </div>
                         <span className="text-[11px] text-emerald-500 font-semibold">+14.2% YoY Growth</span>
                       </div>
                       <div className="p-4 rounded-xl border border-border/60 bg-muted/20 space-y-1">
                         <span className="text-xs text-muted-foreground font-medium">Euro Liquidity Buffer</span>
                         <div className="text-2xl font-bold font-mono text-foreground tracking-tight tabular-nums">
-                          €940,150.00 <span className="text-xs text-emerald-500 font-normal">EUR</span>
+                          €940,150.00 <span className="text-xs text-brand-teal font-normal">EUR</span>
                         </div>
                         <span className="text-[11px] text-emerald-500 font-semibold">+3.8% MoM Growth</span>
                       </div>
