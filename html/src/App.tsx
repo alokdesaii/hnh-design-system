@@ -22420,7 +22420,7 @@ export function ScrollArea({
                       <button className="px-3.5 py-1.5 text-[11px] font-semibold border border-border text-foreground hover:bg-muted rounded-lg transition cursor-pointer">
                         Abort
                       </button>
-                      <button className="px-3.5 py-1.5 text-[11px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white dark:text-slate-950 rounded-lg shadow-xs transition cursor-pointer">
+                      <button className="px-3.5 py-1.5 text-[11px] font-semibold bg-brand-teal hover:opacity-95 text-slate-950 rounded-lg shadow-xs transition cursor-pointer">
                         Confirm & Release
                       </button>
                     </div>
