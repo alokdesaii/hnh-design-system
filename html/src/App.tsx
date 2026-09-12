@@ -14918,7 +14918,7 @@ export function SecuritySettingsTemplate() {
                                     <span>{item.label}</span>
                                   </span>
                                   {item.count && (
-                                    <span className={`px-1.5 py-0.5 rounded-md font-mono text-[9px] ${item.count === 'Active' ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20' : 'bg-brand-teal/10 text-brand-teal border border-brand-teal/20'}`}>
+                                    <span className={`px-1.5 py-0.5 rounded-md font-mono text-[9px] ${item.count === 'Active' ? 'bg-brand-teal text-slate-950 border border-brand-teal' : 'bg-brand-teal/10 text-brand-teal border border-brand-teal/20'}`}>
                                       {item.count}
                                     </span>
                                   )}
@@ -15013,7 +15013,7 @@ export function SecuritySettingsTemplate() {
                       <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm flex flex-col items-center justify-center min-h-[220px] relative">
                         <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-6 w-full flex items-center justify-between">
                           <span>Live Playground Preview</span>
-                          <span className="bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-1.5 py-0.5 rounded text-[8px] font-mono">Interactive</span>
+                          <span className="bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-1.5 py-0.5 rounded text-[8px] font-mono">Interactive</span>
                         </div>
 
                         <nav className="flex items-center justify-between w-full max-w-2xl px-6 py-4 bg-muted/40 border border-border/60 rounded-xl relative select-none">
