@@ -28413,8 +28413,8 @@ export function ScrollArea({
               className="relative w-full max-w-xl bg-card border border-border/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] z-10"
             >
               {/* Search Header */}
-              <div className="flex items-center px-4 py-3.5 border-b border-border/70 bg-muted/20 gap-3">
-                <Search size={18} className="text-brand-teal shrink-0" />
+              <div className="flex items-center px-5 py-4.5 border-b border-border/70 bg-muted/20 gap-3">
+                <Search size={20} className="text-brand-teal shrink-0" />
                 <input
                   aria-label="Search components, foundations, design principles"
                   ref={globalSearchInputRef}
@@ -28425,7 +28425,7 @@ export function ScrollArea({
                     setGlobalSearchQuery(e.target.value);
                     setGlobalSearchSelectedIndex(0);
                   }}
-                  className="w-full bg-transparent text-sm font-medium text-foreground placeholder:text-muted-foreground outline-hidden"
+                  className="w-full bg-transparent text-base font-medium text-foreground placeholder:text-muted-foreground outline-hidden"
                 />
                 {globalSearchQuery && (
                   <button
