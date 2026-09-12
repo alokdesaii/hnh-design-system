@@ -12221,7 +12221,7 @@ export function SecuritySettingsTemplate() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Specimen A: Single Date Picker */}
-                    <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[360px] relative">
+                    <div className="border border-border/80 bg-card rounded-2xl p-6 relative">
                       <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-4">Single Date Selection</h3>
                       <div className="relative max-w-xs">
                         <button
@@ -12292,7 +12292,7 @@ export function SecuritySettingsTemplate() {
                     </div>
 
                     {/* Specimen B: Date Range Picker */}
-                    <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[360px] relative">
+                    <div className="border border-border/80 bg-card rounded-2xl p-6 relative">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-4">Date Range Selection</h4>
                       <div className="relative max-w-sm">
                         <button
@@ -12370,7 +12370,7 @@ export function SecuritySettingsTemplate() {
                   </div>
 
                   {/* Specimen C: Date Picker with Preset Sidebar */}
-                  <div className="border border-border/80 bg-card rounded-2xl p-6 min-h-[380px] relative">
+                  <div className="border border-border/80 bg-card rounded-2xl p-6 relative">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground border-b border-border/40 pb-2 mb-4">Date Picker with Presets</h4>
                     <div className="relative max-w-xs">
                       <button
@@ -12478,7 +12478,7 @@ export function SecuritySettingsTemplate() {
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     {/* Control Panel (4 cols) */}
-                    <div className="lg:col-span-4 border border-border/80 rounded-2xl p-5 bg-card space-y-6 shadow-hnh-sm">
+                    <div className="lg:col-span-4 self-start border border-border/80 rounded-2xl p-5 bg-card space-y-6 shadow-hnh-sm">
                       <div className="space-y-4">
                         {/* Selector Mode */}
                         <div className="space-y-2">
@@ -12583,7 +12583,7 @@ export function SecuritySettingsTemplate() {
                     {/* Preview Box & Code Panel (8 cols) */}
                     <div className="lg:col-span-8 flex flex-col gap-6">
                       {/* Interactive Preview */}
-                      <div className="border border-border/85 bg-card rounded-2xl p-8 flex flex-col items-center justify-start min-h-[380px] shadow-hnh-sm relative">
+                      <div className="border border-border/85 bg-card rounded-2xl p-8 flex flex-col items-center justify-start shadow-hnh-sm relative">
                         <span className="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Live Preview</span>
                         
                         <div className="w-full max-w-xs mt-12 relative">
