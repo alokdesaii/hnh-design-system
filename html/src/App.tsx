@@ -28413,8 +28413,12 @@ export function ScrollArea({
               className="relative w-full max-w-xl bg-card border border-border/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] z-10"
             >
               {/* Search Header */}
-              <div className="flex items-center px-5 py-5 border-b border-border/70 bg-muted/20 gap-3 focus-within:ring-2 focus-within:ring-inset focus-within:ring-brand-teal transition">
-                <Search size={20} className="text-brand-teal shrink-0" />
+              <div className="flex items-center gap-3 p-3.5 border-b border-border/70 bg-muted/20">
+                {/* The field itself, inset from the panel edges. Focus is a subtle grey
+                    ring; the input carries border-none to opt out of the global teal
+                    input:focus rule in index.css, which would otherwise hug the text. */}
+                <div className="flex flex-1 min-w-0 items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card shadow-xs transition focus-within:border-slate-400 dark:focus-within:border-slate-600 focus-within:ring-2 focus-within:ring-slate-400/25">
+                <Search size={18} className="text-brand-teal shrink-0" />
                 <input
                   aria-label="Search components, foundations, design principles"
                   ref={globalSearchInputRef}
@@ -28438,7 +28442,8 @@ export function ScrollArea({
                     Clear
                   </button>
                 )}
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-muted text-muted-foreground border border-border/80 shrink-0">
+                </div>
+                <span className="px-2 py-1 rounded text-[10px] font-mono font-bold bg-muted text-muted-foreground border border-border/80 shrink-0">
                   ESC
                 </span>
               </div>
