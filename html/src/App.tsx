@@ -13839,7 +13839,7 @@ export function SecuritySettingsTemplate() {
                           <h4 className="text-xs font-bold text-foreground truncate">Primary Settlement Node</h4>
                           <p className="text-[10px] text-muted-foreground mt-0.5 font-light leading-relaxed truncate">Route automated vault clearings through Europe-West API.</p>
                         </div>
-                        <span className="text-[9px] font-bold bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-full uppercase">Selected</span>
+                        <span className="text-[9px] font-bold bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full uppercase">Selected</span>
                       </div>
                     </div>
 
