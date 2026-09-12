@@ -15807,14 +15807,14 @@ export function SecuritySettingsTemplate() {
             };
 
             const handleStyleClasses = {
-              line: 'bg-border hover:bg-brand-teal dark:hover:bg-teal-500 relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
-              dots: 'bg-border/60 hover:bg-brand-teal dark:hover:bg-teal-500 flex items-center justify-center relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
+              line: 'bg-border hover:bg-brand-teal dark:hover:bg-brand-teal relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
+              dots: 'bg-border/60 hover:bg-brand-teal dark:hover:bg-brand-teal flex items-center justify-center relative before:content-[""] before:absolute before:inset-y-0 before:-left-1.5 before:-right-1.5 before:cursor-col-resize before:z-10',
               glass: 'bg-white/10 backdrop-blur-md border-x border-white/20 shadow-lg flex items-center justify-center relative z-20 hover:bg-white/20'
             }[playResizableHandleStyle];
 
             const verticalHandleStyleClasses = {
-              line: 'bg-border hover:bg-brand-teal dark:hover:bg-teal-500 relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
-              dots: 'bg-border/60 hover:bg-brand-teal dark:hover:bg-teal-500 flex items-center justify-center relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
+              line: 'bg-border hover:bg-brand-teal dark:hover:bg-brand-teal relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
+              dots: 'bg-border/60 hover:bg-brand-teal dark:hover:bg-brand-teal flex items-center justify-center relative before:content-[""] before:absolute before:inset-x-0 before:-top-1.5 before:-bottom-1.5 before:cursor-row-resize before:z-10',
               glass: 'bg-white/10 backdrop-blur-md border-y border-white/20 shadow-lg flex items-center justify-center relative z-20 hover:bg-white/20'
             }[playResizableHandleStyle];
 
@@ -15977,7 +15977,7 @@ export function SecuritySettingsTemplate() {
                           className="bg-muted/10 border-r border-border/60 p-4 text-xs font-semibold space-y-3 select-none flex flex-col justify-between"
                         >
                           <div className="space-y-1">
-                            <div className="p-2 bg-brand-teal/15 text-brand-teal dark:text-teal-400 rounded-lg">Home Feed</div>
+                            <div className="p-2 bg-brand-teal/15 text-brand-teal rounded-lg">Home Feed</div>
                             <div className="p-2 text-muted-foreground hover:bg-muted/50 rounded-lg cursor-pointer">Transactions</div>
                             <div className="p-2 text-muted-foreground hover:bg-muted/50 rounded-lg cursor-pointer">Analytics</div>
                           </div>
@@ -16005,7 +16005,7 @@ export function SecuritySettingsTemplate() {
                             </div>
                             <div className="p-4 border border-border/60 rounded-xl bg-muted/20">
                               <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground block">Success Ratio</span>
-                              <span className="text-xl font-bold text-brand-teal dark:text-teal-400">99.8%</span>
+                              <span className="text-xl font-bold text-brand-teal">99.8%</span>
                             </div>
                           </div>
                           <div className="p-4 border border-border/60 rounded-xl bg-muted/10 text-xs text-muted-foreground">
@@ -16066,7 +16066,7 @@ export function SecuritySettingsTemplate() {
                               onClick={() => setPlayResizableOrientation(val as 'horizontal' | 'vertical')}
                               className={`py-1.5 px-3 rounded-lg border text-xs capitalize transition ${
                                 playResizableOrientation === val
-                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal dark:text-teal-400 font-semibold'
+                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal font-semibold'
                                   : 'border-border hover:bg-muted/30 text-muted-foreground'
                               }`}
                             >
@@ -16089,7 +16089,7 @@ export function SecuritySettingsTemplate() {
                               }}
                               className={`py-1.5 px-3 rounded-lg border text-xs transition ${
                                 playResizableNumPanels === val
-                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal dark:text-teal-400 font-semibold'
+                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal font-semibold'
                                   : 'border-border hover:bg-muted/30 text-muted-foreground'
                               }`}
                             >
@@ -16109,7 +16109,7 @@ export function SecuritySettingsTemplate() {
                               onClick={() => setPlayResizableHandleStyle(val as 'line' | 'dots' | 'glass')}
                               className={`py-1.5 px-2 rounded-lg border text-xs capitalize transition ${
                                 playResizableHandleStyle === val
-                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal dark:text-teal-400 font-semibold'
+                                  ? 'border-brand-teal bg-brand-teal/15 text-brand-teal font-semibold'
                                   : 'border-border hover:bg-muted/30 text-muted-foreground'
                               }`}
                             >
@@ -16480,7 +16480,7 @@ export function SecuritySettingsTemplate() {
                       {/* Sidebar panel (1/3 width) */}
                       <div 
                         tabIndex={0}
-                        className="col-span-1 border-r border-slate-800 bg-slate-950/80 p-3 overflow-y-auto custom-scrollbar [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-slate-700 hover:[&::-webkit-scrollbar-thumb]:bg-slate-600 [&::-webkit-scrollbar-thumb]:rounded-full outline-none focus:ring-1 focus:ring-teal-500/50"
+                        className="col-span-1 border-r border-slate-800 bg-slate-950/80 p-3 overflow-y-auto custom-scrollbar [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-slate-700 hover:[&::-webkit-scrollbar-thumb]:bg-slate-600 [&::-webkit-scrollbar-thumb]:rounded-full outline-none focus:ring-1 focus:ring-brand-teal/50"
                       >
                         <span className="text-[9px] uppercase font-bold tracking-widest text-slate-500 block mb-2 font-sans">Workspace Files</span>
                         <div className="space-y-1">
@@ -16500,7 +16500,7 @@ export function SecuritySettingsTemplate() {
                       {/* Main editor pane (2/3 width) */}
                       <div 
                         tabIndex={0}
-                        className="col-span-2 p-4 overflow-y-auto custom-scrollbar [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-750 hover:[&::-webkit-scrollbar-thumb]:bg-teal-500/80 [&::-webkit-scrollbar-thumb]:rounded-full font-mono text-[10px] text-slate-300 outline-none focus:ring-1 focus:ring-teal-500/50 leading-relaxed text-left"
+                        className="col-span-2 p-4 overflow-y-auto custom-scrollbar [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-slate-750 hover:[&::-webkit-scrollbar-thumb]:bg-brand-teal/80 [&::-webkit-scrollbar-thumb]:rounded-full font-mono text-[10px] text-slate-300 outline-none focus:ring-1 focus:ring-brand-teal/50 leading-relaxed text-left"
                       >
                         <span className="text-[9px] uppercase font-bold tracking-widest text-slate-500 block mb-2 font-sans">App.tsx</span>
                         <pre>
