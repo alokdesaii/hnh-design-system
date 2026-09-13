@@ -266,6 +266,7 @@ const implementedPaths = [
   'components/toggle',
   'components/toggle-group',
   'components/typography',
+  'components/textarea',
 ]
 
 interface Shade {
@@ -1034,6 +1035,14 @@ function App() {
 
   // Breadcrumb Playground states
   const [playBreadcrumbSeparator, setPlayBreadcrumbSeparator] = useState<'slash' | 'chevron' | 'arrow'>('chevron')
+
+  // Textarea Playground states
+  const [playTextareaRows, setPlayTextareaRows] = useState<number>(4)
+  const [playTextareaResize, setPlayTextareaResize] = useState<'none' | 'vertical' | 'both'>('vertical')
+  const [playTextareaCounter, setPlayTextareaCounter] = useState<boolean>(true)
+  const [playTextareaDisabled, setPlayTextareaDisabled] = useState<boolean>(false)
+  const [playTextareaInvalid, setPlayTextareaInvalid] = useState<boolean>(false)
+  const [playTextareaValue, setPlayTextareaValue] = useState<string>('Counterparty requested an amended settlement window for the Q3 vault reconciliation.')
 
   // Dropdown Menu Playground states
   const [playDropdownAlign, setPlayDropdownAlign] = useState<'left' | 'center' | 'right'>('right')
@@ -2384,6 +2393,38 @@ function App() {
       `  )\n` +
       `}`
   };
+
+  const getTextareaCode = () => {
+    const max = 240
+    const resizeClass = { none: 'resize-none', vertical: 'resize-y', both: 'resize' }[playTextareaResize]
+    return `// Premium Textarea - Harbour & Hills Design System\n` +
+      (playTextareaCounter ? `import { useState } from 'react'\n\n` : `\n`) +
+      `export default function TextareaSpecimen() {\n` +
+      (playTextareaCounter ? `  const [value, setValue] = useState('')\n\n` : ``) +
+      `  return (\n` +
+      `    <div className="space-y-1.5">\n` +
+      `      <label htmlFor="settlement-note" className="text-xs font-semibold text-foreground">\n` +
+      `        Settlement Note\n` +
+      `      </label>\n` +
+      `      <textarea\n` +
+      `        id="settlement-note"\n` +
+      `        rows={${playTextareaRows}}\n` +
+      (playTextareaCounter ? `        maxLength={${max}}\n` : ``) +
+      (playTextareaCounter ? `        value={value}\n        onChange={(e) => setValue(e.target.value)}\n` : ``) +
+      (playTextareaDisabled ? `        disabled\n` : ``) +
+      (playTextareaInvalid ? `        aria-invalid="true"\n        aria-describedby="settlement-note-error"\n` : ``) +
+      `        className="w-full text-xs bg-muted/30 border border-border rounded-lg py-2.5 px-3.5 ${resizeClass} outline-none transition"\n` +
+      `      />\n` +
+      (playTextareaInvalid
+        ? `      <p id="settlement-note-error" className="text-[11px] text-destructive">\n        Enter at least 20 characters for the audit trail.\n      </p>\n`
+        : ``) +
+      (playTextareaCounter
+        ? `      <div className="flex justify-end text-[10px] text-muted-foreground tabular-nums">\n        {value.length} / ${max}\n      </div>\n`
+        : ``) +
+      `    </div>\n` +
+      `  )\n` +
+      `}`
+  }
 
   const getBreadcrumbCode = () => {
     const separatorChar = {
@@ -28261,6 +28302,267 @@ export function ScrollArea({
             })()}
           </AnimatePresence>
           </Portal>
+
+          {currentPath === 'components/textarea' && (
+            <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
+              {/* Header */}
+              <section className="space-y-3">
+                <div className="text-xs font-bold text-brand-teal uppercase tracking-widest">Components</div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-slate-100" id="overview">
+                  Textarea
+                </h1>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
+                  A multi-line text control for free-form input such as settlement notes, audit commentary, and counterparty instructions. Sized in rows rather than pixels so it scales with the reader's type settings.
+                </p>
+
+                {/* Accessibility Contract */}
+                <div className="bg-accent/40 border border-border/80 rounded-xl p-4.5 text-xs text-muted-foreground space-y-2 mt-4 max-w-3xl">
+                  <div className="font-bold text-foreground flex items-center gap-2">
+                    <Accessibility size={14} className="text-brand-teal" />
+                    Accessibility Contract (WCAG 2.1 AA)
+                  </div>
+                  <ul className="list-disc list-inside space-y-1.5 pl-1">
+                    <li>Every textarea needs a visible <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;label&gt;</code> bound with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">htmlFor</code>; placeholder text is not a label.</li>
+                    <li>Hint and error text is linked with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-describedby</code> so it is announced with the field.</li>
+                    <li>Invalid fields carry <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-invalid="true"</code>, and never signal the error by colour alone.</li>
+                    <li>A live character counter should be <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-live="polite"</code> so it does not interrupt typing.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Specimens */}
+              <section id="specimen" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Component Specimens</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Standard field, counted input, error state, and read-only disclosure.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Default */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Default With Hint
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ta-default" className="text-xs font-semibold text-foreground block">Settlement Note</label>
+                      <textarea
+                        id="spec-ta-default"
+                        rows={4}
+                        aria-describedby="spec-ta-default-hint"
+                        defaultValue="Counterparty confirmed the amended value date."
+                        className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg py-2.5 px-3.5 resize-y outline-none text-foreground transition"
+                      />
+                      <p id="spec-ta-default-hint" className="text-[11px] text-muted-foreground">
+                        Visible to both desks on the settlement record.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Character count */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      With Character Counter
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ta-count" className="text-xs font-semibold text-foreground block">Audit Commentary</label>
+                      <textarea
+                        id="spec-ta-count"
+                        rows={4}
+                        maxLength={240}
+                        value={playTextareaValue}
+                        onChange={(e) => setPlayTextareaValue(e.target.value)}
+                        className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg py-2.5 px-3.5 resize-y outline-none text-foreground transition"
+                      />
+                      <div className="flex justify-end">
+                        <span aria-live="polite" className="text-[10px] text-muted-foreground tabular-nums">
+                          {playTextareaValue.length} / 240
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Error */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Invalid / Error
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ta-error" className="text-xs font-semibold text-foreground block">Rejection Reason</label>
+                      <textarea
+                        id="spec-ta-error"
+                        rows={4}
+                        aria-invalid="true"
+                        aria-describedby="spec-ta-error-msg"
+                        defaultValue="Too short"
+                        className="w-full text-xs bg-muted/30 dark:bg-slate-950/40 border border-destructive/70 rounded-lg py-2.5 px-3.5 resize-y outline-none text-foreground transition"
+                      />
+                      <p id="spec-ta-error-msg" className="text-[11px] text-destructive flex items-center gap-1.5">
+                        <AlertTriangle size={12} className="shrink-0" aria-hidden="true" />
+                        Enter at least 20 characters for the audit trail.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Disabled */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Disabled / Locked Record
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ta-disabled" className="text-xs font-semibold text-muted-foreground block">Archived Instruction</label>
+                      <textarea
+                        id="spec-ta-disabled"
+                        rows={4}
+                        disabled
+                        defaultValue="Vault closed on 12 Mar. This record is retained for audit and can no longer be amended."
+                        className="w-full text-xs bg-muted/20 border border-border/50 rounded-lg py-2.5 px-3.5 resize-none outline-none text-muted-foreground opacity-60 cursor-not-allowed"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Playground */}
+              <section id="playground" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Interactive Playground</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Adjust rows, resize behaviour, counter and validation state, then copy the generated JSX.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Controls */}
+                  <div className="lg:col-span-4 self-start space-y-5 bg-muted/30 dark:bg-slate-950/10 border border-border/80 rounded-2xl p-5 shadow-2xs">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider mb-2">Properties</div>
+
+                    <div className="space-y-2">
+                      <span id="ta-rows-label" className="text-[10.5px] font-bold text-foreground">Rows</span>
+                      <div role="group" aria-labelledby="ta-rows-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {[3, 4, 8].map((r) => (
+                          <button
+                            key={r}
+                            onClick={() => setPlayTextareaRows(r)}
+                            className={`py-1 text-[9.5px] font-semibold rounded cursor-pointer transition ${
+                              playTextareaRows === r ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {r}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <span id="ta-resize-label" className="text-[10.5px] font-bold text-foreground">Resize</span>
+                      <div role="group" aria-labelledby="ta-resize-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {(['none', 'vertical', 'both'] as const).map((r) => (
+                          <button
+                            key={r}
+                            onClick={() => setPlayTextareaResize(r)}
+                            className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
+                              playTextareaResize === r ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {r}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {[
+                      { label: 'Character Counter', value: playTextareaCounter, set: setPlayTextareaCounter, hint: 'Announce remaining length politely' },
+                      { label: 'Invalid State', value: playTextareaInvalid, set: setPlayTextareaInvalid, hint: 'Adds aria-invalid and an error message' },
+                      { label: 'Disabled', value: playTextareaDisabled, set: setPlayTextareaDisabled, hint: 'Locks the field for archived records' },
+                    ].map((t) => (
+                      <div key={t.label} className="flex items-start justify-between gap-3">
+                        <div>
+                          <div className="text-[10.5px] font-bold text-foreground">{t.label}</div>
+                          <div className="text-[10px] text-muted-foreground">{t.hint}</div>
+                        </div>
+                        <button
+                          type="button"
+                          role="switch"
+                          aria-checked={t.value}
+                          aria-label={t.label}
+                          onClick={() => t.set(!t.value)}
+                          className={`w-9 h-5 shrink-0 rounded-full p-0.5 transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                            t.value ? 'bg-brand-teal' : 'bg-muted-foreground/30'
+                          }`}
+                        >
+                          <span className={`block w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${t.value ? 'translate-x-4' : ''}`} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Preview / Code */}
+                  <div className="lg:col-span-8 space-y-6">
+                    <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm relative">
+                      <div className="text-[9px] uppercase font-bold text-muted-foreground tracking-wider mb-4">Live Preview</div>
+
+                      <div className="space-y-1.5">
+                        <label htmlFor="play-textarea" className={`text-xs font-semibold block ${playTextareaDisabled ? 'text-muted-foreground' : 'text-foreground'}`}>
+                          Settlement Note
+                        </label>
+                        <textarea
+                          id="play-textarea"
+                          rows={playTextareaRows}
+                          disabled={playTextareaDisabled}
+                          maxLength={playTextareaCounter ? 240 : undefined}
+                          aria-invalid={playTextareaInvalid || undefined}
+                          aria-describedby={playTextareaInvalid ? 'play-textarea-error' : undefined}
+                          value={playTextareaValue}
+                          onChange={(e) => setPlayTextareaValue(e.target.value)}
+                          className={`w-full text-xs bg-muted/30 dark:bg-slate-950/40 border rounded-lg py-2.5 px-3.5 outline-none text-foreground transition ${
+                            playTextareaResize === 'none' ? 'resize-none' : playTextareaResize === 'vertical' ? 'resize-y' : 'resize'
+                          } ${playTextareaInvalid ? 'border-destructive/70' : 'border-border/80'} ${
+                            playTextareaDisabled ? 'opacity-60 cursor-not-allowed' : ''
+                          }`}
+                        />
+                        {playTextareaInvalid && (
+                          <p id="play-textarea-error" className="text-[11px] text-destructive flex items-center gap-1.5">
+                            <AlertTriangle size={12} className="shrink-0" aria-hidden="true" />
+                            Enter at least 20 characters for the audit trail.
+                          </p>
+                        )}
+                        {playTextareaCounter && (
+                          <div className="flex justify-end">
+                            <span aria-live="polite" className="text-[10px] text-muted-foreground tabular-nums">
+                              {playTextareaValue.length} / 240
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="border-t border-border/40 pt-4 mt-6">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">JSX Code</span>
+                          <button
+                            onClick={() => handleCopy(getTextareaCode(), 'textarea-code')}
+                            className="px-2.5 py-1 text-[10px] font-bold bg-muted/65 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition flex items-center gap-1 cursor-pointer"
+                          >
+                            <Copy size={10} />
+                            Copy Code
+                          </button>
+                        </div>
+                        <pre className="bg-muted/40 dark:bg-slate-950/30 border border-border/80 rounded-xl p-4 text-[10.5px] font-mono text-muted-foreground overflow-x-auto max-h-[260px] leading-relaxed select-all">
+                          {getTextareaCode()}
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          )}
 
           {/* Fallback Placeholder view for other pages */}
           {!implementedPaths.includes(currentPath) && (
