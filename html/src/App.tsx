@@ -268,6 +268,7 @@ const implementedPaths = [
   'components/typography',
   'components/textarea',
   'components/input-group',
+  'components/native-select',
 ]
 
 interface Shade {
@@ -1036,6 +1037,13 @@ function App() {
 
   // Breadcrumb Playground states
   const [playBreadcrumbSeparator, setPlayBreadcrumbSeparator] = useState<'slash' | 'chevron' | 'arrow'>('chevron')
+
+  // Native Select Playground states
+  const [playNativeSelectSize, setPlayNativeSelectSize] = useState<'sm' | 'md' | 'lg'>('md')
+  const [playNativeSelectGrouped, setPlayNativeSelectGrouped] = useState<boolean>(true)
+  const [playNativeSelectDisabled, setPlayNativeSelectDisabled] = useState<boolean>(false)
+  const [playNativeSelectInvalid, setPlayNativeSelectInvalid] = useState<boolean>(false)
+  const [playNativeSelectValue, setPlayNativeSelectValue] = useState<string>('')
 
   // Input Group Playground states
   const [playInputGroupPrefix, setPlayInputGroupPrefix] = useState<'none' | 'icon' | 'text' | 'select'>('text')
@@ -2400,6 +2408,48 @@ function App() {
       `  )\n` +
       `}`
   };
+
+  const getNativeSelectCode = () => {
+    const pad = { sm: 'py-1.5 px-2.5 text-[11px]', md: 'py-2.5 px-3.5 text-xs', lg: 'py-3 px-4 text-sm' }[playNativeSelectSize]
+    const options = playNativeSelectGrouped
+      ? `        <optgroup label="Europe">\n` +
+        `          <option value="sepa">SEPA Instant</option>\n` +
+        `          <option value="target2">TARGET2</option>\n` +
+        `        </optgroup>\n` +
+        `        <optgroup label="Asia Pacific">\n` +
+        `          <option value="fast">FAST Singapore</option>\n` +
+        `          <option value="npp">NPP Australia</option>\n` +
+        `        </optgroup>\n`
+      : `        <option value="sepa">SEPA Instant</option>\n` +
+        `        <option value="target2">TARGET2</option>\n` +
+        `        <option value="fast">FAST Singapore</option>\n`
+
+    return `// Native Select - Harbour & Hills Design System\n` +
+      `// Uses the platform control: correct on mobile, keyboard accessible, no JS.\n\n` +
+      `export default function NativeSelectSpecimen() {\n` +
+      `  return (\n` +
+      `    <div className="space-y-1.5">\n` +
+      `      <label htmlFor="routing-rail" className="text-xs font-semibold text-foreground">\n` +
+      `        Routing Rail\n` +
+      `      </label>\n` +
+      `      <select\n` +
+      `        id="routing-rail"\n` +
+      `        defaultValue=""\n` +
+      (playNativeSelectDisabled ? `        disabled\n` : ``) +
+      (playNativeSelectInvalid ? `        aria-invalid="true"\n        aria-describedby="routing-rail-error"\n` : ``) +
+      `        className="w-full bg-muted/30 border border-border rounded-lg ${pad} text-foreground cursor-pointer"\n` +
+      `      >\n` +
+      `        {/* Placeholder stays disabled so it cannot be re-selected */}\n` +
+      `        <option value="" disabled>Select a routing rail</option>\n` +
+      options +
+      `      </select>\n` +
+      (playNativeSelectInvalid
+        ? `      <p id="routing-rail-error" className="text-[11px] text-destructive">\n        Choose a rail before submitting the instruction.\n      </p>\n`
+        : ``) +
+      `    </div>\n` +
+      `  )\n` +
+      `}`
+  }
 
   const getInputGroupCode = () => {
     const pad = { sm: 'py-1.5 px-2.5 text-[11px]', md: 'py-2.5 px-3.5 text-xs', lg: 'py-3 px-4 text-sm' }[playInputGroupSize]
@@ -28349,6 +28399,279 @@ export function ScrollArea({
             })()}
           </AnimatePresence>
           </Portal>
+
+          {currentPath === 'components/native-select' && (
+            <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
+              {/* Header */}
+              <section className="space-y-3">
+                <div className="text-xs font-bold text-brand-teal uppercase tracking-widest">Components</div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-slate-100" id="overview">
+                  Native Select
+                </h1>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
+                  The platform <code className="font-mono text-[13px] text-brand-teal bg-muted px-1.5 py-0.5 rounded">&lt;select&gt;</code> element. It ships with keyboard support, type-ahead and the correct mobile picker for free, and needs no JavaScript. Reach for it first; use the custom <a href="#components/select" className="text-brand-teal hover:underline font-semibold">Select</a> only when you need multi-select, search or rich option content.
+                </p>
+
+                {/* Accessibility Contract */}
+                <div className="bg-accent/40 border border-border/80 rounded-xl p-4.5 text-xs text-muted-foreground space-y-2 mt-4 max-w-3xl">
+                  <div className="font-bold text-foreground flex items-center gap-2">
+                    <Accessibility size={14} className="text-brand-teal" />
+                    Accessibility Contract (WCAG 2.1 AA)
+                  </div>
+                  <ul className="list-disc list-inside space-y-1.5 pl-1">
+                    <li>Bind a visible <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;label&gt;</code> with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">htmlFor</code>; a first option reading "Select…" is not a label.</li>
+                    <li>A placeholder option carries <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">value="" disabled</code> so it cannot be chosen as an answer.</li>
+                    <li>Group related options with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;optgroup label="…"&gt;</code> — the group name is announced with each option.</li>
+                    <li>If you set <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">appearance-none</code> to restyle the control, you must supply your own indicator and mark it <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code>.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Specimens */}
+              <section id="specimen" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Component Specimens</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Platform default, grouped options, custom indicator, and error state.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Default */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Platform Default
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ns-default" className="text-xs font-semibold text-foreground block">Settlement Desk</label>
+                      <select
+                        id="spec-ns-default"
+                        defaultValue=""
+                        className="w-full bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg py-2.5 px-3.5 text-xs text-foreground cursor-pointer outline-none"
+                      >
+                        <option value="" disabled>Select a desk</option>
+                        <option value="ldn">London — Ledger Vault</option>
+                        <option value="sgp">Singapore — Routing</option>
+                        <option value="nyc">New York — Custody</option>
+                      </select>
+                      <p className="text-[11px] text-muted-foreground">Renders the OS picker on mobile with no extra code.</p>
+                    </div>
+                  </div>
+
+                  {/* Grouped */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Grouped Options
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ns-grouped" className="text-xs font-semibold text-foreground block">Routing Rail</label>
+                      <select
+                        id="spec-ns-grouped"
+                        defaultValue="sepa"
+                        className="w-full bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg py-2.5 px-3.5 text-xs text-foreground cursor-pointer outline-none"
+                      >
+                        <optgroup label="Europe">
+                          <option value="sepa">SEPA Instant</option>
+                          <option value="target2">TARGET2</option>
+                        </optgroup>
+                        <optgroup label="Asia Pacific">
+                          <option value="fast">FAST Singapore</option>
+                          <option value="npp">NPP Australia</option>
+                        </optgroup>
+                      </select>
+                      <p className="text-[11px] text-muted-foreground">The optgroup name is announced alongside each option.</p>
+                    </div>
+                  </div>
+
+                  {/* Custom indicator */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Custom Indicator
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ns-custom" className="text-xs font-semibold text-foreground block">Reporting Period</label>
+                      <div className="relative">
+                        <select
+                          id="spec-ns-custom"
+                          defaultValue="q3"
+                          className="w-full appearance-none bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg py-2.5 pl-3.5 pr-9 text-xs text-foreground cursor-pointer outline-none"
+                        >
+                          <option value="q1">Q1 2026</option>
+                          <option value="q2">Q2 2026</option>
+                          <option value="q3">Q3 2026</option>
+                        </select>
+                        <ChevronDown
+                          size={14}
+                          aria-hidden="true"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+                        />
+                      </div>
+                      <p className="text-[11px] text-muted-foreground">
+                        <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">appearance-none</code> removes the OS arrow, so one is supplied and hidden from assistive tech.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Error */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Invalid / Required
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ns-error" className="text-xs font-semibold text-foreground block">Beneficiary Country</label>
+                      <select
+                        id="spec-ns-error"
+                        defaultValue=""
+                        aria-invalid="true"
+                        aria-describedby="spec-ns-error-msg"
+                        className="w-full bg-muted/30 dark:bg-slate-950/40 border border-destructive/70 rounded-lg py-2.5 px-3.5 text-xs text-foreground cursor-pointer outline-none"
+                      >
+                        <option value="" disabled>Select a country</option>
+                        <option value="sg">Singapore</option>
+                        <option value="gb">United Kingdom</option>
+                      </select>
+                      <p id="spec-ns-error-msg" className="text-[11px] text-destructive flex items-center gap-1.5">
+                        <AlertTriangle size={12} className="shrink-0" aria-hidden="true" />
+                        Required for cross-border settlement.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Playground */}
+              <section id="playground" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Interactive Playground</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Toggle grouping, density and validation state, then copy the generated JSX.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Controls */}
+                  <div className="lg:col-span-4 self-start space-y-5 bg-muted/30 dark:bg-slate-950/10 border border-border/80 rounded-2xl p-5 shadow-2xs">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider mb-2">Properties</div>
+
+                    <div className="space-y-2">
+                      <span id="ns-size-label" className="text-[10.5px] font-bold text-foreground">Density</span>
+                      <div role="group" aria-labelledby="ns-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {(['sm', 'md', 'lg'] as const).map((v) => (
+                          <button
+                            key={v}
+                            onClick={() => setPlayNativeSelectSize(v)}
+                            className={`py-1 text-[9.5px] font-semibold rounded uppercase cursor-pointer transition ${
+                              playNativeSelectSize === v ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {v}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {[
+                      { label: 'Grouped Options', value: playNativeSelectGrouped, set: setPlayNativeSelectGrouped, hint: 'Wraps options in <optgroup>' },
+                      { label: 'Invalid State', value: playNativeSelectInvalid, set: setPlayNativeSelectInvalid, hint: 'Adds aria-invalid and a message' },
+                      { label: 'Disabled', value: playNativeSelectDisabled, set: setPlayNativeSelectDisabled, hint: 'Blocks selection entirely' },
+                    ].map((t) => (
+                      <div key={t.label} className="flex items-start justify-between gap-3">
+                        <div>
+                          <div className="text-[10.5px] font-bold text-foreground">{t.label}</div>
+                          <div className="text-[10px] text-muted-foreground">{t.hint}</div>
+                        </div>
+                        <button
+                          type="button"
+                          role="switch"
+                          aria-checked={t.value}
+                          aria-label={t.label}
+                          onClick={() => t.set(!t.value)}
+                          className={`w-9 h-5 shrink-0 rounded-full p-0.5 transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                            t.value ? 'bg-brand-teal' : 'bg-muted-foreground/30'
+                          }`}
+                        >
+                          <span className={`block w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${t.value ? 'translate-x-4' : ''}`} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Preview / Code */}
+                  <div className="lg:col-span-8 space-y-6">
+                    <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm relative">
+                      <div className="text-[9px] uppercase font-bold text-muted-foreground tracking-wider mb-4">Live Preview</div>
+
+                      <div className="space-y-1.5">
+                        <label htmlFor="play-native-select" className={`text-xs font-semibold block ${playNativeSelectDisabled ? 'text-muted-foreground' : 'text-foreground'}`}>
+                          Routing Rail
+                        </label>
+                        <select
+                          id="play-native-select"
+                          value={playNativeSelectValue}
+                          onChange={(e) => setPlayNativeSelectValue(e.target.value)}
+                          disabled={playNativeSelectDisabled}
+                          aria-invalid={playNativeSelectInvalid || undefined}
+                          aria-describedby={playNativeSelectInvalid ? 'play-native-select-error' : undefined}
+                          className={`w-full bg-muted/30 dark:bg-slate-950/40 border rounded-lg text-foreground cursor-pointer outline-none transition ${
+                            playNativeSelectSize === 'sm' ? 'py-1.5 px-2.5 text-[11px]' : playNativeSelectSize === 'lg' ? 'py-3 px-4 text-sm' : 'py-2.5 px-3.5 text-xs'
+                          } ${playNativeSelectInvalid ? 'border-destructive/70' : 'border-border/80'} ${
+                            playNativeSelectDisabled ? 'opacity-60 cursor-not-allowed' : ''
+                          }`}
+                        >
+                          <option value="" disabled>Select a routing rail</option>
+                          {playNativeSelectGrouped ? (
+                            <>
+                              <optgroup label="Europe">
+                                <option value="sepa">SEPA Instant</option>
+                                <option value="target2">TARGET2</option>
+                              </optgroup>
+                              <optgroup label="Asia Pacific">
+                                <option value="fast">FAST Singapore</option>
+                                <option value="npp">NPP Australia</option>
+                              </optgroup>
+                            </>
+                          ) : (
+                            <>
+                              <option value="sepa">SEPA Instant</option>
+                              <option value="target2">TARGET2</option>
+                              <option value="fast">FAST Singapore</option>
+                            </>
+                          )}
+                        </select>
+                        {playNativeSelectInvalid && (
+                          <p id="play-native-select-error" className="text-[11px] text-destructive flex items-center gap-1.5">
+                            <AlertTriangle size={12} className="shrink-0" aria-hidden="true" />
+                            Choose a rail before submitting the instruction.
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="border-t border-border/40 pt-4 mt-6">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">JSX Code</span>
+                          <button
+                            onClick={() => handleCopy(getNativeSelectCode(), 'native-select-code')}
+                            className="px-2.5 py-1 text-[10px] font-bold bg-muted/65 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition flex items-center gap-1 cursor-pointer"
+                          >
+                            <Copy size={10} />
+                            Copy Code
+                          </button>
+                        </div>
+                        <pre className="bg-muted/40 dark:bg-slate-950/30 border border-border/80 rounded-xl p-4 text-[10.5px] font-mono text-muted-foreground overflow-x-auto max-h-[260px] leading-relaxed select-all">
+                          {getNativeSelectCode()}
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          )}
 
           {currentPath === 'components/input-group' && (
             <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
