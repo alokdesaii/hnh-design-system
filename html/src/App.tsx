@@ -267,6 +267,7 @@ const implementedPaths = [
   'components/toggle-group',
   'components/typography',
   'components/textarea',
+  'components/input-group',
 ]
 
 interface Shade {
@@ -1035,6 +1036,12 @@ function App() {
 
   // Breadcrumb Playground states
   const [playBreadcrumbSeparator, setPlayBreadcrumbSeparator] = useState<'slash' | 'chevron' | 'arrow'>('chevron')
+
+  // Input Group Playground states
+  const [playInputGroupPrefix, setPlayInputGroupPrefix] = useState<'none' | 'icon' | 'text' | 'select'>('text')
+  const [playInputGroupSuffix, setPlayInputGroupSuffix] = useState<'none' | 'text' | 'button'>('button')
+  const [playInputGroupSize, setPlayInputGroupSize] = useState<'sm' | 'md' | 'lg'>('md')
+  const [playInputGroupDisabled, setPlayInputGroupDisabled] = useState<boolean>(false)
 
   // Textarea Playground states
   const [playTextareaRows, setPlayTextareaRows] = useState<number>(4)
@@ -2393,6 +2400,46 @@ function App() {
       `  )\n` +
       `}`
   };
+
+  const getInputGroupCode = () => {
+    const pad = { sm: 'py-1.5 px-2.5 text-[11px]', md: 'py-2.5 px-3.5 text-xs', lg: 'py-3 px-4 text-sm' }[playInputGroupSize]
+    const prefix = {
+      none: '',
+      icon: `      <span className="pl-3 text-muted-foreground" aria-hidden="true">\n        <Search size={14} />\n      </span>\n`,
+      text: `      <span className="pl-3.5 text-xs text-muted-foreground select-none" aria-hidden="true">\n        https://\n      </span>\n`,
+      select: `      <label htmlFor="ig-currency" className="sr-only">Currency</label>\n` +
+              `      <select id="ig-currency" className="bg-transparent text-xs font-semibold pl-3 pr-1 outline-none cursor-pointer">\n` +
+              `        <option>USD</option>\n        <option>EUR</option>\n      </select>\n`
+    }[playInputGroupPrefix]
+    const suffix = {
+      none: '',
+      text: `      <span className="pr-3.5 text-[11px] text-muted-foreground select-none" aria-hidden="true">\n        .harbourandhills.com\n      </span>\n`,
+      button: `      <button type="button" className="px-3 py-1.5 m-1 text-[11px] font-semibold bg-brand-teal text-slate-950 rounded-md">\n        Verify\n      </button>\n`
+    }[playInputGroupSuffix]
+
+    return `// Premium Input Group - Harbour & Hills Design System\n` +
+      `import { Search } from 'lucide-react'\n\n` +
+      `export default function InputGroupSpecimen() {\n` +
+      `  return (\n` +
+      `    <div className="space-y-1.5">\n` +
+      `      <label htmlFor="ig-field" className="text-xs font-semibold text-foreground">\n` +
+      `        Vault Endpoint\n` +
+      `      </label>\n` +
+      `      {/* The wrapper owns the focus ring so the whole group reads as one field */}\n` +
+      `      <div className="flex items-center bg-muted/30 border border-border/80 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent transition">\n` +
+      prefix +
+      `        <input\n` +
+      `          id="ig-field"\n` +
+      `          type="text"\n` +
+      (playInputGroupDisabled ? `          disabled\n` : ``) +
+      `          className="w-full bg-transparent border-none ${pad} outline-none text-foreground"\n` +
+      `        />\n` +
+      suffix +
+      `      </div>\n` +
+      `    </div>\n` +
+      `  )\n` +
+      `}`
+  }
 
   const getTextareaCode = () => {
     const max = 240
@@ -28302,6 +28349,309 @@ export function ScrollArea({
             })()}
           </AnimatePresence>
           </Portal>
+
+          {currentPath === 'components/input-group' && (
+            <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
+              {/* Header */}
+              <section className="space-y-3">
+                <div className="text-xs font-bold text-brand-teal uppercase tracking-widest">Components</div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-slate-100" id="overview">
+                  Input Group
+                </h1>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
+                  An input joined to prefixes, suffixes or actions so a value and its unit read as one control — currency amounts, endpoint URLs, routing codes and search fields with an attached action.
+                </p>
+
+                {/* Accessibility Contract */}
+                <div className="bg-accent/40 border border-border/80 rounded-xl p-4.5 text-xs text-muted-foreground space-y-2 mt-4 max-w-3xl">
+                  <div className="font-bold text-foreground flex items-center gap-2">
+                    <Accessibility size={14} className="text-brand-teal" />
+                    Accessibility Contract (WCAG 2.1 AA)
+                  </div>
+                  <ul className="list-disc list-inside space-y-1.5 pl-1">
+                    <li>The label binds to the <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">&lt;input&gt;</code> itself, never to the wrapper — a wrapper is not a labelable element.</li>
+                    <li>Decorative addons such as icons or a <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">https://</code> prefix are marked <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-hidden="true"</code> so they are not read twice.</li>
+                    <li>Interactive addons — an attached select or button — are separate controls and need their own accessible names.</li>
+                    <li>The focus ring belongs on the wrapper via <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">focus-within</code>, so the whole group is outlined rather than the bare input inside it.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Specimens */}
+              <section id="specimen" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Component Specimens</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Text affix, icon prefix, attached select, and attached action button.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Text affixes */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Text Prefix &amp; Suffix
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ig-url" className="text-xs font-semibold text-foreground block">Portal Subdomain</label>
+                      <div className="flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent transition">
+                        <span className="pl-3.5 text-xs text-muted-foreground select-none shrink-0" aria-hidden="true">https://</span>
+                        <input
+                          id="spec-ig-url"
+                          type="text"
+                          defaultValue="vault"
+                          className="w-full bg-transparent border-none py-2.5 px-2 text-xs outline-none text-foreground min-w-0"
+                        />
+                        <span className="pr-3.5 text-[11px] text-muted-foreground select-none shrink-0" aria-hidden="true">.harbourandhills.com</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Icon prefix */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Icon Prefix
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ig-search" className="text-xs font-semibold text-foreground block">Find Counterparty</label>
+                      <div className="flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent transition">
+                        <span className="pl-3.5 text-muted-foreground shrink-0" aria-hidden="true">
+                          <Search size={14} />
+                        </span>
+                        <input
+                          id="spec-ig-search"
+                          type="text"
+                          placeholder="Search vaults, desks, ledgers"
+                          className="w-full bg-transparent border-none py-2.5 px-3 text-xs outline-none text-foreground placeholder:text-muted-foreground min-w-0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Attached select */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Attached Select (Currency)
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ig-amount" className="text-xs font-semibold text-foreground block">Settlement Amount</label>
+                      <div className="flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent transition">
+                        <label htmlFor="spec-ig-currency" className="sr-only">Currency</label>
+                        <select
+                          id="spec-ig-currency"
+                          defaultValue="USD"
+                          className="bg-transparent border-none text-xs font-semibold text-foreground pl-3 pr-1.5 py-2.5 outline-none cursor-pointer shrink-0"
+                        >
+                          <option>USD</option>
+                          <option>EUR</option>
+                          <option>GBP</option>
+                        </select>
+                        <span className="w-px h-5 bg-border shrink-0" aria-hidden="true" />
+                        <input
+                          id="spec-ig-amount"
+                          type="text"
+                          inputMode="decimal"
+                          defaultValue="185,200.00"
+                          className="w-full bg-transparent border-none py-2.5 px-3 text-xs outline-none text-foreground tabular-nums min-w-0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Attached button */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Attached Action Button
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="spec-ig-iban" className="text-xs font-semibold text-foreground block">Beneficiary IBAN</label>
+                      <div className="flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent transition">
+                        <input
+                          id="spec-ig-iban"
+                          type="text"
+                          defaultValue="GB29 NWBK 6016 1331 9268 19"
+                          className="w-full bg-transparent border-none py-2.5 px-3.5 text-xs outline-none text-foreground font-mono min-w-0"
+                        />
+                        <button
+                          type="button"
+                          className="m-1 shrink-0 px-3 py-1.5 text-[11px] font-semibold bg-brand-teal text-slate-950 rounded-md hover:opacity-95 transition cursor-pointer"
+                        >
+                          Verify
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Playground */}
+              <section id="playground" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Interactive Playground</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Compose prefix and suffix slots, change density, and copy the generated JSX.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Controls */}
+                  <div className="lg:col-span-4 self-start space-y-5 bg-muted/30 dark:bg-slate-950/10 border border-border/80 rounded-2xl p-5 shadow-2xs">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider mb-2">Properties</div>
+
+                    <div className="space-y-2">
+                      <span id="ig-prefix-label" className="text-[10.5px] font-bold text-foreground">Prefix Slot</span>
+                      <div role="group" aria-labelledby="ig-prefix-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {(['none', 'icon', 'text', 'select'] as const).map((v) => (
+                          <button
+                            key={v}
+                            onClick={() => setPlayInputGroupPrefix(v)}
+                            className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
+                              playInputGroupPrefix === v ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {v}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <span id="ig-suffix-label" className="text-[10.5px] font-bold text-foreground">Suffix Slot</span>
+                      <div role="group" aria-labelledby="ig-suffix-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {(['none', 'text', 'button'] as const).map((v) => (
+                          <button
+                            key={v}
+                            onClick={() => setPlayInputGroupSuffix(v)}
+                            className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
+                              playInputGroupSuffix === v ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {v}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <span id="ig-size-label" className="text-[10.5px] font-bold text-foreground">Density</span>
+                      <div role="group" aria-labelledby="ig-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {(['sm', 'md', 'lg'] as const).map((v) => (
+                          <button
+                            key={v}
+                            onClick={() => setPlayInputGroupSize(v)}
+                            className={`py-1 text-[9.5px] font-semibold rounded uppercase cursor-pointer transition ${
+                              playInputGroupSize === v ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {v}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <div className="text-[10.5px] font-bold text-foreground">Disabled</div>
+                        <div className="text-[10px] text-muted-foreground">Dims the group and blocks input</div>
+                      </div>
+                      <button
+                        type="button"
+                        role="switch"
+                        aria-checked={playInputGroupDisabled}
+                        aria-label="Disabled"
+                        onClick={() => setPlayInputGroupDisabled(!playInputGroupDisabled)}
+                        className={`w-9 h-5 shrink-0 rounded-full p-0.5 transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                          playInputGroupDisabled ? 'bg-brand-teal' : 'bg-muted-foreground/30'
+                        }`}
+                      >
+                        <span className={`block w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${playInputGroupDisabled ? 'translate-x-4' : ''}`} />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Preview / Code */}
+                  <div className="lg:col-span-8 space-y-6">
+                    <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm relative">
+                      <div className="text-[9px] uppercase font-bold text-muted-foreground tracking-wider mb-4">Live Preview</div>
+
+                      <div className="space-y-1.5">
+                        <label htmlFor="play-input-group" className={`text-xs font-semibold block ${playInputGroupDisabled ? 'text-muted-foreground' : 'text-foreground'}`}>
+                          Vault Endpoint
+                        </label>
+                        <div className={`flex items-center bg-muted/30 dark:bg-slate-950/40 border border-border/80 rounded-lg overflow-hidden transition ${
+                          playInputGroupDisabled ? 'opacity-60' : 'focus-within:ring-2 focus-within:ring-brand-teal focus-within:border-transparent'
+                        }`}>
+                          {playInputGroupPrefix === 'icon' && (
+                            <span className="pl-3.5 text-muted-foreground shrink-0" aria-hidden="true"><Search size={14} /></span>
+                          )}
+                          {playInputGroupPrefix === 'text' && (
+                            <span className="pl-3.5 text-xs text-muted-foreground select-none shrink-0" aria-hidden="true">https://</span>
+                          )}
+                          {playInputGroupPrefix === 'select' && (
+                            <>
+                              <label htmlFor="play-ig-currency" className="sr-only">Currency</label>
+                              <select
+                                id="play-ig-currency"
+                                disabled={playInputGroupDisabled}
+                                defaultValue="USD"
+                                className="bg-transparent border-none text-xs font-semibold text-foreground pl-3 pr-1.5 outline-none cursor-pointer shrink-0"
+                              >
+                                <option>USD</option>
+                                <option>EUR</option>
+                              </select>
+                              <span className="w-px h-5 bg-border shrink-0" aria-hidden="true" />
+                            </>
+                          )}
+                          <input
+                            id="play-input-group"
+                            type="text"
+                            disabled={playInputGroupDisabled}
+                            defaultValue="vault"
+                            className={`w-full bg-transparent border-none outline-none text-foreground min-w-0 ${
+                              playInputGroupSize === 'sm' ? 'py-1.5 px-2.5 text-[11px]' : playInputGroupSize === 'lg' ? 'py-3 px-4 text-sm' : 'py-2.5 px-3.5 text-xs'
+                            } ${playInputGroupDisabled ? 'cursor-not-allowed' : ''}`}
+                          />
+                          {playInputGroupSuffix === 'text' && (
+                            <span className="pr-3.5 text-[11px] text-muted-foreground select-none shrink-0" aria-hidden="true">.harbourandhills.com</span>
+                          )}
+                          {playInputGroupSuffix === 'button' && (
+                            <button
+                              type="button"
+                              disabled={playInputGroupDisabled}
+                              className="m-1 shrink-0 px-3 py-1.5 text-[11px] font-semibold bg-brand-teal text-slate-950 rounded-md hover:opacity-95 transition cursor-pointer disabled:cursor-not-allowed"
+                            >
+                              Verify
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="border-t border-border/40 pt-4 mt-6">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">JSX Code</span>
+                          <button
+                            onClick={() => handleCopy(getInputGroupCode(), 'input-group-code')}
+                            className="px-2.5 py-1 text-[10px] font-bold bg-muted/65 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition flex items-center gap-1 cursor-pointer"
+                          >
+                            <Copy size={10} />
+                            Copy Code
+                          </button>
+                        </div>
+                        <pre className="bg-muted/40 dark:bg-slate-950/30 border border-border/80 rounded-xl p-4 text-[10.5px] font-mono text-muted-foreground overflow-x-auto max-h-[260px] leading-relaxed select-all">
+                          {getInputGroupCode()}
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          )}
 
           {currentPath === 'components/textarea' && (
             <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
