@@ -269,6 +269,7 @@ const implementedPaths = [
   'components/textarea',
   'components/input-group',
   'components/native-select',
+  'components/button-group',
 ]
 
 interface Shade {
@@ -1037,6 +1038,15 @@ function App() {
 
   // Breadcrumb Playground states
   const [playBreadcrumbSeparator, setPlayBreadcrumbSeparator] = useState<'slash' | 'chevron' | 'arrow'>('chevron')
+
+  // Button Group Playground states
+  const [playButtonGroupOrientation, setPlayButtonGroupOrientation] = useState<'horizontal' | 'vertical'>('horizontal')
+  const [playButtonGroupSize, setPlayButtonGroupSize] = useState<'sm' | 'md' | 'lg'>('md')
+  const [playButtonGroupAttached, setPlayButtonGroupAttached] = useState<boolean>(true)
+  const [playButtonGroupMode, setPlayButtonGroupMode] = useState<'group' | 'radiogroup'>('radiogroup')
+  const [playButtonGroupSelected, setPlayButtonGroupSelected] = useState<number>(1)
+  const [specButtonGroupPeriod, setSpecButtonGroupPeriod] = useState<number>(1)
+  const [specButtonGroupFormats, setSpecButtonGroupFormats] = useState<string[]>(['bold'])
 
   // Native Select Playground states
   const [playNativeSelectSize, setPlayNativeSelectSize] = useState<'sm' | 'md' | 'lg'>('md')
@@ -2408,6 +2418,86 @@ function App() {
       `  )\n` +
       `}`
   };
+
+  // Roving tabindex: a radiogroup is ONE tab stop, and arrow keys move between
+  // options. Without this a keyboard user has to tab through every option.
+  const moveRovingFocus = (
+    e: React.KeyboardEvent<HTMLDivElement>,
+    count: number,
+    current: number,
+    select: (i: number) => void
+  ) => {
+    const keys = ['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End']
+    if (!keys.includes(e.key)) return
+    e.preventDefault()
+    let next = current
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (current + 1) % count
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (current - 1 + count) % count
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = count - 1
+    select(next)
+    const options = e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="radio"]')
+    options[next]?.focus()
+  }
+
+  const getButtonGroupCode = () => {
+    const sizeClass = { sm: 'px-2.5 py-1 text-[11px]', md: 'px-3.5 py-1.5 text-xs', lg: 'px-4 py-2.5 text-sm' }[playButtonGroupSize]
+    const wrapper = playButtonGroupAttached
+      ? `inline-flex ${playButtonGroupOrientation === 'vertical' ? 'flex-col' : ''} rounded-lg border border-border overflow-hidden divide-${playButtonGroupOrientation === 'vertical' ? 'y' : 'x'} divide-border`
+      : `inline-flex ${playButtonGroupOrientation === 'vertical' ? 'flex-col' : ''} gap-2`
+
+    if (playButtonGroupMode === 'radiogroup') {
+      return `// Segmented Button Group - Harbour & Hills Design System\n` +
+        `// Exactly one option can be active, so this is a radiogroup with a\n` +
+        `// roving tabindex: one tab stop, arrow keys move between options.\n` +
+        `import { useState } from 'react'\n\n` +
+        `const PERIODS = ['1M', '3M', '1Y']\n\n` +
+        `export default function ButtonGroupSpecimen() {\n` +
+        `  const [selected, setSelected] = useState(${playButtonGroupSelected})\n\n` +
+        `  return (\n` +
+        `    <>\n` +
+        `      <span id="period-label" className="text-xs font-semibold">Reporting Period</span>\n` +
+        `      <div role="radiogroup" aria-labelledby="period-label" className="${wrapper}">\n` +
+        `        {PERIODS.map((p, i) => (\n` +
+        `          <button\n` +
+        `            key={p}\n` +
+        `            role="radio"\n` +
+        `            aria-checked={selected === i}\n` +
+        `            tabIndex={selected === i ? 0 : -1}\n` +
+        `            onClick={() => setSelected(i)}\n` +
+        `            className="${sizeClass} font-semibold"\n` +
+        `          >\n` +
+        `            {p}\n` +
+        `          </button>\n` +
+        `        ))}\n` +
+        `      </div>\n` +
+        `    </>\n` +
+        `  )\n` +
+        `}`
+    }
+
+    return `// Action Button Group - Harbour & Hills Design System\n` +
+      `// Independent actions, so role="group" with an accessible name.\n` +
+      `import { Copy, Plus, Trash2 } from 'lucide-react'\n\n` +
+      `export default function ButtonGroupSpecimen() {\n` +
+      `  return (\n` +
+      `    <>\n` +
+      `      <span id="record-actions-label" className="text-xs font-semibold">Record Actions</span>\n` +
+      `      <div role="group" aria-labelledby="record-actions-label" className="${wrapper}">\n` +
+      `        <button className="${sizeClass} font-semibold">\n` +
+      `          <Plus size={13} aria-hidden="true" /> New\n` +
+      `        </button>\n` +
+      `        <button className="${sizeClass} font-semibold">\n` +
+      `          <Copy size={13} aria-hidden="true" /> Duplicate\n` +
+      `        </button>\n` +
+      `        <button className="${sizeClass} font-semibold">\n` +
+      `          <Trash2 size={13} aria-hidden="true" /> Delete\n` +
+      `        </button>\n` +
+      `      </div>\n` +
+      `    </>\n` +
+      `  )\n` +
+      `}`
+  }
 
   const getNativeSelectCode = () => {
     const pad = { sm: 'py-1.5 px-2.5 text-[11px]', md: 'py-2.5 px-3.5 text-xs', lg: 'py-3 px-4 text-sm' }[playNativeSelectSize]
@@ -28399,6 +28489,345 @@ export function ScrollArea({
             })()}
           </AnimatePresence>
           </Portal>
+
+          {currentPath === 'components/button-group' && (
+            <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
+              {/* Header */}
+              <section className="space-y-3">
+                <div className="text-xs font-bold text-brand-teal uppercase tracking-widest">Components</div>
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-slate-100" id="overview">
+                  Button Group
+                </h1>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-3xl">
+                  Related buttons presented as one unit — a segmented period picker, a toolbar of formatting toggles, or a row of record actions. The grouping must be announced, not just drawn.
+                </p>
+
+                {/* Accessibility Contract */}
+                <div className="bg-accent/40 border border-border/80 rounded-xl p-4.5 text-xs text-muted-foreground space-y-2 mt-4 max-w-3xl">
+                  <div className="font-bold text-foreground flex items-center gap-2">
+                    <Accessibility size={14} className="text-brand-teal" />
+                    Accessibility Contract (WCAG 2.1 AA)
+                  </div>
+                  <ul className="list-disc list-inside space-y-1.5 pl-1">
+                    <li>Independent actions use <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="group"</code> with a name from <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-labelledby</code>. Visual adjacency alone conveys nothing.</li>
+                    <li>When exactly one option can be active it is a <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="radiogroup"</code> of <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">role="radio"</code> buttons with <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-checked</code> — not a row of pressed buttons.</li>
+                    <li>A radiogroup is a single tab stop. Arrow keys move between options via a roving <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">tabIndex</code>, so only the active option is tabbable.</li>
+                    <li>Independently togglable buttons use <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-pressed</code>, and icon-only buttons need an <code className="font-mono text-[11px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-label</code>.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Specimens */}
+              <section id="specimen" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Component Specimens</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Segmented single-select, icon toggle toolbar, attached actions, and a split button.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Segmented radiogroup with roving tabindex */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Segmented (Single Select)
+                    </div>
+                    <div className="space-y-2">
+                      <span id="spec-bg-period-label" className="text-xs font-semibold text-foreground block">Reporting Period</span>
+                      <div
+                        role="radiogroup"
+                        aria-labelledby="spec-bg-period-label"
+                        onKeyDown={(e) => moveRovingFocus(e, 3, specButtonGroupPeriod, setSpecButtonGroupPeriod)}
+                        className="inline-flex rounded-lg border border-border overflow-hidden divide-x divide-border"
+                      >
+                        {['1M', '3M', '1Y'].map((label, i) => (
+                          <button
+                            key={label}
+                            role="radio"
+                            aria-checked={specButtonGroupPeriod === i}
+                            tabIndex={specButtonGroupPeriod === i ? 0 : -1}
+                            onClick={() => setSpecButtonGroupPeriod(i)}
+                            className={`px-3.5 py-1.5 text-xs font-semibold transition cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-inset ${
+                              specButtonGroupPeriod === i
+                                ? 'bg-brand-teal text-slate-950'
+                                : 'bg-card text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                            }`}
+                          >
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                      <p className="text-[11px] text-muted-foreground">
+                        One tab stop. Try arrow keys, <kbd className="font-mono text-[10px] bg-muted px-1 py-0.5 rounded border border-border">Home</kbd> and <kbd className="font-mono text-[10px] bg-muted px-1 py-0.5 rounded border border-border">End</kbd>.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Icon toggle toolbar */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Icon Toggles (Multi Select)
+                    </div>
+                    <div className="space-y-2">
+                      <span id="spec-bg-format-label" className="text-xs font-semibold text-foreground block">Text Formatting</span>
+                      <div role="group" aria-labelledby="spec-bg-format-label" className="inline-flex rounded-lg border border-border overflow-hidden divide-x divide-border">
+                        {[
+                          { id: 'bold', label: 'Bold', Icon: Bold },
+                          { id: 'italic', label: 'Italic', Icon: Italic },
+                          { id: 'underline', label: 'Underline', Icon: Underline },
+                        ].map(({ id, label, Icon }) => {
+                          const on = specButtonGroupFormats.includes(id)
+                          return (
+                            <button
+                              key={id}
+                              type="button"
+                              aria-pressed={on}
+                              aria-label={label}
+                              onClick={() =>
+                                setSpecButtonGroupFormats(
+                                  on ? specButtonGroupFormats.filter((f) => f !== id) : [...specButtonGroupFormats, id]
+                                )
+                              }
+                              className={`px-3 py-2 transition cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-inset ${
+                                on ? 'bg-brand-teal text-slate-950' : 'bg-card text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                              }`}
+                            >
+                              <Icon size={14} aria-hidden="true" />
+                            </button>
+                          )
+                        })}
+                      </div>
+                      <p className="text-[11px] text-muted-foreground">
+                        Independently togglable, so each uses <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-pressed</code>.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Attached actions */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Attached Actions
+                    </div>
+                    <div className="space-y-2">
+                      <span id="spec-bg-actions-label" className="text-xs font-semibold text-foreground block">Record Actions</span>
+                      <div role="group" aria-labelledby="spec-bg-actions-label" className="inline-flex rounded-lg border border-border overflow-hidden divide-x divide-border">
+                        {[
+                          { label: 'New', Icon: Plus },
+                          { label: 'Duplicate', Icon: Copy },
+                          { label: 'Delete', Icon: Trash2 },
+                        ].map(({ label, Icon }) => (
+                          <button
+                            key={label}
+                            type="button"
+                            className="px-3.5 py-1.5 text-xs font-semibold bg-card text-muted-foreground hover:text-foreground hover:bg-muted/50 transition cursor-pointer flex items-center gap-1.5 outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-inset"
+                          >
+                            <Icon size={13} aria-hidden="true" />
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                      <p className="text-[11px] text-muted-foreground">Independent actions — grouping is announced by the group name.</p>
+                    </div>
+                  </div>
+
+                  {/* Split button */}
+                  <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider border-b border-border/40 pb-2">
+                      Split Button
+                    </div>
+                    <div className="space-y-2">
+                      <span id="spec-bg-split-label" className="text-xs font-semibold text-foreground block">Release Payment</span>
+                      <div role="group" aria-labelledby="spec-bg-split-label" className="inline-flex rounded-lg overflow-hidden">
+                        <button
+                          type="button"
+                          className="px-3.5 py-1.5 text-xs font-semibold bg-brand-teal text-slate-950 hover:opacity-95 transition cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          Authorize
+                        </button>
+                        <span className="w-px bg-slate-950/20" aria-hidden="true" />
+                        <button
+                          type="button"
+                          aria-label="More release options"
+                          aria-haspopup="menu"
+                          aria-expanded="false"
+                          className="px-2 py-1.5 bg-brand-teal text-slate-950 hover:opacity-95 transition cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          <ChevronDown size={14} aria-hidden="true" />
+                        </button>
+                      </div>
+                      <p className="text-[11px] text-muted-foreground">
+                        The menu trigger is icon-only, so it carries its own label and <code className="font-mono text-[10px] text-brand-teal bg-muted px-1 py-0.5 rounded">aria-haspopup</code>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr className="border-border/60" />
+
+              {/* Playground */}
+              <section id="playground" className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-bold text-primary dark:text-slate-100">Interactive Playground</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Switch semantics, orientation, density and attachment, then copy the generated JSX.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Controls */}
+                  <div className="lg:col-span-4 self-start space-y-5 bg-muted/30 dark:bg-slate-950/10 border border-border/80 rounded-2xl p-5 shadow-2xs">
+                    <div className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider mb-2">Properties</div>
+
+                    <div className="space-y-2">
+                      <span id="bg-mode-label" className="text-[10.5px] font-bold text-foreground">Semantics</span>
+                      <div role="group" aria-labelledby="bg-mode-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {([['radiogroup', 'Single select'], ['group', 'Actions']] as const).map(([v, labelText]) => (
+                          <button
+                            key={v}
+                            onClick={() => setPlayButtonGroupMode(v)}
+                            className={`py-1 text-[9.5px] font-semibold rounded cursor-pointer transition ${
+                              playButtonGroupMode === v ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {labelText}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <span id="bg-orient-label" className="text-[10.5px] font-bold text-foreground">Orientation</span>
+                      <div role="group" aria-labelledby="bg-orient-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {(['horizontal', 'vertical'] as const).map((v) => (
+                          <button
+                            key={v}
+                            onClick={() => setPlayButtonGroupOrientation(v)}
+                            className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
+                              playButtonGroupOrientation === v ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {v}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <span id="bg-size-label" className="text-[10.5px] font-bold text-foreground">Density</span>
+                      <div role="group" aria-labelledby="bg-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                        {(['sm', 'md', 'lg'] as const).map((v) => (
+                          <button
+                            key={v}
+                            onClick={() => setPlayButtonGroupSize(v)}
+                            className={`py-1 text-[9.5px] font-semibold rounded uppercase cursor-pointer transition ${
+                              playButtonGroupSize === v ? 'bg-card text-foreground shadow-2xs' : 'text-muted-foreground hover:text-foreground'
+                            }`}
+                          >
+                            {v}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <div className="text-[10.5px] font-bold text-foreground">Attached</div>
+                        <div className="text-[10px] text-muted-foreground">Joined edges instead of spaced</div>
+                      </div>
+                      <button
+                        type="button"
+                        role="switch"
+                        aria-checked={playButtonGroupAttached}
+                        aria-label="Attached"
+                        onClick={() => setPlayButtonGroupAttached(!playButtonGroupAttached)}
+                        className={`w-9 h-5 shrink-0 rounded-full p-0.5 transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                          playButtonGroupAttached ? 'bg-brand-teal' : 'bg-muted-foreground/30'
+                        }`}
+                      >
+                        <span className={`block w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${playButtonGroupAttached ? 'translate-x-4' : ''}`} />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Preview / Code */}
+                  <div className="lg:col-span-8 space-y-6">
+                    <div className="bg-card border border-border rounded-2xl p-6 shadow-hnh-sm relative">
+                      <div className="text-[9px] uppercase font-bold text-muted-foreground tracking-wider mb-4">Live Preview</div>
+
+                      <div className="flex items-center justify-center py-6">
+                        <div className="space-y-2">
+                          <span id="play-bg-label" className="text-xs font-semibold text-foreground block">
+                            {playButtonGroupMode === 'radiogroup' ? 'Reporting Period' : 'Record Actions'}
+                          </span>
+                          <div
+                            role={playButtonGroupMode}
+                            aria-labelledby="play-bg-label"
+                            onKeyDown={(e) =>
+                              playButtonGroupMode === 'radiogroup'
+                                ? moveRovingFocus(e, 3, playButtonGroupSelected, setPlayButtonGroupSelected)
+                                : undefined
+                            }
+                            className={`inline-flex ${playButtonGroupOrientation === 'vertical' ? 'flex-col' : ''} ${
+                              playButtonGroupAttached
+                                ? `rounded-lg border border-border overflow-hidden divide-${playButtonGroupOrientation === 'vertical' ? 'y' : 'x'} divide-border`
+                                : 'gap-2'
+                            }`}
+                          >
+                            {(playButtonGroupMode === 'radiogroup'
+                              ? [{ label: '1M' }, { label: '3M' }, { label: '1Y' }]
+                              : [{ label: 'New', Icon: Plus }, { label: 'Duplicate', Icon: Copy }, { label: 'Delete', Icon: Trash2 }]
+                            ).map((item, i) => {
+                              const isRadio = playButtonGroupMode === 'radiogroup'
+                              const active = isRadio && playButtonGroupSelected === i
+                              const Icon = (item as { Icon?: typeof Plus }).Icon
+                              return (
+                                <button
+                                  key={item.label}
+                                  type="button"
+                                  role={isRadio ? 'radio' : undefined}
+                                  aria-checked={isRadio ? active : undefined}
+                                  tabIndex={isRadio ? (active ? 0 : -1) : undefined}
+                                  onClick={() => isRadio && setPlayButtonGroupSelected(i)}
+                                  className={`font-semibold transition cursor-pointer flex items-center gap-1.5 justify-center outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-inset ${
+                                    playButtonGroupSize === 'sm' ? 'px-2.5 py-1 text-[11px]' : playButtonGroupSize === 'lg' ? 'px-4 py-2.5 text-sm' : 'px-3.5 py-1.5 text-xs'
+                                  } ${!playButtonGroupAttached ? 'border border-border rounded-lg' : ''} ${
+                                    active ? 'bg-brand-teal text-slate-950' : 'bg-card text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                                  }`}
+                                >
+                                  {Icon && <Icon size={13} aria-hidden="true" />}
+                                  {item.label}
+                                </button>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="border-t border-border/40 pt-4 mt-6">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">JSX Code</span>
+                          <button
+                            onClick={() => handleCopy(getButtonGroupCode(), 'button-group-code')}
+                            className="px-2.5 py-1 text-[10px] font-bold bg-muted/65 hover:bg-muted text-muted-foreground hover:text-foreground rounded transition flex items-center gap-1 cursor-pointer"
+                          >
+                            <Copy size={10} />
+                            Copy Code
+                          </button>
+                        </div>
+                        <pre className="bg-muted/40 dark:bg-slate-950/30 border border-border/80 rounded-xl p-4 text-[10.5px] font-mono text-muted-foreground overflow-x-auto max-h-[280px] leading-relaxed select-all">
+                          {getButtonGroupCode()}
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          )}
 
           {currentPath === 'components/native-select' && (
             <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
