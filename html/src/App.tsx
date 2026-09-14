@@ -306,11 +306,13 @@ const pageNames: Record<string, string> = Object.fromEntries(
 // stylesheet, and interpolating "99, 102, 241" also put spaces inside the
 // arbitrary value, which Tailwind does not accept. Result: glow rendered
 // identically to solid. Colours match each theme's fill.
+// Two layers: a tight core plus a wider halo. A single 10px shadow at 0.65 is
+// invisible around a 2px-tall bar, which is what made glow look like solid.
 const PROGRESS_GLOW: Record<string, string> = {
-  primary: 'shadow-[0_0_10px_rgba(0,191,179,0.65)]',
-  secondary: 'shadow-[0_0_10px_rgba(100,116,139,0.65)]',
-  success: 'shadow-[0_0_10px_rgba(16,185,129,0.65)]',
-  danger: 'shadow-[0_0_10px_rgba(244,63,94,0.65)]',
+  primary: 'shadow-[0_0_6px_rgba(0,191,179,0.95),0_0_16px_rgba(0,191,179,0.7)]',
+  secondary: 'shadow-[0_0_6px_rgba(100,116,139,0.95),0_0_16px_rgba(100,116,139,0.7)]',
+  success: 'shadow-[0_0_6px_rgba(16,185,129,0.95),0_0_16px_rgba(16,185,129,0.7)]',
+  danger: 'shadow-[0_0_6px_rgba(244,63,94,0.95),0_0_16px_rgba(244,63,94,0.7)]',
 }
 
 const SectionNav = ({ currentPath }: { currentPath: string }) => {
@@ -3270,13 +3272,14 @@ function App() {
     }[playProgressSize];
 
     let fillClass = playProgressVariant === 'gradient' ? themeStyles.fill : themeStyles.solid;
+    let trackGlow = '';
 
     if (playProgressVariant === 'striped') {
       fillClass += " bg-[linear-gradient(45deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)] bg-[size:16px_16px] animate-[progress-stripe_1s_linear_infinite]";
     }
 
     if (playProgressVariant === 'glow') {
-      fillClass += ` ${PROGRESS_GLOW[playProgressTheme]}`;
+      trackGlow = ` ${PROGRESS_GLOW[playProgressTheme]}`;
     }
 
     code += "  return (\n";
@@ -3289,7 +3292,7 @@ function App() {
       code += "      </div>\n";
     }
 
-    code += `      <div className="w-full ${themeStyles.bg} ${sizeClasses} overflow-hidden relative" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={${playProgressIndeterminate ? 'undefined' : 'value'}}>\n`;
+    code += `      <div className="w-full ${themeStyles.bg} ${sizeClasses}${trackGlow} overflow-hidden relative" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={${playProgressIndeterminate ? 'undefined' : 'value'}}>\n`;
 
     if (playProgressIndeterminate) {
       code += "        {/* Indeterminate scanning line */}\n";
@@ -15899,9 +15902,10 @@ export function SecuritySettingsTemplate() {
                             fillClass += " bg-[linear-gradient(45deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)] bg-[size:16px_16px] animate-[progress-stripe_1s_linear_infinite]";
                           }
 
-                          if (playProgressVariant === 'glow') {
-                            fillClass += ` ${PROGRESS_GLOW[playProgressTheme]}`;
-                          }
+                          // The glow must sit on the track, not the fill: the track is
+                          // overflow-hidden (it clips the fill's square corners), which
+                          // also clips any shadow the fill paints outside itself.
+                          const glowClass = playProgressVariant === 'glow' ? PROGRESS_GLOW[playProgressTheme] : '';
 
                           return (
                             <div className="w-full max-w-md space-y-2">
@@ -15913,7 +15917,7 @@ export function SecuritySettingsTemplate() {
                               )}
 
                               <div 
-                                className={`w-full ${themeStyles.bg} ${sizeClasses} overflow-hidden relative`}
+                                className={`w-full ${themeStyles.bg} ${sizeClasses} ${glowClass} overflow-hidden relative`}
                                 role="progressbar"
                                 aria-valuemin={0}
                                 aria-valuemax={100}
