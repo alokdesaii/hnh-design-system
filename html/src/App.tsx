@@ -11357,7 +11357,15 @@ export function SecuritySettingsTemplate() {
                         <div className="absolute top-2 left-2 bg-slate-950/70 text-[9px] text-white font-mono px-1.5 py-0.5 rounded z-10">
                           {playAspectWidth}:{playAspectHeight} ({((playAspectWidth / playAspectHeight) * 100).toFixed(0)}%)
                         </div>
-                        <div className={`relative w-full aspect-[${playAspectWidth}/${playAspectHeight}] overflow-hidden bg-slate-950 rounded-lg shadow-inner`}>
+                        {/* aspectRatio is an inline style, not aspect-[w/h]: Tailwind compiles
+                            arbitrary values from source text, so a class built at
+                            runtime only works for ratios that happen to appear as
+                            literals elsewhere. 9:16 and 2:3 did not, and silently
+                            fell back to aspect-ratio: auto. */}
+                        <div
+                          className="relative w-full overflow-hidden bg-slate-950 rounded-lg shadow-inner"
+                          style={{ aspectRatio: `${playAspectWidth} / ${playAspectHeight}` }}
+                        >
                           {playAspectMedia === 'image' && (
                             <img
                               src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
