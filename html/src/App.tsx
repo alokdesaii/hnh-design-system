@@ -300,6 +300,19 @@ const pageNames: Record<string, string> = Object.fromEntries(
   navigationGroups.flatMap(g => g.items.map(i => [i.id, i.name]))
 )
 
+// Tailwind compiles arbitrary values by scanning source text, so a glow class
+// has to exist here as a complete literal. The previous version built it at
+// runtime — `shadow-[0_0_8px_rgba(${rgbGlow},0.6)]` — which never reached the
+// stylesheet, and interpolating "99, 102, 241" also put spaces inside the
+// arbitrary value, which Tailwind does not accept. Result: glow rendered
+// identically to solid. Colours match each theme's fill.
+const PROGRESS_GLOW: Record<string, string> = {
+  primary: 'shadow-[0_0_10px_rgba(0,191,179,0.65)]',
+  secondary: 'shadow-[0_0_10px_rgba(100,116,139,0.65)]',
+  success: 'shadow-[0_0_10px_rgba(16,185,129,0.65)]',
+  danger: 'shadow-[0_0_10px_rgba(244,63,94,0.65)]',
+}
+
 const SectionNav = ({ currentPath }: { currentPath: string }) => {
   const i = readingOrder.indexOf(currentPath)
   if (i === -1) return null
@@ -3263,7 +3276,7 @@ function App() {
     }
 
     if (playProgressVariant === 'glow') {
-      fillClass += ` shadow-[0_0_8px_rgba(99,102,241,0.5)]`;
+      fillClass += ` ${PROGRESS_GLOW[playProgressTheme]}`;
     }
 
     code += "  return (\n";
@@ -15887,8 +15900,7 @@ export function SecuritySettingsTemplate() {
                           }
 
                           if (playProgressVariant === 'glow') {
-                            const rgbGlow = playProgressTheme === 'primary' ? '99, 102, 241' : playProgressTheme === 'success' ? '16, 185, 129' : playProgressTheme === 'danger' ? '244, 63, 94' : '100, 116, 139';
-                            fillClass += ` shadow-[0_0_8px_rgba(${rgbGlow},0.6)]`;
+                            fillClass += ` ${PROGRESS_GLOW[playProgressTheme]}`;
                           }
 
                           return (
