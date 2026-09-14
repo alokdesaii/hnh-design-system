@@ -2419,25 +2419,28 @@ function App() {
       `}`
   };
 
-  // Roving tabindex: a radiogroup is ONE tab stop, and arrow keys move between
-  // options. Without this a keyboard user has to tab through every option.
-  const moveRovingFocus = (
-    e: React.KeyboardEvent<HTMLDivElement>,
-    count: number,
-    current: number,
-    select: (i: number) => void
-  ) => {
+  // WAI-ARIA radiogroup keyboard behaviour, read from the DOM so one handler
+  // serves every segmented control regardless of how its state is shaped.
+  // A radiogroup is ONE tab stop: arrow keys move between options, Home/End
+  // jump to the ends, and selection follows focus. Without this a keyboard
+  // user has to tab through every option in the group.
+  const handleRadioGroupKeys = (e: React.KeyboardEvent<HTMLDivElement>) => {
     const keys = ['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End']
     if (!keys.includes(e.key)) return
+    const options = Array.from(
+      e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="radio"]')
+    ).filter((o) => !o.disabled)
+    if (options.length === 0) return
     e.preventDefault()
-    let next = current
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (current + 1) % count
-    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (current - 1 + count) % count
+    const current = options.findIndex((o) => o.getAttribute('aria-checked') === 'true')
+    const from = current === -1 ? 0 : current
+    let next = from
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (from + 1) % options.length
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (from - 1 + options.length) % options.length
     else if (e.key === 'Home') next = 0
-    else if (e.key === 'End') next = count - 1
-    select(next)
-    const options = e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="radio"]')
-    options[next]?.focus()
+    else if (e.key === 'End') next = options.length - 1
+    options[next].focus()
+    options[next].click()
   }
 
   const getButtonGroupCode = () => {
@@ -6994,7 +6997,7 @@ export default function DrawerDemo() {
                   {/* Border Radius Control */}
                   <div className="bg-card border border-border rounded-2xl p-5 space-y-4 shadow-hnh-sm">
                     <span id="corner-radius-token-label" className="text-xs font-bold uppercase tracking-wider text-foreground block">Corner Radius Token</span>
-                    <div role="group" aria-labelledby="corner-radius-token-label" className="grid grid-cols-5 gap-1.5">
+                    <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="corner-radius-token-label" className="grid grid-cols-5 gap-1.5">
                       {[
                         { id: 'sharp', label: 'Sharp', val: '0px' },
                         { id: 'subtle', label: 'Subtle', val: '4px' },
@@ -7003,6 +7006,9 @@ export default function DrawerDemo() {
                         { id: 'pill', label: 'Pill (24px)', val: '24px' },
                       ].map((r) => (
                         <button
+                          role="radio"
+                          aria-checked={tbRadius === r.id}
+                          tabIndex={tbRadius === r.id ? 0 : -1}
                           key={r.id}
                           onClick={() => setTbRadius(r.id as any)}
                           className={`px-2 py-2 rounded-lg border text-[11px] font-semibold transition cursor-pointer text-center ${
@@ -7020,13 +7026,16 @@ export default function DrawerDemo() {
                   {/* Layout Density Control */}
                   <div className="bg-card border border-border rounded-2xl p-5 space-y-4 shadow-hnh-sm">
                     <span id="layout-density-scale-label" className="text-xs font-bold uppercase tracking-wider text-foreground block">Layout Density Scale</span>
-                    <div role="group" aria-labelledby="layout-density-scale-label" className="grid grid-cols-3 gap-2">
+                    <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="layout-density-scale-label" className="grid grid-cols-3 gap-2">
                       {[
                         { id: 'compact', label: 'Compact (32px)', desc: 'High density tables & tools' },
                         { id: 'standard', label: 'Standard (40px)', desc: 'Balanced web applications' },
                         { id: 'spacious', label: 'Spacious (48px)', desc: 'Touch & mobile interfaces' },
                       ].map((d) => (
                         <button
+                          role="radio"
+                          aria-checked={tbDensity === d.id}
+                          tabIndex={tbDensity === d.id ? 0 : -1}
                           key={d.id}
                           onClick={() => setTbDensity(d.id as any)}
                           className={`p-2.5 rounded-xl border text-left transition cursor-pointer ${
@@ -8479,8 +8488,11 @@ export function SecuritySettingsTemplate() {
                     {/* Accordion Layout style */}
                     <div className="space-y-2">
                       <span id="visual-style-label" className="text-xs font-bold text-muted-foreground">Visual Style</span>
-                      <div role="group" aria-labelledby="visual-style-label" className="grid grid-cols-2 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="visual-style-label" className="grid grid-cols-2 gap-2">
                         <button
+                          role="radio"
+                          aria-checked={playAccordionVariant === 'bordered'}
+                          tabIndex={playAccordionVariant === 'bordered' ? 0 : -1}
                           onClick={() => setPlayAccordionVariant('bordered')}
                           className={`py-1.5 text-xs font-semibold rounded-lg border transition cursor-pointer ${
                             playAccordionVariant === 'bordered'
@@ -8491,6 +8503,9 @@ export function SecuritySettingsTemplate() {
                           Bordered Rows
                         </button>
                         <button
+                          role="radio"
+                          aria-checked={playAccordionVariant === 'cards'}
+                          tabIndex={playAccordionVariant === 'cards' ? 0 : -1}
                           onClick={() => setPlayAccordionVariant('cards')}
                           className={`py-1.5 text-xs font-semibold rounded-lg border transition cursor-pointer ${
                             playAccordionVariant === 'cards'
@@ -8506,9 +8521,12 @@ export function SecuritySettingsTemplate() {
                     {/* Sizing options */}
                     <div className="space-y-2">
                       <span id="component-density-label" className="text-xs font-bold text-muted-foreground">Component Density</span>
-                      <div role="group" aria-labelledby="component-density-label" className="grid grid-cols-3 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="component-density-label" className="grid grid-cols-3 gap-2">
                         {['sm', 'md', 'lg'].map((sz) => (
                           <button
+                            role="radio"
+                            aria-checked={playAccordionSize === sz}
+                            tabIndex={playAccordionSize === sz ? 0 : -1}
                             key={sz}
                             onClick={() => setPlayAccordionSize(sz as 'sm' | 'md' | 'lg')}
                             className={`py-1.5 text-xs font-semibold rounded-lg border transition uppercase cursor-pointer ${
@@ -10715,9 +10733,12 @@ export function SecuritySettingsTemplate() {
                     {/* Style Selection */}
                     <div className="space-y-2">
                       <span id="visual-style-label-2" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Visual Style</span>
-                      <div role="group" aria-labelledby="visual-style-label-2" className="grid grid-cols-3 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="visual-style-label-2" className="grid grid-cols-3 gap-2">
                         {['accent', 'flat', 'outline'].map((style) => (
                           <button
+                            role="radio"
+                            aria-checked={playAlertStyle === style}
+                            tabIndex={playAlertStyle === style ? 0 : -1}
                             key={style}
                             onClick={() => setPlayAlertStyle(style as 'accent' | 'flat' | 'outline')}
                             className={`py-2 text-[10px] font-bold border rounded-lg transition capitalize focus:outline-none ${
@@ -10735,7 +10756,7 @@ export function SecuritySettingsTemplate() {
                     {/* Variant Selection */}
                     <div className="space-y-2">
                       <span id="status-variant-label" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Status Variant</span>
-                      <div role="group" aria-labelledby="status-variant-label" className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="status-variant-label" className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                         {[
                           { id: 'info', name: 'Info (Teal)' },
                           { id: 'success', name: 'Success (Green)' },
@@ -10744,6 +10765,9 @@ export function SecuritySettingsTemplate() {
                           { id: 'default', name: 'Neutral (Slate)' }
                         ].map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playAlertVariant === v.id}
+                            tabIndex={playAlertVariant === v.id ? 0 : -1}
                             key={v.id}
                             onClick={() => setPlayAlertVariant(v.id as 'info' | 'success' | 'warning' | 'destructive' | 'default')}
                             className={`py-2 px-1 text-[10px] font-bold border rounded-lg transition text-center focus:outline-none ${
@@ -11112,9 +11136,12 @@ export function SecuritySettingsTemplate() {
                     {/* Variant */}
                     <div className="space-y-1.5">
                       <span id="variant-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Variant</span>
-                      <div role="group" aria-labelledby="variant-label" className="flex gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="variant-label" className="flex gap-2">
                         {(['solid', 'soft', 'outline'] as const).map(v => (
                           <button
+                            role="radio"
+                            aria-checked={playBadgeVariant === v}
+                            tabIndex={playBadgeVariant === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayBadgeVariant(v)}
                             className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${playBadgeVariant === v ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -11126,9 +11153,12 @@ export function SecuritySettingsTemplate() {
                     {/* Color */}
                     <div className="space-y-1.5">
                       <span id="color-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color</span>
-                      <div role="group" aria-labelledby="color-label" className="grid grid-cols-3 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="color-label" className="grid grid-cols-3 gap-2">
                         {(['primary', 'secondary', 'success', 'warning', 'destructive', 'neutral'] as const).map(c => (
                           <button
+                            role="radio"
+                            aria-checked={playBadgeColor === c}
+                            tabIndex={playBadgeColor === c ? 0 : -1}
                             key={c}
                             onClick={() => setPlayBadgeColor(c)}
                             className={`py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${playBadgeColor === c ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -11140,9 +11170,12 @@ export function SecuritySettingsTemplate() {
                     {/* Size */}
                     <div className="space-y-1.5">
                       <span id="size-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size</span>
-                      <div role="group" aria-labelledby="size-label" className="flex gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="size-label" className="flex gap-2">
                         {(['sm', 'md', 'lg'] as const).map(s => (
                           <button
+                            role="radio"
+                            aria-checked={playBadgeSize === s}
+                            tabIndex={playBadgeSize === s ? 0 : -1}
                             key={s}
                             onClick={() => setPlayBadgeSize(s)}
                             className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition uppercase ${playBadgeSize === s ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -11408,9 +11441,12 @@ export function SecuritySettingsTemplate() {
                     {/* Media Type Selection */}
                     <div className="space-y-1.5">
                       <span id="media-content-type-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Media Content Type</span>
-                      <div role="group" aria-labelledby="media-content-type-label" className="flex gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="media-content-type-label" className="flex gap-2">
                         {(['image', 'video', 'map'] as const).map(m => (
                           <button
+                            role="radio"
+                            aria-checked={playAspectMedia === m}
+                            tabIndex={playAspectMedia === m ? 0 : -1}
                             key={m}
                             onClick={() => setPlayAspectMedia(m)}
                             className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${
@@ -11427,9 +11463,12 @@ export function SecuritySettingsTemplate() {
                     {playAspectMedia === 'image' && (
                       <div className="space-y-1.5">
                         <span id="object-fitting-model-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Object Fitting Model</span>
-                        <div role="group" aria-labelledby="object-fitting-model-label" className="flex gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="object-fitting-model-label" className="flex gap-2">
                           {(['cover', 'contain', 'fill'] as const).map(f => (
                             <button
+                              role="radio"
+                              aria-checked={playAspectFit === f}
+                              tabIndex={playAspectFit === f ? 0 : -1}
                               key={f}
                               onClick={() => setPlayAspectFit(f)}
                               className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${
@@ -11810,9 +11849,12 @@ export function SecuritySettingsTemplate() {
                     {/* Content Type */}
                     <div className="space-y-1.5">
                       <span id="content-type-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Content Type</span>
-                      <div role="group" aria-labelledby="content-type-label" className="flex gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="content-type-label" className="flex gap-2">
                         {(['image', 'initials', 'icon'] as const).map(t => (
                           <button
+                            role="radio"
+                            aria-checked={playAvatarType === t}
+                            tabIndex={playAvatarType === t ? 0 : -1}
                             key={t}
                             onClick={() => setPlayAvatarType(t)}
                             className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${playAvatarType === t ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -11841,9 +11883,12 @@ export function SecuritySettingsTemplate() {
                     {/* Sizes Selection */}
                     <div className="space-y-1.5">
                       <span id="sizes-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Sizes</span>
-                      <div role="group" aria-labelledby="sizes-label" className="grid grid-cols-6 gap-1.5">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="sizes-label" className="grid grid-cols-6 gap-1.5">
                         {(['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const).map(sz => (
                           <button
+                            role="radio"
+                            aria-checked={playAvatarSize === sz}
+                            tabIndex={playAvatarSize === sz ? 0 : -1}
                             key={sz}
                             onClick={() => setPlayAvatarSize(sz)}
                             className={`py-1 rounded-lg text-[10px] font-bold border transition uppercase ${playAvatarSize === sz ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -11857,9 +11902,12 @@ export function SecuritySettingsTemplate() {
                     {/* Shapes Selection */}
                     <div className="space-y-1.5">
                       <span id="shapes-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Shapes</span>
-                      <div role="group" aria-labelledby="shapes-label" className="flex gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="shapes-label" className="flex gap-2">
                         {(['circle', 'rounded', 'square'] as const).map(sh => (
                           <button
+                            role="radio"
+                            aria-checked={playAvatarShape === sh}
+                            tabIndex={playAvatarShape === sh ? 0 : -1}
                             key={sh}
                             onClick={() => setPlayAvatarShape(sh)}
                             className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${playAvatarShape === sh ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -11873,9 +11921,12 @@ export function SecuritySettingsTemplate() {
                     {/* Status Ring selection */}
                     <div className="space-y-1.5">
                       <span id="status-indicators-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Status Indicators</span>
-                      <div role="group" aria-labelledby="status-indicators-label" className="grid grid-cols-5 gap-1">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="status-indicators-label" className="grid grid-cols-5 gap-1">
                         {(['none', 'online', 'offline', 'away', 'busy'] as const).map(st => (
                           <button
+                            role="radio"
+                            aria-checked={playAvatarStatus === st}
+                            tabIndex={playAvatarStatus === st ? 0 : -1}
                             key={st}
                             onClick={() => setPlayAvatarStatus(st)}
                             className={`py-1 rounded-lg text-[10px] font-semibold border transition capitalize ${playAvatarStatus === st ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -11889,9 +11940,12 @@ export function SecuritySettingsTemplate() {
                     {/* Outer border decoration */}
                     <div className="space-y-1.5">
                       <span id="decorative-outer-ring-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Decorative Outer Ring</span>
-                      <div role="group" aria-labelledby="decorative-outer-ring-label" className="grid grid-cols-4 gap-1">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="decorative-outer-ring-label" className="grid grid-cols-4 gap-1">
                         {(['none', 'primary', 'secondary', 'accent'] as const).map(b => (
                           <button
+                            role="radio"
+                            aria-checked={playAvatarBorder === b}
+                            tabIndex={playAvatarBorder === b ? 0 : -1}
                             key={b}
                             onClick={() => setPlayAvatarBorder(b)}
                             className={`py-1 rounded-lg text-[10px] font-semibold border transition capitalize ${playAvatarBorder === b ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -12272,9 +12326,12 @@ export function SecuritySettingsTemplate() {
                       {/* Selection Mode Selection */}
                       <div className="space-y-1.5">
                         <span id="selection-mode-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Selection Mode</span>
-                        <div role="group" aria-labelledby="selection-mode-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="selection-mode-label" className="grid grid-cols-3 gap-2">
                           {(['single', 'range', 'multiple'] as const).map(m => (
                             <button
+                              role="radio"
+                              aria-checked={playCalendarMode === m}
+                              tabIndex={playCalendarMode === m ? 0 : -1}
                               key={m}
                               onClick={() => setPlayCalendarMode(m)}
                               className={`py-1.5 rounded-lg text-[10.5px] font-semibold border transition capitalize ${
@@ -15179,7 +15236,7 @@ export function SecuritySettingsTemplate() {
                       {/* Control 1: Active transition indicator style */}
                       <div className="space-y-2">
                         <span id="transition-indicator-label" className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Transition Indicator</span>
-                        <div role="group" aria-labelledby="transition-indicator-label" className="grid grid-cols-2 gap-1.5">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="transition-indicator-label" className="grid grid-cols-2 gap-1.5">
                           {[
                             { id: 'none', label: 'None' },
                             { id: 'border', label: 'Border Underline' },
@@ -15187,6 +15244,9 @@ export function SecuritySettingsTemplate() {
                             { id: 'text-highlight', label: 'Highlight Text' }
                           ].map((opt) => (
                             <button
+                              role="radio"
+                              aria-checked={playNavMenuTransition === opt.id}
+                              tabIndex={playNavMenuTransition === opt.id ? 0 : -1}
                               key={opt.id}
                               onClick={() => setPlayNavMenuTransition(opt.id as any)}
                               className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuTransition === opt.id ? 'bg-brand-teal/10 border-brand-teal text-brand-teal' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
@@ -15200,12 +15260,15 @@ export function SecuritySettingsTemplate() {
                       {/* Control 2: Dropdown Layout type */}
                       <div className="space-y-2">
                         <span id="dropdown-layout-type-label" className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Dropdown Layout Type</span>
-                        <div role="group" aria-labelledby="dropdown-layout-type-label" className="grid grid-cols-2 gap-1.5">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="dropdown-layout-type-label" className="grid grid-cols-2 gap-1.5">
                           {[
                             { id: 'simple', label: 'Simple List' },
                             { id: 'mega', label: 'Mega Menu' }
                           ].map((opt) => (
                             <button
+                              role="radio"
+                              aria-checked={playNavMenuLayout === opt.id}
+                              tabIndex={playNavMenuLayout === opt.id ? 0 : -1}
                               key={opt.id}
                               onClick={() => setPlayNavMenuLayout(opt.id as any)}
                               className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuLayout === opt.id ? 'bg-brand-teal/10 border-brand-teal text-brand-teal' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
@@ -15219,12 +15282,15 @@ export function SecuritySettingsTemplate() {
                       {/* Control 3: Logo alignment spacer offset */}
                       <div className="space-y-2">
                         <span id="logo-alignment-label" className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">Logo Alignment</span>
-                        <div role="group" aria-labelledby="logo-alignment-label" className="grid grid-cols-2 gap-1.5">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="logo-alignment-label" className="grid grid-cols-2 gap-1.5">
                           {[
                             { id: 'left', label: 'Left Aligned' },
                             { id: 'center', label: 'Center Aligned' }
                           ].map((opt) => (
                             <button
+                              role="radio"
+                              aria-checked={playNavMenuLogoAlign === opt.id}
+                              tabIndex={playNavMenuLogoAlign === opt.id ? 0 : -1}
                               key={opt.id}
                               onClick={() => setPlayNavMenuLogoAlign(opt.id as any)}
                               className={`px-2.5 py-1.5 text-[10px] font-semibold border rounded-lg transition-colors cursor-pointer ${playNavMenuLogoAlign === opt.id ? 'bg-brand-teal/10 border-brand-teal text-brand-teal' : 'bg-transparent border-border/80 text-muted-foreground hover:border-slate-400 dark:hover:border-slate-700'}`}
@@ -15689,9 +15755,12 @@ export function SecuritySettingsTemplate() {
                       {/* Theme Colors */}
                       <div className="space-y-1.5">
                         <span id="theme-accent-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Theme Accent</span>
-                        <div role="group" aria-labelledby="theme-accent-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="theme-accent-label" className="grid grid-cols-2 gap-2">
                           {(['primary', 'secondary', 'success', 'danger'] as const).map(theme => (
                             <button
+                              role="radio"
+                              aria-checked={playProgressTheme === theme}
+                              tabIndex={playProgressTheme === theme ? 0 : -1}
                               key={theme}
                               onClick={() => setPlayProgressTheme(theme)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -15707,9 +15776,12 @@ export function SecuritySettingsTemplate() {
                       {/* Variant Styles */}
                       <div className="space-y-1.5">
                         <span id="style-variant-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Variant</span>
-                        <div role="group" aria-labelledby="style-variant-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="style-variant-label" className="grid grid-cols-2 gap-2">
                           {(['gradient', 'solid', 'striped', 'glow'] as const).map(variant => (
                             <button
+                              role="radio"
+                              aria-checked={playProgressVariant === variant}
+                              tabIndex={playProgressVariant === variant ? 0 : -1}
                               key={variant}
                               onClick={() => setPlayProgressVariant(variant)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -15725,9 +15797,12 @@ export function SecuritySettingsTemplate() {
                       {/* Size Heights */}
                       <div className="space-y-1.5">
                         <span id="size-height-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size (Height)</span>
-                        <div role="group" aria-labelledby="size-height-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="size-height-label" className="grid grid-cols-3 gap-2">
                           {(['sm', 'md', 'lg'] as const).map(sz => (
                             <button
+                              role="radio"
+                              aria-checked={playProgressSize === sz}
+                              tabIndex={playProgressSize === sz ? 0 : -1}
                               key={sz}
                               onClick={() => setPlayProgressSize(sz)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -15743,9 +15818,12 @@ export function SecuritySettingsTemplate() {
                       {/* Label Placement */}
                       <div className="space-y-1.5">
                         <span id="label-layout-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Label Layout</span>
-                        <div role="group" aria-labelledby="label-layout-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="label-layout-label" className="grid grid-cols-2 gap-2">
                           {(['none', 'top-right', 'inside', 'bottom'] as const).map(lbl => (
                             <button
+                              role="radio"
+                              aria-checked={playProgressLabel === lbl}
+                              tabIndex={playProgressLabel === lbl ? 0 : -1}
                               key={lbl}
                               onClick={() => setPlayProgressLabel(lbl)}
                               disabled={playProgressIndeterminate || (lbl === 'inside' && playProgressSize !== 'lg')}
@@ -16287,9 +16365,12 @@ export function SecuritySettingsTemplate() {
                       {/* Orientation */}
                       <div className="space-y-2">
                         <span id="orientation-label" className="text-xs font-bold text-foreground block">Orientation</span>
-                        <div role="group" aria-labelledby="orientation-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="orientation-label" className="grid grid-cols-2 gap-2">
                           {['horizontal', 'vertical'].map((val) => (
                             <button
+                              role="radio"
+                              aria-checked={playResizableOrientation === val}
+                              tabIndex={playResizableOrientation === val ? 0 : -1}
                               key={val}
                               onClick={() => setPlayResizableOrientation(val as 'horizontal' | 'vertical')}
                               className={`py-1.5 px-3 rounded-lg border text-xs capitalize transition ${
@@ -16330,9 +16411,12 @@ export function SecuritySettingsTemplate() {
                       {/* Handle Design */}
                       <div className="space-y-2">
                         <span id="handle-design-label" className="text-xs font-bold text-foreground block">Handle Design</span>
-                        <div role="group" aria-labelledby="handle-design-label" className="grid grid-cols-3 gap-1.5">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="handle-design-label" className="grid grid-cols-3 gap-1.5">
                           {['line', 'dots', 'glass'].map((val) => (
                             <button
+                              role="radio"
+                              aria-checked={playResizableHandleStyle === val}
+                              tabIndex={playResizableHandleStyle === val ? 0 : -1}
                               key={val}
                               onClick={() => setPlayResizableHandleStyle(val as 'line' | 'dots' | 'glass')}
                               className={`py-1.5 px-2 rounded-lg border text-xs capitalize transition ${
@@ -16784,9 +16868,12 @@ export function ScrollArea({
                       {/* Orientation */}
                       <div className="space-y-1.5">
                         <span id="orientation-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Orientation</span>
-                        <div role="group" aria-labelledby="orientation-label-2" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="orientation-label-2" className="grid grid-cols-3 gap-2">
                           {(['vertical', 'horizontal', 'both'] as const).map(o => (
                             <button
+                              role="radio"
+                              aria-checked={playScrollAreaOrientation === o}
+                              tabIndex={playScrollAreaOrientation === o ? 0 : -1}
                               key={o}
                               onClick={() => setPlayScrollAreaOrientation(o)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -16802,9 +16889,12 @@ export function ScrollArea({
                       {/* Visibility behavior */}
                       <div className="space-y-1.5">
                         <span id="visibility-behavior-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Visibility Behavior</span>
-                        <div role="group" aria-labelledby="visibility-behavior-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="visibility-behavior-label" className="grid grid-cols-2 gap-2">
                           {(['always', 'hover'] as const).map(v => (
                             <button
+                              role="radio"
+                              aria-checked={playScrollAreaVisibility === v}
+                              tabIndex={playScrollAreaVisibility === v ? 0 : -1}
                               key={v}
                               onClick={() => setPlayScrollAreaVisibility(v)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -16820,9 +16910,12 @@ export function ScrollArea({
                       {/* Thickness sizes */}
                       <div className="space-y-1.5">
                         <span id="thickness-size-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Thickness Size</span>
-                        <div role="group" aria-labelledby="thickness-size-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="thickness-size-label" className="grid grid-cols-3 gap-2">
                           {(['thin', 'medium', 'thick'] as const).map(t => (
                             <button
+                              role="radio"
+                              aria-checked={playScrollAreaThickness === t}
+                              tabIndex={playScrollAreaThickness === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlayScrollAreaThickness(t)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -16838,9 +16931,12 @@ export function ScrollArea({
                       {/* Accent Themes */}
                       <div className="space-y-1.5">
                         <span id="accent-theme-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Accent Theme</span>
-                        <div role="group" aria-labelledby="accent-theme-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="accent-theme-label" className="grid grid-cols-2 gap-2">
                           {(['default', 'brand', 'success', 'danger'] as const).map(t => (
                             <button
+                              role="radio"
+                              aria-checked={playScrollAreaTheme === t}
+                              tabIndex={playScrollAreaTheme === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlayScrollAreaTheme(t)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -16856,9 +16952,12 @@ export function ScrollArea({
                       {/* Corner Radius */}
                       <div className="space-y-1.5">
                         <span id="corner-radius-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Corner Radius</span>
-                        <div role="group" aria-labelledby="corner-radius-label" className="grid grid-cols-4 gap-1.5">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="corner-radius-label" className="grid grid-cols-4 gap-1.5">
                           {(['none', 'sm', 'md', 'full'] as const).map(r => (
                             <button
+                              role="radio"
+                              aria-checked={playScrollAreaCornerRadius === r}
+                              tabIndex={playScrollAreaCornerRadius === r ? 0 : -1}
                               key={r}
                               onClick={() => setPlayScrollAreaCornerRadius(r)}
                               className={`py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${
@@ -17177,9 +17276,12 @@ export function ScrollArea({
                       {/* Variant Style */}
                       <div className="space-y-1.5">
                         <span id="style-variant-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Variant</span>
-                        <div role="group" aria-labelledby="style-variant-label-2" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="style-variant-label-2" className="grid grid-cols-2 gap-2">
                           {(['solid', 'dashed', 'dotted', 'gradient'] as const).map(v => (
                             <button
+                              role="radio"
+                              aria-checked={playSeparatorVariant === v}
+                              tabIndex={playSeparatorVariant === v ? 0 : -1}
                               key={v}
                               onClick={() => setPlaySeparatorVariant(v)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -17195,9 +17297,12 @@ export function ScrollArea({
                       {/* Thickness weight */}
                       <div className="space-y-1.5">
                         <span id="line-thickness-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Line Thickness</span>
-                        <div role="group" aria-labelledby="line-thickness-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="line-thickness-label" className="grid grid-cols-3 gap-2">
                           {(['1px', '2px', '4px'] as const).map(t => (
                             <button
+                              role="radio"
+                              aria-checked={playSeparatorThickness === t}
+                              tabIndex={playSeparatorThickness === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlaySeparatorThickness(t)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -17213,9 +17318,12 @@ export function ScrollArea({
                       {/* Accent Color Theme */}
                       <div className="space-y-1.5">
                         <span id="color-theme-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color Theme</span>
-                        <div role="group" aria-labelledby="color-theme-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="color-theme-label" className="grid grid-cols-2 gap-2">
                           {(['default', 'brand', 'subtle', 'accent'] as const).map(t => (
                             <button
+                              role="radio"
+                              aria-checked={playSeparatorTheme === t}
+                              tabIndex={playSeparatorTheme === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlaySeparatorTheme(t)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -17233,9 +17341,12 @@ export function ScrollArea({
                         <>
                           <div className="space-y-1.5">
                             <span id="overlay-decoration-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Overlay Decoration</span>
-                            <div role="group" aria-labelledby="overlay-decoration-label" className="grid grid-cols-3 gap-2">
+                            <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="overlay-decoration-label" className="grid grid-cols-3 gap-2">
                               {(['none', 'text', 'icon'] as const).map(l => (
                                 <button
+                                  role="radio"
+                                  aria-checked={playSeparatorLabel === l}
+                                  tabIndex={playSeparatorLabel === l ? 0 : -1}
                                   key={l}
                                   onClick={() => setPlaySeparatorLabel(l)}
                                   className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -17251,9 +17362,12 @@ export function ScrollArea({
                           {label !== 'none' && (
                             <div className="space-y-1.5">
                               <span id="decoration-position-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Decoration Position</span>
-                              <div role="group" aria-labelledby="decoration-position-label" className="grid grid-cols-3 gap-2">
+                              <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="decoration-position-label" className="grid grid-cols-3 gap-2">
                                 {(['left', 'center', 'right'] as const).map(p => (
                                   <button
+                                    role="radio"
+                                    aria-checked={playSeparatorLabelPosition === p}
+                                    tabIndex={playSeparatorLabelPosition === p ? 0 : -1}
                                     key={p}
                                     onClick={() => setPlaySeparatorLabelPosition(p)}
                                     className={`py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${
@@ -17696,9 +17810,12 @@ export function ScrollArea({
                       {/* Side positioning */}
                       <div className="space-y-1.5">
                         <span id="placement-side-label-3" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Placement Side</span>
-                        <div role="group" aria-labelledby="placement-side-label-3" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="placement-side-label-3" className="grid grid-cols-2 gap-2">
                           {(['top', 'right', 'bottom', 'left'] as const).map(s => (
                             <button
+                              role="radio"
+                              aria-checked={playSheetSide === s}
+                              tabIndex={playSheetSide === s ? 0 : -1}
                               key={s}
                               onClick={() => setPlaySheetSide(s)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -17714,9 +17831,12 @@ export function ScrollArea({
                       {/* Size metrics */}
                       <div className="space-y-1.5">
                         <span id="panel-size-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Panel Size</span>
-                        <div role="group" aria-labelledby="panel-size-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="panel-size-label" className="grid grid-cols-2 gap-2">
                           {(['sm', 'md', 'lg', 'full'] as const).map(sz => (
                             <button
+                              role="radio"
+                              aria-checked={playSheetSize === sz}
+                              tabIndex={playSheetSize === sz ? 0 : -1}
                               key={sz}
                               onClick={() => setPlaySheetSize(sz)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition capitalize ${
@@ -17732,9 +17852,12 @@ export function ScrollArea({
                       {/* Style theme */}
                       <div className="space-y-1.5">
                         <span id="style-theme-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Theme</span>
-                        <div role="group" aria-labelledby="style-theme-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="style-theme-label" className="grid grid-cols-3 gap-2">
                           {(['default', 'glass', 'brand'] as const).map(t => (
                             <button
+                              role="radio"
+                              aria-checked={playSheetTheme === t}
+                              tabIndex={playSheetTheme === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlaySheetTheme(t)}
                               className={`py-1.5 rounded-lg text-[10px] font-bold border transition capitalize ${
@@ -17750,9 +17873,12 @@ export function ScrollArea({
                       {/* Backdrop overlay type */}
                       <div className="space-y-1.5">
                         <span id="backdrop-overlay-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Backdrop Overlay</span>
-                        <div role="group" aria-labelledby="backdrop-overlay-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="backdrop-overlay-label" className="grid grid-cols-3 gap-2">
                           {(['dimmed', 'blur', 'none'] as const).map(b => (
                             <button
+                              role="radio"
+                              aria-checked={playSheetBackdrop === b}
+                              tabIndex={playSheetBackdrop === b ? 0 : -1}
                               key={b}
                               onClick={() => setPlaySheetBackdrop(b)}
                               className={`py-1.5 rounded-lg text-[10px] font-bold border transition capitalize ${
@@ -18086,9 +18212,12 @@ export function ScrollArea({
                       {/* Theme Variations */}
                       <div className="space-y-1.5">
                         <span id="style-theme-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Style Theme</span>
-                        <div role="group" aria-labelledby="style-theme-label-2" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="style-theme-label-2" className="grid grid-cols-3 gap-2">
                           {(['default', 'brand', 'bordered'] as const).map(t => (
                             <button
+                              role="radio"
+                              aria-checked={playSidebarTheme === t}
+                              tabIndex={playSidebarTheme === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlaySidebarTheme(t)}
                               className={`py-1.5 rounded-lg text-[10px] font-bold border transition capitalize ${
@@ -18104,12 +18233,15 @@ export function ScrollArea({
                       {/* Collapse/Expand state */}
                       <div className="space-y-1.5">
                         <span id="collapse-state-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Collapse State</span>
-                        <div role="group" aria-labelledby="collapse-state-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="collapse-state-label" className="grid grid-cols-2 gap-2">
                           {[
                             { value: false, label: 'Expanded' },
                             { value: true, label: 'Collapsed' }
                           ].map(opt => (
                             <button
+                              role="radio"
+                              aria-checked={playSidebarCollapsed === opt.value}
+                              tabIndex={playSidebarCollapsed === opt.value ? 0 : -1}
                               key={opt.label}
                               onClick={() => setPlaySidebarCollapsed(opt.value)}
                               className={`py-1.5 rounded-lg text-xs font-semibold border transition ${
@@ -18464,9 +18596,12 @@ export function ScrollArea({
                       {/* Animation selection */}
                       <div className="space-y-3">
                         <span id="animation-type-label" className="text-[11px] font-bold text-foreground uppercase tracking-wider block">Animation Type</span>
-                        <div role="group" aria-labelledby="animation-type-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="animation-type-label" className="grid grid-cols-3 gap-2">
                           {(['shimmer', 'pulse', 'none'] as const).map((a) => (
                             <button
+                              role="radio"
+                              aria-checked={anim === a}
+                              tabIndex={anim === a ? 0 : -1}
                               key={a}
                               onClick={() => setPlaySkeletonAnimation(a)}
                               className={`py-2 px-1 text-[10px] font-bold uppercase rounded-lg border text-center transition cursor-pointer ${
@@ -18484,13 +18619,16 @@ export function ScrollArea({
                       {/* Theme selection */}
                       <div className="space-y-3">
                         <span id="thematic-style-label" className="text-[11px] font-bold text-foreground uppercase tracking-wider block">Thematic Style</span>
-                        <div role="group" aria-labelledby="thematic-style-label" className="flex flex-col gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="thematic-style-label" className="flex flex-col gap-2">
                           {[
                             { id: 'default', name: 'Default Slate Gray' },
                             { id: 'brand-navy', name: 'Corporate Brand Navy' },
                             { id: 'brand-teal', name: 'Secondary Accent Teal' }
                           ].map((t) => (
                             <button
+                              role="radio"
+                              aria-checked={theme === t.id}
+                              tabIndex={theme === t.id ? 0 : -1}
                               key={t.id}
                               onClick={() => setPlaySkeletonTheme(t.id as any)}
                               className={`w-full py-2 px-3 text-left text-[11px] font-semibold rounded-lg border transition cursor-pointer flex items-center justify-between ${
@@ -19290,9 +19428,12 @@ export function ScrollArea({
                       {/* Type selection */}
                       <div className="space-y-2">
                         <span id="toast-type-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Toast Type</span>
-                        <div role="group" aria-labelledby="toast-type-label" className="grid grid-cols-3 gap-1.5">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="toast-type-label" className="grid grid-cols-3 gap-1.5">
                           {(['default', 'success', 'error', 'warning', 'info'] as const).map((t) => (
                             <button
+                              role="radio"
+                              aria-checked={playSonnerType === t}
+                              tabIndex={playSonnerType === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlaySonnerType(t)}
                               className={`px-2 py-1.5 border rounded-lg text-[9px] font-bold capitalize transition cursor-pointer ${
@@ -19704,9 +19845,12 @@ export function ScrollArea({
                       {/* Size selection */}
                       <div className="space-y-2">
                         <span id="scale-size-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Scale Size</span>
-                        <div role="group" aria-labelledby="scale-size-label" className="grid grid-cols-5 gap-1">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="scale-size-label" className="grid grid-cols-5 gap-1">
                           {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((sz) => (
                             <button
+                              role="radio"
+                              aria-checked={playSpinnerSize === sz}
+                              tabIndex={playSpinnerSize === sz ? 0 : -1}
                               key={sz}
                               onClick={() => setPlaySpinnerSize(sz)}
                               className={`py-1.5 border rounded-lg text-[9px] font-bold uppercase transition cursor-pointer ${
@@ -19724,9 +19868,12 @@ export function ScrollArea({
                       {/* Theme selection */}
                       <div className="space-y-2">
                         <span id="theme-color-accent-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Theme Color Accent</span>
-                        <div role="group" aria-labelledby="theme-color-accent-label" className="grid grid-cols-4 gap-1">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="theme-color-accent-label" className="grid grid-cols-4 gap-1">
                           {(['primary', 'secondary', 'muted', 'white'] as const).map((t) => (
                             <button
+                              role="radio"
+                              aria-checked={playSpinnerTheme === t}
+                              tabIndex={playSpinnerTheme === t ? 0 : -1}
                               key={t}
                               onClick={() => setPlaySpinnerTheme(t)}
                               className={`py-1.5 border rounded-lg text-[9px] font-bold capitalize transition cursor-pointer ${
@@ -19744,9 +19891,12 @@ export function ScrollArea({
                       {/* Speed selection */}
                       <div className="space-y-2">
                         <span id="velocity-speed-label" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Velocity Speed</span>
-                        <div role="group" aria-labelledby="velocity-speed-label" className="grid grid-cols-3 gap-1">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="velocity-speed-label" className="grid grid-cols-3 gap-1">
                           {(['slow', 'normal', 'fast'] as const).map((spd) => (
                             <button
+                              role="radio"
+                              aria-checked={playSpinnerSpeed === spd}
+                              tabIndex={playSpinnerSpeed === spd ? 0 : -1}
                               key={spd}
                               onClick={() => setPlaySpinnerSpeed(spd)}
                               className={`py-1.5 border rounded-lg text-[9px] font-bold capitalize transition cursor-pointer ${
@@ -20117,9 +20267,12 @@ export function ScrollArea({
                         {playCarouselAutoplay && (
                           <div className="space-y-1.5">
                             <span id="transition-speed-label" className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Transition Speed</span>
-                            <div role="group" aria-labelledby="transition-speed-label" className="flex gap-2">
+                            <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="transition-speed-label" className="flex gap-2">
                               {([2000, 3000, 5000] as const).map(t => (
                                 <button
+                                  role="radio"
+                                  aria-checked={playCarouselInterval === t}
+                                  tabIndex={playCarouselInterval === t ? 0 : -1}
                                   key={t}
                                   onClick={() => setPlayCarouselInterval(t)}
                                   className={`flex-1 py-1.5 rounded-lg text-[10.5px] font-semibold border transition ${
@@ -20137,9 +20290,12 @@ export function ScrollArea({
                       {/* Indicators Style */}
                       <div className="space-y-1.5 pt-3 border-t border-border/40">
                         <span id="indicator-template-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Indicator Template</span>
-                        <div role="group" aria-labelledby="indicator-template-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="indicator-template-label" className="grid grid-cols-3 gap-2">
                           {(['dots', 'numbers', 'fraction'] as const).map(ind => (
                             <button
+                              role="radio"
+                              aria-checked={playCarouselIndicators === ind}
+                              tabIndex={playCarouselIndicators === ind ? 0 : -1}
                               key={ind}
                               onClick={() => setPlayCarouselIndicators(ind)}
                               className={`py-1.5 rounded-lg text-[10.5px] font-semibold border transition capitalize ${
@@ -20626,9 +20782,12 @@ export function ScrollArea({
                       {/* Chart Type */}
                       <div className="space-y-2">
                         <span id="chart-format-label" className="text-xs font-bold text-muted-foreground">Chart Format</span>
-                        <div role="group" aria-labelledby="chart-format-label" className="grid grid-cols-2 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="chart-format-label" className="grid grid-cols-2 gap-2">
                           {(['area', 'bar', 'line', 'donut'] as const).map((type) => (
                             <button
+                              role="radio"
+                              aria-checked={playChartType === type}
+                              tabIndex={playChartType === type ? 0 : -1}
                               key={type}
                               onClick={() => setPlayChartType(type)}
                               className={`px-3 py-1.5 rounded-lg border text-xs font-semibold uppercase tracking-wider transition cursor-pointer ${
@@ -20647,9 +20806,12 @@ export function ScrollArea({
                       {playChartType !== 'donut' && (
                         <div className="space-y-2">
                           <span id="data-period-label" className="text-xs font-bold text-muted-foreground">Data Period</span>
-                          <div role="group" aria-labelledby="data-period-label" className="grid grid-cols-3 gap-2">
+                          <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="data-period-label" className="grid grid-cols-3 gap-2">
                             {(['1M', '6M', '1Y'] as const).map((period) => (
                               <button
+                                role="radio"
+                                aria-checked={playChartTimeframe === period}
+                                tabIndex={playChartTimeframe === period ? 0 : -1}
                                 key={period}
                                 onClick={() => setPlayChartTimeframe(period)}
                                 className={`px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition cursor-pointer ${
@@ -20668,9 +20830,12 @@ export function ScrollArea({
                       {/* Color Theme */}
                       <div className="space-y-2">
                         <span id="color-palette-label" className="text-xs font-bold text-muted-foreground">Color Palette</span>
-                        <div role="group" aria-labelledby="color-palette-label" className="grid grid-cols-3 gap-2">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="color-palette-label" className="grid grid-cols-3 gap-2">
                           {(['navy', 'teal', 'gradient'] as const).map((theme) => (
                             <button
+                              role="radio"
+                              aria-checked={playChartTheme === theme}
+                              tabIndex={playChartTheme === theme ? 0 : -1}
                               key={theme}
                               onClick={() => setPlayChartTheme(theme)}
                               className={`px-2 py-1.5 rounded-lg border text-[10px] font-bold uppercase transition cursor-pointer ${
@@ -21027,9 +21192,12 @@ export function ScrollArea({
                     {/* Color selection */}
                     <div className="space-y-1.5">
                       <span id="color-role-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Color Role</span>
-                      <div role="group" aria-labelledby="color-role-label" className="grid grid-cols-2 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="color-role-label" className="grid grid-cols-2 gap-2">
                         {(['primary', 'secondary', 'success', 'destructive'] as const).map(c => (
                           <button
+                            role="radio"
+                            aria-checked={playSwitchColor === c}
+                            tabIndex={playSwitchColor === c ? 0 : -1}
                             key={c}
                             onClick={() => setPlaySwitchColor(c)}
                             className={`py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${playSwitchColor === c ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -21041,9 +21209,12 @@ export function ScrollArea({
                     {/* Size selection */}
                     <div className="space-y-1.5">
                       <span id="size-scale-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Size Scale</span>
-                      <div role="group" aria-labelledby="size-scale-label" className="flex gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="size-scale-label" className="flex gap-2">
                         {(['sm', 'md', 'lg'] as const).map(s => (
                           <button
+                            role="radio"
+                            aria-checked={playSwitchSize === s}
+                            tabIndex={playSwitchSize === s ? 0 : -1}
                             key={s}
                             onClick={() => setPlaySwitchSize(s)}
                             className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition uppercase ${playSwitchSize === s ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -21404,9 +21575,12 @@ export function ScrollArea({
                     {/* Theme Bg Fill */}
                     <div className="space-y-1.5">
                       <span id="visual-archetype-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Visual Archetype</span>
-                      <div role="group" aria-labelledby="visual-archetype-label" className="grid grid-cols-2 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="visual-archetype-label" className="grid grid-cols-2 gap-2">
                         {(['solid', 'flat', 'glass', 'accent'] as const).map(b => (
                           <button
+                            role="radio"
+                            aria-checked={playCardBg === b}
+                            tabIndex={playCardBg === b ? 0 : -1}
                             key={b}
                             onClick={() => setPlayCardBg(b)}
                             className={`py-1.5 rounded-lg text-[11px] font-semibold border transition capitalize ${playCardBg === b ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -21418,13 +21592,16 @@ export function ScrollArea({
                     {/* Corner Radius */}
                     <div className="space-y-1.5">
                       <span id="corner-radius-label-2" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Corner Radius</span>
-                      <div role="group" aria-labelledby="corner-radius-label-2" className="grid grid-cols-3 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="corner-radius-label-2" className="grid grid-cols-3 gap-2">
                         {[
                           { label: 'lg (8px)', val: 'rounded-lg' },
                           { label: 'xl (12px)', val: 'rounded-xl' },
                           { label: '2xl (16px)', val: 'rounded-2xl' }
                         ].map(r => (
                           <button
+                            role="radio"
+                            aria-checked={playCardRadius === r.val}
+                            tabIndex={playCardRadius === r.val ? 0 : -1}
                             key={r.val}
                             onClick={() => setPlayCardRadius(r.val)}
                             className={`py-1.5 rounded-lg text-[10px] font-semibold border transition ${playCardRadius === r.val ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -21436,9 +21613,12 @@ export function ScrollArea({
                     {/* Padding Size */}
                     <div className="space-y-1.5">
                       <span id="padding-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Padding</span>
-                      <div role="group" aria-labelledby="padding-label" className="flex gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="padding-label" className="flex gap-2">
                         {(['sm', 'md', 'lg'] as const).map(p => (
                           <button
+                            role="radio"
+                            aria-checked={playCardPadding === p}
+                            tabIndex={playCardPadding === p ? 0 : -1}
                             key={p}
                             onClick={() => setPlayCardPadding(p)}
                             className={`flex-1 py-1.5 rounded-lg text-[11px] font-semibold border transition uppercase ${playCardPadding === p ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -21450,7 +21630,7 @@ export function ScrollArea({
                     {/* Elevations / Shadows */}
                     <div className="space-y-1.5">
                       <span id="shadow-elevation-label" className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">Shadow Elevation</span>
-                      <div role="group" aria-labelledby="shadow-elevation-label" className="grid grid-cols-4 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="shadow-elevation-label" className="grid grid-cols-4 gap-2">
                         {[
                           { label: 'None', val: 'none' },
                           { label: 'sm', val: 'shadow-hnh-sm' },
@@ -21458,6 +21638,9 @@ export function ScrollArea({
                           { label: 'lg', val: 'shadow-hnh-lg' }
                         ].map(s => (
                           <button
+                            role="radio"
+                            aria-checked={playCardShadow === s.val}
+                            tabIndex={playCardShadow === s.val ? 0 : -1}
                             key={s.val}
                             onClick={() => setPlayCardShadow(s.val)}
                             className={`py-1.5 rounded-lg text-[10px] font-semibold border transition ${playCardShadow === s.val ? 'bg-primary text-primary-foreground border-primary' : 'bg-muted/40 border-border text-muted-foreground hover:border-slate-400'}`}
@@ -21716,9 +21899,12 @@ export function ScrollArea({
                     {/* Variant Group */}
                     <div className="space-y-2">
                       <span id="visual-variant-label" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Visual Variant</span>
-                      <div role="group" aria-labelledby="visual-variant-label" className="grid grid-cols-3 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="visual-variant-label" className="grid grid-cols-3 gap-2">
                         {['confirm', 'destructive', 'info'].map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playAlertDialogVariant === v}
+                            tabIndex={playAlertDialogVariant === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayAlertDialogVariant(v as 'confirm' | 'destructive' | 'info')}
                             className={`py-1.5 text-[10px] font-bold border rounded-lg transition capitalize focus:outline-none cursor-pointer ${
@@ -21736,9 +21922,12 @@ export function ScrollArea({
                     {/* Backdrop Blur Group */}
                     <div className="space-y-2">
                       <span id="backdrop-blur-label" className="text-[10.5px] font-bold text-muted-foreground uppercase tracking-wider block">Backdrop Blur</span>
-                      <div role="group" aria-labelledby="backdrop-blur-label" className="grid grid-cols-4 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="backdrop-blur-label" className="grid grid-cols-4 gap-2">
                         {(['none', 'sm', 'md', 'lg'] as const).map((b) => (
                           <button
+                            role="radio"
+                            aria-checked={playAlertDialogBlur === b}
+                            tabIndex={playAlertDialogBlur === b ? 0 : -1}
                             key={b}
                             onClick={() => setPlayAlertDialogBlur(b)}
                             className={`py-1.5 text-[10px] font-bold border rounded-lg transition uppercase focus:outline-none cursor-pointer ${
@@ -22171,9 +22360,12 @@ export function ScrollArea({
                     {/* Density */}
                     <div className="space-y-2">
                       <span id="table-density-label" className="text-xs font-bold text-foreground block">Table Density</span>
-                      <div role="group" aria-labelledby="table-density-label" className="grid grid-cols-3 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="table-density-label" className="grid grid-cols-3 gap-2">
                         {['compact', 'md', 'spacious'].map((den) => (
                           <button
+                            role="radio"
+                            aria-checked={playTableDensity === den}
+                            tabIndex={playTableDensity === den ? 0 : -1}
                             key={den}
                             onClick={() => setPlayTableDensity(den as 'compact' | 'md' | 'spacious')}
                             className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold capitalize transition cursor-pointer ${
@@ -22227,9 +22419,12 @@ export function ScrollArea({
                     {/* Status filter */}
                     <div className="space-y-2 border-t border-border/50 pt-4">
                       <span id="filter-status-label" className="text-xs font-bold text-foreground block">Filter Status</span>
-                      <div role="group" aria-labelledby="filter-status-label" className="grid grid-cols-2 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="filter-status-label" className="grid grid-cols-2 gap-2">
                         {['all', 'settled', 'pending', 'failed'].map((flt) => (
                           <button
+                            role="radio"
+                            aria-checked={playTableFilter === flt}
+                            tabIndex={playTableFilter === flt ? 0 : -1}
                             key={flt}
                             onClick={() => setPlayTableFilter(flt as any)}
                             className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold capitalize transition cursor-pointer ${
@@ -22695,9 +22890,12 @@ export function ScrollArea({
                     {/* Size */}
                     <div className="space-y-2">
                       <span id="modal-dimensions-label" className="text-xs font-bold text-foreground block">Modal Dimensions</span>
-                      <div role="group" aria-labelledby="modal-dimensions-label" className="grid grid-cols-2 gap-2">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="modal-dimensions-label" className="grid grid-cols-2 gap-2">
                         {['sm', 'md', 'lg', 'xl'].map((sz) => (
                           <button
+                            role="radio"
+                            aria-checked={playDialogSize === sz}
+                            tabIndex={playDialogSize === sz ? 0 : -1}
                             key={sz}
                             onClick={() => setPlayDialogSize(sz as any)}
                             className={`px-3 py-1.5 rounded-lg border text-[11px] font-semibold uppercase transition cursor-pointer ${
@@ -22715,9 +22913,12 @@ export function ScrollArea({
                     {/* Backdrop style */}
                     <div className="space-y-2 border-t border-border/50 pt-4">
                       <span id="overlay-backdrop-label" className="text-xs font-bold text-foreground block">Overlay Backdrop</span>
-                      <div role="group" aria-labelledby="overlay-backdrop-label" className="grid grid-cols-3 gap-1.5">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="overlay-backdrop-label" className="grid grid-cols-3 gap-1.5">
                         {['transparent', 'blur', 'opaque'].map((bd) => (
                           <button
+                            role="radio"
+                            aria-checked={playDialogBackdrop === bd}
+                            tabIndex={playDialogBackdrop === bd ? 0 : -1}
                             key={bd}
                             onClick={() => setPlayDialogBackdrop(bd as any)}
                             className={`px-2 py-1.5 rounded-lg border text-[10.5px] font-semibold capitalize transition cursor-pointer ${
@@ -22982,9 +23183,12 @@ export function ScrollArea({
                     {/* Variant Selector */}
                     <div className="space-y-2">
                       <span id="layout-variant-label" className="text-[10.5px] font-bold text-foreground">Layout Variant</span>
-                      <div role="group" aria-labelledby="layout-variant-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="layout-variant-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['underline', 'segmented', 'vertical'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playTabVariant === v}
+                            tabIndex={playTabVariant === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayTabVariant(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -23002,9 +23206,12 @@ export function ScrollArea({
                     {/* Size Selector */}
                     <div className="space-y-2">
                       <span id="size-label-2" className="text-[10.5px] font-bold text-foreground">Size</span>
-                      <div role="group" aria-labelledby="size-label-2" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="size-label-2" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['sm', 'md', 'lg'] as const).map((s) => (
                           <button
+                            role="radio"
+                            aria-checked={playTabSize === s}
+                            tabIndex={playTabSize === s ? 0 : -1}
                             key={s}
                             onClick={() => setPlayTabSize(s)}
                             className={`py-1 text-[9.5px] font-semibold rounded uppercase cursor-pointer transition ${
@@ -23241,9 +23448,12 @@ export function ScrollArea({
                     {/* Position Selector */}
                     <div className="space-y-2">
                       <span id="position-label" className="text-[10.5px] font-bold text-foreground">Position</span>
-                      <div role="group" aria-labelledby="position-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="position-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['top', 'bottom', 'left', 'right'] as const).map((p) => (
                           <button
+                            role="radio"
+                            aria-checked={playTooltipPosition === p}
+                            tabIndex={playTooltipPosition === p ? 0 : -1}
                             key={p}
                             onClick={() => setPlayTooltipPosition(p)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -23261,9 +23471,12 @@ export function ScrollArea({
                     {/* Color Variant Selector */}
                     <div className="space-y-2">
                       <span id="color-theme-label-2" className="text-[10.5px] font-bold text-foreground">Color Theme</span>
-                      <div role="group" aria-labelledby="color-theme-label-2" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="color-theme-label-2" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['dark', 'brand', 'light'] as const).map((col) => (
                           <button
+                            role="radio"
+                            aria-checked={playTooltipVariant === col}
+                            tabIndex={playTooltipVariant === col ? 0 : -1}
                             key={col}
                             onClick={() => setPlayTooltipVariant(col)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -23281,9 +23494,12 @@ export function ScrollArea({
                     {/* Trigger Event */}
                     <div className="space-y-2">
                       <span id="trigger-action-label" className="text-[10.5px] font-bold text-foreground">Trigger Action</span>
-                      <div role="group" aria-labelledby="trigger-action-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="trigger-action-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['hover', 'click'] as const).map((tr) => (
                           <button
+                            role="radio"
+                            aria-checked={playTooltipTrigger === tr}
+                            tabIndex={playTooltipTrigger === tr ? 0 : -1}
                             key={tr}
                             onClick={() => setPlayTooltipTrigger(tr)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -23496,9 +23712,12 @@ export function ScrollArea({
                     {/* Separator Selector */}
                     <div className="space-y-2">
                       <span id="separator-style-label" className="text-[10.5px] font-bold text-foreground">Separator Style</span>
-                      <div role="group" aria-labelledby="separator-style-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="separator-style-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['slash', 'chevron', 'arrow'] as const).map((sep) => (
                           <button
+                            role="radio"
+                            aria-checked={playBreadcrumbSeparator === sep}
+                            tabIndex={playBreadcrumbSeparator === sep ? 0 : -1}
                             key={sep}
                             onClick={() => setPlayBreadcrumbSeparator(sep)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -23659,9 +23878,12 @@ export function ScrollArea({
                     {/* Alignment */}
                     <div className="space-y-2">
                       <span id="menu-alignment-label" className="text-[10.5px] font-bold text-foreground">Menu Alignment</span>
-                      <div role="group" aria-labelledby="menu-alignment-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="menu-alignment-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['left', 'center', 'right'] as const).map((a) => (
                           <button
+                            role="radio"
+                            aria-checked={playDropdownAlign === a}
+                            tabIndex={playDropdownAlign === a ? 0 : -1}
                             key={a}
                             onClick={() => setPlayDropdownAlign(a)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -23886,9 +24108,12 @@ export function ScrollArea({
                     {/* Sizing */}
                     <div className="space-y-2">
                       <span id="sizing-weight-label" className="text-[10.5px] font-bold text-foreground">Sizing Weight</span>
-                      <div role="group" aria-labelledby="sizing-weight-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="sizing-weight-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['sm', 'md', 'lg'] as const).map((sz) => (
                           <button
+                            role="radio"
+                            aria-checked={playPaginationSize === sz}
+                            tabIndex={playPaginationSize === sz ? 0 : -1}
                             key={sz}
                             onClick={() => setPlayPaginationSize(sz)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -24070,9 +24295,12 @@ export function ScrollArea({
                     {/* Variant */}
                     <div className="space-y-2">
                       <span id="notification-theme-label" className="text-xs font-bold text-foreground">Notification Theme</span>
-                      <div role="group" aria-labelledby="notification-theme-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="notification-theme-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['success', 'destructive', 'warning', 'info'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playToastVariant === v}
+                            tabIndex={playToastVariant === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayToastVariant(v)}
                             className={`py-1 text-[10.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -24090,9 +24318,12 @@ export function ScrollArea({
                     {/* Position */}
                     <div className="space-y-2">
                       <span id="corner-location-label" className="text-xs font-bold text-foreground">Corner Location</span>
-                      <div role="group" aria-labelledby="corner-location-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="corner-location-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['bottom-right', 'top-right'] as const).map((pos) => (
                           <button
+                            role="radio"
+                            aria-checked={playToastPosition === pos}
+                            tabIndex={playToastPosition === pos ? 0 : -1}
                             key={pos}
                             onClick={() => setPlayToastPosition(pos)}
                             className={`py-1 text-[11px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -24305,9 +24536,12 @@ export function ScrollArea({
                         {/* Variant selection */}
                         <div className="space-y-2">
                           <span id="variant-label-2" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Variant</span>
-                          <div role="group" aria-labelledby="variant-label-2" className="flex rounded-lg border border-border p-0.5 bg-muted/40">
+                          <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="variant-label-2" className="flex rounded-lg border border-border p-0.5 bg-muted/40">
                             {(['default', 'outline', 'solid'] as const).map((variant) => (
                               <button
+                                role="radio"
+                                aria-checked={playToggleVariant === variant}
+                                tabIndex={playToggleVariant === variant ? 0 : -1}
                                 key={variant}
                                 onClick={() => setPlayToggleVariant(variant)}
                                 className={`flex-1 text-center py-1.5 text-xs font-bold rounded-md capitalize transition cursor-pointer ${
@@ -24325,9 +24559,12 @@ export function ScrollArea({
                         {/* Size selection */}
                         <div className="space-y-2">
                           <span id="size-label-3" className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider block">Size</span>
-                          <div role="group" aria-labelledby="size-label-3" className="flex rounded-lg border border-border p-0.5 bg-muted/40">
+                          <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="size-label-3" className="flex rounded-lg border border-border p-0.5 bg-muted/40">
                             {(['sm', 'md', 'lg'] as const).map((size) => (
                               <button
+                                role="radio"
+                                aria-checked={playToggleSize === size}
+                                tabIndex={playToggleSize === size ? 0 : -1}
                                 key={size}
                                 onClick={() => setPlayToggleSize(size)}
                                 className={`flex-1 text-center py-1.5 text-xs font-bold rounded-md capitalize transition cursor-pointer ${
@@ -24566,7 +24803,12 @@ export function ScrollArea({
               };
 
               return (
-                <div className={containerClasses} aria-label={groupLabel} role={type === 'single' ? "radiogroup" : "group"}>
+                <div
+                  className={containerClasses}
+                  aria-label={groupLabel}
+                  role={type === 'single' ? "radiogroup" : "group"}
+                  onKeyDown={type === 'single' ? handleRadioGroupKeys : undefined}
+                >
                   {items.map((item) => {
                     const isSelected = type === 'single'
                       ? singleValue === item.value
@@ -24592,8 +24834,10 @@ export function ScrollArea({
                         key={item.value}
                         type="button"
                         disabled={disabled}
+                        role={type === 'single' ? 'radio' : undefined}
                         aria-pressed={type === 'multiple' ? isSelected : undefined}
                         aria-checked={type === 'single' ? isSelected : undefined}
+                        tabIndex={type === 'single' ? (isSelected ? 0 : -1) : undefined}
                         aria-label={item.ariaLabel || item.label}
                         onClick={() => onItemClick(item.value)}
                         className={`inline-flex items-center justify-center font-semibold transition-all duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer rounded-lg ${sizeClasses} ${activeStyle}`}
@@ -24938,9 +25182,12 @@ export function ScrollArea({
                       {/* Type Switcher */}
                       <div className="space-y-1.5">
                         <span id="selection-mode-type-label" className="text-xs font-semibold text-foreground">Selection Mode (type)</span>
-                        <div role="group" aria-labelledby="selection-mode-type-label" className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="selection-mode-type-label" className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['single', 'multiple'] as const).map((mode) => (
                             <button
+                              role="radio"
+                              aria-checked={playToggleGroupType === mode}
+                              tabIndex={playToggleGroupType === mode ? 0 : -1}
                               key={mode}
                               type="button"
                               onClick={() => setPlayToggleGroupType(mode)}
@@ -24955,9 +25202,12 @@ export function ScrollArea({
                       {/* Variant Switcher */}
                       <div className="space-y-1.5">
                         <span id="visual-variant-label-2" className="text-xs font-semibold text-foreground">Visual Variant</span>
-                        <div role="group" aria-labelledby="visual-variant-label-2" className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="visual-variant-label-2" className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['default', 'outline', 'solid'] as const).map((v) => (
                             <button
+                              role="radio"
+                              aria-checked={playToggleGroupVariant === v}
+                              tabIndex={playToggleGroupVariant === v ? 0 : -1}
                               key={v}
                               type="button"
                               onClick={() => setPlayToggleGroupVariant(v)}
@@ -24972,9 +25222,12 @@ export function ScrollArea({
                       {/* Size Switcher */}
                       <div className="space-y-1.5">
                         <span id="size-density-label" className="text-xs font-semibold text-foreground">Size Density</span>
-                        <div role="group" aria-labelledby="size-density-label" className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="size-density-label" className="grid grid-cols-3 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['sm', 'md', 'lg'] as const).map((s) => (
                             <button
+                              role="radio"
+                              aria-checked={playToggleGroupSize === s}
+                              tabIndex={playToggleGroupSize === s ? 0 : -1}
                               key={s}
                               type="button"
                               onClick={() => setPlayToggleGroupSize(s)}
@@ -24989,9 +25242,12 @@ export function ScrollArea({
                       {/* Orientation Switcher */}
                       <div className="space-y-1.5">
                         <span id="orientation-label-4" className="text-xs font-semibold text-foreground">Orientation</span>
-                        <div role="group" aria-labelledby="orientation-label-4" className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
+                        <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="orientation-label-4" className="grid grid-cols-2 gap-1.5 p-1 bg-muted/40 rounded-xl border border-border/60">
                           {(['horizontal', 'vertical'] as const).map((o) => (
                             <button
+                              role="radio"
+                              aria-checked={playToggleGroupOrientation === o}
+                              tabIndex={playToggleGroupOrientation === o ? 0 : -1}
                               key={o}
                               type="button"
                               onClick={() => setPlayToggleGroupOrientation(o)}
@@ -28539,7 +28795,7 @@ export function ScrollArea({
                       <div
                         role="radiogroup"
                         aria-labelledby="spec-bg-period-label"
-                        onKeyDown={(e) => moveRovingFocus(e, 3, specButtonGroupPeriod, setSpecButtonGroupPeriod)}
+                        onKeyDown={handleRadioGroupKeys}
                         className="inline-flex rounded-lg border border-border overflow-hidden divide-x divide-border"
                       >
                         {['1M', '3M', '1Y'].map((label, i) => (
@@ -28683,9 +28939,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="bg-mode-label" className="text-[10.5px] font-bold text-foreground">Semantics</span>
-                      <div role="group" aria-labelledby="bg-mode-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="bg-mode-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {([['radiogroup', 'Single select'], ['group', 'Actions']] as const).map(([v, labelText]) => (
                           <button
+                            role="radio"
+                            aria-checked={playButtonGroupMode === v}
+                            tabIndex={playButtonGroupMode === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayButtonGroupMode(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded cursor-pointer transition ${
@@ -28700,9 +28959,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="bg-orient-label" className="text-[10.5px] font-bold text-foreground">Orientation</span>
-                      <div role="group" aria-labelledby="bg-orient-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="bg-orient-label" className="grid grid-cols-2 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['horizontal', 'vertical'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playButtonGroupOrientation === v}
+                            tabIndex={playButtonGroupOrientation === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayButtonGroupOrientation(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -28717,9 +28979,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="bg-size-label" className="text-[10.5px] font-bold text-foreground">Density</span>
-                      <div role="group" aria-labelledby="bg-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="bg-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['sm', 'md', 'lg'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playButtonGroupSize === v}
+                            tabIndex={playButtonGroupSize === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayButtonGroupSize(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded uppercase cursor-pointer transition ${
@@ -28765,11 +29030,7 @@ export function ScrollArea({
                           <div
                             role={playButtonGroupMode}
                             aria-labelledby="play-bg-label"
-                            onKeyDown={(e) =>
-                              playButtonGroupMode === 'radiogroup'
-                                ? moveRovingFocus(e, 3, playButtonGroupSelected, setPlayButtonGroupSelected)
-                                : undefined
-                            }
+                            onKeyDown={playButtonGroupMode === 'radiogroup' ? handleRadioGroupKeys : undefined}
                             className={`inline-flex ${playButtonGroupOrientation === 'vertical' ? 'flex-col' : ''} ${
                               playButtonGroupAttached
                                 ? `rounded-lg border border-border overflow-hidden divide-${playButtonGroupOrientation === 'vertical' ? 'y' : 'x'} divide-border`
@@ -28988,9 +29249,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="ns-size-label" className="text-[10.5px] font-bold text-foreground">Density</span>
-                      <div role="group" aria-labelledby="ns-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="ns-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['sm', 'md', 'lg'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playNativeSelectSize === v}
+                            tabIndex={playNativeSelectSize === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayNativeSelectSize(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded uppercase cursor-pointer transition ${
@@ -29256,9 +29520,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="ig-prefix-label" className="text-[10.5px] font-bold text-foreground">Prefix Slot</span>
-                      <div role="group" aria-labelledby="ig-prefix-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="ig-prefix-label" className="grid grid-cols-4 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['none', 'icon', 'text', 'select'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playInputGroupPrefix === v}
+                            tabIndex={playInputGroupPrefix === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayInputGroupPrefix(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -29273,9 +29540,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="ig-suffix-label" className="text-[10.5px] font-bold text-foreground">Suffix Slot</span>
-                      <div role="group" aria-labelledby="ig-suffix-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="ig-suffix-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['none', 'text', 'button'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playInputGroupSuffix === v}
+                            tabIndex={playInputGroupSuffix === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayInputGroupSuffix(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
@@ -29290,9 +29560,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="ig-size-label" className="text-[10.5px] font-bold text-foreground">Density</span>
-                      <div role="group" aria-labelledby="ig-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="ig-size-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['sm', 'md', 'lg'] as const).map((v) => (
                           <button
+                            role="radio"
+                            aria-checked={playInputGroupSize === v}
+                            tabIndex={playInputGroupSize === v ? 0 : -1}
                             key={v}
                             onClick={() => setPlayInputGroupSize(v)}
                             className={`py-1 text-[9.5px] font-semibold rounded uppercase cursor-pointer transition ${
@@ -29546,9 +29819,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="ta-rows-label" className="text-[10.5px] font-bold text-foreground">Rows</span>
-                      <div role="group" aria-labelledby="ta-rows-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="ta-rows-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {[3, 4, 8].map((r) => (
                           <button
+                            role="radio"
+                            aria-checked={playTextareaRows === r}
+                            tabIndex={playTextareaRows === r ? 0 : -1}
                             key={r}
                             onClick={() => setPlayTextareaRows(r)}
                             className={`py-1 text-[9.5px] font-semibold rounded cursor-pointer transition ${
@@ -29563,9 +29839,12 @@ export function ScrollArea({
 
                     <div className="space-y-2">
                       <span id="ta-resize-label" className="text-[10.5px] font-bold text-foreground">Resize</span>
-                      <div role="group" aria-labelledby="ta-resize-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
+                      <div role="radiogroup" onKeyDown={handleRadioGroupKeys} aria-labelledby="ta-resize-label" className="grid grid-cols-3 gap-1 bg-muted/70 dark:bg-slate-900/60 p-1 border border-border/70 rounded-lg">
                         {(['none', 'vertical', 'both'] as const).map((r) => (
                           <button
+                            role="radio"
+                            aria-checked={playTextareaResize === r}
+                            tabIndex={playTextareaResize === r ? 0 : -1}
                             key={r}
                             onClick={() => setPlayTextareaResize(r)}
                             className={`py-1 text-[9.5px] font-semibold rounded capitalize cursor-pointer transition ${
