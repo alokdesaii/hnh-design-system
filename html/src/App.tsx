@@ -17532,6 +17532,16 @@ export function ScrollArea({
               brand: "bg-primary-900 border-primary-800 text-slate-100 dark:bg-slate-905"
             }[theme];
 
+            // The brand theme paints its own dark surface, so the panel's contents
+            // cannot use text-foreground / border-border: those follow the page
+            // theme, and in light mode they put near-black text on a near-black
+            // panel (measured 1.02:1). These pick colours for the surface instead.
+            const onBrand = theme === 'brand';
+            const headingText = onBrand ? 'text-slate-50' : 'text-foreground';
+            const bodyText = onBrand ? 'text-slate-300' : 'text-muted-foreground';
+            const innerCard = onBrand ? 'border-white/15 bg-white/5' : 'border-border/60 bg-muted/10';
+            const ghostButton = onBrand ? 'border-white/25 text-slate-100 hover:bg-white/10' : 'border-border hover:bg-muted';
+
             const backdropClass = {
               dimmed: "bg-black/50 animate-fade-in",
               blur: "bg-black/40 backdrop-blur-xs animate-fade-in",
@@ -18016,8 +18026,8 @@ export function ScrollArea({
                         {/* Header */}
                         <div className="flex justify-between items-center pb-4 border-b border-border/50">
                           <div className="space-y-1">
-                            <h3 className="text-sm font-bold text-foreground" id="playground-sheet-title">Configured Drawer Panel</h3>
-                            <p className="text-[10px] text-muted-foreground">Placement: {side} | Size: {size} | Theme: {theme}</p>
+                            <h3 className={`text-sm font-bold ${headingText}`} id="playground-sheet-title">Configured Drawer Panel</h3>
+                            <p className={`text-[10px] ${bodyText}`}>Placement: {side} | Size: {size} | Theme: {theme}</p>
                           </div>
                           <button onClick={() => setPlaySheetIsOpen(false)} className="p-1.5 rounded-lg hover:bg-muted/80 transition text-muted-foreground hover:text-foreground" aria-label="Close dialog">
                             <X size={15} />
@@ -18026,12 +18036,12 @@ export function ScrollArea({
 
                         {/* Content */}
                         <div className="flex-1 overflow-y-auto py-6 space-y-4">
-                          <div className="border border-border/60 p-4 rounded-xl space-y-3 bg-muted/10">
-                            <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                          <div className={`border p-4 rounded-xl space-y-3 ${innerCard}`}>
+                            <div className={`flex items-center gap-2 text-xs font-bold ${headingText}`}>
                               <Shield size={14} className="text-brand-teal" />
                               <span>Playground Validator Sync</span>
                             </div>
-                            <p className="text-[11px] text-muted-foreground leading-relaxed">
+                            <p className={`text-[11px] leading-relaxed ${bodyText}`}>
                               This sheet drawer is currently rendered in the interactive test suite. All styling parameters are bound to the parent controls board.
                             </p>
                           </div>
@@ -18039,7 +18049,7 @@ export function ScrollArea({
 
                         {/* Footer */}
                         <div className="pt-4 border-t border-border/50 flex gap-2 justify-end">
-                          <button onClick={() => setPlaySheetIsOpen(false)} className="px-3 py-1.5 rounded-lg border border-border text-xs hover:bg-muted font-bold">
+                          <button onClick={() => setPlaySheetIsOpen(false)} className={`px-3 py-1.5 rounded-lg border text-xs font-bold ${ghostButton}`}>
                             Cancel
                           </button>
                           <button onClick={() => setPlaySheetIsOpen(false)} className="px-3 py-1.5 rounded-lg bg-brand-teal text-slate-950 text-xs hover:bg-brand-teal/90 font-bold">
