@@ -1827,7 +1827,7 @@ function App() {
 
     const backdropStyle = {
       transparent: 'bg-black/20',
-      blur: 'bg-black/40 backdrop-blur-xs',
+      blur: 'bg-black/25 backdrop-blur-md',
       opaque: 'bg-black/65'
     }[playDialogBackdrop]
 
@@ -2201,7 +2201,7 @@ function App() {
   const getAlertDialogCode = () => {
     const blurClass = {
       none: 'backdrop-blur-none',
-      sm: 'backdrop-blur-xs',
+      sm: 'backdrop-blur-sm',
       md: 'backdrop-blur-md',
       lg: 'backdrop-blur-lg'
     }[playAlertDialogBlur];
@@ -22212,14 +22212,18 @@ export function ScrollArea({
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       onClick={() => setPlayAlertDialogOpen(false)}
-                      className={`fixed inset-0 bg-slate-950/80 backdrop-blur-sm ${
-                        playAlertDialogBlur === 'none'
-                          ? 'backdrop-blur-none'
-                          : playAlertDialogBlur === 'sm'
-                          ? ''
-                          : playAlertDialogBlur === 'md'
-                          ? 'backdrop-blur-md'
-                          : 'backdrop-blur-lg'
+                      // One blur utility only. The base used to hardcode
+                      // backdrop-blur-sm and append the variant, producing
+                      // "backdrop-blur-sm backdrop-blur-lg" — conflicting utilities
+                      // where CSS source order, not class order, decides. sm always
+                      // won, so every option except SM did nothing.
+                      className={`fixed inset-0 bg-slate-950/80 ${
+                        {
+                          none: 'backdrop-blur-none',
+                          sm: 'backdrop-blur-sm',
+                          md: 'backdrop-blur-md',
+                          lg: 'backdrop-blur-lg',
+                        }[playAlertDialogBlur]
                       }`}
                     />
                     <motion.div
@@ -23096,7 +23100,7 @@ export function ScrollArea({
                             ? 'bg-black/20'
                             : playDialogBackdrop === 'opaque'
                             ? 'bg-black/65'
-                            : 'bg-black/45 backdrop-blur-xs'
+                            : 'bg-black/25 backdrop-blur-md'
                         }`}
                       />
 
