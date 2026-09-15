@@ -4102,7 +4102,7 @@ function App() {
 
     const backdropClass = {
       dimmed: "bg-black/50",
-      blur: "bg-black/40 backdrop-blur-sm",
+      blur: "bg-black/25 backdrop-blur-md",
       none: "bg-transparent pointer-events-none"
     }[playSheetBackdrop];
     
@@ -17552,7 +17552,9 @@ export function ScrollArea({
 
             const backdropClass = {
               dimmed: "bg-black/50 animate-fade-in",
-              blur: "bg-black/40 backdrop-blur-xs animate-fade-in",
+              // Lean on the blur, not the dim: at backdrop-blur-xs (4px) behind
+              // bg-black/40 this was indistinguishable from the dimmed variant.
+              blur: "bg-black/25 backdrop-blur-md animate-fade-in",
               none: "bg-transparent pointer-events-none"
             }[backdrop];
 
@@ -18016,7 +18018,10 @@ export function ScrollArea({
                   {/* Render Playground Sheet Modal */}
                   {playSheetIsOpen && (
                     <Portal>
-                    <div className="fixed inset-0 z-50 flex animate-fade-in" role="dialog" aria-modal="true" aria-labelledby="playground-sheet-title">
+                    {/* No animate-fade-in here: an opacity animation makes this element a
+                        backdrop root, which left the scrim's backdrop-blur with nothing
+                        behind it to sample. The scrim and panel animate themselves. */}
+                    <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true" aria-labelledby="playground-sheet-title">
                       <div 
                         className={`absolute inset-0 ${backdropClass}`} 
                         onClick={() => {
