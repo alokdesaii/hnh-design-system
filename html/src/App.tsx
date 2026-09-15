@@ -4145,6 +4145,14 @@ function App() {
       brand: "bg-primary-900 border-primary-800 text-slate-100"
     }[playSheetTheme];
 
+    // Mirror the live preview: on the brand (dark) surface the page's muted/border
+    // tokens produce near-invisible text, so the emitted snippet must not use them.
+    const sOnBrand = playSheetTheme === 'brand';
+    const sBody = sOnBrand ? 'text-slate-300' : 'text-muted-foreground';
+    const sIconBtn = sOnBrand ? 'hover:bg-white/10 text-slate-300 hover:text-white' : 'hover:bg-muted/80 text-muted-foreground hover:text-foreground';
+    const sCard = sOnBrand ? 'border-white/15 bg-white/5' : 'border-border/60';
+    const sGhost = sOnBrand ? 'border-white/25 text-slate-100 hover:bg-white/10' : 'border-border hover:bg-muted';
+
     code += "          {/* Slide-out Panel Drawer */}\n";
     code += `          <div className="absolute ${sideStyles} ${layoutAlign} ${sizeClasses} ${themeClass} shadow-2xl flex flex-col p-6 transition-all duration-300 ease-out animate-fade-in">\n`;
     
@@ -4152,11 +4160,11 @@ function App() {
     code += "            <div className=\"flex justify-between items-center pb-4 border-b border-border/50\">\n";
     code += "              <div className=\"space-y-1\">\n";
     code += "                <h3 className=\"text-sm font-bold\">Config Panel</h3>\n";
-    code += "                <p className=\"text-[10px] text-muted-foreground\">Manage system configuration keys.</p>\n";
+    code += `                <p className="text-[10px] ${sBody}">Manage system configuration keys.</p>\n`;
     code += "              </div>\n";
     code += "              <button \n";
     code += "                onClick={() => setIsOpen(false)} \n";
-    code += "                className=\"p-1.5 rounded-lg hover:bg-muted/80 transition text-muted-foreground hover:text-foreground\" \n";
+    code += `                className="p-1.5 rounded-lg transition ${sIconBtn}" \n`;
     code += "                aria-label=\"Close dialog\"\n";
     code += "              >\n";
     code += "                <X size={15} />\n";
@@ -4165,12 +4173,12 @@ function App() {
 
     code += "            {/* Content Body */}\n";
     code += "            <div className=\"flex-1 overflow-y-auto py-6 space-y-4\">\n";
-    code += "              <div className=\"border border-border/60 p-4 rounded-xl space-y-3\">\n";
+    code += `              <div className="border p-4 rounded-xl space-y-3 ${sCard}">\n`;
     code += "                <div className=\"flex items-center gap-2 text-xs font-bold\">\n";
     code += "                  <Shield size={14} className=\"text-brand-teal\" />\n";
     code += "                  <span>Secure Credentials node</span>\n";
     code += "                </div>\n";
-    code += "                <p className=\"text-[11px] text-muted-foreground leading-relaxed\">Node credentials have been synced. Ensure external APIs are white-listed before enabling swap transactions.</p>\n";
+    code += `                <p className="text-[11px] leading-relaxed ${sBody}">Node credentials have been synced. Ensure external APIs are white-listed before enabling swap transactions.</p>\n`;
     code += "              </div>\n";
     code += "            </div>\n\n";
 
@@ -4178,7 +4186,7 @@ function App() {
     code += "            <div className=\"pt-4 border-t border-border/50 flex gap-2 justify-end\">\n";
     code += "              <button \n";
     code += "                onClick={() => setIsOpen(false)} \n";
-    code += "                className=\"px-3 py-1.5 rounded-lg border border-border text-xs hover:bg-muted transition font-bold\"\n";
+    code += `                className="px-3 py-1.5 rounded-lg border text-xs transition font-bold ${sGhost}"\n`;
     code += "              >\n";
     code += "                Cancel\n";
     code += "              </button>\n";
@@ -18083,6 +18091,21 @@ export function ScrollArea({
               bordered: "bg-card border-r border-border text-card-foreground shadow-xs"
             }[theme];
 
+            // The brand theme paints its own dark surface, so the sidebar's contents
+            // cannot use the page's muted/primary tokens: on this panel they measured
+            // 3.64:1 for nav labels and 1.68:1 for the count badge in light mode.
+            const onBrand = theme === 'brand';
+            const sideMuted = onBrand ? 'text-slate-300' : 'text-muted-foreground';
+            const sideItemIdle = onBrand
+              ? 'hover:bg-white/10 text-slate-300 hover:text-white'
+              : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground';
+            const sideIconBtn = onBrand
+              ? 'hover:bg-white/10 text-slate-300 hover:text-white'
+              : 'hover:bg-muted/80 text-muted-foreground hover:text-foreground';
+            const sideBadge = onBrand
+              ? 'bg-white/15 text-slate-100'
+              : 'bg-primary/15 text-primary dark:text-slate-200';
+
             return (
               <div className="space-y-12 max-w-5xl mx-auto py-4 animate-fade-in">
                 {/* Header & Overview */}
@@ -18347,12 +18370,12 @@ export function ScrollArea({
                                       <div className="w-6.5 h-6.5 rounded-lg bg-brand-teal flex items-center justify-center font-extrabold text-[11px] text-slate-950">H</div>
                                       <div className="space-y-0.5 text-left leading-none font-bold">
                                         <div className="text-[11px] truncate max-w-[110px]">H&H Workspace</div>
-                                        <div className="text-[9px] text-muted-foreground font-semibold scale-90 origin-left">Admin Center</div>
+                                        <div className={`text-[9px] font-semibold scale-90 origin-left ${sideMuted}`}>Admin Center</div>
                                       </div>
                                     </div>
                                     <button aria-label="Previous item" 
                                       onClick={() => setPlaySidebarCollapsed(true)} 
-                                      className="p-1 rounded-lg hover:bg-muted/80 transition text-muted-foreground hover:text-foreground"
+                                      className={`p-1 rounded-lg transition ${sideIconBtn}`}
                                     >
                                       <ChevronLeft size={13} />
                                     </button>
@@ -18368,7 +18391,7 @@ export function ScrollArea({
                               </div>
                             ) : (
                               <div className={`h-10 flex items-center ${collapsed ? 'justify-center px-2' : 'justify-end px-4'}`}>
-                                <button aria-label="Next item" onClick={() => setPlaySidebarCollapsed(!collapsed)} className="p-1 rounded-lg hover:bg-muted/80 transition text-muted-foreground hover:text-foreground">
+                                <button aria-label="Next item" onClick={() => setPlaySidebarCollapsed(!collapsed)} className={`p-1 rounded-lg transition ${sideIconBtn}`}>
                                   {collapsed ? <ChevronRight size={13} /> : <ChevronLeft size={13} />}
                                 </button>
                               </div>
@@ -18389,7 +18412,7 @@ export function ScrollArea({
                                     key={item.id}
                                     onClick={() => setPlaySidebarActiveItem(item.id)}
                                     className={`w-full flex items-center ${collapsed ? 'justify-center' : 'gap-3.5'} p-2 rounded-lg transition text-[11px] font-bold ${
-                                      isActive ? 'bg-brand-teal text-slate-950 font-bold shadow-xs' : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground'
+                                      isActive ? 'bg-brand-teal text-slate-950 font-bold shadow-xs' : sideItemIdle
                                     }`}
                                   >
                                     <Icon size={15} className="shrink-0" />
@@ -18397,7 +18420,7 @@ export function ScrollArea({
                                       <span className="flex-1 text-left truncate">{item.label}</span>
                                     )}
                                     {!collapsed && item.badge && (
-                                      <span className="bg-primary/15 text-primary dark:text-slate-200 px-1.5 py-0.5 rounded-md text-[8px] font-bold">{item.badge}</span>
+                                      <span className={`px-1.5 py-0.5 rounded-md text-[8px] font-bold ${sideBadge}`}>{item.badge}</span>
                                     )}
                                   </button>
                                 );
@@ -18412,7 +18435,7 @@ export function ScrollArea({
                                   {!collapsed && (
                                     <div className="space-y-0.5 text-left overflow-hidden leading-none font-bold">
                                       <div className="text-[11px] truncate">Alok Desai</div>
-                                      <div className="text-[9px] text-muted-foreground truncate font-semibold">alok@hnh.capital</div>
+                                      <div className={`text-[9px] truncate font-semibold ${sideMuted}`}>alok@hnh.capital</div>
                                     </div>
                                   )}
                                 </div>
