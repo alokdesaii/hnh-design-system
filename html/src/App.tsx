@@ -4129,8 +4129,12 @@ function App() {
     }[playSheetSide];
 
     const sizeClasses = {
-      top: { sm: 'h-48', md: 'h-64', lg: 'h-96', full: 'h-screen' },
-      bottom: { sm: 'h-48', md: 'h-64', lg: 'h-96', full: 'h-screen' },
+      // Horizontal sheets must clear the panel's own chrome: 24px padding top and
+      // bottom, a 56px header and a 47px footer leave 151px before any content.
+      // h-48 (192px) and h-64 (256px) gave the body less room than it needed, so
+      // it scrolled inside a panel that had space to spare on screen.
+      top: { sm: 'h-72', md: 'h-80', lg: 'h-96', full: 'h-screen' },
+      bottom: { sm: 'h-72', md: 'h-80', lg: 'h-96', full: 'h-screen' },
       left: { sm: 'w-72', md: 'w-96', lg: 'w-[480px]', full: 'w-screen' },
       right: { sm: 'w-72', md: 'w-96', lg: 'w-[480px]', full: 'w-screen' }
     }[playSheetSide][playSheetSize];
@@ -17512,8 +17516,12 @@ export function ScrollArea({
             }[side];
 
             const sizeClasses = {
-              top: { sm: 'h-48', md: 'h-64', lg: 'h-96', full: 'h-screen' },
-              bottom: { sm: 'h-48', md: 'h-64', lg: 'h-96', full: 'h-screen' },
+              // Horizontal sheets must clear the panel's own chrome: 24px padding top and
+              // bottom, a 56px header and a 47px footer leave 151px before any content.
+              // h-48 (192px) and h-64 (256px) gave the body less room than it needed, so
+              // it scrolled inside a panel that had space to spare on screen.
+              top: { sm: 'h-72', md: 'h-80', lg: 'h-96', full: 'h-screen' },
+              bottom: { sm: 'h-72', md: 'h-80', lg: 'h-96', full: 'h-screen' },
               left: { sm: 'w-72', md: 'w-96', lg: 'w-[480px]', full: 'w-screen' },
               right: { sm: 'w-72', md: 'w-96', lg: 'w-[480px]', full: 'w-screen' }
             }[side][size];
