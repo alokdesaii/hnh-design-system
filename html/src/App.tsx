@@ -3517,10 +3517,15 @@ function App() {
       '4px': orient === 'horizontal' ? 'h-1' : 'w-1'
     }[thickness];
 
+    // A vertical line needs an explicit cross-axis size: its wrapper is
+    // `flex items-center`, so a `w-px` child with no height collapses to 0
+    // and nothing renders. Dashed/dotted already carry h-full.
+    const crossFill = orient === 'vertical' ? 'h-full' : ''
+
     const lineClass = variant === 'solid'
-      ? `${thickClasses} ${themeColors.bg}`
+      ? `${thickClasses} ${crossFill} ${themeColors.bg}`
       : variant === 'gradient'
-      ? `${thickClasses} bg-gradient-to-${orient === 'horizontal' ? 'r' : 'b'} from-transparent ${themeColors.gradient} to-transparent`
+      ? `${thickClasses} ${crossFill} bg-gradient-to-${orient === 'horizontal' ? 'r' : 'b'} from-transparent ${themeColors.gradient} to-transparent`
       : (() => {
           const borderStyle = variant === 'dashed' ? 'border-dashed' : 'border-dotted';
           const borderWidth = {
@@ -17110,10 +17115,15 @@ export function ScrollArea({
               '4px': orient === 'horizontal' ? 'h-1' : 'w-1'
             }[thickness];
 
+            // A vertical line needs an explicit cross-axis size: its wrapper is
+            // `flex items-center`, so a `w-px` child with no height collapses to 0
+            // and nothing renders. Dashed/dotted already carry h-full.
+            const crossFill = orient === 'vertical' ? 'h-full' : ''
+
             const lineClass = variant === 'solid'
-              ? `${thickClasses} ${themeColors.bg}`
+              ? `${thickClasses} ${crossFill} ${themeColors.bg}`
               : variant === 'gradient'
-              ? `${thickClasses} bg-gradient-to-${orient === 'horizontal' ? 'r' : 'b'} from-transparent ${themeColors.gradient} to-transparent`
+              ? `${thickClasses} ${crossFill} bg-gradient-to-${orient === 'horizontal' ? 'r' : 'b'} from-transparent ${themeColors.gradient} to-transparent`
               : (() => {
                   const borderStyle = variant === 'dashed' ? 'border-dashed' : 'border-dotted';
                   const borderWidth = {
