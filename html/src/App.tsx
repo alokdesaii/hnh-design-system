@@ -26562,7 +26562,8 @@ export function ScrollArea({
 
                       {/* Modal Dialog portal emulation */}
                       {localOpenB && (
-                        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
+                        <Portal>
+                        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
                           <div className="w-full max-w-lg bg-card border border-border rounded-xl shadow-2xl overflow-hidden">
                             <div className="flex items-center border-b border-border px-3 py-3">
                               <Search size={16} className="text-muted-foreground mr-2 shrink-0" />
@@ -26610,6 +26611,7 @@ export function ScrollArea({
                             </div>
                           </div>
                         </div>
+                        </Portal>
                       )}
                     </div>
                   </div>
